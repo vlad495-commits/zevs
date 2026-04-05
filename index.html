@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дез2.0 — Дезинсекция в Санкт-Петербурге. Гарантия 365 дней</title>
+  <meta name="description" content="Профессиональная дезинсекция в СПб. Тараканы, клопы, грызуны — уничтожим за 1 день. Безопасно для детей и животных. Гарантия 365 дней. Выезд от 2 часов.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 104px; }
+    body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font-family: inherit; font-size: inherit; border: none; outline: none; }
+    ::selection { background: rgba(163,208,68,0.2); color: var(--text); }
+
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --bg:           #FFFFFF;
+      --bg-alt:       #EFF5FF;
+      --bg-alt2:      #F8FBFF;
+      --accent:       #A3D044;
+      --accent-hover: #8BBE2F;
+      --accent-dim:   rgba(163,208,68,0.12);
+      --text:         #1A1A2E;
+      --text-2:       #6B7B8D;
+      --border:       #E0E8F0;
+      --white:        #FFFFFF;
+      --dark:         #1A1A2E;
+      --radius:       16px;
+      --radius-sm:    10px;
+      --shadow:       0 2px 16px rgba(26,26,46,0.06);
+      --shadow-hover: 0 8px 32px rgba(26,26,46,0.10);
+      --ease:         cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ===== LAYOUT ===== */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 96px 0; }
+    .section-alt  { background: linear-gradient(160deg, #f8fbff 0%, #f0f9ea 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-alt2 { background: linear-gradient(160deg, #eff5ff 0%, #eaf6db 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    /* ===== TYPOGRAPHY ===== */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--accent); margin-bottom: 14px;
+    }
+    .section-label::before { content: ''; width: 20px; height: 2px; background: var(--accent); border-radius: 2px; }
+    .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 16px; }
+    .section-title em { font-style: normal; color: var(--accent); }
+    .section-sub { font-size: 1.05rem; color: var(--text-2); max-width: 560px; line-height: 1.7; }
+    .center { text-align: center; }
+    .center .section-sub { margin: 0 auto; }
+
+    /* ===== REVEAL ON SCROLL ===== */
+    .reveal { opacity: 0; transform: translateY(24px); filter: blur(4px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease), filter 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+    .reveal-d5 { transition-delay: 0.5s; }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--accent); color: var(--white);
+      padding: 16px 36px; border-radius: 50px;
+      font-weight: 700; font-size: 1rem; cursor: pointer;
+      border: none; position: relative; overflow: hidden;
+      transition: background 0.2s, box-shadow 0.3s, transform 0.15s;
+    }
+    .btn-primary::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+      transform: translateX(-100%); transition: transform 0.5s ease;
+    }
+    .btn-primary:hover { background: var(--accent-hover); box-shadow: 0 0 28px rgba(163,208,68,0.45); transform: translateY(-1px); }
+    .btn-primary:hover::before { transform: translateX(100%); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: transparent; color: var(--text);
+      padding: 15px 34px; border-radius: 50px;
+      font-weight: 600; font-size: 1rem; cursor: pointer;
+      border: 2px solid var(--border);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--accent); background: var(--accent-dim); }
+
+    /* Ripple */
+    .ripple { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.3); transform: scale(0); animation: rippleAnim 0.6s ease-out; pointer-events: none; }
+    @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
+
+    /* ===== IMAGE PLACEHOLDER ===== */
+    .img-ph {
+      background: var(--bg-alt); border: 2px dashed var(--border);
+      border-radius: var(--radius); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 32px 24px; color: var(--text-2); gap: 10px;
+      font-size: 0.88rem; line-height: 1.5;
+    }
+    .img-ph-icon { font-size: 2rem; opacity: 0.4; }
+    .img-ph strong { font-weight: 700; color: var(--text); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ===== NAVBAR — LIQUID GLASS ===== */
+    .navbar {
+      position: fixed; top: 12px; left: 20px; right: 20px; z-index: 1000;
+      border-radius: 20px;
+      background: linear-gradient(
+        160deg,
+        rgba(220,242,195,0.60) 0%,
+        rgba(255,255,255,0.52) 45%,
+        rgba(215,232,255,0.58) 100%
+      );
+      backdrop-filter: blur(32px) saturate(200%) brightness(1.05);
+      -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.05);
+      border: 1.5px solid rgba(255,255,255,0.85);
+      border-top: 2px solid rgba(255,255,255,0.98);
+      border-bottom: 1px solid rgba(163,208,68,0.25);
+      box-shadow:
+        0 8px 40px rgba(26,26,46,0.10),
+        inset 0 2px 0 rgba(255,255,255,0.95),
+        inset 0 -1px 0 rgba(163,208,68,0.15);
+      transition: box-shadow 0.3s, background 0.3s;
+      overflow: hidden;
+    }
+    /* Постоянный блик-полоса в верхней части стекла */
+    .navbar::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 42%;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.65) 0%, transparent 100%);
+      pointer-events: none; z-index: 0;
+    }
+    /* Движущийся блик поперёк всей navbar */
+    .navbar::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 40%; height: 100%;
+      background: linear-gradient(
+        105deg,
+        transparent 0%,
+        rgba(255,255,255,0.80) 48%,
+        rgba(220,255,180,0.35) 55%,
+        transparent 100%
+      );
+      transform: translateX(-160%) skewX(-15deg);
+      animation: navShimmer 5s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+    }
+    @keyframes navShimmer {
+      0%   { transform: translateX(-160%) skewX(-15deg); opacity: 0; }
+      5%   { opacity: 1; }
+      45%  { opacity: 0.9; }
+      52%  { transform: translateX(310%) skewX(-15deg); opacity: 0; }
+      100% { transform: translateX(310%) skewX(-15deg); opacity: 0; }
+    }
+    .navbar .nav-inner { position: relative; z-index: 1; }
+    .navbar.scrolled {
+      background: linear-gradient(
+        160deg,
+        rgba(220,242,195,0.88) 0%,
+        rgba(255,255,255,0.82) 45%,
+        rgba(215,232,255,0.86) 100%
+      );
+      box-shadow: 0 8px 36px rgba(26,26,46,0.12), inset 0 2px 0 rgba(255,255,255,0.98);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-logo { font-size: 1.5rem; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--text-2); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-phone { font-weight: 700 !important; color: var(--accent) !important; font-size: 0.95rem !important; white-space: nowrap; }
+    .nav-cta {
+      background: var(--accent); color: var(--white) !important;
+      padding: 10px 22px; border-radius: 50px;
+      font-weight: 700 !important; font-size: 0.85rem !important;
+      transition: background 0.2s, box-shadow 0.3s;
+    }
+    .nav-cta:hover { background: var(--accent-hover) !important; box-shadow: 0 0 18px rgba(163,208,68,0.35); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ===== FULLSCREEN MOBILE MENU ===== */
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: var(--white); flex-direction: column;
+      align-items: center; justify-content: center; gap: 32px;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s var(--ease), visibility 0.4s;
+    }
+    .mobile-menu.open { display: flex; opacity: 1; visibility: visible; }
+    .mobile-menu a { font-size: 1.6rem; font-weight: 800; color: var(--text); transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--accent); }
+    .mobile-menu .m-phone { color: var(--accent) !important; font-size: 1.3rem !important; }
+    .mobile-menu .m-cta { background: var(--accent); color: var(--white) !important; padding: 14px 40px; border-radius: 50px; font-size: 1rem !important; }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 148px 0 80px; position: relative; overflow: visible;
+      background: linear-gradient(155deg, #ffffff 0%, #f2faee 55%, #edf4ff 100%);
+      min-height: 100vh; display: flex; align-items: center;
+    }
+    /* Fog dissolve */
+    .hero-fog {
+      position: absolute; inset: 0; background: rgba(255,255,255,0.97);
+      pointer-events: none; z-index: 2;
+      animation: fogOut 1.8s ease-out 0.2s forwards;
+    }
+    @keyframes fogOut { 0% { opacity: 1; } 100% { opacity: 0; pointer-events: none; } }
+
+    /* Radial glows */
+    .hero-glow {
+      position: absolute; border-radius: 50%; pointer-events: none; z-index: 0;
+    }
+    .hero-glow-1 { width: 700px; height: 700px; top: -120px; right: -120px; background: radial-gradient(circle, rgba(163,208,68,0.13) 0%, transparent 65%); }
+    .hero-glow-2 { width: 500px; height: 500px; bottom: -100px; left: -100px; background: radial-gradient(circle, rgba(163,208,68,0.09) 0%, transparent 65%); }
+
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; position: relative; z-index: 3; }
+    .hero-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .hero-label::before { content: ''; width: 20px; height: 2px; background: var(--accent); border-radius: 2px; }
+    .hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub { font-size: 1.1rem; color: var(--text-2); margin-bottom: 12px; max-width: 480px; line-height: 1.7; }
+    .hero-safe { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--text-2); margin-bottom: 32px; }
+    .hero-safe svg { flex-shrink: 0; }
+    .hero-btns { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+    .hero-stats { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-stat {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 12px 20px 12px 12px;
+      display: flex; align-items: center; gap: 12px;
+      box-shadow: 0 4px 16px rgba(26,26,46,0.07);
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .hero-stat:hover { box-shadow: 0 8px 24px rgba(163,208,68,0.18); transform: translateY(-2px); }
+    .hero-stat-icon {
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-stat-icon img { width: 80px; height: 80px; object-fit: contain; mix-blend-mode: multiply; }
+    .hero-stat-body { display: flex; flex-direction: column; }
+    .hero-stat-num { font-size: 1.15rem; font-weight: 800; color: var(--text); line-height: 1; }
+    .hero-stat-num span { color: var(--accent); }
+    .hero-stat-lbl { font-size: 0.72rem; color: var(--text-2); margin-top: 2px; white-space: nowrap; }
+
+    /* Hero right */
+    .hero-right { position: relative; min-height: 520px; }
+
+    /* Великан — фото без рамки, вылезает за края */
+    .hero-worker-scene {
+      position: absolute;
+      left: -100px;
+      right: -300px;
+      top: 50%;
+      transform: translateY(-52%);
+      pointer-events: none;
+      z-index: 1;
+      /* Сильное растворение краёв */
+      -webkit-mask-image:
+        linear-gradient(to right,  transparent 0%, black 30%, black 65%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%);
+      -webkit-mask-composite: source-in;
+      mask-image:
+        linear-gradient(to right,  transparent 0%, black 30%, black 65%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%);
+      mask-composite: intersect;
+    }
+    .hero-worker-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* Контраст только на фигуре через CSS */
+      filter: contrast(1.08) saturate(1.02) brightness(1.03);
+    }
+
+    .hero-img-wrap {
+      border-radius: 24px; overflow: hidden; position: relative;
+      box-shadow: var(--shadow-hover);
+    }
+    .hero-img-wrap .img-ph { min-height: 480px; border-radius: 24px; border: none; background: linear-gradient(135deg, #EFF5FF 0%, #E8F4D0 100%); }
+    .hero-badge {
+      position: absolute; bottom: -20px; left: -20px;
+      background: var(--white); border-radius: 16px; padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(26,26,46,0.12);
+      display: flex; align-items: center; gap: 12px; min-width: 200px;
+    }
+    .hero-badge-icon { width: 44px; height: 44px; background: var(--accent-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .hero-badge-text { font-size: 0.82rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .hero-badge-sub { font-size: 0.75rem; color: var(--text-2); font-weight: 400; }
+
+    /* ===== CONCENTRIC RINGS PEST SELECTOR ===== */
+    .pest-section {
+      padding: 70px 0 60px;
+      position: relative;
+      margin-top: -48px;
+      border-radius: 40px 40px 0 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 0% 0%, rgba(163,208,68,0.12) 0%, transparent 70%),
+        linear-gradient(160deg, #f2f8ff 0%, #edf7e4 45%, #f2f8ff 100%);
+      border-top: 1px solid rgba(163,208,68,0.14);
+      box-shadow: 0 -12px 48px rgba(26,26,46,0.05);
+      z-index: 2;
+    }
+    .pest-title { font-size: 1rem; font-weight: 600; color: var(--text-2); margin-bottom: 0; text-align: center; }
+
+    .orbit-scene {
+      position: relative; width: 640px; height: 640px;
+      margin: 0 auto;
+    }
+
+    /* Концентрические кольца — зелёные, с растворяющимися участками */
+    .orbit-ring {
+      position: absolute; top: 50%; left: 50%;
+      border-radius: 50%; pointer-events: none;
+      transform: translate(-50%, -50%);
+      border: none;
+    }
+    .orbit-ring-1 {
+      width: 130px; height: 130px;
+      background: conic-gradient(from 30deg,
+        rgba(163,208,68,0.7) 0%, rgba(163,208,68,0.4) 70%,
+        transparent 82%, rgba(163,208,68,0.6) 100%);
+      -webkit-mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
+      mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
+    }
+    .orbit-ring-2 {
+      width: 250px; height: 250px;
+      background: conic-gradient(from 110deg,
+        rgba(163,208,68,0.55) 0%, rgba(163,208,68,0.5) 65%,
+        transparent 78%, rgba(163,208,68,0.45) 90%, rgba(163,208,68,0.55) 100%);
+      -webkit-mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
+      mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
+    }
+    .orbit-ring-3 {
+      width: 390px; height: 390px;
+      background: conic-gradient(from 200deg,
+        rgba(163,208,68,0.55) 0%, rgba(163,208,68,0.45) 60%,
+        transparent 74%, rgba(163,208,68,0.4) 88%, rgba(163,208,68,0.55) 100%);
+      -webkit-mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
+      mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
+    }
+    .orbit-ring-4 {
+      width: 590px; height: 590px;
+      background: conic-gradient(from 300deg,
+        rgba(163,208,68,0.5) 0%, rgba(163,208,68,0.38) 65%,
+        transparent 78%, rgba(163,208,68,0.35) 90%, rgba(163,208,68,0.5) 100%);
+      -webkit-mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
+      mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
+    }
+
+    /* Центральный тёмный круг */
+    .orbit-center {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90px; height: 90px; border-radius: 50%;
+      background: var(--dark);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      z-index: 10;
+      box-shadow: 0 0 0 10px rgba(26,26,46,0.04), 0 8px 32px rgba(26,26,46,0.22);
+    }
+    .orbit-center-lbl { font-size: 0.52rem; color: rgba(255,255,255,0.38); text-transform: uppercase; letter-spacing: 1.5px; transition: opacity 0.3s; }
+    .orbit-center-num { font-size: 1.5rem; font-weight: 800; color: var(--accent); line-height: 1; transition: all 0.3s; }
+    .orbit-center-sub { font-size: 0.52rem; color: rgba(255,255,255,0.38); margin-top: 1px; text-align: center; transition: opacity 0.3s; }
+    .orbit-center.price-mode .orbit-center-num { font-size: 1.05rem; }
+    @keyframes orbitPop { 0% { transform: translate(-50%,-50%) scale(0.9); } 60% { transform: translate(-50%,-50%) scale(1.08); } 100% { transform: translate(-50%,-50%) scale(1); } }
+
+    /* Орбитальные группы */
+    .orbit-group {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .orbit-group-inner { animation: spinCW  22s linear infinite; transform-origin: 50% 50%; }
+    .orbit-group-outer { animation: spinCCW 36s linear infinite; transform-origin: 50% 50%; }
+    @keyframes spinCW  { from { transform: rotate(0deg);   } to { transform: rotate(360deg);  } }
+    @keyframes spinCCW { from { transform: rotate(0deg);   } to { transform: rotate(-360deg); } }
+
+    /* Обёртка позиции каждой карточки */
+    .pest-item {
+      position: absolute; cursor: pointer; z-index: 5; pointer-events: auto;
+    }
+    .pest-upright {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .orbit-group-inner .pest-upright { animation: spinCCW 22s linear infinite; transform-origin: 50% 50%; }
+    .orbit-group-outer .pest-upright { animation: spinCW  36s linear infinite; transform-origin: 50% 50%; }
+
+    .pest-item:hover .pest-card { border-color: var(--accent); box-shadow: 0 6px 22px rgba(163,208,68,0.35); transform: scale(1.12); }
+    .pest-item.active .pest-card { border-color: var(--accent); background: var(--accent-dim); }
+
+    /* Круглая карточка */
+    .pest-card {
+      width: 68px; height: 68px; border-radius: 50%;
+      background: var(--white); border: 1.5px solid var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      box-shadow: 0 3px 14px rgba(26,26,46,0.10);
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+      position: relative; overflow: hidden;
+    }
+    /* Номер — светящийся бейдж снаружи круга */
+    .pest-num {
+      position: absolute; top: -6px; right: -6px;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent);
+      color: var(--dark);
+      font-size: 0.48rem; font-weight: 800; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 8px rgba(163,208,68,0.7), 0 0 2px rgba(163,208,68,0.4);
+      z-index: 10;
+      border: 1.5px solid rgba(255,255,255,0.9);
+    }
+    .pest-icon {
+      width: 50px; height: 50px; border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .pest-icon img {
+      width: 34px; height: 34px;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+    /* Название под карточкой */
+    .pest-name {
+      font-size: 0.68rem; font-weight: 700; color: var(--text);
+      text-align: center; line-height: 1.2; white-space: nowrap;
+    }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar { padding: 36px 0; background: linear-gradient(90deg, #f0f9ea 0%, #f8fbff 50%, #f0f9ea 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .trust-lbl { text-align: center; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text-2); margin-bottom: 20px; }
+    .trust-logos { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; }
+    .trust-logo { font-size: 0.95rem; font-weight: 700; color: var(--text-2); opacity: 0.35; transition: opacity 0.3s, color 0.3s; cursor: default; white-space: nowrap; }
+    .trust-logo:hover { opacity: 0.8; color: var(--accent); }
+
+    /* ===== SERVICES ===== */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 28px; padding: 32px 28px;
+      transition: filter 0.3s, transform 0.3s;
+      position: relative; overflow: hidden; cursor: default;
+      clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 36px), calc(100% - 36px) 100%, 0% 100%);
+      filter: drop-shadow(0 2px 12px rgba(26,26,46,0.06));
+    }
+    .service-card:hover {
+      filter: drop-shadow(0 8px 28px rgba(26,26,46,0.11));
+      transform: translateY(-3px);
+    }
+    .service-img { width: 100%; height: 160px; border-radius: var(--radius-sm); margin-bottom: 20px; overflow: hidden; }
+    .service-img .img-ph { height: 100%; border-radius: 18px; min-height: unset; }
+    .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .service-card p { font-size: 0.88rem; color: var(--text-2); line-height: 1.6; margin-bottom: 16px; }
+    .service-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 5px 12px; border-radius: 50px; }
+
+    /* ===== SPARKLE STARS (JS-driven) ===== */
+    .sparkle-star {
+      position: absolute; pointer-events: none;
+      background: var(--accent);
+      clip-path: polygon(50% 0%, 56% 44%, 100% 50%, 56% 56%, 50% 100%, 44% 56%, 0% 50%, 44% 44%);
+      will-change: transform, opacity;
+    }
+
+    /* ===== PROCESS ===== */
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .process-grid::before {
+      content: ''; position: absolute; top: 28px; left: calc(12.5% + 16px); right: calc(12.5% + 16px);
+      height: 2px; background: linear-gradient(90deg, var(--accent) 0%, var(--border) 100%);
+      border-radius: 2px; z-index: 0;
+    }
+    .process-step {
+      text-align: center; padding: 0 16px; position: relative; z-index: 1;
+      transition: transform 0.3s var(--ease);
+    }
+    .process-step:hover { transform: translateY(-4px); }
+    .process-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--accent); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 800; margin: 0 auto 20px;
+      box-shadow: 0 0 0 6px var(--accent-dim);
+      position: relative; overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+    .process-num::after {
+      content: '';
+      position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+      animation: numShimmer 3.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .process-step:nth-child(2) .process-num::after { animation-delay: 0.6s; }
+    .process-step:nth-child(3) .process-num::after { animation-delay: 1.2s; }
+    .process-step:nth-child(4) .process-num::after { animation-delay: 1.8s; }
+    @keyframes numShimmer {
+      0%   { left: -60%; }
+      35%  { left: 120%; }
+      100% { left: 120%; }
+    }
+    .process-step:hover .process-num {
+      box-shadow: 0 0 0 6px var(--accent-dim), 0 0 24px rgba(163,208,68,0.5);
+    }
+    .process-step h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .process-step p { font-size: 0.85rem; color: var(--text-2); line-height: 1.6; }
+
+    /* ===== LAB SLIDER (До/После) ===== */
+    .lab-wrap { margin-top: 56px; }
+    .lab-card {
+      background: linear-gradient(135deg, #f8fbff 0%, #f0f9ea 100%); border: 1px solid var(--border);
+      border-radius: 28px; overflow: hidden; position: relative;
+    }
+    .lab-header { padding: 28px 36px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .lab-header h3 { font-size: 1.2rem; font-weight: 800; }
+    .lab-tabs { display: flex; gap: 8px; }
+    .lab-tab {
+      padding: 8px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+      border: 2px solid var(--border); background: var(--white); color: var(--text-2);
+      transition: all 0.2s;
+    }
+    .lab-tab.active { border-color: var(--accent); background: var(--accent-dim); color: var(--text); }
+    .lab-body { padding: 24px 36px 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    .lab-panel { border-radius: var(--radius); overflow: hidden; min-height: 260px; }
+    .lab-panel .img-ph { height: 100%; min-height: 260px; }
+    .lab-panel-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .lab-panel-label.bad  { color: #E74C3C; }
+    .lab-panel-label.good { color: var(--accent); }
+
+    /* ===== LAB TIMELINE (правая колонка) ===== */
+    .lab-side { display: flex; flex-direction: column; justify-content: center; padding: 8px 0; }
+    .lab-side-title {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--text-2); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .lab-side-title::before { content: ''; width: 20px; height: 2px; background: var(--accent); border-radius: 2px; }
+    .lab-timeline { position: relative; display: flex; flex-direction: column; gap: 0; }
+    .lab-timeline::before {
+      content: ''; position: absolute; left: 17px; top: 18px; bottom: 18px;
+      width: 2px; background: linear-gradient(to bottom, var(--accent) 0%, var(--border) 100%);
+      border-radius: 2px;
+    }
+    .lab-tl-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 12px 0; position: relative;
+    }
+    .lab-tl-dot {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 800; position: relative; z-index: 1;
+    }
+    .lab-tl-dot.done  { background: var(--accent); color: #fff; box-shadow: 0 0 0 4px var(--accent-dim); }
+    .lab-tl-dot.check { background: var(--white); border: 2px solid var(--accent); color: var(--accent); }
+    .lab-tl-dot.last  { background: var(--dark); color: #fff; }
+    .lab-tl-text { padding-top: 6px; }
+    .lab-tl-day { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+    .lab-tl-title { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .lab-tl-desc  { font-size: 0.8rem; color: var(--text-2); line-height: 1.5; }
+
+    /* ===== LAB CHECKLIST (идея №2) ===== */
+    .lab-checklist { display: flex; flex-direction: column; gap: 4px; }
+    .lab-check-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 16px; border-radius: 14px;
+      transition: background 0.2s;
+    }
+    .lab-check-item:hover { background: rgba(163,208,68,0.07); }
+    .lab-check-icon {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: var(--accent); display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 4px var(--accent-dim);
+    }
+    .lab-check-title { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 1px; }
+    .lab-check-desc  { font-size: 0.78rem; color: var(--text-2); line-height: 1.4; }
+
+    /* ===== LAB GUARANTEE CARDS (идея №3) ===== */
+    .lab-guarantees { display: flex; flex-direction: column; gap: 12px; }
+    .lab-g-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 18px; padding: 18px 20px;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .lab-g-card:hover { box-shadow: 0 6px 24px rgba(163,208,68,0.15); transform: translateX(4px); }
+    .lab-g-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+    .lab-g-icon { font-size: 1.3rem; }
+    .lab-g-num  { font-size: 1.8rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .lab-g-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-2); margin-bottom: 6px; }
+    .lab-g-desc  { font-size: 0.82rem; color: var(--text-2); line-height: 1.5; }
+
+    /* ===== LAB CALCULATOR (идея №4) ===== */
+    .lab-calc { display: flex; flex-direction: column; gap: 20px; }
+    .lab-calc-group { display: flex; flex-direction: column; gap: 10px; }
+    .lab-calc-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-2); }
+    .lab-calc-label-row { display: flex; justify-content: space-between; align-items: center; }
+    .lab-calc-area-val { font-size: 0.95rem; font-weight: 800; color: var(--accent); }
+    .lab-calc-pest-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    .lab-pest-btn {
+      padding: 7px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+      border: 1.5px solid var(--border); background: var(--white); color: var(--text-2);
+      cursor: pointer; transition: all 0.2s; font-family: inherit;
+    }
+    .lab-pest-btn:hover  { border-color: var(--accent); color: var(--text); }
+    .lab-pest-btn.active { border-color: var(--accent); background: var(--accent-dim); color: var(--text); }
+
+    /* Слайдер */
+    .lab-slider {
+      width: 100%; -webkit-appearance: none; appearance: none;
+      height: 5px; border-radius: 5px; outline: none;
+      background: linear-gradient(to right, var(--accent) 0%, var(--accent) 19%, var(--border) 19%, var(--border) 100%);
+      cursor: pointer;
+    }
+    .lab-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+      background: var(--white); border: 3px solid var(--accent);
+      box-shadow: 0 2px 8px rgba(163,208,68,0.4); cursor: pointer;
+    }
+    .lab-slider-range { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-2); }
+
+    /* Результат */
+    .lab-calc-result {
+      background: var(--dark); border-radius: 18px; padding: 20px 22px;
+    }
+    .lab-calc-result-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.45); margin-bottom: 4px; }
+    .lab-calc-price { font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1.1; margin-bottom: 4px; }
+    .lab-calc-note  { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+    /* ===== LAB QUOTE (идея №5) ===== */
+    .lab-quote-block {
+      background: var(--white); border-radius: 20px;
+      padding: 24px 24px 20px; border: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .lab-quote-mark { font-size: 4rem; font-weight: 800; color: var(--accent); opacity: 0.25; line-height: 0.7; }
+    .lab-quote-text { font-size: 0.93rem; color: var(--text); line-height: 1.7; font-style: italic; }
+    .lab-quote-author { display: flex; align-items: center; gap: 14px; padding-top: 4px; border-top: 1px solid var(--border); }
+    .lab-quote-name  { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+    .lab-quote-role  { font-size: 0.78rem; color: var(--text-2); margin-top: 1px; }
+    .lab-quote-stars { color: #F59E0B; font-size: 0.82rem; margin-top: 3px; letter-spacing: 1px; }
+    .lab-quote-stats {
+      display: flex; align-items: center; justify-content: space-around;
+      background: var(--bg-alt); border-radius: 14px; padding: 14px 16px;
+    }
+    .lab-quote-stat { text-align: center; }
+    .lab-quote-stat-num { font-size: 1.4rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .lab-quote-stat-lbl { font-size: 0.72rem; color: var(--text-2); margin-top: 2px; }
+    .lab-quote-stat-div { width: 1px; height: 32px; background: var(--border); }
+
+    /* ===== GUARANTEES ===== */
+    .guarantee-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .guarantee-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 28px; padding: 36px 32px;
+      display: flex; gap: 20px; align-items: flex-start;
+      transition: filter 0.3s, transform 0.3s;
+      clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 36px), calc(100% - 36px) 100%, 0% 100%);
+      filter: drop-shadow(0 2px 12px rgba(26,26,46,0.06));
+    }
+    .guarantee-card:hover {
+      filter: drop-shadow(0 8px 28px rgba(26,26,46,0.11));
+      transform: translateY(-2px);
+    }
+    .g-icon { width: 64px; height: 64px; border-radius: 16px; background: transparent; border: 2.5px solid var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.5rem; }
+    .g-icon img { width: 44px; height: 44px; object-fit: contain; mix-blend-mode: multiply; }
+    .cta-perk-icon img { width: 52px; height: 52px; object-fit: contain; mix-blend-mode: lighten; border-radius: 12px; border: 2px solid var(--accent); }
+    .process-num img { width: 30px; height: 30px; object-fit: contain; filter: brightness(0) invert(1); }
+    .service-card-icon { width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .service-card-icon img { width: 200px; height: 200px; object-fit: contain; mix-blend-mode: multiply; }
+    .g-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .g-text  { font-size: 0.88rem; color: var(--text-2); line-height: 1.6; }
+
+    /* ===== REVIEWS ===== */
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .review-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 28px; padding: 32px 28px;
+      transition: filter 0.3s, transform 0.3s;
+      clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 36px), calc(100% - 36px) 100%, 0% 100%);
+      filter: drop-shadow(0 2px 12px rgba(26,26,46,0.06));
+    }
+    .review-card:hover {
+      filter: drop-shadow(0 8px 28px rgba(26,26,46,0.11));
+      transform: translateY(-3px);
+    }
+    .review-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .review-stars span { color: #F59E0B; font-size: 1rem; }
+    .review-text { font-size: 0.92rem; color: var(--text-2); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .review-avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .review-avatar .img-ph { width: 44px; height: 44px; border-radius: 50%; border: none; padding: 0; min-height: unset; background: var(--bg-alt); font-size: 0; }
+    .review-name { font-size: 0.88rem; font-weight: 700; }
+    .review-meta { font-size: 0.78rem; color: var(--text-2); }
+    .review-quote-mark { font-size: 3rem; font-weight: 800; color: var(--accent); opacity: 0.2; line-height: 1; margin-bottom: 4px; }
+
+    /* ===== PRICING ===== */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; }
+    .pricing-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 28px; padding: 40px 32px;
+      text-align: center; position: relative;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .pricing-card:hover { box-shadow: var(--shadow-hover); }
+    .pricing-card.featured {
+      background: var(--dark); color: var(--white);
+      border-color: var(--dark); transform: scale(1.05);
+      box-shadow: 0 16px 48px rgba(26,26,46,0.2);
+    }
+    .pricing-card.featured:hover { transform: scale(1.07); }
+    .pricing-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: var(--white);
+      padding: 5px 18px; border-radius: 50px;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .pricing-name { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-2); margin-bottom: 12px; }
+    .pricing-card.featured .pricing-name { color: rgba(255,255,255,0.5); }
+    .pricing-price { font-size: 2.6rem; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+    .pricing-card.featured .pricing-price { color: var(--accent); }
+    .pricing-from { font-size: 0.8rem; color: var(--text-2); margin-bottom: 28px; }
+    .pricing-card.featured .pricing-from { color: rgba(255,255,255,0.4); }
+    .pricing-list { text-align: left; margin-bottom: 28px; }
+    .pricing-list li {
+      font-size: 0.88rem; padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px; color: var(--text-2);
+    }
+    .pricing-card.featured .pricing-list li { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.08); }
+    .pricing-list li::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
+    .pricing-card.featured .pricing-list li::before { background: var(--accent); }
+
+    /* ===== FAQ ===== */
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0; cursor: pointer; gap: 16px;
+      font-size: 1rem; font-weight: 700; color: var(--text);
+      transition: color 0.2s; user-select: none;
+    }
+    .faq-q:hover { color: var(--accent); }
+    .faq-arrow { width: 28px; height: 28px; border-radius: 50%; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, transform 0.3s; }
+    .faq-item.open .faq-arrow { background: var(--accent-dim); transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease); }
+    .faq-a-inner { padding: 0 0 22px; font-size: 0.93rem; color: var(--text-2); line-height: 1.7; }
+
+    /* ===== CTA FORM ===== */
+    .cta-section {
+      background: var(--dark); color: var(--white); padding: 96px 0;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(163,208,68,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section .section-sub { color: rgba(255,255,255,0.55); max-width: 500px; }
+    .cta-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .cta-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 36px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.55); margin-bottom: 8px; letter-spacing: 0.5px; }
+    .form-group input,
+    .form-group select {
+      width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-sm); padding: 14px 16px; color: var(--white);
+      font-size: 0.95rem; transition: border-color 0.2s;
+    }
+    .form-group input::placeholder { color: rgba(255,255,255,0.3); }
+    .form-group input:focus,
+    .form-group select:focus { border-color: rgba(163,208,68,0.5); outline: none; }
+    .form-group select option { background: var(--dark); }
+    .form-consent { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 12px; line-height: 1.5; }
+    .cta-perks { display: flex; flex-direction: column; gap: 20px; }
+    .cta-perk { display: flex; align-items: flex-start; gap: 14px; }
+    .cta-perk-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .cta-perk-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 3px; }
+    .cta-perk-text  { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+    /* ===== FOOTER ===== */
+    footer { background: #111422; color: rgba(255,255,255,0.45); padding: 56px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand .footer-logo { font-size: 1.4rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+    .footer-brand .footer-logo span { color: var(--accent); }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.6; max-width: 260px; }
+    .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a { font-size: 0.88rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.82rem; }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-socials a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: rgba(255,255,255,0.5); transition: background 0.2s, color 0.2s; }
+    .footer-socials a:hover { background: var(--accent); color: var(--white); }
+
+    /* ===== FLOATING CONTACT CHIPS ===== */
+    .contact-float {
+      position: fixed; right: 24px; bottom: 90px; z-index: 500;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .contact-chip {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 10px 16px;
+      box-shadow: 0 4px 20px rgba(26,26,46,0.10);
+      font-size: 0.85rem; font-weight: 700; color: var(--text);
+      text-decoration: none; white-space: nowrap;
+      transition: all 0.25s var(--ease);
+      position: relative; overflow: hidden;
+    }
+    .contact-chip::after {
+      content: '';
+      position: absolute; top: 0; left: -80%; width: 50%; height: 100%;
+      background: linear-gradient(105deg, transparent, rgba(255,255,255,0.7), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.4s ease;
+      pointer-events: none;
+    }
+    .contact-chip:hover::after { left: 130%; }
+    .contact-chip:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 28px rgba(163,208,68,0.22);
+      transform: translateX(-4px);
+    }
+    .contact-chip-icon {
+      width: 30px; height: 30px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .wa-chip .contact-chip-icon { background: rgba(37,211,102,0.1); }
+    .tg-chip .contact-chip-icon { background: rgba(34,158,217,0.1); }
+    .contact-chip-icon svg { width: 18px; height: 18px; }
+    .wa-chip .contact-chip-icon svg { fill: #25D366; }
+    .tg-chip .contact-chip-icon svg { fill: #229ED9; }
+
+    /* ===== SCROLL TO TOP ===== */
+    .float-top {
+      position: fixed; right: 24px; bottom: 32px; z-index: 500;
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--accent); border: 1.5px solid var(--accent-hover);
+      box-shadow: 0 4px 16px rgba(26,26,46,0.10);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .float-top.visible { opacity: 1; pointer-events: auto; }
+    .float-top:hover {
+      border-color: var(--accent);
+      box-shadow: 0 6px 20px rgba(163,208,68,0.22);
+      transform: translateY(-2px);
+    }
+    .float-top svg { width: 18px; height: 18px; stroke: var(--white); }
+
+    /* Sticky mobile CTA */
+    .mobile-sticky {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 490;
+      background: var(--white); border-top: 1px solid var(--border);
+      padding: 12px 16px; gap: 10px;
+    }
+    .mobile-sticky .btn-primary { flex: 1; padding: 14px; font-size: 0.95rem; }
+    .mobile-sticky .btn-wa { width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .mobile-sticky .btn-wa svg { width: 24px; height: 24px; fill: #fff; }
+
+    /* ===== STATS COUNTER ===== */
+    .stats-bar { padding: 56px 0; background: var(--dark); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .stats-item { text-align: center; padding: 0 24px; border-right: 1px solid rgba(255,255,255,0.06); }
+    .stats-item:last-child { border-right: none; }
+    .stats-num { font-size: 2.6rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .stats-label { font-size: 0.85rem; color: rgba(255,255,255,0.45); margin-top: 6px; }
+
+    /* ===== MEDIA QUERIES ===== */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid  { grid-template-columns: repeat(2, 1fr); }
+      .pricing-card.featured { transform: scale(1); }
+    }
+    @media (max-width: 768px) {
+      /* Общее */
+      body { overflow-x: hidden; }
+
+      /* Навбар */
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; background: rgba(163,208,68,0.15); border-radius: 10px; padding: 10px; }
+      .hamburger span { background: var(--text); }
+
+      /* Hero */
+      .hero { min-height: 0 !important; padding: 72px 0 32px; overflow: hidden; display: block; }
+      .hero-grid { grid-template-columns: 1fr; gap: 16px; }
+      .hero-left { position: relative; z-index: 2; }
+      .hero-right { order: -1; height: 220px; overflow: hidden; }
+
+      /* Фото специалиста на мобильном */
+      .hero-worker-scene {
+        position: absolute;
+        left: 50%; top: -40px;
+        transform: translateX(-50%);
+        width: 360px;
+        right: auto;
+        -webkit-mask-image:
+          linear-gradient(to bottom, transparent 0%, black 20%, black 65%, transparent 100%);
+        mask-image:
+          linear-gradient(to bottom, transparent 0%, black 20%, black 65%, transparent 100%);
+      }
+      .hero-worker-img { width: 100%; height: auto; }
+
+      /* Бейдж */
+      .hero-badge { display: none; }
+
+      /* Hero stats — 2 колонки */
+      .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .hero-stat { padding: 10px 12px 10px 10px; }
+      .hero-stat-icon img { width: 52px; height: 52px; }
+
+      /* Орбита — останавливаем анимацию (на пальцах не попасть в движущиеся цели) */
+      .orbit-group-inner,
+      .orbit-group-outer { animation: none; }
+      .orbit-group-inner .pest-upright,
+      .orbit-group-outer .pest-upright { animation: none; }
+      .orbit-scene { transform: scale(0.62); transform-origin: top center; margin-bottom: -148px; }
+
+      /* Остальные блоки */
+      .process-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .process-grid::before { display: none; }
+      .lab-body { grid-template-columns: 1fr; }
+      .guarantee-grid { grid-template-columns: 1fr; }
+      .reviews-grid  { grid-template-columns: 1fr; }
+      .pricing-grid  { grid-template-columns: 1fr; }
+      .cta-inner { grid-template-columns: 1fr; }
+      .cta-perks { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .stats-item { border-right: none; }
+      .contact-float { right: 16px; bottom: 76px; }
+      .float-top { right: 16px; bottom: 16px; }
+      .mobile-sticky { display: flex; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.9rem; }
+      .hero-right { height: 220px; }
+      .hero-worker-scene { width: 280px; }
+      .hero-btns { flex-direction: column; align-items: flex-start; }
+      .orbit-scene { transform: scale(0.44); margin-bottom: -222px; }
+      .process-grid { grid-template-columns: 1fr; }
+      .trust-logos { gap: 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .pest-section { border-radius: 24px 24px 0 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">Дез<span>2.0</span></a>
+    <div class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#process">Как мы работаем</a>
+      <a href="#pricing">Цены</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">FAQ</a>
+      <a href="tel:+78126271550" class="nav-phone">+7 (812) 627-15-50</a>
+      <a href="#contact" class="nav-cta">Вызвать мастера</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     FULLSCREEN MOBILE MENU
+     ============================================================ -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services"  onclick="closeMenu()">Услуги</a>
+  <a href="#process"   onclick="closeMenu()">Как мы работаем</a>
+  <a href="#pricing"   onclick="closeMenu()">Цены</a>
+  <a href="#reviews"   onclick="closeMenu()">Отзывы</a>
+  <a href="#faq"       onclick="closeMenu()">FAQ</a>
+  <a href="tel:+78126271550" class="m-phone">+7 (812) 627-15-50</a>
+  <a href="#contact" class="m-cta" onclick="closeMenu()">Вызвать мастера</a>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="home">
+  <div class="hero-fog" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- LEFT: текст -->
+      <div class="hero-left">
+        <div class="hero-label">Санкт-Петербург и ЛО</div>
+        <h1>
+          Тараканы, клопы, грызуны —<br>
+          уничтожим <em>за 1 день</em>
+        </h1>
+        <p class="hero-sub">
+          Профессиональная дезинсекция с гарантией 365 дней.
+          Безопасно для детей и животных. Выезд от 2 часов.
+        </p>
+        <div class="hero-safe">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1L2 4v4c0 3.3 2.5 6.4 6 7 3.5-.6 6-3.7 6-7V4L8 1z" fill="#A3D044" opacity="0.2" stroke="#A3D044" stroke-width="1.5"/>
+            <path d="M5.5 8l2 2 3-3" stroke="#A3D044" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Препараты IV класса опасности — безопасны для детей и питомцев
+        </div>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="addRipple(event); document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Вызвать мастера
+          </button>
+          <a href="https://wa.me/78126271550" class="btn-outline" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-1-.9-1.5-2-1.7-2.3-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5 0-.2 0-.4-.1-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.3C7.3 7 6.5 7.8 6.5 9.4s1.2 3.1 1.3 3.3c.2.2 2.3 3.6 5.7 5C15.9 18.9 15.9 18 17 17.7c.9-.3 1.5-1.1 1.7-1.8.2-.5.2-1-.1-1.5z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3.3.9.9-3.2-.2-.3C3.7 14.7 3.3 13.4 3.3 12 3.3 7.2 7.2 3.3 12 3.3S20.7 7.2 20.7 12 16.8 20.3 12 20.3z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-icon"><img src="все%20images/images-финал/довольный%20клиент.jpg" alt="Клиенты" ></div>
+            <div class="hero-stat-body">
+              <div class="hero-stat-num"><span class="counter" data-to="1200">0</span><span>+</span></div>
+              <div class="hero-stat-lbl">довольных клиентов</div>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-icon"><img src="все%20images/images-финал/опыт.jpg" alt="Опыт" ></div>
+            <div class="hero-stat-body">
+              <div class="hero-stat-num"><span class="counter" data-to="8">0</span> <span>лет</span></div>
+              <div class="hero-stat-lbl">работаем в СПб</div>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-icon"><img src="все%20images/images-финал/гарантия365.jpg" alt="Гарантия" ></div>
+            <div class="hero-stat-body">
+              <div class="hero-stat-num"><span class="counter" data-to="365">0</span></div>
+              <div class="hero-stat-lbl">дней гарантия</div>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-icon"><img src="все%20images/images-финал/быстрый%20ответ.jpg" alt="Быстро" ></div>
+            <div class="hero-stat-body">
+              <div class="hero-stat-num"><span class="counter" data-to="2">0</span> <span>ч</span></div>
+              <div class="hero-stat-lbl">время выезда</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: специалист-великан -->
+      <div class="hero-right reveal">
+        <div class="hero-worker-scene">
+          <img class="hero-worker-img" src="все%20images/images-финал/специалист-герой.jpg" alt="Специалист Дез2.0">
+        </div>
+        <!-- Плавающий бейдж -->
+        <div class="hero-badge" style="z-index:5">
+          <div class="hero-badge-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A3D044" stroke-width="2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/></svg>
+          </div>
+          <div>
+            <div class="hero-badge-text">Гарантия 365 дней</div>
+            <div class="hero-badge-sub">Вернёмся бесплатно</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PEST SELECTOR
+     ============================================================ -->
+<div class="pest-section">
+  <div class="container">
+    <p class="pest-title reveal">Выберите вашу проблему — получите точный расчёт</p>
+
+    <div class="orbit-scene reveal reveal-d1">
+
+      <!-- 4 концентрических кольца -->
+      <div class="orbit-ring orbit-ring-1"></div>
+      <div class="orbit-ring orbit-ring-2"></div>
+      <div class="orbit-ring orbit-ring-3"></div>
+      <div class="orbit-ring orbit-ring-4"></div>
+
+      <!-- Центральный круг -->
+      <div class="orbit-center" id="orbitCenter">
+        <span class="orbit-center-lbl" id="orbitLbl">видов</span>
+        <span class="orbit-center-num" id="orbitNum">6</span>
+        <span class="orbit-center-sub" id="orbitSub">вредителей</span>
+      </div>
+
+      <!-- Внутренняя орбита r=155 — по часовой 22s -->
+      <div class="orbit-group orbit-group-inner">
+
+        <!-- 01 · Тараканы · угол 0° -->
+        <div class="pest-item" style="left:286px;top:97px" data-price="от 2 500 ₽" data-name="Тараканы" onclick="selectPest(this)">
+          <div class="pest-upright">
+            <div class="pest-card">
+              <span class="pest-num">01</span>
+              <span class="pest-icon"><img src="все%20images/images-финал/таракашка.jpg" alt="Тараканы"></span>
+            </div>
+            <span class="pest-name">Тараканы</span>
+          </div>
+        </div>
+
+        <!-- 03 · Грызуны · угол 120° -->
+        <div class="pest-item" style="left:420px;top:330px" data-price="от 4 000 ₽" data-name="Грызуны" onclick="selectPest(this)">
+          <div class="pest-upright">
+            <div class="pest-card">
+              <span class="pest-num">03</span>
+              <span class="pest-icon"><img src="все%20images/images-финал/крысяшка.jpg" alt="Грызуны"></span>
+            </div>
+            <span class="pest-name">Грызуны</span>
+          </div>
+        </div>
+
+        <!-- 05 · Муравьи · угол 240° -->
+        <div class="pest-item" style="left:152px;top:330px" data-price="от 1 800 ₽" data-name="Муравьи" onclick="selectPest(this)">
+          <div class="pest-upright">
+            <div class="pest-card">
+              <span class="pest-num">05</span>
+              <span class="pest-icon"><img src="все%20images/images-финал/муравьишка.jpg" alt="Муравьи"></span>
+            </div>
+            <span class="pest-name">Муравьи</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Внешняя орбита r=245 — против часовой 36s -->
+      <div class="orbit-group orbit-group-outer">
+
+        <!-- 02 · Клопы · угол 60° -->
+        <div class="pest-item" style="left:464px;top:130px" data-price="от 3 500 ₽" data-name="Клопы" onclick="selectPest(this)">
+          <div class="pest-upright">
+            <div class="pest-card">
+              <span class="pest-num">02</span>
+              <span class="pest-icon"><img src="все%20images/images-финал/клопашка.jpg" alt="Клопы"></span>
+            </div>
+            <span class="pest-name">Клопы</span>
+          </div>
+        </div>
+
+        <!-- 04 · Блохи · угол 180° -->
+        <div class="pest-item" style="left:286px;top:497px" data-price="от 2 000 ₽" data-name="Блохи" onclick="selectPest(this)">
+          <div class="pest-upright">
+            <div class="pest-card">
+              <span class="pest-num">04</span>
+              <span class="pest-icon"><img src="все%20images/images-финал/блохашка.jpg" alt="Блохи"></span>
+            </div>
+            <span class="pest-name">Блохи</span>
+          </div>
+        </div>
+
+        <!-- 06 · Дезинфекция · угол 300° -->
+        <div class="pest-item" style="left:74px;top:130px" data-price="от 6 500 ₽" data-name="Дезинфекция" onclick="selectPest(this)">
+          <div class="pest-upright">
+            <div class="pest-card">
+              <span class="pest-num">06</span>
+              <span class="pest-icon"><img src="все%20images/images-финал/комплексная%20обработка.jpg" alt="Дезинфекция"></span>
+            </div>
+            <span class="pest-name">Дезинфекция</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TRUST BAR
+     ============================================================ -->
+<div class="trust-bar">
+  <div class="container">
+    <p class="trust-lbl">Нам доверяют</p>
+    <div class="trust-logos">
+      <span class="trust-logo">Ресторан «Этаж»</span>
+      <span class="trust-logo">ТСЖ Невский</span>
+      <span class="trust-logo">Гостиница Олимп</span>
+      <span class="trust-logo">Детский сад №84</span>
+      <span class="trust-logo">Кафе «Север»</span>
+      <span class="trust-logo">Офис Технострой</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     STATS BAR
+     ============================================================ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stats-item reveal">
+        <div class="stats-num"><span class="counter" data-to="1247">0</span></div>
+        <div class="stats-label">обработок проведено</div>
+      </div>
+      <div class="stats-item reveal reveal-d1">
+        <div class="stats-num"><span class="counter" data-to="98">0</span>%</div>
+        <div class="stats-label">клиентов рекомендуют нас</div>
+      </div>
+      <div class="stats-item reveal reveal-d2">
+        <div class="stats-num"><span class="counter" data-to="365">0</span></div>
+        <div class="stats-label">дней гарантия результата</div>
+      </div>
+      <div class="stats-item reveal reveal-d3">
+        <div class="stats-num"><span class="counter" data-to="2">0</span> ч</div>
+        <div class="stats-label">среднее время выезда</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
+<section id="services" class="section-alt2">
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-label">Услуги</div>
+      <h2 class="section-title">Решаем любую проблему<br>с насекомыми и грызунами</h2>
+      <p class="section-sub" style="margin-bottom:52px">Профессиональные препараты, сертифицированные специалисты, договор и акт выполненных работ.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- Тараканы -->
+      <div class="service-card reveal reveal-d1">
+        <div class="service-card-icon">
+          <img src="все%20images/images-финал/таракашка.jpg" alt="Тараканы">
+        </div>
+        <h3>Тараканы</h3>
+        <p>Гелевые приманки + инсектицидный туман. Полное уничтожение за 1 обработку, включая яйца.</p>
+        <span class="service-tag">от 2 500 ₽</span>
+      </div>
+
+      <!-- Клопы -->
+      <div class="service-card reveal reveal-d2">
+        <div class="service-card-icon">
+          <img src="все%20images/images-финал/клопашка.jpg" alt="Клопы">
+        </div>
+        <h3>Клопы</h3>
+        <p>Горячий пар + инсектицид. Проникает в матрасы, плинтусы, стыки. Гарантия без повторного появления.</p>
+        <span class="service-tag">от 3 500 ₽</span>
+      </div>
+
+      <!-- Грызуны -->
+      <div class="service-card reveal reveal-d3">
+        <div class="service-card-icon">
+          <img src="все%20images/images-финал/крысяшка.jpg" alt="Грызуны">
+        </div>
+        <h3>Мыши и крысы</h3>
+        <p>Расстановка профессиональных ловушек и родентицидных приманок. Контроль через 7 дней бесплатно.</p>
+        <span class="service-tag">от 4 000 ₽</span>
+      </div>
+
+      <!-- Блохи -->
+      <div class="service-card reveal reveal-d1">
+        <div class="service-card-icon">
+          <img src="все%20images/images-финал/блохашка.jpg" alt="Блохи">
+        </div>
+        <h3>Блохи и клещи</h3>
+        <p>Обработка пола, ковров, мягкой мебели. Особый протокол если есть домашние животные.</p>
+        <span class="service-tag">от 2 000 ₽</span>
+      </div>
+
+      <!-- Муравьи -->
+      <div class="service-card reveal reveal-d2">
+        <div class="service-card-icon">
+          <img src="все%20images/images-финал/муравьишка.jpg" alt="Муравьи">
+        </div>
+        <h3>Муравьи</h3>
+        <p>Гелевые приманки проникают в гнездо и уничтожают колонию. Эффект через 3-5 дней.</p>
+        <span class="service-tag">от 1 800 ₽</span>
+      </div>
+
+      <!-- Дезинфекция -->
+      <div class="service-card reveal reveal-d3">
+        <div class="service-card-icon">
+          <img src="все%20images/images-финал/комплексная%20обработка.jpg" alt="Комплексная обработка">
+        </div>
+        <h3>Комплексная обработка</h3>
+        <p>Обработка всего помещения: насекомые + грызуны + профилактика. Для кафе, складов, жилых комплексов.</p>
+        <span class="service-tag">от 6 500 ₽</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS + LAB SLIDER
+     ============================================================ -->
+<section id="process" class="section-alt">
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-label">Процесс</div>
+      <h2 class="section-title">Как мы работаем</h2>
+      <p class="section-sub" style="margin-bottom:56px">Понятно, быстро, без сюрпризов. Вот что произойдёт после вашей заявки.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step reveal reveal-d1">
+        <div class="process-num">1</div>
+        <h4>Оставьте заявку</h4>
+        <p>Позвоните, напишите в WhatsApp или заполните форму. Перезвоним в течение 15 минут.</p>
+      </div>
+      <div class="process-step reveal reveal-d2">
+        <div class="process-num">2</div>
+        <h4>Согласуем визит</h4>
+        <p>Выберем удобное время. Можем сегодня, если заявка до 16:00. Приедем точно в срок.</p>
+      </div>
+      <div class="process-step reveal reveal-d3">
+        <div class="process-num">3</div>
+        <h4>Проведём обработку</h4>
+        <p>Мастер осмотрит объект, объяснит план и проведёт обработку. Занимает 1-3 часа.</p>
+      </div>
+      <div class="process-step reveal reveal-d4">
+        <div class="process-num">4</div>
+        <h4>Проверим результат</h4>
+        <p>Контрольный визит через 7-14 дней бесплатно. Гарантия — 365 дней. Вернёмся если нужно.</p>
+      </div>
+    </div>
+
+    <!-- LAB SLIDER -->
+    <div class="lab-wrap reveal">
+      <div class="lab-card">
+        <div class="lab-header">
+          <h3>До и после обработки</h3>
+          <div class="lab-tabs">
+            <button class="lab-tab active" data-panel="after"  onclick="switchTab(this,'after')">После ✓</button>
+            <button class="lab-tab"        data-panel="before" onclick="switchTab(this,'before')">До обработки</button>
+          </div>
+        </div>
+        <div class="lab-body">
+
+          <!-- ЛЕВАЯ КОЛОНКА: фото До/После -->
+          <div>
+            <div id="panel-after" class="lab-panel">
+              <div class="lab-panel-label good">✓ Чисто — после Дез2.0</div>
+              <div class="img-ph" style="min-height:260px">
+                <div class="img-ph-icon">🖼</div>
+                <strong>after-treatment.jpg</strong>
+                <p>Чистая современная кухня / жилая комната.<br>
+                Светло, аккуратно, никаких признаков насекомых.<br>
+                Размер: 560×280px</p>
+              </div>
+            </div>
+            <div id="panel-before" class="lab-panel" style="display:none">
+              <div class="lab-panel-label bad">✕ До обработки</div>
+              <div class="img-ph" style="min-height:260px; background:linear-gradient(135deg,#FDF5EC,#F5E8D0)">
+                <div class="img-ph-icon">🖼</div>
+                <strong>before-treatment.jpg</strong>
+                <p>Тёмные следы, загрязнения под плинтусом.<br>
+                Ощущение запущенности. НЕ показывать<br>
+                крупных насекомых — только следы.<br>
+                Размер: 560×280px</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ПРАВАЯ КОЛОНКА: калькулятор площади -->
+          <div class="lab-side">
+            <div class="lab-side-title">Рассчитайте стоимость</div>
+            <div class="lab-calc">
+              <div class="lab-calc-group">
+                <div class="lab-calc-label">Вредитель</div>
+                <div class="lab-calc-pest-btns">
+                  <button class="lab-pest-btn active" data-base="2500" onclick="calcUpdate(this)">Тараканы</button>
+                  <button class="lab-pest-btn" data-base="3500" onclick="calcUpdate(this)">Клопы</button>
+                  <button class="lab-pest-btn" data-base="4000" onclick="calcUpdate(this)">Грызуны</button>
+                  <button class="lab-pest-btn" data-base="2000" onclick="calcUpdate(this)">Блохи</button>
+                </div>
+              </div>
+              <div class="lab-calc-group">
+                <div class="lab-calc-label-row">
+                  <span class="lab-calc-label">Площадь</span>
+                  <span class="lab-calc-area-val"><span id="calcAreaVal">50</span> м²</span>
+                </div>
+                <input class="lab-slider" id="calcSlider" type="range" min="20" max="200" value="50" step="5" oninput="calcUpdate()">
+                <div class="lab-slider-range"><span>20 м²</span><span>200 м²</span></div>
+              </div>
+              <div class="lab-calc-result">
+                <div class="lab-calc-result-label">Примерная стоимость</div>
+                <div class="lab-calc-price" id="calcPrice">от 2 500 ₽</div>
+                <div class="lab-calc-note">Точная цена — после осмотра мастером</div>
+                <button class="btn-primary" style="width:100%;margin-top:14px;padding:14px;font-size:0.9rem" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                  Вызвать мастера →
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     GUARANTEES
+     ============================================================ -->
+<section id="guarantees">
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-label">Гарантии</div>
+      <h2 class="section-title">Мы отвечаем <em>за результат</em></h2>
+      <p class="section-sub" style="margin-bottom:52px">Не просто слова — конкретные обязательства с механикой выполнения.</p>
+    </div>
+    <div class="guarantee-grid">
+      <div class="guarantee-card reveal reveal-d1">
+        <div class="g-icon"><img src="все%20images/images-финал/гарантия365.jpg" alt="Гарантия"></div>
+        <div>
+          <div class="g-title">Гарантия 365 дней</div>
+          <div class="g-text">Если вредители появятся в течение года — приедем и повторим обработку бесплатно. Без вопросов, без бюрократии. Это прописано в договоре.</div>
+        </div>
+      </div>
+      <div class="guarantee-card reveal reveal-d2">
+        <div class="g-icon"><img src="все%20images/images-финал/возврат%20денег.jpg" alt="Возврат денег"></div>
+        <div>
+          <div class="g-title">Возврат денег</div>
+          <div class="g-text">Если после двух обработок результат не достигнут — вернём деньги полностью. Такого в СПб не предлагает никто из конкурентов.</div>
+        </div>
+      </div>
+      <div class="guarantee-card reveal reveal-d3">
+        <div class="g-icon"><img src="все%20images/images-финал/защита%20всей%20семьи.jpg" alt="Безопасно для семьи"></div>
+        <div>
+          <div class="g-title">Безопасно для всей семьи</div>
+          <div class="g-text">Препараты IV класса опасности — самый безопасный класс. Ребёнок и питомцы могут вернуться домой через 3-4 часа после обработки.</div>
+        </div>
+      </div>
+      <div class="guarantee-card reveal reveal-d4">
+        <div class="g-icon"><img src="все%20images/images-финал/иконка-документы.jpg" alt="Документы"></div>
+        <div>
+          <div class="g-title">Официальные документы</div>
+          <div class="g-text">Договор, акт выполненных работ, сертификаты на препараты. Все документы для Роспотребнадзора. Работаем с физлицами и юрлицами.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS
+     ============================================================ -->
+<section id="reviews" class="section-alt2">
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-label">Отзывы</div>
+      <h2 class="section-title">Что говорят клиенты</h2>
+      <p class="section-sub" style="margin-bottom:52px">Рейтинг 4.9 на Яндекс.Картах · 847 оценок</p>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card reveal reveal-d1">
+        <div class="review-quote-mark">"</div>
+        <div class="review-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-text">Вызвала из-за клопов в съёмной квартире — стыдно было ужасно. Приехали в обычной одежде, без машины с логотипом. Мастер объяснил всё спокойно, без осуждения. Через 2 недели — ни одного. Год прошёл — тишина.</p>
+        <div class="review-author">
+          <div class="review-avatar">
+            <div class="img-ph" title="review-avatar-1.jpg — женщина 35-45 лет, петербурженка, добродушная">
+              <span style="font-size:1.4rem">👩</span>
+            </div>
+          </div>
+          <div>
+            <div class="review-name">Екатерина М.</div>
+            <div class="review-meta">Московский район · Яндекс.Карты</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-d2">
+        <div class="review-quote-mark">"</div>
+        <div class="review-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-text">Наш ресторан обслуживают уже 3 года. Приезжают ночью, не мешая работе. Все документы для СЭС в порядке. Ни одного предписания с тех пор как работаем с ними.</p>
+        <div class="review-author">
+          <div class="review-avatar">
+            <div class="img-ph" title="review-avatar-2.jpg — мужчина 40-50 лет, деловой вид">
+              <span style="font-size:1.4rem">👨‍💼</span>
+            </div>
+          </div>
+          <div>
+            <div class="review-name">Дмитрий К.</div>
+            <div class="review-meta">Директор кафе «Северное» · Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal reveal-d3">
+        <div class="review-quote-mark">"</div>
+        <div class="review-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-text">Боялась за ребёнка (9 месяцев). Мастер специально рассказал про препараты, показал сертификат. Вернулись домой через 4 часа как сказали. Никакого запаха. Тараканов нет уже 8 месяцев.</p>
+        <div class="review-author">
+          <div class="review-avatar">
+            <div class="img-ph" title="review-avatar-3.jpg — молодая мама 28-35 лет">
+              <span style="font-size:1.4rem">👩‍👦</span>
+            </div>
+          </div>
+          <div>
+            <div class="review-name">Анна В.</div>
+            <div class="review-meta">Приморский район · 2ГИС</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING
+     ============================================================ -->
+<section id="pricing" class="section-alt">
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-label">Цены</div>
+      <h2 class="section-title">Прозрачные тарифы</h2>
+      <p class="section-sub" style="margin-bottom:52px">Точная стоимость — на выезде после осмотра. Приведённые цены для квартиры до 50 м².</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="pricing-card reveal reveal-d1">
+        <div class="pricing-name">Базовый</div>
+        <div class="pricing-price">от 2 500 ₽</div>
+        <div class="pricing-from">за квартиру до 50 м²</div>
+        <ul class="pricing-list">
+          <li>Один вид вредителя</li>
+          <li>Профессиональный препарат</li>
+          <li>Акт выполненных работ</li>
+          <li>Гарантия 90 дней</li>
+          <li>Выезд от 2 часов</li>
+        </ul>
+        <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Выбрать</button>
+      </div>
+
+      <div class="pricing-card featured reveal reveal-d2">
+        <div class="pricing-badge">Выбор клиентов</div>
+        <div class="pricing-name">Оптимальный</div>
+        <div class="pricing-price">от 4 500 ₽</div>
+        <div class="pricing-from">за квартиру до 50 м²</div>
+        <ul class="pricing-list">
+          <li>До 3 видов вредителей</li>
+          <li>Профессиональный препарат</li>
+          <li>Акт + договор</li>
+          <li>Гарантия 365 дней</li>
+          <li>Контрольный визит бесплатно</li>
+          <li>Выезд в течение 2 часов</li>
+        </ul>
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Выбрать</button>
+      </div>
+
+      <div class="pricing-card reveal reveal-d3">
+        <div class="pricing-name">Максимальный</div>
+        <div class="pricing-price">от 7 500 ₽</div>
+        <div class="pricing-from">за квартиру до 50 м²</div>
+        <ul class="pricing-list">
+          <li>Все виды вредителей</li>
+          <li>Комплексная обработка</li>
+          <li>Полный пакет документов</li>
+          <li>Гарантия 365 дней + возврат</li>
+          <li>2 контрольных визита</li>
+          <li>Приоритетный выезд (1 час)</li>
+        </ul>
+        <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Выбрать</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section id="faq">
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Частые вопросы</h2>
+      <p class="section-sub" style="margin-bottom:52px">Отвечаем честно на то, что вас беспокоит.</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Безопасно ли это для ребёнка и домашних животных?
+          <div class="faq-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Используем препараты IV класса опасности — это самый безопасный класс, такой же как средства от комаров. Ребёнка, кошку или собаку можно вернуть домой через 3-4 часа после проветривания. Если дома грудной ребёнок или аквариум — скажите мастеру заранее, подберём особый метод.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Нужно ли уходить из дома во время обработки?
+          <div class="faq-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Да, на время обработки и 2-3 часа после нужно выйти. Мастер скажет точное время возвращения. Обычно это 3-4 часа с учётом проветривания. Растения и аквариум лучше накрыть — мастер напомнит об этом.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Как быстро вы приедете?
+          <div class="faq-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">При заявке до 16:00 — приедем сегодня. В среднем выезд занимает 2 часа. Если срочно — можем ускорить за доплату 500 ₽. Работаем ежедневно с 8:00 до 22:00.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Что делать если вредители появятся снова?
+          <div class="faq-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Позвоните нам — приедем и повторим обработку бесплатно. Гарантия 365 дней прописана в договоре. Если после двух обработок результат не достигнут — вернём деньги полностью. Это наше обязательство.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Можно ли оставить мастера одного в квартире?
+          <div class="faq-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Да, конечно. Все наши мастера — сотрудники с официальным трудоустройством, прошедшие проверку. Вы можете передать ключи и вернуться когда удобно. Мастер оставит акт и рекомендации.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Нужны ли документы для Роспотребнадзора?
+          <div class="faq-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Да, оформим полный пакет: договор, акт выполненных работ, журнал обработок, сертификаты на препараты. Работаем с ресторанами, кафе, складами, детскими учреждениями — знаем требования СанПиН.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA + FORM
+     ============================================================ -->
+<section class="cta-section" id="contact">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="cta-inner">
+
+      <!-- LEFT: text + perks -->
+      <div>
+        <div class="section-label" style="color:var(--accent)">Заявка</div>
+        <h2 class="section-title" style="color:#fff">Вызовите мастера<br><em>прямо сейчас</em></h2>
+        <p class="section-sub" style="margin-bottom:40px">Заполните форму — перезвоним в течение 15 минут и согласуем удобное время.</p>
+        <div class="cta-perks">
+          <div class="cta-perk">
+            <div class="cta-perk-icon"><img src="все%20images/images-финал/быстрый%20ответ.jpg" alt="Быстрый ответ"></div>
+            <div>
+              <div class="cta-perk-title">Быстрый ответ</div>
+              <div class="cta-perk-text">Перезваниваем в течение 15 минут в рабочее время</div>
+            </div>
+          </div>
+          <div class="cta-perk">
+            <div class="cta-perk-icon"><img src="все%20images/images-финал/конфидециально.jpg" alt="Конфиденциально"></div>
+            <div>
+              <div class="cta-perk-title">Конфиденциально</div>
+              <div class="cta-perk-text">Приедем в обычной одежде, без машины с логотипом компании</div>
+            </div>
+          </div>
+          <div class="cta-perk">
+            <div class="cta-perk-icon"><img src="все%20images/images-финал/бесплаьный%20осмотр.jpg" alt="Бесплатный осмотр"></div>
+            <div>
+              <div class="cta-perk-title">Бесплатный осмотр</div>
+              <div class="cta-perk-text">Мастер осмотрит и объяснит точную стоимость до начала работы</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: form -->
+      <div class="cta-form">
+        <h3 style="font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:24px">Оставить заявку</h3>
+        <div class="form-group">
+          <label>Ваше имя</label>
+          <input type="text" placeholder="Как вас зовут?">
+        </div>
+        <div class="form-group">
+          <label>Телефон</label>
+          <input type="tel" placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="form-group">
+          <label>Ваша проблема</label>
+          <select>
+            <option value="" disabled selected>Выберите вредителя</option>
+            <option>Тараканы</option>
+            <option>Клопы</option>
+            <option>Мыши / Крысы</option>
+            <option>Блохи</option>
+            <option>Муравьи</option>
+            <option>Комплексная обработка</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <button class="btn-primary" style="width:100%;margin-top:8px;padding:18px" onclick="addRipple(event)">
+          Отправить заявку →
+        </button>
+        <p class="form-consent">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности. Не передаём данные третьим лицам.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Дез<span>2.0</span></div>
+        <p>Профессиональная дезинсекция в Санкт-Петербурге и Ленинградской области. Работаем с 2016 года.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Услуги</h4>
+        <ul>
+          <li><a href="#services">Тараканы</a></li>
+          <li><a href="#services">Клопы</a></li>
+          <li><a href="#services">Грызуны</a></li>
+          <li><a href="#services">Блохи</a></li>
+          <li><a href="#services">Муравьи</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="#">О нас</a></li>
+          <li><a href="#process">Как мы работаем</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Лицензии</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+78126271550">+7 (812) 627-15-50</a></li>
+          <li><a href="mailto:info@dez20.spb.ru">info@dez20.spb.ru</a></li>
+          <li><a href="#">Санкт-Петербург</a></li>
+          <li><a href="#">Пн-Вс 8:00 — 22:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2016–2026 Дез2.0. ИП Иванов И.И. ИНН 781234567890</p>
+      <div class="footer-socials">
+        <a href="#" title="ВКонтакте">В</a>
+        <a href="#" title="Telegram">T</a>
+        <a href="#" title="WhatsApp">W</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING BUTTONS
+     ============================================================ -->
+<div class="contact-float">
+  <a href="https://wa.me/78126271550" class="contact-chip wa-chip" target="_blank">
+    <div class="contact-chip-icon">
+      <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-1-.9-1.5-2-1.7-2.3-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5 0-.2 0-.4-.1-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.3C7.3 7 6.5 7.8 6.5 9.4s1.2 3.1 1.3 3.3c.2.2 2.3 3.6 5.7 5C15.9 18.9 15.9 18 17 17.7c.9-.3 1.5-1.1 1.7-1.8.2-.5.2-1-.1-1.5z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3.3.9.9-3.2-.2-.3C3.7 14.7 3.3 13.4 3.3 12 3.3 7.2 7.2 3.3 12 3.3S20.7 7.2 20.7 12 16.8 20.3 12 20.3z"/></svg>
+    </div>
+    <span>WhatsApp</span>
+  </a>
+  <a href="https://t.me/dez20spb" class="contact-chip tg-chip" target="_blank">
+    <div class="contact-chip-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2l-2 9.4c-.1.6-.5.8-.9.5l-2.5-1.9-1.2 1.1c-.1.1-.3.2-.6.2l.2-2.6 5-4.5c.2-.2 0-.3-.3-.1l-6.2 3.9-2.6-.8c-.6-.2-.6-.6.1-.8l10.2-3.9c.5-.2 1 .1.8.5z"/></svg>
+    </div>
+    <span>Telegram</span>
+  </a>
+</div>
+<button class="float-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- Sticky mobile CTA -->
+<div class="mobile-sticky">
+  <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Вызвать мастера</button>
+  <a href="https://wa.me/78126271550" class="btn-wa" target="_blank">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-1-.9-1.5-2-1.7-2.3-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5 0-.2 0-.4-.1-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.3C7.3 7 6.5 7.8 6.5 9.4s1.2 3.1 1.3 3.3c.2.2 2.3 3.6 5.7 5C15.9 18.9 15.9 18 17 17.7c.9-.3 1.5-1.1 1.7-1.8.2-.5.2-1-.1-1.5z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3.3.9.9-3.2-.2-.3C3.7 14.7 3.3 13.4 3.3 12 3.3 7.2 7.2 3.3 12 3.3S20.7 7.2 20.7 12 16.8 20.3 12 20.3z"/></svg>
+  </a>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+  // ── Navbar scroll ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // ── Mobile menu ──
+  const ham = document.getElementById('hamburger');
+  const mMenu = document.getElementById('mobileMenu');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mMenu.classList.toggle('open');
+    document.body.style.overflow = mMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMenu() {
+    ham.classList.remove('open');
+    mMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── Reveal on scroll (IntersectionObserver) ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ── Counter animation ──
+  const counters = document.querySelectorAll('.counter');
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.to);
+      const duration = 1400;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = Math.floor(current).toLocaleString('ru');
+        if (current >= target) clearInterval(timer);
+      }, 16);
+      countObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => countObserver.observe(c));
+
+  // ── Ripple ──
+  function addRipple(e) {
+    const btn = e.currentTarget;
+    const r = document.createElement('span');
+    r.classList.add('ripple');
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+    btn.appendChild(r);
+    r.addEventListener('animationend', () => r.remove());
+  }
+
+  // ── Pest selector ──
+  function selectPest(item) {
+    const alreadyActive = item.classList.contains('active');
+
+    // Второй клик — скролл к форме
+    if (alreadyActive) {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    // Первый клик — показать цену
+    document.querySelectorAll('.pest-item').forEach(c => c.classList.remove('active'));
+    item.classList.add('active');
+
+    const price = item.dataset.price;
+    const name  = item.dataset.name;
+    const center = document.getElementById('orbitCenter');
+    center.classList.add('price-mode');
+    center.style.animation = 'none';
+    center.offsetHeight;
+    center.style.animation = 'orbitPop 0.4s ease';
+    document.getElementById('orbitLbl').textContent = name;
+    document.getElementById('orbitNum').textContent = price;
+    document.getElementById('orbitSub').textContent = 'нажми ещё раз →';
+
+    // Пре-заполнить форму
+    const pestName = item.querySelector('.pest-name').textContent;
+    const select = document.querySelector('.cta-form select');
+    if (select) select.querySelectorAll('option').forEach(o => { if (o.text === pestName) o.selected = true; });
+  }
+
+  // ── Lab slider / before-after toggle ──
+  function switchTab(btn, panel) {
+    document.querySelectorAll('.lab-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.lab-panel').forEach(p => p.style.display = 'none');
+    document.getElementById('panel-' + panel).style.display = 'block';
+  }
+
+  // ── Калькулятор площади ──
+  let calcBase = 2500;
+  function calcUpdate(btn) {
+    if (btn) {
+      document.querySelectorAll('.lab-pest-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      calcBase = parseInt(btn.dataset.base);
+    }
+    const slider = document.getElementById('calcSlider');
+    if (!slider) return;
+    const area = parseInt(slider.value);
+    document.getElementById('calcAreaVal').textContent = area;
+    // Цена: базовая за 50м² + 30₽ за каждый м² сверх 50
+    const price = area <= 50 ? calcBase : calcBase + Math.round((area - 50) * 30);
+    document.getElementById('calcPrice').textContent = 'от ' + price.toLocaleString('ru') + ' ₽';
+    // Обновляем заливку слайдера
+    const pct = ((area - 20) / (200 - 20)) * 100;
+    slider.style.background = `linear-gradient(to right, var(--accent) 0%, var(--accent) ${pct}%, var(--border) ${pct}%, var(--border) 100%)`;
+  }
+  const calcSlider = document.getElementById('calcSlider');
+  if (calcSlider) calcSlider.addEventListener('input', () => calcUpdate());
+
+  // ── FAQ accordion ──
+  function toggleFaq(questionEl) {
+    const item = questionEl.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      item.querySelector('.faq-a').style.maxHeight = item.querySelector('.faq-a-inner').scrollHeight + 'px';
+    }
+  }
+
+
+  // ── Sparkle stars on service cards (Web Animations API) ──
+  const STAR_CONFIGS = [
+    { size: 18, delay:   0, dur: 1300 },
+    { size: 13, delay: 100, dur: 1500 },
+    { size: 10, delay: 220, dur: 1400 },
+    { size: 15, delay:  60, dur: 1600 },
+    { size: 11, delay: 330, dur: 1350 },
+  ];
+
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      STAR_CONFIGS.forEach(({ size, delay, dur }) => {
+        const star = document.createElement('div');
+        star.className = 'sparkle-star';
+        const x = 8 + Math.random() * 84;
+        const y = 8 + Math.random() * 75;
+        star.style.cssText = `width:${size}px;height:${size}px;left:${x}%;top:${y}%;`;
+        card.appendChild(star);
+
+        const anim = star.animate([
+          { opacity: 0,   transform: 'scale(0) rotate(0deg)   translateY(0px)'  },
+          { opacity: 1,   transform: 'scale(1) rotate(22deg)  translateY(-18px)', offset: 0.25 },
+          { opacity: 0.9, transform: 'scale(0.9) rotate(40deg) translateY(-34px)', offset: 0.55 },
+          { opacity: 0,   transform: 'scale(0.2) rotate(58deg) translateY(-54px)' },
+        ], {
+          delay,
+          duration: dur,
+          easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+          fill: 'forwards',
+        });
+
+        anim.onfinish = () => star.remove();
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
