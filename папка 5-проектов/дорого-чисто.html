@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дез2.0 — Профессиональная дезинсекция в Санкт-Петербурге</title>
+    <meta name="description" content="Профессиональная дезинсекция в Санкт-Петербурге. Без запаха, без следов, без компромиссов. От 3 500 ₽. Гарантия 365 дней.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #FFFFFF;
+            --bg-alt: #EFF5FF;
+            --bg-alt2: #F8FBFF;
+            --accent: #A3D044;
+            --accent-hover: #8BBE2F;
+            --text: #1A1A2E;
+            --text-secondary: #6B7B8D;
+            --border: #E0E8F0;
+            --white: #FFFFFF;
+            --dark: #1A1A2E;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow: 0 2px 16px rgba(26,26,46,0.06);
+            --shadow-hover: 0 8px 32px rgba(26,26,46,0.10);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,h2,h3,h4,h5,h6 {
+            font-family: 'Manrope', sans-serif;
+            color: var(--text);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* ===== GLASS WIPE REVEAL ===== */
+        .reveal-section { opacity: 0; filter: blur(8px); transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease; transform: translateY(20px); }
+        .reveal-section.revealed { opacity: 1; filter: blur(0); transform: translateY(0); }
+
+        /* ===== SECTION SPACING ===== */
+        section { padding: 100px 0; }
+        .section-alt { background: var(--bg-alt2); border-top: 1px solid var(--border); }
+        .section-alt2 { background: var(--bg-alt); border-top: 1px solid var(--border); }
+
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--accent); margin-bottom: 16px;
+        }
+        .section-label::before {
+            content: ''; width: 24px; height: 2px; background: var(--accent); border-radius: 2px;
+        }
+        .section-title { font-size: 2.4rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; text-align: center; }
+        .section-subtitle { font-size: 1.05rem; color: var(--text-secondary); max-width: 560px; line-height: 1.7; text-align: center; margin: 0 auto; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); transition: box-shadow 0.3s;
+        }
+        .navbar.scrolled { box-shadow: 0 2px 20px rgba(26,26,46,0.06); }
+        .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .nav-logo { font-size: 1.5rem; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-phone { font-weight: 700; color: var(--accent) !important; font-size: 0.95rem !important; white-space: nowrap; }
+        .nav-cta {
+            background: var(--accent); color: var(--white) !important;
+            padding: 10px 24px; border-radius: 50px; font-weight: 600;
+            font-size: 0.85rem !important; transition: background 0.2s, box-shadow 0.3s; white-space: nowrap;
+        }
+        .nav-cta:hover { background: var(--accent-hover); box-shadow: 0 0 20px rgba(163,208,68,0.35); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+        .hamburger span { width: 24px; height: 2px; background: var(--text); transition: 0.3s; border-radius: 2px; display: block; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .mobile-menu {
+            display: none; position: fixed; top: 72px; left: 0; right: 0;
+            background: var(--white); border-bottom: 1px solid var(--border);
+            padding: 24px; z-index: 999; flex-direction: column; gap: 16px;
+        }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { font-size: 1rem; font-weight: 500; color: var(--text); padding: 8px 0; }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 140px 0 80px; position: relative; overflow: hidden;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F8FBFF 100%);
+        }
+        .hero-fog {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255,255,255,0.98); pointer-events: none; z-index: 2;
+            animation: fogDissipate 1.5s ease-out 0.3s forwards;
+        }
+        @keyframes fogDissipate {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .hero-content { position: relative; z-index: 3; text-align: left; }
+        .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; max-width: 700px; }
+        .hero h1 .accent { color: var(--accent); }
+        .hero-subtitle { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 36px; max-width: 600px; line-height: 1.7; }
+        .hero-btns { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+
+        /* CTA Buttons */
+        .btn-primary {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--accent); color: var(--white); padding: 16px 36px;
+            border-radius: 50px; font-weight: 700; font-size: 1rem;
+            border: none; cursor: pointer; transition: background 0.2s, box-shadow 0.3s, transform 0.15s;
+            position: relative; overflow: hidden;
+        }
+        .btn-primary:hover { background: var(--accent-hover); box-shadow: 0 0 28px rgba(163,208,68,0.4); transform: translateY(-1px); }
+        .btn-outline {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: transparent; color: var(--text); padding: 15px 34px;
+            border-radius: 50px; font-weight: 600; font-size: 1rem;
+            border: 2px solid var(--border); cursor: pointer; transition: border-color 0.2s, background 0.2s;
+        }
+        .btn-outline:hover { border-color: var(--accent); background: rgba(163,208,68,0.06); }
+
+        /* Ripple */
+        .btn-primary .ripple {
+            position: absolute; border-radius: 50%; background: rgba(255,255,255,0.35);
+            transform: scale(0); animation: rippleAnim 0.6s ease-out;
+        }
+        @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
+
+        .hero-dispatch { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 48px; }
+        .hero-dispatch svg { flex-shrink: 0; }
+
+        /* Hero Stats */
+        .hero-stats { display: flex; gap: 48px; flex-wrap: wrap; }
+        .hero-stat { text-align: left; }
+        .hero-stat-number { font-size: 2rem; font-weight: 800; color: var(--text); }
+        .hero-stat-number span { color: var(--accent); }
+        .hero-stat-label { font-size: 0.82rem; color: var(--text-secondary); margin-top: 2px; }
+
+        /* ===== LAB SLIDER ===== */
+        .lab-slider-wrap { margin-top: 64px; position: relative; }
+        .lab-slider {
+            height: 280px; border-radius: var(--radius); overflow: hidden;
+            position: relative; cursor: crosshair;
+            background: linear-gradient(135deg, #F8FBFF 0%, #EFF5FF 100%);
+            border: 1px solid var(--border); transition: box-shadow 0.4s;
+        }
+        .lab-slider:hover { box-shadow: var(--shadow-hover); }
+
+        .lab-clean, .lab-dirty {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.6s ease;
+        }
+        .lab-clean { opacity: 1; z-index: 2; }
+        .lab-dirty { opacity: 0; z-index: 1; }
+        .lab-slider.contaminated .lab-clean { opacity: 0; }
+        .lab-slider.contaminated .lab-dirty { opacity: 1; }
+
+        .lab-clean-inner, .lab-dirty-inner { text-align: center; padding: 24px; }
+        .lab-clean-inner h3 { font-size: 1.6rem; margin-bottom: 8px; color: var(--accent); }
+        .lab-clean-inner p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        .lab-dirty {
+            background:
+                radial-gradient(ellipse 50px 40px at 12% 25%, rgba(200,130,60,0.25) 0%, transparent 70%),
+                radial-gradient(ellipse 35px 28px at 65% 18%, rgba(180,110,40,0.20) 0%, transparent 70%),
+                radial-gradient(ellipse 60px 45px at 82% 70%, rgba(190,120,50,0.22) 0%, transparent 70%),
+                radial-gradient(ellipse 40px 32px at 28% 75%, rgba(170,100,40,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 25px 20px at 90% 30%, rgba(160,90,30,0.25) 0%, transparent 70%),
+                radial-gradient(ellipse 45px 35px at 50% 50%, rgba(180,120,60,0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 20px 16px at 8% 55%, rgba(150,80,30,0.20) 0%, transparent 70%),
+                linear-gradient(135deg, #FDF5EC 0%, #F8EDE0 100%);
+        }
+        .lab-dirty-inner { max-width: 700px; position: relative; z-index: 2; }
+        .lab-dirty-inner h3 { font-size: 1.6rem; margin-bottom: 8px; color: #E74C3C; }
+        .lab-dirty-inner p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 16px; }
+        .lab-dirty-stats { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+        .lab-dirty-stat { text-align: center; }
+        .lab-dirty-stat .num { font-size: 1.8rem; font-weight: 800; color: #E74C3C; }
+        .lab-dirty-stat .lbl { font-size: 0.78rem; color: var(--text-secondary); }
+
+        .lab-hint {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            display: flex; align-items: center; gap: 8px;
+            font-size: 0.82rem; color: var(--text-secondary); z-index: 5;
+            animation: hintPulse 2s ease-in-out infinite;
+        }
+        @keyframes hintPulse { 0%,100% { opacity: 0.6; } 50% { opacity: 1; } }
+        .lab-slider.contaminated .lab-hint { display: none; }
+
+        .lab-meter {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+            background: var(--border); z-index: 5;
+        }
+        .lab-meter-fill {
+            height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), #E74C3C);
+            transition: width 0.6s ease; border-radius: 0 2px 2px 0;
+        }
+        .lab-slider.contaminated .lab-meter-fill { width: 100%; }
+
+        /* Analyze button */
+        .lab-analyze-btn {
+            margin-top: 16px;
+            background: var(--accent); color: var(--white); border: none;
+            padding: 12px 32px; border-radius: 50px;
+            font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 0.95rem;
+            cursor: pointer; transition: background 0.2s, box-shadow 0.3s;
+            position: relative; z-index: 10;
+        }
+        .lab-analyze-btn:hover { background: var(--accent-hover); box-shadow: 0 0 20px rgba(163,208,68,0.4); }
+        .lab-slider.scanning .lab-analyze-btn,
+        .lab-slider.cleaned .lab-analyze-btn { opacity: 0; pointer-events: none; }
+
+        /* Scan line */
+        .lab-scan-line {
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent 10%, var(--accent) 50%, transparent 90%);
+            box-shadow: 0 0 12px rgba(163,208,68,0.6);
+            z-index: 20; opacity: 0; pointer-events: none;
+        }
+        .lab-slider.scanning .lab-scan-line {
+            opacity: 1; animation: scanDown 1.5s ease-in-out forwards;
+        }
+        @keyframes scanDown { 0% { top: 0; } 100% { top: calc(100% - 3px); } }
+
+        /* Result counter */
+        .lab-result {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            z-index: 25; background: rgba(255,255,255,0.95); padding: 14px 32px;
+            border-radius: 50px; border: 1px solid var(--border);
+            font-weight: 700; font-size: 1rem; color: var(--accent);
+            opacity: 0; pointer-events: none; white-space: nowrap;
+        }
+        .lab-slider.scanning .lab-result { opacity: 1; }
+        .lab-slider.cleaned .lab-result { opacity: 0; }
+
+        /* Checkmark */
+        .lab-checkmark {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 30; width: 64px; height: 64px;
+            background: var(--accent); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .lab-slider.cleaned .lab-checkmark { transform: translate(-50%, -50%) scale(1); }
+
+        /* ===== TRUST BAR ===== */
+        .trust-bar {
+            padding: 48px 0;
+            background: var(--bg-alt);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .trust-label {
+            text-align: center; font-size: 0.8rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 2px;
+            color: var(--text-secondary); margin-bottom: 24px;
+        }
+        .trust-logos {
+            display: flex; justify-content: center; align-items: center;
+            gap: 48px; flex-wrap: wrap;
+        }
+        .trust-logo {
+            font-size: 1rem; font-weight: 700; color: var(--text-secondary);
+            opacity: 0.45; transition: opacity 0.3s, color 0.3s;
+            cursor: default;
+        }
+        .trust-logo:hover { opacity: 0.85; color: var(--accent); }
+
+        /* ===== SERVICES ===== */
+        .services-main { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+        .services-secondary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+        .service-card {
+            background: var(--white); border-radius: var(--radius); padding: 32px;
+            border: 1px solid var(--border); transition: box-shadow 0.3s, transform 0.3s;
+            position: relative; overflow: hidden; cursor: default;
+        }
+        .service-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+        .service-card-main {
+            padding: 40px 36px; border-left: 3px solid var(--accent);
+        }
+        .service-card-icon {
+            width: 48px; height: 48px; border-radius: var(--radius-sm);
+            background: var(--bg-alt); display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+        }
+        .service-card-icon svg { stroke: var(--accent) !important; }
+        .service-card-main .service-card-icon { width: 56px; height: 56px; }
+        .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .service-card-main h3 { font-size: 1.25rem; }
+        .service-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+
+        /* Sparkle Stars */
+        .sparkle {
+            position: absolute; width: 8px; height: 8px; opacity: 0;
+            pointer-events: none; z-index: 10;
+        }
+        .sparkle svg { width: 100%; height: 100%; }
+        .service-card:hover .sparkle { animation: sparklePop 0.6s ease-out forwards; }
+        @keyframes sparklePop {
+            0% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(90deg); }
+            100% { opacity: 0; transform: scale(0.5) rotate(180deg); }
+        }
+
+        /* Floating Particles */
+        .card-particle {
+            position: absolute; width: 4px; height: 4px; border-radius: 50%;
+            background: rgba(163,208,68,0.4); opacity: 0; pointer-events: none;
+        }
+        .service-card:hover .card-particle { animation: floatParticle 1.2s ease-out forwards; }
+        @keyframes floatParticle {
+            0% { opacity: 0; transform: translateY(0); }
+            30% { opacity: 0.7; }
+            100% { opacity: 0; transform: translateY(-60px); }
+        }
+
+        /* ===== CASE STUDY ===== */
+        .case-card {
+            background: var(--dark); border-radius: var(--radius); padding: 56px 48px;
+            color: var(--white); position: relative; overflow: hidden;
+        }
+        .case-card::before {
+            content: ''; position: absolute; top: -60px; right: -60px;
+            width: 200px; height: 200px; border-radius: 50%;
+            background: rgba(163,208,68,0.08); pointer-events: none;
+        }
+        .case-label { color: var(--accent); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+        .case-card h3 { font-size: 1.8rem; font-weight: 800; color: var(--white); margin-bottom: 24px; }
+        .case-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 32px; }
+        .case-stat { text-align: center; padding: 20px; background: rgba(255,255,255,0.06); border-radius: var(--radius-sm); }
+        .case-stat .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); display: block; }
+        .case-stat .lbl { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; display: block; }
+        .case-desc { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; max-width: 700px; }
+
+        /* ===== PROCESS ===== */
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; align-items: start; position: relative; }
+        .process-step { text-align: center; padding: 0 20px; position: relative; }
+        .process-num {
+            width: 52px; height: 52px; border-radius: 50%;
+            background: var(--accent); color: var(--white);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; font-weight: 800; margin: 0 auto 20px;
+            position: relative; z-index: 2;
+        }
+        .process-step h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+        .process-step p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+        /* Cross-line connectors */
+        .process-connector {
+            position: absolute; top: 20px; right: -20px; width: 40px;
+            display: flex; align-items: center; gap: 3px; z-index: 0;
+        }
+        .cross-mark {
+            width: 8px; height: 8px; position: relative; opacity: 0;
+            transform: scale(0); transition: opacity 0.25s, transform 0.25s; flex-shrink: 0;
+        }
+        .cross-mark.visible { opacity: 1; transform: scale(1); }
+        .cross-mark::before, .cross-mark::after {
+            content: ''; position: absolute; background: var(--accent); border-radius: 1px;
+        }
+        .cross-mark::before { width: 8px; height: 2px; top: 3px; left: 0; }
+        .cross-mark::after { width: 2px; height: 8px; top: 0; left: 3px; }
+
+        /* Mobile process dotted line */
+        .process-mobile-line { display: none; }
+
+        /* ===== PRICING ===== */
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; }
+        .pricing-card {
+            background: var(--white); border-radius: var(--radius); padding: 40px 32px;
+            border: 1px solid var(--border); text-align: center; transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+        }
+        .pricing-card:hover { box-shadow: var(--shadow-hover); }
+        .pricing-card.featured {
+            background: var(--dark); border-color: transparent; color: var(--white);
+            transform: scale(1.04); z-index: 2; padding: 48px 32px;
+        }
+        .pricing-card.featured:hover { transform: scale(1.06); box-shadow: 0 12px 48px rgba(26,26,46,0.2); }
+        .pricing-badge {
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: var(--accent); color: var(--white); padding: 6px 20px;
+            border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .pricing-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+        .pricing-card.featured h3 { color: var(--white); }
+        .pricing-price { font-size: 2.4rem; font-weight: 800; margin: 16px 0 4px; }
+        .pricing-card.featured .pricing-price { color: var(--accent); }
+        .pricing-period { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 28px; }
+        .pricing-card.featured .pricing-period { color: rgba(255,255,255,0.5); }
+        .pricing-features { text-align: left; margin-bottom: 32px; }
+        .pricing-features li {
+            font-size: 0.88rem; padding: 8px 0; display: flex; align-items: center; gap: 10px;
+            color: var(--text-secondary); border-bottom: 1px solid var(--border);
+        }
+        .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.8); border-color: rgba(255,255,255,0.1); }
+        .pricing-features li::before {
+            content: ''; width: 6px; height: 6px; border-radius: 50%;
+            background: var(--border); flex-shrink: 0;
+        }
+        .pricing-card.featured .pricing-features li::before { background: var(--accent); }
+
+        /* ===== REVIEWS ===== */
+        .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .review-card {
+            background: var(--white); border-radius: var(--radius); padding: 36px 32px;
+            border: 1px solid var(--border); position: relative; transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .review-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+        .review-quote {
+            font-size: 3rem; font-weight: 800; color: var(--accent); line-height: 1;
+            margin-bottom: 12px; opacity: 0.4;
+        }
+        .review-text { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+        .review-author { display: flex; align-items: center; gap: 12px; }
+        .review-avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.82rem; font-weight: 700; color: var(--white); flex-shrink: 0;
+        }
+        .review-avatar.green { background: var(--accent); }
+        .review-avatar.blue { background: #5B8DEF; }
+        .review-avatar.light { background: #7EC8A0; }
+        .review-name { font-size: 0.88rem; font-weight: 600; }
+        .review-role { font-size: 0.78rem; color: var(--text-secondary); }
+        .review-stars { color: #F5A623; font-size: 0.85rem; margin-top: 2px; letter-spacing: 2px; }
+
+        /* ===== MID CTA ===== */
+        .mid-cta {
+            text-align: center; background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg-alt2) 100%);
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .mid-cta h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        .mid-cta-sub { color: var(--text-secondary); margin-bottom: 32px; font-size: 1rem; }
+        .mid-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+        .mid-cta-note { font-size: 0.82rem; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; justify-content: center; }
+
+        /* ===== GUARANTEE ===== */
+        .guarantee-card {
+            background: var(--white); border-radius: var(--radius); padding: 56px 48px;
+            border: 1px solid var(--border); text-align: center; max-width: 700px; margin: 0 auto;
+        }
+        .guarantee-icon { margin-bottom: 24px; }
+        .guarantee-card h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; }
+        .guarantee-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 32px; }
+        .guarantee-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 16px; }
+        .guarantee-bar-fill { height: 100%; width: 0%; background: var(--accent); border-radius: 4px; }
+        .guarantee-counter { display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .guarantee-num { font-size: 2.8rem; font-weight: 800; color: var(--accent); }
+        .guarantee-label { font-size: 0.9rem; color: var(--text-secondary); text-align: left; }
+        .guarantee-check { color: var(--accent); opacity: 0; transition: opacity 0.4s; margin-left: 8px; }
+        .guarantee-check.visible { opacity: 1; }
+
+        /* ===== FAQ ===== */
+        .faq-list { max-width: 760px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-question {
+            width: 100%; padding: 24px 0; display: flex; justify-content: space-between;
+            align-items: center; background: none; border: none; cursor: pointer;
+            font-family: 'Manrope', sans-serif; font-size: 1.05rem; font-weight: 600;
+            color: var(--text); text-align: left; gap: 16px;
+        }
+        .faq-question:hover { color: var(--accent); }
+        .faq-icon {
+            width: 28px; height: 28px; flex-shrink: 0; display: flex;
+            align-items: center; justify-content: center; transition: transform 0.3s;
+            font-size: 1.3rem; color: var(--text-secondary); font-weight: 300;
+        }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+        .faq-answer-inner { padding: 0 0 24px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; }
+
+        /* ===== CERTIFICATES ===== */
+        .certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .cert-card {
+            background: var(--white); border-radius: var(--radius); padding: 32px 24px;
+            border: 1px solid var(--border); text-align: center; transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .cert-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+        .cert-icon {
+            width: 56px; height: 56px; margin: 0 auto 16px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--bg-alt); border-radius: var(--radius-sm);
+        }
+        .cert-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+        .cert-card p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-wrap { max-width: 580px; margin: 0 auto; }
+        .contact-card {
+            background: var(--white); border-radius: var(--radius); padding: 48px 40px;
+            border: 1px solid var(--border);
+        }
+        .contact-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; text-align: center; }
+        .contact-card > p { text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 32px; }
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 12px 0; font-family: 'Manrope', sans-serif;
+            font-size: 1rem; color: var(--text); border: none;
+            border-bottom: 2px solid var(--border); background: transparent;
+            outline: none; transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+        .form-submit { text-align: center; margin-top: 32px; }
+        .form-note { text-align: center; margin-top: 16px; font-size: 0.82rem; color: var(--text-secondary); }
+        .contact-messengers { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 24px; }
+        .contact-messengers a {
+            display: flex; align-items: center; gap: 8px; font-size: 0.88rem;
+            color: var(--text-secondary); font-weight: 500; transition: color 0.2s;
+        }
+        .contact-messengers a:hover { color: var(--accent); }
+
+        /* ===== FOOTER ===== */
+        .footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 64px 0 32px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 48px; }
+        .footer-col h4 { color: var(--white); font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; }
+        .footer-col p, .footer-col a { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 2; display: block; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-logo { font-size: 1.5rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+        .footer-logo span { color: var(--accent); }
+        .footer-shield { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.5); font-size: 0.82rem; cursor: default; }
+        .footer-shield:hover svg { animation: shieldPulse 0.6s ease; }
+        @keyframes shieldPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-bottom p { font-size: 0.82rem; color: rgba(255,255,255,0.35); }
+
+        /* ===== BACK TO TOP ===== */
+        .back-top {
+            position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px;
+            border-radius: 50%; background: var(--white); border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 900; opacity: 0; pointer-events: none;
+            transition: opacity 0.3s, box-shadow 0.3s, transform 0.2s;
+            box-shadow: var(--shadow);
+        }
+        .back-top.visible { opacity: 1; pointer-events: auto; }
+        .back-top:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+
+        /* ===== STICKY MOBILE CTA ===== */
+        .sticky-cta {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0;
+            background: var(--white); border-top: 1px solid var(--border);
+            padding: 12px 16px; z-index: 950; box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+        }
+        .sticky-cta-inner { display: flex; gap: 10px; }
+        .sticky-cta .btn-primary { flex: 1; padding: 14px; font-size: 0.9rem; }
+        .sticky-cta .btn-outline { padding: 14px 18px; font-size: 0.9rem; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 2.6rem; }
+            .services-secondary { grid-template-columns: repeat(2, 1fr); }
+            .case-stats { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { gap: 16px; }
+            .certs-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 72px 0; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero { padding: 120px 0 60px; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-stats { gap: 24px; }
+            .services-main { grid-template-columns: 1fr; }
+            .services-secondary { grid-template-columns: 1fr 1fr; }
+            .process-grid { grid-template-columns: 1fr; gap: 32px; }
+            .process-connector { display: none; }
+            .process-mobile-line { display: block; width: 2px; height: 32px; margin: 0 auto; border-left: 2px dotted var(--border); }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .pricing-card.featured { transform: scale(1); }
+            .pricing-card.featured:hover { transform: scale(1); }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .case-stats { grid-template-columns: repeat(2, 1fr); }
+            .certs-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .sticky-cta { display: block; }
+            body { padding-bottom: 80px; }
+            .back-top { bottom: 80px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.75rem; }
+            .section-title { font-size: 1.8rem; }
+            .hero-stats { flex-direction: column; gap: 16px; }
+            .hero-btns { flex-direction: column; }
+            .hero-btns .btn-primary, .hero-btns .btn-outline { width: 100%; }
+            .services-secondary { grid-template-columns: 1fr; }
+            .case-card { padding: 32px 24px; }
+            .case-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .guarantee-card { padding: 36px 24px; }
+            .contact-card { padding: 32px 20px; }
+            .mid-cta-btns { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <a href="#" class="nav-logo">Дез<span>2.0</span></a>
+        <div class="nav-links">
+            <a href="#services">Услуги</a>
+            <a href="#pricing">Цены</a>
+            <a href="#guarantee">Гарантия</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Контакты</a>
+            <a href="tel:+78126271550" class="nav-phone">+7 (812) 627-15-50</a>
+            <a href="#contact" class="nav-cta">Заказать</a>
+        </div>
+        <div class="hamburger" id="hamburger" aria-label="Меню">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Услуги</a>
+    <a href="#pricing">Цены</a>
+    <a href="#guarantee">Гарантия</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Контакты</a>
+    <a href="tel:+78126271550" class="nav-phone">+7 (812) 627-15-50</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="hero-fog"></div>
+    <div class="container">
+        <div class="hero-content">
+            <h1>Абсолютная <span class="accent">чистота</span>.<br>Профессиональная дезинсекция.</h1>
+            <p class="hero-subtitle">Без запаха, без следов, без компромиссов. От 3 500 ₽.</p>
+            <div class="hero-btns">
+                <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Заказать анализ</button>
+                <a href="tel:+78126271550" class="btn-outline" style="display:inline-flex;">Вызвать мастера</a>
+            </div>
+            <div class="hero-dispatch">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#6B7B8D" stroke-width="1.5"/><path d="M8 4v4.5l3 1.5" stroke="#6B7B8D" stroke-width="1.5" stroke-linecap="round"/></svg>
+                Выезд в течение 2 часов
+            </div>
+            <a href="tel:+78126271550" style="display:inline-flex;align-items:center;gap:8px;font-size:1.4rem;font-weight:800;color:var(--accent);margin-bottom:32px;">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 4A1.5 1.5 0 014.5 2.5h2.3a1 1 0 01.95.68l.8 2.4a1 1 0 01-.3 1.05l-1.1.9a10 10 0 004.8 4.8l.9-1.1a1 1 0 011.05-.3l2.4.8a1 1 0 01.68.95v2.3A1.5 1.5 0 0115.5 17 12.5 12.5 0 013 4.5z" stroke="currentColor" stroke-width="1.8"/></svg>
+                +7 (812) 627-15-50
+            </a>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">12<span>+</span></div>
+                    <div class="hero-stat-label">лет опыта</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">8 000<span>+</span></div>
+                    <div class="hero-stat-label">обработок</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">365</div>
+                    <div class="hero-stat-label">дней гарантии</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">98<span>%</span></div>
+                    <div class="hero-stat-label">клиентов довольны</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LAB SLIDER -->
+        <div class="lab-slider-wrap">
+            <div class="lab-slider" id="labSlider">
+                <div class="lab-clean">
+                    <div class="lab-clean-inner">
+                        <h3>Уровень чистоты: максимальный</h3>
+                        <p>Пространство после обработки Дез2.0 — абсолютная стерильность</p>
+                    </div>
+                </div>
+                <div class="lab-dirty">
+                    <div class="lab-dirty-inner">
+                        <h3>Скрытая угроза обнаружена</h3>
+                        <p>Невидимые загрязнения присутствуют даже в чистых помещениях</p>
+                        <div class="lab-dirty-stats">
+                            <div class="lab-dirty-stat"><span class="num">10<sup>6</sup></span><span class="lbl">бактерий / м²</span></div>
+                            <div class="lab-dirty-stat"><span class="num">85%</span><span class="lbl">невидимых аллергенов</span></div>
+                            <div class="lab-dirty-stat"><span class="num">24/7</span><span class="lbl">активность вредителей</span></div>
+                        </div>
+                        <button class="lab-analyze-btn" id="labAnalyze">Провести анализ</button>
+                    </div>
+                </div>
+                <div class="lab-hint" id="labHint">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3C7.5 3 4 5.5 4 9c0 2.5 2 5 6 8.5C14 14 16 11.5 16 9c0-3.5-3.5-6-6-6z" stroke="#6B7B8D" stroke-width="1.5"/><circle cx="10" cy="9" r="2" stroke="#6B7B8D" stroke-width="1.5"/></svg>
+                    Наведите, чтобы увидеть угрозу →
+                </div>
+                <div class="lab-meter"><div class="lab-meter-fill"></div></div>
+                <div class="lab-scan-line"></div>
+                <div class="lab-result" id="labResult">Обнаружено: 0 вредителей</div>
+                <div class="lab-checkmark"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><polyline points="9,16 14,21 23,11" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-bar reveal-section">
+    <div class="container">
+        <p class="trust-label">Нам доверяют</p>
+        <div class="trust-logos">
+            <span class="trust-logo">Теремок</span>
+            <span class="trust-logo">Ginza Project</span>
+            <span class="trust-logo">Hilton</span>
+            <span class="trust-logo">Метрополь</span>
+            <span class="trust-logo">Азбука Вкуса</span>
+            <span class="trust-logo">Лента</span>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-alt reveal-section" id="services">
+    <div class="container">
+        <div class="section-label">Услуги</div>
+        <h2 class="section-title">Что мы делаем</h2>
+        <p class="section-subtitle" style="margin-bottom: 48px;">Комплексная защита жилых и коммерческих объектов от вредителей любого типа.</p>
+
+        <div class="services-main">
+            <div class="service-card service-card-main" data-sparkle>
+                <div class="service-card-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="16" rx="3" stroke="#1A1A2E" stroke-width="1.8"/><path d="M3 10h22M9 6v-2M19 6v-2" stroke="#1A1A2E" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Обработка квартир</h3>
+                <p>Полная дезинсекция жилых помещений. Безопасные препараты IV класса, без запаха, без необходимости покидать квартиру надолго. Результат с первой обработки.</p>
+            </div>
+            <div class="service-card service-card-main" data-sparkle>
+                <div class="service-card-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 24V8l10-5 10 5v16H4z" stroke="#1A1A2E" stroke-width="1.8" stroke-linejoin="round"/><rect x="10" y="14" width="8" height="10" rx="1" stroke="#1A1A2E" stroke-width="1.8"/></svg>
+                </div>
+                <h3>Обработка ресторанов</h3>
+                <p>Работаем ночью, чтобы утром вы открылись как обычно. Полный комплект документов для СЭС. Договорное обслуживание с графиком профилактики.</p>
+            </div>
+        </div>
+
+        <div class="services-secondary">
+            <div class="service-card" data-sparkle>
+                <div class="service-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 21V7l9-4 9 4v14" stroke="#1A1A2E" stroke-width="1.5" stroke-linejoin="round"/><rect x="8" y="11" width="8" height="10" stroke="#1A1A2E" stroke-width="1.5"/></svg>
+                </div>
+                <h3>Офисы</h3>
+                <p>Обработка без нарушения рабочего графика</p>
+            </div>
+            <div class="service-card" data-sparkle>
+                <div class="service-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 20V6a2 2 0 012-2h12a2 2 0 012 2v14" stroke="#1A1A2E" stroke-width="1.5"/><path d="M4 20h16M8 8h2M8 12h2M14 8h2M14 12h2" stroke="#1A1A2E" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Склады</h3>
+                <p>Обработка больших площадей и логистических центров</p>
+            </div>
+            <div class="service-card" data-sparkle>
+                <div class="service-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3L2 9v12h20V9L12 3z" stroke="#1A1A2E" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 15h6M9 18h6" stroke="#1A1A2E" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Частные дома</h3>
+                <p>Комплексная защита загородной недвижимости</p>
+            </div>
+            <div class="service-card" data-sparkle>
+                <div class="service-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#1A1A2E" stroke-width="1.5"/><path d="M12 7v5l3.5 2" stroke="#1A1A2E" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Экстренный выезд</h3>
+                <p>Прибытие за 2 часа, работаем 24/7</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="reveal-section" style="padding: 100px 0;">
+    <div class="container">
+        <div class="section-label">Кейс</div>
+        <h2 class="section-title" style="margin-bottom: 40px;">Реальный результат</h2>
+        <div class="case-card">
+            <div class="case-label">Кейс: ресторан 120 м²</div>
+            <h3>Полная ликвидация вредителей за 2 обработки</h3>
+            <div class="case-stats">
+                <div class="case-stat"><span class="num">120 м²</span><span class="lbl">площадь объекта</span></div>
+                <div class="case-stat"><span class="num">2</span><span class="lbl">обработки</span></div>
+                <div class="case-stat"><span class="num">0</span><span class="lbl">замечаний СЭС</span></div>
+                <div class="case-stat"><span class="num">1 год</span><span class="lbl">договор</span></div>
+            </div>
+            <p class="case-desc">Ресторан на Невском проспекте обратился после неудачного опыта с другой компанией. Обнаружены следы тараканов на кухне и в подсобных помещениях. Провели две обработки с интервалом в 14 дней. Результат: ноль замечаний на плановой проверке СЭС. Заключён годовой договор на профилактическое обслуживание.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section-alt reveal-section" id="process">
+    <div class="container">
+        <div class="section-label">Процесс</div>
+        <h2 class="section-title">Как мы работаем</h2>
+        <p class="section-subtitle" style="margin-bottom: 56px;">Четыре простых шага к абсолютной чистоте</p>
+        <div class="process-grid" id="processGrid">
+            <div class="process-step">
+                <div class="process-num">1</div>
+                <h4>Заявка</h4>
+                <p>Оставьте заявку на сайте или позвоните. Ответим в течение 30 минут.</p>
+                <div class="process-connector" data-connector></div>
+            </div>
+            <div class="process-mobile-line"></div>
+            <div class="process-step">
+                <div class="process-num">2</div>
+                <h4>Диагностика</h4>
+                <p>Мастер осматривает объект, определяет тип и масштаб проблемы.</p>
+                <div class="process-connector" data-connector></div>
+            </div>
+            <div class="process-mobile-line"></div>
+            <div class="process-step">
+                <div class="process-num">3</div>
+                <h4>Обработка</h4>
+                <p>Применяем сертифицированные препараты. Без запаха и следов.</p>
+                <div class="process-connector" data-connector></div>
+            </div>
+            <div class="process-mobile-line"></div>
+            <div class="process-step">
+                <div class="process-num">4</div>
+                <h4>Гарантия</h4>
+                <p>Выдаём документы и даём гарантию до 365 дней.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="reveal-section" id="pricing">
+    <div class="container">
+        <div class="section-label">Цены</div>
+        <h2 class="section-title">Прозрачные цены</h2>
+        <p class="section-subtitle" style="margin-bottom: 56px;">Без скрытых платежей. Стоимость фиксируется до начала работ.</p>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Разовая обработка</h3>
+                <div class="pricing-price">от 3 500 ₽</div>
+                <div class="pricing-period">за обработку</div>
+                <ul class="pricing-features">
+                    <li>Обработка до 80 м²</li>
+                    <li>Препараты IV класса</li>
+                    <li>Гарантия 90 дней</li>
+                    <li>Акт выполненных работ</li>
+                </ul>
+                <button class="btn-outline" style="width: 100%;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Заказать</button>
+            </div>
+            <div class="pricing-card featured">
+                <div class="pricing-badge">Популярно</div>
+                <h3>Договорное обслуживание</h3>
+                <div class="pricing-price">от 5 000 ₽</div>
+                <div class="pricing-period">в месяц</div>
+                <ul class="pricing-features">
+                    <li>Ежемесячная профилактика</li>
+                    <li>Приоритетный выезд</li>
+                    <li>Гарантия 365 дней</li>
+                    <li>Полный пакет документов для СЭС</li>
+                    <li>Персональный менеджер</li>
+                </ul>
+                <button class="btn-primary" style="width: 100%;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Заказать</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Экстренный выезд</h3>
+                <div class="pricing-price">от 6 000 ₽</div>
+                <div class="pricing-period">за обработку</div>
+                <ul class="pricing-features">
+                    <li>Выезд за 2 часа</li>
+                    <li>Работаем 24/7</li>
+                    <li>Гарантия 180 дней</li>
+                    <li>Акт выполненных работ</li>
+                </ul>
+                <button class="btn-outline" style="width: 100%;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Заказать</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section-alt reveal-section" id="reviews">
+    <div class="container">
+        <div class="section-label">Отзывы</div>
+        <h2 class="section-title">Что говорят клиенты</h2>
+        <p class="section-subtitle" style="margin-bottom: 56px;">Реальные отзывы наших клиентов в Санкт-Петербурге</p>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-quote">&bdquo;</div>
+                <p class="review-text">Вызывали для обработки ресторана перед проверкой. Всё сделали за ночь, утром открылись как обычно. Документы предоставили сразу.</p>
+                <div class="review-author">
+                    <div class="review-avatar green">МК</div>
+                    <div>
+                        <div class="review-name">Марина К.</div>
+                        <div class="review-role">управляющая ресторана</div>
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-quote">&bdquo;</div>
+                <p class="review-text">Работаем по договору уже 2 года. За это время ни одной жалобы от гостей и ни одного замечания от СЭС.</p>
+                <div class="review-author">
+                    <div class="review-avatar blue">ДВ</div>
+                    <div>
+                        <div class="review-name">Дмитрий В.</div>
+                        <div class="review-role">отель &laquo;Невский&raquo;</div>
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-quote">&bdquo;</div>
+                <p class="review-text">Быстро приехали, всё обработали, дали рекомендации. Тараканы не вернулись.</p>
+                <div class="review-author">
+                    <div class="review-avatar light">АМ</div>
+                    <div>
+                        <div class="review-name">Алексей М.</div>
+                        <div class="review-role">кафе на Петроградской</div>
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MID CTA -->
+<section class="mid-cta reveal-section">
+    <div class="container" style="max-width: 640px;">
+        <h2>Готовы к абсолютной чистоте?</h2>
+        <p class="mid-cta-sub">Оставьте заявку и получите бесплатную консультацию</p>
+        <div class="mid-cta-btns">
+            <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Заказать анализ</button>
+            <a href="tel:+78126271550" class="btn-outline" style="display:inline-flex;">Вызвать мастера</a>
+        </div>
+        <div class="mid-cta-note">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#6B7B8D" stroke-width="1.2"/><path d="M7 4v3.5l2.5 1.2" stroke="#6B7B8D" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Ответим в течение 30 минут
+        </div>
+    </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="section-alt2 reveal-section" id="guarantee">
+    <div class="container">
+        <div class="guarantee-card">
+            <div class="guarantee-icon">
+                <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><path d="M28 6L8 16v14c0 12 8.5 22.5 20 26 11.5-3.5 20-14 20-26V16L28 6z" stroke="#A3D044" stroke-width="2.5" fill="none"/><path d="M20 28l6 6 10-12" stroke="#A3D044" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>365 дней гарантии чистоты</h3>
+            <p>Если вредители вернутся в течение гарантийного периода — проведём повторную обработку бесплатно.</p>
+            <div class="guarantee-bar"><div class="guarantee-bar-fill" id="guaranteeBarFill"></div></div>
+            <div class="guarantee-counter">
+                <span class="guarantee-num" id="guaranteeNum">0</span>
+                <span class="guarantee-label">дней<br>гарантии</span>
+                <span class="guarantee-check" id="guaranteeCheck">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="#A3D044" stroke-width="2"/><path d="M9 14l4 4 7-8" stroke="#A3D044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="reveal-section" id="faq">
+    <div class="container">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Частые вопросы</h2>
+        <p class="section-subtitle" style="margin-bottom: 48px;">Ответы на самые популярные вопросы наших клиентов</p>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question"><span>Безопасно ли для домашних животных?</span><span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Да, мы используем препараты IV класса опасности — они безопасны для людей и животных. После обработки достаточно проветрить помещение 30-40 минут. Животных рекомендуем убрать на время обработки (2-3 часа).</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question"><span>Нужно ли покидать помещение?</span><span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">На 2-3 часа после обработки рекомендуется покинуть помещение. После этого достаточно проветрить 30 минут — и можно возвращаться.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question"><span>Сколько длится обработка?</span><span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Стандартная обработка занимает 1-2 часа в зависимости от площади помещения и степени заражения. Для ресторанов и крупных объектов может потребоваться больше времени.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question"><span>Даёте ли гарантию?</span><span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Да, мы предоставляем гарантию до 365 дней в зависимости от типа обслуживания. Если вредители вернутся в гарантийный период — проведём повторную обработку бесплатно.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question"><span>Какие документы предоставляете?</span><span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Акт выполненных работ, сертификаты на препараты, журнал учёта дезинсекционных мероприятий. Полный пакет документов для проверок СЭС и Роспотребнадзора.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question"><span>Работаете ли ночью?</span><span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Да, мы работаем 24/7. Для ресторанов и кафе обработка в ночное время — стандартная практика, чтобы не нарушать рабочий график заведения.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section class="section-alt reveal-section" id="certs">
+    <div class="container">
+        <div class="section-label">Документы</div>
+        <h2 class="section-title">Работаем официально</h2>
+        <p class="section-subtitle" style="margin-bottom: 48px;">Все необходимые лицензии и сертификаты</p>
+        <div class="certs-grid">
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3L5 8v8c0 7 4 13 9 15 5-2 9-8 9-15V8L14 3z" stroke="#1A1A2E" stroke-width="1.8" fill="none"/><path d="M11 14l3 3 5-6" stroke="#A3D044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h4>Лицензия</h4>
+                <p>Государственная лицензия на дезинфекционную деятельность</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="3" width="18" height="22" rx="2" stroke="#1A1A2E" stroke-width="1.8"/><path d="M10 9h8M10 13h8M10 17h5" stroke="#1A1A2E" stroke-width="1.5" stroke-linecap="round"/><path d="M18 17l2 2 3-4" stroke="#A3D044" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h4>Сертификаты</h4>
+                <p>Сертификаты на все используемые препараты</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="8" width="20" height="16" rx="2" stroke="#1A1A2E" stroke-width="1.8"/><path d="M4 12h20" stroke="#1A1A2E" stroke-width="1.8"/><path d="M10 4h8v4H10V4z" stroke="#1A1A2E" stroke-width="1.8" stroke-linejoin="round"/><circle cx="14" cy="18" r="2" stroke="#1A1A2E" stroke-width="1.5"/></svg>
+                </div>
+                <h4>Членство в СРО</h4>
+                <p>Саморегулируемая организация дезинфекторов</p>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3L6 9v4h16V9L14 3z" stroke="#1A1A2E" stroke-width="1.8" stroke-linejoin="round"/><rect x="6" y="13" width="16" height="9" stroke="#1A1A2E" stroke-width="1.8"/><path d="M11 17h6" stroke="#1A1A2E" stroke-width="1.5" stroke-linecap="round"/><circle cx="14" cy="7" r="1.5" fill="#A3D044"/></svg>
+                </div>
+                <h4>Квалификация</h4>
+                <p>Аттестованные специалисты с профильным образованием</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-alt2 reveal-section" id="contact">
+    <div class="container">
+        <div class="section-label">Контакты</div>
+        <h2 class="section-title">Оставить заявку</h2>
+        <p class="section-subtitle" style="margin-bottom: 48px;">Заполните форму — мы свяжемся с вами в течение 30 минут</p>
+        <div class="contact-wrap">
+            <div class="contact-card">
+                <h3>Заказать анализ</h3>
+                <p>Бесплатная консультация и расчёт стоимости</p>
+                <form onsubmit="event.preventDefault(); alert('Заявка отправлена! Мы свяжемся с вами в течение 30 минут.');">
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="object-type">Тип объекта</label>
+                        <input type="text" id="object-type" name="object-type" placeholder="Квартира, ресторан, офис...">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Описание</label>
+                        <textarea id="description" name="description" placeholder="Опишите проблему..."></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn-primary" style="width: 100%;">Заказать анализ</button>
+                    </div>
+                    <div class="form-note">Ответим в течение 30 минут</div>
+                </form>
+                <div class="contact-messengers">
+                    <a href="https://wa.me/78126271550" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1.5C5.3 1.5 1.5 5.3 1.5 10c0 1.5.4 3 1.1 4.2L1.5 18.5l4.4-1.1c1.2.7 2.6 1.1 4.1 1.1 4.7 0 8.5-3.8 8.5-8.5S14.7 1.5 10 1.5z" stroke="currentColor" stroke-width="1.3"/><path d="M7 8.5c0-.5.4-1 .8-1s.7.2 1 .7l.4.8c.2.3.1.7-.2 1l-.3.3c.4.8 1 1.4 1.8 1.8l.3-.3c.3-.3.7-.4 1-.2l.8.4c.5.3.7.6.7 1s-.5.8-1 .8C9.5 13.8 7 11.3 7 8.5z" fill="currentColor"/></svg>
+                        WhatsApp
+                    </a>
+                    <a href="https://t.me/dez20spb" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 9.5l16-7-3.5 16-5-4-3.5 3V13L2 9.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 13l3-3 9-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+                        Telegram
+                    </a>
+                    <a href="tel:+78126271550">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 4.5A1.5 1.5 0 014.5 3h2.3a1 1 0 01.95.68l.8 2.4a1 1 0 01-.3 1.05l-1.1.9a10 10 0 004.8 4.8l.9-1.1a1 1 0 011.05-.3l2.4.8a1 1 0 01.68.95v2.3A1.5 1.5 0 0115.5 17 12.5 12.5 0 013 4.5z" stroke="currentColor" stroke-width="1.3"/></svg>
+                        +7 (812) 627-15-50
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">Дез<span>2.0</span></div>
+                <p>Профессиональная дезинсекция в Санкт-Петербурге. Без запаха, без следов, без компромиссов.</p>
+                <div class="footer-shield" style="margin-top: 16px;">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L3 5v5c0 4.5 2.5 8.5 6 10 3.5-1.5 6-5.5 6-10V5L9 2z" stroke="rgba(255,255,255,0.4)" stroke-width="1.3"/><circle cx="9" cy="9" r="1.5" fill="#A3D044"/></svg>
+                    Защищаем с 2014 года
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Услуги</h4>
+                <a href="#services">Обработка квартир</a>
+                <a href="#services">Обработка ресторанов</a>
+                <a href="#services">Офисы и склады</a>
+                <a href="#services">Экстренный выезд</a>
+            </div>
+            <div class="footer-col">
+                <h4>Компания</h4>
+                <a href="#pricing">Цены</a>
+                <a href="#guarantee">Гарантия</a>
+                <a href="#certs">Документы</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <a href="tel:+78126271550">+7 (812) 627-15-50</a>
+                <p>Санкт-Петербург</p>
+                <p>Работаем 24/7</p>
+                <a href="mailto:info@dez20.ru">info@dez20.ru</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Дез2.0. Все права защищены.</p>
+            <p>Санкт-Петербург</p>
+        </div>
+    </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" aria-label="Наверх">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4M5 9l5-5 5 5" stroke="#1A1A2E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+    <div class="sticky-cta-inner">
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Заказать анализ</button>
+        <a href="tel:+78126271550" class="btn-outline" style="display:flex;align-items:center;gap:6px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 3.5A1 1 0 013.5 2.5h1.8a.8.8 0 01.76.55l.6 1.8a.8.8 0 01-.24.84l-.8.7a8 8 0 003.8 3.8l.7-.8a.8.8 0 01.84-.24l1.8.6a.8.8 0 01.55.76v1.8a1 1 0 01-1 1A10 10 0 012.5 3.5z" stroke="currentColor" stroke-width="1.2"/></svg>
+            Позвонить
+        </a>
+    </div>
+</div>
+
+<script>
+(function(){
+    // ===== NAVBAR SCROLL =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // ===== HAMBURGER =====
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    });
+
+    // ===== LAB SLIDER =====
+    const labSlider = document.getElementById('labSlider');
+    let labInteracted = false;
+    const isMobile = window.innerWidth <= 768;
+
+    function contaminateLab() {
+        labSlider.classList.add('contaminated');
+    }
+    function cleanLab() {
+        if (!isMobile) labSlider.classList.remove('contaminated');
+    }
+
+    if (isMobile) {
+        // Auto-trigger on mobile
+        setTimeout(contaminateLab, 2000);
+    } else {
+        labSlider.addEventListener('mouseenter', () => {
+            labInteracted = true;
+            contaminateLab();
+        });
+        labSlider.addEventListener('mouseleave', cleanLab);
+        // Auto-trigger after 3s if no interaction
+        setTimeout(() => {
+            if (!labInteracted) contaminateLab();
+        }, 3000);
+    }
+
+    // ===== LAB ANALYZE BUTTON =====
+    var labAnalyzeBtn = document.getElementById('labAnalyze');
+    var labResult = document.getElementById('labResult');
+    if (labAnalyzeBtn) {
+        labAnalyzeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            labSlider.classList.remove('contaminated');
+            labSlider.classList.add('scanning');
+            // Counter animation
+            var count = 0;
+            var maxCount = 47;
+            var counterInterval = setInterval(function() {
+                count += Math.ceil(Math.random() * 5);
+                if (count > maxCount) count = maxCount;
+                labResult.textContent = 'Обнаружено: ' + count + ' вредителей';
+            }, 100);
+            // After scan completes
+            setTimeout(function() {
+                clearInterval(counterInterval);
+                // Count down to zero
+                var downInterval = setInterval(function() {
+                    count -= Math.ceil(Math.random() * 8);
+                    if (count <= 0) {
+                        count = 0;
+                        clearInterval(downInterval);
+                        labResult.textContent = 'Обнаружено: 0 вредителей';
+                        // Show checkmark
+                        setTimeout(function() {
+                            labSlider.classList.remove('scanning');
+                            labSlider.classList.add('cleaned');
+                            // Reset after 3s
+                            setTimeout(function() {
+                                labSlider.classList.remove('cleaned');
+                                labInteracted = false;
+                            }, 3000);
+                        }, 500);
+                    } else {
+                        labResult.textContent = 'Уничтожено: ' + (maxCount - count) + ' из ' + maxCount;
+                    }
+                }, 80);
+            }, 1500);
+        });
+    }
+
+    // ===== GLASS WIPE SECTION REVEALS =====
+    const revealSections = document.querySelectorAll('.reveal-section');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    revealSections.forEach(s => revealObserver.observe(s));
+
+    // ===== PROCESS CROSS MARKS ANIMATION =====
+    var processConnectors = document.querySelectorAll('.process-connector');
+    var crossesPerConnector = 5;
+    processConnectors.forEach(function(conn) {
+        for (var i = 0; i < crossesPerConnector; i++) {
+            var cm = document.createElement('div');
+            cm.className = 'cross-mark';
+            conn.appendChild(cm);
+        }
+    });
+    var processGrid = document.getElementById('processGrid');
+    if (processGrid) {
+        var crossObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var allConnectors = processGrid.querySelectorAll('.process-connector');
+                    var globalDelay = 0;
+                    allConnectors.forEach(function(conn) {
+                        var marks = conn.querySelectorAll('.cross-mark');
+                        marks.forEach(function(m, i) {
+                            setTimeout(function() { m.classList.add('visible'); }, globalDelay + i * 80);
+                        });
+                        globalDelay += marks.length * 80 + 150;
+                    });
+                    crossObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        crossObserver.observe(processGrid);
+    }
+
+    // ===== SPARKLE STARS + PARTICLES =====
+    document.querySelectorAll('[data-sparkle]').forEach(card => {
+        // Add sparkles
+        for (let i = 0; i < 4; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.top = Math.random() * 80 + '%';
+            sparkle.style.left = Math.random() * 80 + 10 + '%';
+            sparkle.style.animationDelay = (i * 0.15) + 's';
+            sparkle.innerHTML = '<svg viewBox="0 0 16 16" fill="none"><path d="M8 0l1.5 5.5L16 8l-6.5 2.5L8 16l-1.5-5.5L0 8l6.5-2.5z" fill="rgba(163,208,68,0.7)"/></svg>';
+            card.appendChild(sparkle);
+        }
+        // Add particles
+        for (let i = 0; i < 5; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'card-particle';
+            particle.style.bottom = '10px';
+            particle.style.left = Math.random() * 90 + 5 + '%';
+            particle.style.animationDelay = (i * 0.2) + 's';
+            card.appendChild(particle);
+        }
+    });
+
+    // ===== CTA BUTTON RIPPLE =====
+    document.querySelectorAll('.btn-primary').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            const rect = this.getBoundingClientRect();
+            ripple.style.left = (e.clientX - rect.left) + 'px';
+            ripple.style.top = (e.clientY - rect.top) + 'px';
+            ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) + 'px';
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+
+    // ===== GUARANTEE TIMER =====
+    const guaranteeBarFill = document.getElementById('guaranteeBarFill');
+    const guaranteeNum = document.getElementById('guaranteeNum');
+    const guaranteeCheck = document.getElementById('guaranteeCheck');
+    let guaranteeAnimated = false;
+
+    const guaranteeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !guaranteeAnimated) {
+                guaranteeAnimated = true;
+                let count = 0;
+                const target = 365;
+                const duration = 1500;
+                const step = duration / target;
+                const interval = setInterval(() => {
+                    count++;
+                    guaranteeNum.textContent = count;
+                    guaranteeBarFill.style.width = (count / target * 100) + '%';
+                    if (count >= target) {
+                        clearInterval(interval);
+                        guaranteeCheck.classList.add('visible');
+                    }
+                }, step);
+            }
+        });
+    }, { threshold: 0.5 });
+    if (guaranteeNum) guaranteeObserver.observe(guaranteeNum.closest('.guarantee-card'));
+
+    // ===== FAQ ACCORDION =====
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const item = this.closest('.faq-item');
+            const answer = item.querySelector('.faq-answer');
+            const isActive = item.classList.contains('active');
+
+            // Close all
+            document.querySelectorAll('.faq-item.active').forEach(openItem => {
+                openItem.classList.remove('active');
+                openItem.querySelector('.faq-answer').style.maxHeight = '0';
+            });
+
+            if (!isActive) {
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // ===== BACK TO TOP =====
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+        backTop.classList.toggle('visible', window.scrollY > 500);
+    });
+    backTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
+</script>
+</body>
+</html>

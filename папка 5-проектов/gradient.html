@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дез2.0 — Профессиональная дезинсекция в Санкт-Петербурге</title>
+<meta name="description" content="Дезинсекция и дератизация для бизнеса в СПб. Работаем ночью без остановки вашего заведения. Гарантия результата, документы для Роспотребнадзора. Выезд за 1-2 часа.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-dark: #0c1222;
+  --bg-card: rgba(15, 22, 40, 0.85);
+  --bg-alt: #101829;
+  --green: #22c95e;
+  --green-dim: rgba(34, 201, 94, 0.12);
+  --cyan: #00e5ff;
+  --cyan-dim: rgba(0, 229, 255, 0.1);
+  --white: #e8edf5;
+  --gray: #8d9bb4;
+  --gray-dim: #5a6a82;
+  --red: #EF4444;
+  --yellow: #EAB308;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Source Sans 3', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-dark);
+  color: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ======= NAVIGATION ======= */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  background: rgba(12,18,34,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,229,255,0.08);
+  z-index: 1000; padding: 0 24px;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; height: 68px;
+}
+.nav-logo {
+  font-family: var(--font-mono); font-weight: 700; font-size: 1.4rem;
+  color: var(--cyan); text-shadow: 0 0 10px rgba(0,229,255,0.4);
+}
+.nav-logo span { color: var(--gray); font-weight: 400; font-size: 0.75rem; margin-left: 8px; font-family: var(--font-body); text-shadow: none; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a {
+  color: var(--gray); text-decoration: none; font-size: 0.95rem; font-weight: 500;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.nav-links a:hover { color: var(--cyan); text-shadow: 0 0 8px rgba(0,229,255,0.3); }
+.nav-phone {
+  display: flex; align-items: center; gap: 8px;
+  color: var(--cyan); font-family: var(--font-mono); font-weight: 600; font-size: 1.15rem;
+  text-decoration: none; transition: color 0.2s, text-shadow 0.2s;
+}
+.nav-phone:hover { color: var(--white); text-shadow: 0 0 12px rgba(0,229,255,0.5); }
+.nav-phone svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+/* Burger */
+.burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.burger span { display: block; width: 24px; height: 2px; background: var(--cyan); margin: 5px 0; transition: 0.3s; border-radius: 2px; }
+.burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.burger.active span:nth-child(2) { opacity: 0; }
+.burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-menu {
+  display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0;
+  background: rgba(12,18,34,0.98); backdrop-filter: blur(20px);
+  z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+}
+.mobile-menu.active { display: flex; }
+.mobile-menu a {
+  color: var(--white); text-decoration: none; font-size: 1.3rem; font-weight: 500;
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--cyan); }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .burger { display: block; }
+}
+@media (max-width: 600px) {
+  .nav-phone span { display: none; }
+}
+
+/* ======= HEX GRID PATTERN ======= */
+.hex-overlay {
+  position: absolute; inset: 0; opacity: 0.04; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66Z' fill='none' stroke='%2300e5ff' stroke-width='1'/%3E%3Cpath d='M28 100L0 84L0 50L28 34L56 50L56 84L28 100Z' fill='none' stroke='%2300e5ff' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 56px 84px;
+}
+
+/* ======= HERO ======= */
+.hero {
+  padding: 140px 0 100px;
+  background: linear-gradient(180deg, #0c1222 0%, #1a1f35 100%);
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; top: 10%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,229,255,0.06) 0%, rgba(34,201,94,0.03) 40%, transparent 70%);
+  pointer-events: none;
+}
+.hero::before {
+  content: ''; position: absolute; bottom: -10%; left: -5%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(34,201,94,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: center; position: relative; z-index: 1;
+}
+.hero-text h1 {
+  font-family: var(--font-body); font-size: 2.8rem; font-weight: 700;
+  line-height: 1.2; margin-bottom: 20px; color: var(--white);
+}
+.hero-text h1 em { font-style: normal; color: var(--cyan); text-shadow: 0 0 20px rgba(0,229,255,0.3); }
+.hero-text .hero-sub {
+  font-size: 1.15rem; color: var(--gray); margin-bottom: 36px; max-width: 500px;
+}
+.hero-tagline {
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; opacity: 0.7;
+}
+.hero-stats { display: flex; gap: 36px; margin-bottom: 40px; }
+.hero-stat-num {
+  font-family: var(--font-mono); font-size: 2rem; font-weight: 700;
+  color: var(--green); line-height: 1; text-shadow: 0 0 15px rgba(34,201,94,0.3);
+}
+.hero-stat-label { font-size: 0.9rem; color: var(--gray); margin-top: 4px; }
+
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--green), #1ab84e);
+  color: #0c1222; font-family: var(--font-body); font-size: 1.05rem; font-weight: 600;
+  padding: 16px 36px; border: none; border-radius: 8px; cursor: pointer;
+  text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+  position: relative; overflow: hidden;
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%); transition: transform 0.5s;
+}
+.btn-primary:hover::after { transform: translateX(100%); }
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(34,201,94,0.35), 0 0 60px rgba(34,201,94,0.15);
+}
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--cyan);
+  font-family: var(--font-body); font-size: 1rem; font-weight: 500;
+  padding: 14px 28px; border: 1px solid rgba(0,229,255,0.25); border-radius: 8px;
+  cursor: pointer; text-decoration: none; transition: all 0.2s;
+}
+.btn-secondary svg { width: 18px; height: 18px; }
+.btn-secondary:hover {
+  background: rgba(0,229,255,0.06); border-color: rgba(0,229,255,0.5);
+  box-shadow: 0 0 20px rgba(0,229,255,0.1);
+}
+
+/* Hero viz */
+.hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+.viz-ring {
+  width: 320px; height: 320px; border-radius: 50%;
+  border: 2px solid rgba(0,229,255,0.15); position: relative;
+  display: flex; justify-content: center; align-items: center;
+  background: radial-gradient(circle, rgba(12,18,34,0.9) 60%, rgba(0,229,255,0.03) 100%);
+}
+.viz-ring::before {
+  content: ''; position: absolute; inset: 12px; border-radius: 50%;
+  border: 1px dashed rgba(0,229,255,0.12); animation: ringRotate 20s linear infinite;
+}
+@keyframes ringRotate { to { transform: rotate(360deg); } }
+.viz-ring::after {
+  content: ''; position: absolute; inset: -1px; border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 0%, rgba(0,229,255,0.08) 25%, transparent 50%);
+  animation: scanSweep 4s linear infinite;
+}
+@keyframes scanSweep { to { transform: rotate(360deg); } }
+.viz-center { text-align: center; z-index: 1; }
+.viz-center-num {
+  font-family: var(--font-mono); font-size: 3.5rem; font-weight: 700;
+  color: var(--cyan); line-height: 1; text-shadow: 0 0 25px rgba(0,229,255,0.4);
+}
+.viz-center-label { font-size: 0.85rem; color: var(--gray); margin-top: 4px; letter-spacing: 1px; }
+.viz-progress { position: absolute; inset: -3px; border-radius: 50%; z-index: 2; }
+.viz-progress circle { fill: none; stroke-width: 3; stroke-linecap: round; }
+.viz-progress .track { stroke: rgba(0,229,255,0.06); }
+.viz-progress .fill {
+  stroke: url(#vizGradient); stroke-dasharray: 1005; stroke-dashoffset: 3;
+  animation: progressRatchet 3s cubic-bezier(0.2, 0, 0.8, 1) infinite alternate;
+  transform: rotate(-90deg); transform-origin: center;
+}
+@keyframes progressRatchet {
+  0%   { stroke-dashoffset: 80; }
+  15%  { stroke-dashoffset: 60; }
+  18%  { stroke-dashoffset: 65; }
+  35%  { stroke-dashoffset: 35; }
+  38%  { stroke-dashoffset: 40; }
+  55%  { stroke-dashoffset: 18; }
+  58%  { stroke-dashoffset: 22; }
+  75%  { stroke-dashoffset: 8; }
+  78%  { stroke-dashoffset: 12; }
+  100% { stroke-dashoffset: 3; }
+}
+.viz-bars {
+  position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 6px; align-items: flex-end;
+}
+.viz-bar { width: 8px; border-radius: 4px 4px 0 0; opacity: 0.7; }
+.viz-bar:nth-child(1) { height: 30px; background: var(--cyan); animation: barWave 1.8s ease-in-out 0s infinite; }
+.viz-bar:nth-child(2) { height: 50px; background: linear-gradient(180deg, var(--cyan), var(--green)); animation: barWave 1.8s ease-in-out 0.15s infinite; }
+.viz-bar:nth-child(3) { height: 70px; background: var(--green); animation: barWave 1.8s ease-in-out 0.3s infinite; }
+.viz-bar:nth-child(4) { height: 45px; background: linear-gradient(180deg, var(--green), var(--cyan)); animation: barWave 1.8s ease-in-out 0.45s infinite; }
+.viz-bar:nth-child(5) { height: 60px; background: var(--cyan); animation: barWave 1.8s ease-in-out 0.6s infinite; }
+.viz-bar:nth-child(6) { height: 35px; background: var(--green); animation: barWave 1.8s ease-in-out 0.75s infinite; }
+@keyframes barWave {
+  0%, 100% { transform: scaleY(0.4); opacity: 0.3; }
+  50% { transform: scaleY(1); opacity: 0.9; }
+}
+
+/* Mobile: уменьшенный кружок вместо скрытия */
+@media (max-width: 900px) {
+  .hero { padding: 120px 0 60px; }
+  .hero-grid { grid-template-columns: 1fr; text-align: left; }
+  .hero-visual { margin-top: 20px; }
+  .viz-ring { width: 200px; height: 200px; }
+  .viz-center-num { font-size: 2.2rem; }
+  .viz-center-label { font-size: 0.75rem; }
+  .hero-text h1 { font-size: 2rem; }
+  .hero-stats { gap: 24px; }
+  .hero-stat-num { font-size: 1.5rem; }
+  .hero-buttons { flex-direction: column; align-items: stretch; }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary { text-align: center; justify-content: center; }
+}
+
+/* ======= TRUST BAR ======= */
+.trust-bar {
+  padding: 50px 0;
+  border-top: 1px solid rgba(0,229,255,0.06);
+  border-bottom: 1px solid rgba(0,229,255,0.06);
+  background: rgba(12,18,34,0.5);
+}
+.trust-bar h3 {
+  text-align: center; font-size: 0.85rem; font-weight: 500;
+  color: var(--gray-dim); text-transform: uppercase; letter-spacing: 2px;
+  margin-bottom: 30px; font-family: var(--font-body);
+}
+.trust-logos { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px 48px; }
+.trust-logos span {
+  font-family: var(--font-mono); font-size: 1rem; font-weight: 500;
+  color: var(--gray); letter-spacing: 1px;
+  padding: 8px 20px; border: 1px solid rgba(0,229,255,0.08); border-radius: 8px;
+  transition: all 0.2s;
+}
+.trust-logos span:hover { color: var(--cyan); border-color: rgba(0,229,255,0.2); text-shadow: 0 0 10px rgba(0,229,255,0.3); }
+
+/* ======= SECTION STYLES ======= */
+.section { padding: 90px 0; }
+.section-alt { background: var(--bg-alt); }
+.section-gradient { background: linear-gradient(180deg, #0c1222 0%, #1a1f35 100%); position: relative; }
+.section-label {
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+  color: var(--cyan); letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 12px; text-shadow: 0 0 8px rgba(0,229,255,0.3);
+}
+.section-title {
+  font-family: var(--font-body); font-size: 2.2rem; font-weight: 700;
+  color: var(--white); margin-bottom: 16px;
+}
+.section-subtitle { font-size: 1.05rem; color: var(--gray); max-width: 600px; margin-bottom: 48px; }
+
+/* Inline CTA between sections */
+.section-cta {
+  text-align: center; padding: 48px 0;
+  border-top: 1px solid rgba(0,229,255,0.04);
+  border-bottom: 1px solid rgba(0,229,255,0.04);
+}
+.section-cta p { color: var(--gray); margin-bottom: 20px; font-size: 1.05rem; }
+
+/* ======= SERVICES ======= */
+.services-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px;
+}
+.service-card {
+  background: var(--bg-card); border-radius: 12px; padding: 32px;
+  border: 1px solid rgba(0,229,255,0.06);
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  backdrop-filter: blur(8px);
+}
+.service-card.hidden-card { display: none; }
+.service-card:hover {
+  border-color: rgba(0,229,255,0.2); transform: translateY(-4px);
+  box-shadow: 0 8px 40px rgba(0,229,255,0.06);
+}
+.service-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.service-card h3 { font-family: var(--font-body); font-size: 1.25rem; font-weight: 600; color: var(--white); }
+.threat-badge {
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
+  padding: 4px 10px; border-radius: 20px; letter-spacing: 1px;
+}
+.threat-high { background: rgba(239,68,68,0.15); color: #EF4444; }
+.threat-med { background: rgba(234,179,8,0.15); color: #EAB308; }
+.service-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 20px; }
+.threat-bar-wrap { margin-bottom: 8px; }
+.threat-bar-label { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 6px; }
+.threat-bar-label span:first-child { color: var(--gray); }
+.threat-bar-label span:last-child { font-family: var(--font-mono); font-weight: 600; }
+.threat-bar { height: 6px; background: rgba(0,229,255,0.05); border-radius: 3px; overflow: hidden; }
+.threat-bar-fill { height: 100%; border-radius: 3px; transition: width 1.5s ease; }
+.fill-red { background: linear-gradient(90deg, #EF4444, #F87171); box-shadow: 0 0 8px rgba(239,68,68,0.3); }
+.fill-yellow { background: linear-gradient(90deg, #EAB308, #FACC15); box-shadow: 0 0 8px rgba(234,179,8,0.2); }
+.fill-green { background: linear-gradient(90deg, #22c95e, #4ade80); box-shadow: 0 0 8px rgba(34,201,94,0.3); }
+.fill-cyan { background: linear-gradient(90deg, #00e5ff, #67e8f9); box-shadow: 0 0 8px rgba(0,229,255,0.3); }
+.service-card-price {
+  margin-top: 20px; padding-top: 16px;
+  border-top: 1px solid rgba(0,229,255,0.06);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.service-card-price span:first-child { color: var(--gray); font-size: 0.85rem; }
+.service-card-price span:last-child { font-family: var(--font-mono); font-weight: 700; color: var(--green); font-size: 1.1rem; text-shadow: 0 0 8px rgba(34,201,94,0.3); }
+
+.show-more-wrap { text-align: center; margin-top: 32px; }
+.btn-show-more {
+  background: transparent; color: var(--cyan); border: 1px solid rgba(0,229,255,0.2);
+  padding: 12px 32px; border-radius: 8px; cursor: pointer;
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 500;
+  transition: all 0.2s;
+}
+.btn-show-more:hover { background: rgba(0,229,255,0.06); border-color: rgba(0,229,255,0.4); }
+
+/* ======= RISKS (new block) ======= */
+.risks-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;
+}
+.risk-card {
+  background: rgba(239,68,68,0.04); border-radius: 12px; padding: 28px;
+  border: 1px solid rgba(239,68,68,0.1); text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.risk-card:hover { border-color: rgba(239,68,68,0.25); transform: translateY(-2px); }
+.risk-icon { font-size: 2.5rem; margin-bottom: 12px; }
+.risk-card h4 { font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+.risk-card p { font-size: 0.9rem; color: var(--gray); }
+.risk-card .risk-num {
+  font-family: var(--font-mono); font-size: 1.8rem; font-weight: 700;
+  color: var(--red); margin-bottom: 4px;
+}
+
+/* ======= PROCESS ======= */
+.process-steps {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px;
+}
+.process-step {
+  position: relative; padding: 32px 28px; background: var(--bg-card);
+  border-radius: 12px; border: 1px solid rgba(0,229,255,0.06);
+  transition: border-color 0.3s, box-shadow 0.3s; backdrop-filter: blur(8px);
+}
+.process-step:hover { border-color: rgba(0,229,255,0.15); box-shadow: 0 4px 30px rgba(0,229,255,0.05); }
+.step-number {
+  font-family: var(--font-mono); font-size: 2.5rem; font-weight: 700;
+  color: var(--cyan); line-height: 1; margin-bottom: 16px; opacity: 0.6;
+  text-shadow: 0 0 15px rgba(0,229,255,0.2);
+}
+.process-step h4 { font-family: var(--font-body); font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+.process-step p { font-size: 0.9rem; color: var(--gray); }
+
+/* ======= COMPARISON TABLE ======= */
+.comparison-wrap { overflow-x: auto; position: relative; }
+.comparison-table {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  background: var(--bg-card); border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(0,229,255,0.06); backdrop-filter: blur(8px);
+}
+.comparison-table th, .comparison-table td { padding: 18px 24px; text-align: left; font-size: 0.95rem; }
+.comparison-table thead th {
+  background: rgba(0,229,255,0.04); color: var(--gray);
+  font-weight: 600; font-size: 0.85rem; text-transform: uppercase;
+  letter-spacing: 1px; border-bottom: 1px solid rgba(0,229,255,0.1);
+}
+.comparison-table thead th:first-child { color: var(--white); }
+.comparison-table thead th:nth-child(2) { color: var(--green); text-shadow: 0 0 5px rgba(34,201,94,0.4); }
+.comparison-table tbody td { border-bottom: 1px solid rgba(0,229,255,0.04); color: var(--gray); }
+.comparison-table tbody td:first-child { color: var(--white); font-weight: 500; }
+.comparison-table tbody td:nth-child(2) { text-shadow: 0 0 5px rgba(34,201,94,0.4); }
+.comparison-table tbody tr:last-child td { border-bottom: none; }
+.check { color: var(--green); font-size: 1.2rem; font-weight: 700; text-shadow: 0 0 8px rgba(34,201,94,0.4); }
+.cross { color: var(--red); font-size: 1.2rem; font-weight: 700; }
+
+.comparison-table tbody tr {
+  opacity: 0; transform: translateX(0);
+  animation: glitchSlideIn 0.5s ease forwards;
+}
+.comparison-table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+.comparison-table tbody tr:nth-child(2) { animation-delay: 0.2s; }
+.comparison-table tbody tr:nth-child(3) { animation-delay: 0.3s; }
+.comparison-table tbody tr:nth-child(4) { animation-delay: 0.4s; }
+.comparison-table tbody tr:nth-child(5) { animation-delay: 0.5s; }
+.comparison-table tbody tr:nth-child(6) { animation-delay: 0.6s; }
+.comparison-table tbody tr:nth-child(7) { animation-delay: 0.7s; }
+@keyframes glitchSlideIn {
+  0% { opacity: 0; transform: translateX(-8px); }
+  20% { opacity: 0.6; transform: translateX(3px); }
+  30% { opacity: 0.4; transform: translateX(-2px); }
+  40% { opacity: 0.8; transform: translateX(1px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+.comparison-wrap.glitch-paused .comparison-table tbody tr { animation-play-state: paused; opacity: 0; }
+.comparison-wrap.glitch-play .comparison-table tbody tr { animation-play-state: running; }
+
+/* Mobile: scroll hint */
+.scroll-hint {
+  display: none; text-align: center; font-size: 0.8rem; color: var(--gray-dim);
+  margin-top: 12px;
+}
+
+/* Mobile comparison cards */
+.comparison-cards { display: none; }
+.comparison-card-item {
+  background: var(--bg-card); border-radius: 12px; padding: 20px;
+  border: 1px solid rgba(0,229,255,0.06); margin-bottom: 12px;
+  backdrop-filter: blur(8px);
+}
+.comparison-card-item h4 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 12px; }
+.comparison-card-row {
+  display: flex; justify-content: space-between; padding: 8px 0;
+  border-bottom: 1px solid rgba(0,229,255,0.04); font-size: 0.9rem;
+}
+.comparison-card-row:last-child { border-bottom: none; }
+.comparison-card-row span:first-child { color: var(--gray); }
+
+@media (max-width: 768px) {
+  .comparison-wrap { display: none; }
+  .comparison-cards { display: block; }
+  .scroll-hint { display: block; }
+}
+
+/* ======= REVIEWS ======= */
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;
+}
+.review-card {
+  background: var(--bg-card); border-radius: 12px; padding: 32px;
+  border: 1px solid rgba(0,229,255,0.06); border-top: 3px solid var(--cyan);
+  transition: transform 0.3s, box-shadow 0.3s; backdrop-filter: blur(8px);
+}
+.review-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,229,255,0.06); }
+.review-stars { color: #EAB308; font-size: 1rem; margin-bottom: 16px; letter-spacing: 2px; }
+.review-card blockquote {
+  font-size: 1rem; color: var(--white); font-style: italic; line-height: 1.7; margin-bottom: 20px;
+}
+.review-author { display: flex; align-items: center; gap: 12px; }
+.review-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--green));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1.1rem; color: #0c1222;
+  flex-shrink: 0;
+}
+.review-meta { font-size: 0.85rem; color: var(--gray); }
+.review-meta strong { color: var(--white); font-weight: 600; display: block; margin-bottom: 2px; }
+.reviews-source {
+  text-align: center; margin-top: 32px; font-size: 0.9rem; color: var(--gray-dim);
+}
+.reviews-source a { color: var(--cyan); text-decoration: none; }
+.reviews-source a:hover { text-decoration: underline; }
+
+/* ======= GUARANTEE ======= */
+.guarantee {
+  background: rgba(15, 22, 40, 0.6); border-radius: 16px; padding: 48px;
+  text-align: center; border: 1px solid rgba(0,229,255,0.1);
+  box-shadow: 0 0 80px rgba(34,201,94,0.15), 0 0 120px rgba(0,229,255,0.05);
+  position: relative; overflow: hidden; backdrop-filter: blur(12px);
+  transition: box-shadow 0.5s;
+}
+.guarantee::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(34,201,94,0.06) 0%, rgba(0,229,255,0.03) 40%, transparent 70%);
+  pointer-events: none; transition: opacity 0.3s;
+}
+.guarantee::after {
+  content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
+  border-radius: 16px;
+  background: conic-gradient(from 0deg, transparent 0%, transparent 70%, var(--cyan) 75%, var(--green) 80%, transparent 85%, transparent 100%);
+  opacity: 0; animation: scanRotate 3s linear infinite; transition: opacity 0.4s; z-index: -1;
+}
+.guarantee:hover::after { opacity: 0.6; }
+.guarantee:hover { box-shadow: 0 0 100px rgba(34,201,94,0.2), 0 0 150px rgba(0,229,255,0.1); }
+@keyframes scanRotate { to { transform: rotate(360deg); } }
+.guarantee h2 { font-family: var(--font-body); font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; position: relative; }
+.guarantee h2 svg {
+  width: 36px; height: 36px; vertical-align: middle; margin-right: 12px;
+  color: var(--cyan); filter: drop-shadow(0 0 6px rgba(0,229,255,0.4));
+}
+.guarantee p { color: var(--gray); font-size: 1.05rem; max-width: 550px; margin: 0 auto; position: relative; }
+
+/* ======= FORM ======= */
+.form-section { padding: 90px 0; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.form-info h2 { font-family: var(--font-body); font-size: 2rem; font-weight: 700; margin-bottom: 16px; }
+.form-info p { color: var(--gray); font-size: 1.05rem; margin-bottom: 32px; }
+.form-info-item {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px; color: var(--gray); font-size: 0.95rem;
+}
+.form-info-item svg { width: 20px; height: 20px; color: var(--cyan); flex-shrink: 0; filter: drop-shadow(0 0 4px rgba(0,229,255,0.3)); }
+
+.messenger-buttons { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+.msg-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: 8px; text-decoration: none;
+  font-size: 0.95rem; font-weight: 500; transition: all 0.2s;
+}
+.msg-btn-wa { background: rgba(37,211,102,0.12); color: #25d366; border: 1px solid rgba(37,211,102,0.2); }
+.msg-btn-wa:hover { background: rgba(37,211,102,0.2); border-color: rgba(37,211,102,0.4); }
+.msg-btn-tg { background: rgba(0,136,204,0.12); color: #0088cc; border: 1px solid rgba(0,136,204,0.2); }
+.msg-btn-tg:hover { background: rgba(0,136,204,0.2); border-color: rgba(0,136,204,0.4); }
+.msg-btn svg { width: 18px; height: 18px; }
+
+.form-card {
+  background: var(--bg-card); border-radius: 16px; padding: 36px;
+  border: 1px solid rgba(0,229,255,0.06); backdrop-filter: blur(8px);
+}
+.form-card label { display: block; font-size: 0.85rem; color: var(--gray); margin-bottom: 8px; font-weight: 500; }
+.form-card label .required { color: var(--red); margin-left: 2px; }
+.form-card input,
+.form-card textarea,
+.form-card select {
+  width: 100%; padding: 14px 16px; background: rgba(12,18,34,0.8);
+  border: 1px solid rgba(0,229,255,0.1); border-radius: 8px;
+  color: var(--white); font-family: var(--font-body); font-size: 0.95rem;
+  margin-bottom: 20px; transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+}
+.form-card input:focus, .form-card textarea:focus, .form-card select:focus {
+  border-color: var(--cyan); box-shadow: 0 0 12px rgba(0,229,255,0.1);
+}
+.form-card input.error, .form-card textarea.error, .form-card select.error {
+  border-color: var(--red); box-shadow: 0 0 8px rgba(239,68,68,0.15);
+}
+.field-error { font-size: 0.8rem; color: var(--red); margin-top: -16px; margin-bottom: 16px; display: none; }
+.form-card select { appearance: none; cursor: pointer; }
+.form-card textarea { resize: vertical; min-height: 100px; }
+.form-submit {
+  width: 100%; padding: 16px;
+  background: linear-gradient(135deg, var(--green), #1ab84e);
+  color: #0c1222; font-family: var(--font-body); font-size: 1.05rem; font-weight: 600;
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(34,201,94,0.35), 0 0 40px rgba(34,201,94,0.15);
+}
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+.form-response-note { text-align: center; margin-top: 16px; font-size: 0.85rem; color: var(--gray-dim); }
+
+/* Success state */
+.form-success {
+  display: none; text-align: center; padding: 48px 24px;
+}
+.form-success svg { width: 64px; height: 64px; color: var(--green); margin-bottom: 16px; }
+.form-success h3 { font-size: 1.4rem; margin-bottom: 8px; }
+.form-success p { color: var(--gray); }
+
+@media (max-width: 900px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+/* ======= FOOTER ======= */
+.footer {
+  padding: 60px 0 32px;
+  border-top: 1px solid rgba(0,229,255,0.06);
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px; margin-bottom: 40px;
+}
+.footer-logo {
+  font-family: var(--font-mono); font-weight: 700; font-size: 1.2rem;
+  color: var(--cyan); text-shadow: 0 0 10px rgba(0,229,255,0.3); margin-bottom: 12px;
+}
+.footer-desc { color: var(--gray-dim); font-size: 0.9rem; max-width: 300px; line-height: 1.6; }
+.footer-col h4 { font-size: 0.85rem; font-weight: 600; color: var(--white); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.footer-col a {
+  display: block; color: var(--gray); text-decoration: none; font-size: 0.9rem;
+  margin-bottom: 10px; transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--cyan); }
+.footer-col p { color: var(--gray-dim); font-size: 0.9rem; margin-bottom: 8px; }
+.footer-bottom {
+  border-top: 1px solid rgba(0,229,255,0.06); padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { color: var(--gray-dim); font-size: 0.8rem; }
+.footer-bottom a { color: var(--gray-dim); text-decoration: none; font-size: 0.8rem; }
+.footer-bottom a:hover { color: var(--cyan); }
+
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ======= STICKY MOBILE CTA ======= */
+.mobile-cta {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0;
+  z-index: 999; background: linear-gradient(135deg, var(--green), #1ab84e);
+  padding: 14px 16px;
+}
+.mobile-cta-inner {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+}
+.mobile-cta a {
+  color: #0c1222; text-decoration: none; font-weight: 700; font-size: 1rem;
+  display: flex; align-items: center; gap: 6px;
+}
+.mobile-cta a svg { width: 20px; height: 20px; }
+.mobile-cta .mobile-cta-wa {
+  background: rgba(0,0,0,0.15); padding: 8px 14px; border-radius: 6px;
+  font-weight: 600; font-size: 0.85rem;
+}
+@media (max-width: 768px) {
+  .mobile-cta { display: block; }
+  body { padding-bottom: 56px; }
+}
+
+/* ======= ANIMATIONS ======= */
+.fade-in {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.counter-animate { display: inline-block; }
+
+/* ======= REDUCED MOTION ======= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .fade-in { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+
+<!-- Schema.org LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Дез2.0",
+  "description": "Профессиональная дезинсекция и дератизация для бизнеса в Санкт-Петербурге",
+  "telephone": "+7-812-627-15-50",
+  "areaServed": "Санкт-Петербург и Ленинградская область",
+  "priceRange": "₽₽",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Санкт-Петербург",
+    "addressCountry": "RU"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Дез2.0 <span>Санкт-Петербург</span></div>
+    <div class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#process">Как работаем</a>
+      <a href="#compare">Сравнение</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contact">Контакты</a>
+    </div>
+    <a href="tel:+78126271550" class="nav-phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>+7 (812) 627-15-50</span>
+    </a>
+    <button class="burger" aria-label="Меню" onclick="this.classList.toggle('active'); document.getElementById('mobileMenu').classList.toggle('active');">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobileMenu()">Услуги</a>
+  <a href="#process" onclick="closeMobileMenu()">Как работаем</a>
+  <a href="#compare" onclick="closeMobileMenu()">Сравнение</a>
+  <a href="#reviews" onclick="closeMobileMenu()">Отзывы</a>
+  <a href="#contact" onclick="closeMobileMenu()">Контакты</a>
+  <a href="tel:+78126271550" style="color: var(--cyan); font-family: var(--font-mono);">+7 (812) 627-15-50</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hex-overlay"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-tagline">// система защиты активирована</div>
+        <h1>Вредители в заведении? <em>Уничтожим за ночь</em> — утром откроетесь как обычно</h1>
+        <p class="hero-sub">Дезинсекция и дератизация для ресторанов, отелей, магазинов и производств в Санкт-Петербурге. Без остановки бизнеса, с документами для Роспотребнадзора.</p>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num"><span class="counter-animate" data-target="99.7" data-suffix="%" data-decimal="1">0%</span></div>
+            <div class="hero-stat-label">эффективность</div>
+          </div>
+          <div>
+            <div class="hero-stat-num"><span class="counter-animate" data-target="500" data-suffix="+" data-decimal="0">0</span></div>
+            <div class="hero-stat-label">объектов</div>
+          </div>
+          <div>
+            <div class="hero-stat-num"><span class="counter-animate" data-target="0" data-suffix="" data-decimal="0">0</span></div>
+            <div class="hero-stat-label">дней простоя</div>
+          </div>
+        </div>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Бесплатная консультация</a>
+          <a href="https://wa.me/78126271550?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B4%D0%B5%D0%B7%D0%B8%D0%BD%D1%81%D0%B5%D0%BA%D1%86%D0%B8%D1%8F." class="btn-secondary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.67-1.318A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.696-6.044-1.882l-.424-.3-2.77.782.726-2.653-.328-.466A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+            Написать в WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="viz-ring">
+          <svg class="viz-progress" viewBox="0 0 320 320">
+            <defs>
+              <linearGradient id="vizGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00e5ff"/>
+                <stop offset="100%" stop-color="#22c95e"/>
+              </linearGradient>
+            </defs>
+            <circle class="track" cx="160" cy="160" r="157"/>
+            <circle class="fill" cx="160" cy="160" r="157"/>
+          </svg>
+          <div class="viz-center">
+            <div class="viz-center-num">99.7%</div>
+            <div class="viz-center-label">эффективность</div>
+          </div>
+        </div>
+        <div class="viz-bars">
+          <div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div>
+          <div class="viz-bar"></div><div class="viz-bar"></div><div class="viz-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<section class="trust-bar">
+  <div class="container">
+    <h3>Нам доверяют</h3>
+    <div class="trust-logos">
+      <span>Теремок</span>
+      <span>Ginza Project</span>
+      <span>Hilton</span>
+      <span>Метрополь</span>
+      <span>Азбука Вкуса</span>
+      <span>Лента</span>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-label">01 Услуги</div>
+    <h2 class="section-title">Уничтожение вредителей</h2>
+    <p class="section-subtitle">Работаем с любыми видами насекомых и грызунов. Подбираем метод индивидуально под ваш объект.</p>
+
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-card-header">
+          <h3>Тараканы</h3>
+          <span class="threat-badge threat-high">Высокая угроза</span>
+        </div>
+        <p>Полное уничтожение популяции, включая яйца. Применяем гелевые и аэрозольные препараты нового поколения.</p>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Скорость размножения</span><span style="color:#EF4444;">95%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-red" style="width:95%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Устойчивость</span><span style="color:#EAB308;">78%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-yellow" style="width:78%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Риск для бизнеса</span><span style="color:#EF4444;">97%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-red" style="width:97%;"></div></div>
+        </div>
+        <div class="service-card-price">
+          <span>Стоимость от / помещение</span>
+          <span>3 500 &#8381;</span>
+        </div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-card-header">
+          <h3>Клопы</h3>
+          <span class="threat-badge threat-high">Высокая угроза</span>
+        </div>
+        <p>Горячий туман и барьерная обработка. Уничтожаем за одну процедуру, включая устойчивые штаммы.</p>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Скорость размножения</span><span style="color:#EAB308;">72%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-yellow" style="width:72%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Устойчивость</span><span style="color:#EF4444;">88%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-red" style="width:88%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Риск для бизнеса</span><span style="color:#EF4444;">92%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-red" style="width:92%;"></div></div>
+        </div>
+        <div class="service-card-price">
+          <span>Стоимость от / помещение</span>
+          <span>4 000 &#8381;</span>
+        </div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-card-header">
+          <h3>Крысы и мыши</h3>
+          <span class="threat-badge threat-high">Высокая угроза</span>
+        </div>
+        <p>Дератизация с комплексным подходом: механические ловушки, родентициды, герметизация путей проникновения.</p>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Скорость размножения</span><span style="color:#EAB308;">80%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-yellow" style="width:80%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Устойчивость</span><span style="color:#EAB308;">70%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-yellow" style="width:70%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Риск для бизнеса</span><span style="color:#EF4444;">95%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-red" style="width:95%;"></div></div>
+        </div>
+        <div class="service-card-price">
+          <span>Стоимость от / помещение</span>
+          <span>4 500 &#8381;</span>
+        </div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-card-header">
+          <h3>Комплексная обработка</h3>
+          <span class="threat-badge" style="background:rgba(0,229,255,0.12);color:#00e5ff;">Рекомендуем</span>
+        </div>
+        <p>Полная дезинсекция и дератизация объекта. Включает диагностику, обработку и профилактическое обслуживание.</p>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Охват угроз</span><span style="color:#00e5ff;">100%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-cyan" style="width:100%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Защита</span><span style="color:#22c95e;">100%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-green" style="width:100%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Экономия</span><span style="color:#22c95e;">35%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-green" style="width:35%;"></div></div>
+        </div>
+        <div class="service-card-price">
+          <span>Стоимость от / объект</span>
+          <span>8 000 &#8381;</span>
+        </div>
+      </div>
+
+      <!-- Hidden cards -->
+      <div class="service-card fade-in hidden-card">
+        <div class="service-card-header">
+          <h3>Муравьи</h3>
+          <span class="threat-badge threat-med">Средняя угроза</span>
+        </div>
+        <p>Уничтожение колоний с поиском гнезда. Используем приманочные станции и барьерную защиту.</p>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Скорость размножения</span><span style="color:#EAB308;">65%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-yellow" style="width:65%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Устойчивость</span><span style="color:#22c95e;">45%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-green" style="width:45%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Риск для бизнеса</span><span style="color:#EAB308;">60%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-yellow" style="width:60%;"></div></div>
+        </div>
+        <div class="service-card-price">
+          <span>Стоимость от / помещение</span>
+          <span>2 500 &#8381;</span>
+        </div>
+      </div>
+
+      <div class="service-card fade-in hidden-card">
+        <div class="service-card-header">
+          <h3>Мухи и мошки</h3>
+          <span class="threat-badge threat-med">Средняя угроза</span>
+        </div>
+        <p>Инсектицидная обработка помещений. Устанавливаем барьерную защиту на входные группы и вентиляцию.</p>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Скорость размножения</span><span style="color:#EF4444;">90%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-red" style="width:90%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Устойчивость</span><span style="color:#22c95e;">30%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-green" style="width:30%;"></div></div>
+        </div>
+        <div class="threat-bar-wrap">
+          <div class="threat-bar-label"><span>Риск для бизнеса</span><span style="color:#EAB308;">55%</span></div>
+          <div class="threat-bar"><div class="threat-bar-fill fill-yellow" style="width:55%;"></div></div>
+        </div>
+        <div class="service-card-price">
+          <span>Стоимость от / помещение</span>
+          <span>2 000 &#8381;</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-more-wrap">
+      <button class="btn-show-more" onclick="toggleCards(this)">Показать все услуги</button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA between sections -->
+<div class="section-cta">
+  <div class="container">
+    <p>Не уверены, какая услуга нужна? Мы определим вид вредителей бесплатно</p>
+    <a href="#contact" class="btn-primary">Получить консультацию</a>
+  </div>
+</div>
+
+<!-- Risks -->
+<section class="section" id="risks">
+  <div class="container">
+    <div class="section-label">Важно знать</div>
+    <h2 class="section-title">Что будет, если не обработать</h2>
+    <p class="section-subtitle">Каждый день без обработки увеличивает масштаб проблемы и ваши расходы.</p>
+
+    <div class="risks-grid">
+      <div class="risk-card fade-in">
+        <div class="risk-icon">&#9888;&#65039;</div>
+        <div class="risk-num counter-animate" data-target="500000" data-suffix=" &#8381;" data-decimal="0">0</div>
+        <h4>Штраф Роспотребнадзора</h4>
+        <p>Штраф за антисанитарию до 500 000 ₽ или приостановка деятельности на 90 суток</p>
+      </div>
+      <div class="risk-card fade-in">
+        <div class="risk-icon">&#128200;</div>
+        <div class="risk-num counter-animate" data-target="30" data-suffix="x" data-decimal="0">0</div>
+        <h4>Рост популяции</h4>
+        <p>Одна пара тараканов за год даёт потомство в 30 000 особей. Через месяц обработка будет стоить втрое дороже</p>
+      </div>
+      <div class="risk-card fade-in">
+        <div class="risk-icon">&#11088;</div>
+        <div class="risk-num counter-animate" data-target="73" data-suffix="%" data-decimal="0">0</div>
+        <h4>Потеря клиентов</h4>
+        <p>73% посетителей никогда не вернутся в заведение, где видели насекомых. Один отзыв = минус десятки гостей</p>
+      </div>
+      <div class="risk-card fade-in">
+        <div class="risk-icon">&#128683;</div>
+        <div class="risk-num counter-animate" data-target="90" data-suffix=" дней" data-decimal="0">0</div>
+        <h4>Закрытие точки</h4>
+        <p>Роспотребнадзор может закрыть заведение на срок до 90 дней. Аренда, зарплаты и репутация — всё под удар</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="section-cta">
+  <div class="container">
+    <p>Не ждите проверки. Решите проблему до того, как она станет критической</p>
+    <a href="#contact" class="btn-primary">Вызвать специалиста</a>
+  </div>
+</div>
+
+<!-- Process -->
+<section class="section section-gradient" id="process">
+  <div class="hex-overlay"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-label">02 Процесс</div>
+    <h2 class="section-title">Как мы работаем</h2>
+    <p class="section-subtitle">От заявки до результата — чёткий, отлаженный процесс без простоя вашего бизнеса.</p>
+
+    <div class="process-steps">
+      <div class="process-step fade-in">
+        <div class="step-number">01</div>
+        <h4>Заявка и консультация</h4>
+        <p>Вы звоните или оставляете заявку. Наш специалист уточняет детали и назначает удобное время осмотра.</p>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-number">02</div>
+        <h4>Диагностика объекта</h4>
+        <p>Выезжаем на объект, определяем вид вредителей, степень заражения и составляем план обработки.</p>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-number">03</div>
+        <h4>Обработка</h4>
+        <p>Проводим обработку в согласованное время. Работаем ночью, в выходные — когда вам удобно.</p>
+      </div>
+      <div class="process-step fade-in">
+        <div class="step-number">04</div>
+        <h4>Контроль и гарантия</h4>
+        <p>Проверяем результат, оформляем акты и документы. Даём гарантию — повторная обработка бесплатно.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison -->
+<section class="section section-alt" id="compare">
+  <div class="container">
+    <div class="section-label">03 Сравнение</div>
+    <h2 class="section-title">Почему выбирают нас</h2>
+    <p class="section-subtitle">Объективное сравнение с типичными службами на рынке.</p>
+
+    <!-- Desktop table -->
+    <div class="comparison-wrap glitch-paused fade-in">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Параметр</th>
+            <th>Дез2.0</th>
+            <th>Обычные службы</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Работа в ночное время</td><td><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td></tr>
+          <tr><td>Гарантия результата</td><td><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td></tr>
+          <tr><td>Документы для Роспотребнадзора</td><td><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td></tr>
+          <tr><td>Безопасные препараты для пищевых производств</td><td><span class="check">&#10003;</span></td><td><span class="cross">&#10007;</span></td></tr>
+          <tr><td>Договор обслуживания</td><td><span class="check">&#10003;</span></td><td><span class="check">&#10003;</span></td></tr>
+          <tr><td>Срок выезда</td><td style="color:var(--green);font-weight:600;">1-2 часа</td><td style="color:var(--gray);">1-3 дня</td></tr>
+          <tr><td>Повторная обработка</td><td style="color:var(--green);font-weight:600;">Бесплатно</td><td style="color:var(--gray);">Платно</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mobile cards -->
+    <div class="comparison-cards fade-in">
+      <div class="comparison-card-item">
+        <h4>Работа в ночное время</h4>
+        <div class="comparison-card-row"><span>Дез2.0</span><span class="check">&#10003;</span></div>
+        <div class="comparison-card-row"><span>Обычные службы</span><span class="cross">&#10007;</span></div>
+      </div>
+      <div class="comparison-card-item">
+        <h4>Гарантия результата</h4>
+        <div class="comparison-card-row"><span>Дез2.0</span><span class="check">&#10003;</span></div>
+        <div class="comparison-card-row"><span>Обычные службы</span><span class="cross">&#10007;</span></div>
+      </div>
+      <div class="comparison-card-item">
+        <h4>Документы для Роспотребнадзора</h4>
+        <div class="comparison-card-row"><span>Дез2.0</span><span class="check">&#10003;</span></div>
+        <div class="comparison-card-row"><span>Обычные службы</span><span class="cross">&#10007;</span></div>
+      </div>
+      <div class="comparison-card-item">
+        <h4>Безопасные препараты</h4>
+        <div class="comparison-card-row"><span>Дез2.0</span><span class="check">&#10003;</span></div>
+        <div class="comparison-card-row"><span>Обычные службы</span><span class="cross">&#10007;</span></div>
+      </div>
+      <div class="comparison-card-item">
+        <h4>Срок выезда</h4>
+        <div class="comparison-card-row"><span>Дез2.0</span><span style="color:var(--green);font-weight:600;">1-2 часа</span></div>
+        <div class="comparison-card-row"><span>Обычные службы</span><span>1-3 дня</span></div>
+      </div>
+      <div class="comparison-card-item">
+        <h4>Повторная обработка</h4>
+        <div class="comparison-card-row"><span>Дез2.0</span><span style="color:var(--green);font-weight:600;">Бесплатно</span></div>
+        <div class="comparison-card-row"><span>Обычные службы</span><span>Платно</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="section section-gradient" id="reviews">
+  <div class="hex-overlay"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-label">04 Отзывы</div>
+    <h2 class="section-title">Что говорят клиенты</h2>
+    <p class="section-subtitle">Реальные отзывы от управляющих ресторанов, отелей и магазинов Санкт-Петербурга.</p>
+
+    <div class="reviews-grid">
+      <div class="review-card fade-in">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&laquo;Вызывали для обработки ресторана перед проверкой Роспотребнадзора. Бригада приехала в 23:00, к 5 утра всё было готово. Утром открылись как обычно, проверку прошли без замечаний.&raquo;</blockquote>
+        <div class="review-author">
+          <div class="review-avatar">МК</div>
+          <div class="review-meta">
+            <strong>Марина Козлова</strong>
+            Управляющая ресторана &laquo;Балкон&raquo;, Невский пр.
+          </div>
+        </div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&laquo;Работаем по договору уже 2 года. Ежемесячная профилактика, за всё время — ни одной жалобы от гостей. Документы всегда готовы к проверке.&raquo;</blockquote>
+        <div class="review-author">
+          <div class="review-avatar">ДВ</div>
+          <div class="review-meta">
+            <strong>Дмитрий Волков</strong>
+            Директор отеля &laquo;Невский Палас&raquo;
+          </div>
+        </div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&laquo;Тараканы появились после ремонта у соседей. Дез2.0 приехали через час, обработали за вечер. Прошло 4 месяца — ни одного насекомого.&raquo;</blockquote>
+        <div class="review-author">
+          <div class="review-avatar">АМ</div>
+          <div class="review-meta">
+            <strong>Алексей Мартынов</strong>
+            Владелец кафе &laquo;Кофеин&raquo;, ул. Рубинштейна
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-source">
+      Больше отзывов на <a href="#" target="_blank" rel="noopener">Яндекс.Картах</a> и <a href="#" target="_blank" rel="noopener">2ГИС</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="section-cta">
+  <div class="container">
+    <p>Присоединяйтесь к 500+ объектам, которые доверяют нам свою защиту</p>
+    <a href="#contact" class="btn-primary">Оставить заявку</a>
+  </div>
+</div>
+
+<!-- Guarantee -->
+<section class="section">
+  <div class="container">
+    <div class="guarantee fade-in">
+      <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Гарантия результата
+      </h2>
+      <p>Если вредители вернутся в гарантийный период, мы проведём повторную обработку полностью бесплатно. Без вопросов и дополнительных условий.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section class="form-section" id="contact">
+  <div class="container">
+    <div class="form-grid">
+      <div class="form-info">
+        <div class="section-label">05 Контакты</div>
+        <h2>Оставьте заявку — ответим за 30 минут</h2>
+        <p>Расскажите о вашей ситуации, и мы подберём оптимальное решение. Консультация и выезд на диагностику — бесплатно.</p>
+
+        <div class="form-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 (812) 627-15-50
+        </div>
+        <div class="form-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Круглосуточно, 7 дней в неделю
+        </div>
+        <div class="form-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Санкт-Петербург и Ленинградская область
+        </div>
+
+        <div class="messenger-buttons">
+          <a href="https://wa.me/78126271550?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B4%D0%B5%D0%B7%D0%B8%D0%BD%D1%81%D0%B5%D0%BA%D1%86%D0%B8%D1%8F." class="msg-btn msg-btn-wa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.67-1.318A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.696-6.044-1.882l-.424-.3-2.77.782.726-2.653-.328-.466A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://t.me/dez20spb" class="msg-btn msg-btn-tg" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            Telegram
+          </a>
+        </div>
+      </div>
+
+      <div class="form-card fade-in" id="formCard">
+        <form id="contactForm" novalidate>
+          <label>Ваше имя <span class="required">*</span></label>
+          <input type="text" id="fname" placeholder="Как к вам обращаться?" required>
+          <div class="field-error" id="fnameError">Введите ваше имя</div>
+
+          <label>Телефон <span class="required">*</span></label>
+          <input type="tel" id="fphone" placeholder="+7 (___) ___-__-__" required>
+          <div class="field-error" id="fphoneError">Введите номер телефона</div>
+
+          <label>Тип объекта</label>
+          <select id="ftype">
+            <option value="">Выберите тип объекта</option>
+            <option>Ресторан / кафе</option>
+            <option>Отель / гостиница</option>
+            <option>Магазин / супермаркет</option>
+            <option>Склад / производство</option>
+            <option>Офис</option>
+            <option>Другое</option>
+          </select>
+
+          <label>Опишите проблему</label>
+          <textarea id="fmessage" placeholder="Что вас беспокоит? Какие вредители? Как давно?"></textarea>
+
+          <button type="submit" class="form-submit" id="submitBtn">Отправить заявку</button>
+          <div class="form-response-note">Перезвоним в течение 30 минут</div>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h3>Заявка отправлена!</h3>
+          <p>Наш специалист свяжется с вами в течение 30 минут. Если срочно — звоните <a href="tel:+78126271550" style="color:var(--cyan);">+7 (812) 627-15-50</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Дез2.0</div>
+        <p class="footer-desc">Профессиональная дезинсекция и дератизация для бизнеса в Санкт-Петербурге. Работаем круглосуточно, без остановки вашего заведения.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <a href="#services">Услуги</a>
+        <a href="#process">Как работаем</a>
+        <a href="#compare">Сравнение</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contact">Контакты</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <p><a href="tel:+78126271550" style="color:var(--cyan);">+7 (812) 627-15-50</a></p>
+        <p>Санкт-Петербург</p>
+        <p>Круглосуточно, 24/7</p>
+        <p style="margin-top:8px;">ИНН: 7800000000</p>
+        <p>ОГРН: 1230000000000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Дез2.0. Все права защищены.</p>
+      <a href="#">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky Mobile CTA -->
+<div class="mobile-cta">
+  <div class="mobile-cta-inner">
+    <a href="tel:+78126271550">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Позвонить
+    </a>
+    <a href="https://wa.me/78126271550" class="mobile-cta-wa" target="_blank" rel="noopener">WA</a>
+  </div>
+</div>
+
+<script>
+// Mobile menu
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('active');
+  document.querySelector('.burger').classList.remove('active');
+}
+
+// Fade-in observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+        if (entry.target.classList.contains('comparison-wrap')) {
+          entry.target.classList.remove('glitch-paused');
+          entry.target.classList.add('glitch-play');
+        }
+      }, i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Counter animation
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const decimal = parseInt(el.dataset.decimal) || 0;
+  const duration = 2000;
+  const start = performance.now();
+  if (target === 0) { el.textContent = '0' + suffix; return; }
+  function update(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = (target * eased).toFixed(decimal).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+// Observe all counters
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Find all counters in this section
+      const counters = entry.target.querySelectorAll('.counter-animate');
+      if (counters.length === 0 && entry.target.classList.contains('counter-animate')) {
+        animateCounter(entry.target);
+      } else {
+        counters.forEach(c => animateCounter(c));
+      }
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.hero, #risks').forEach(el => counterObserver.observe(el));
+
+// Show more cards
+function toggleCards(btn) {
+  const hidden = document.querySelectorAll('.hidden-card');
+  const showing = !hidden[0].classList.contains('hidden-card-visible');
+  hidden.forEach(card => {
+    if (showing) {
+      card.style.display = 'block';
+      card.classList.add('hidden-card-visible');
+      setTimeout(() => card.classList.add('visible'), 50);
+    } else {
+      card.style.display = 'none';
+      card.classList.remove('hidden-card-visible', 'visible');
+    }
+  });
+  btn.textContent = showing ? 'Скрыть' : 'Показать все услуги';
+}
+
+// Phone mask
+const phoneInput = document.getElementById('fphone');
+phoneInput.addEventListener('input', function() {
+  let val = this.value.replace(/\D/g, '');
+  if (val.length === 0) { this.value = ''; return; }
+  if (val[0] === '8') val = '7' + val.slice(1);
+  if (val[0] !== '7') val = '7' + val;
+  let formatted = '+7';
+  if (val.length > 1) formatted += ' (' + val.slice(1, 4);
+  if (val.length > 4) formatted += ') ' + val.slice(4, 7);
+  if (val.length > 7) formatted += '-' + val.slice(7, 9);
+  if (val.length > 9) formatted += '-' + val.slice(9, 11);
+  this.value = formatted;
+});
+
+// Form validation & submit
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  let valid = true;
+  const name = document.getElementById('fname');
+  const phone = document.getElementById('fphone');
+  const nameErr = document.getElementById('fnameError');
+  const phoneErr = document.getElementById('fphoneError');
+
+  // Reset
+  [name, phone].forEach(el => el.classList.remove('error'));
+  [nameErr, phoneErr].forEach(el => el.style.display = 'none');
+
+  if (!name.value.trim()) {
+    name.classList.add('error'); nameErr.style.display = 'block'; valid = false;
+  }
+  const digits = phone.value.replace(/\D/g, '');
+  if (digits.length < 11) {
+    phone.classList.add('error'); phoneErr.style.display = 'block'; valid = false;
+  }
+
+  if (valid) {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+});
+</script>
+</body>
+</html>
