@@ -371,9 +371,11 @@
       z-index: 10;
       box-shadow: 0 0 0 10px rgba(26,26,46,0.04), 0 8px 32px rgba(26,26,46,0.22);
     }
-    .orbit-center-lbl { font-size: 0.52rem; color: rgba(255,255,255,0.38); text-transform: uppercase; letter-spacing: 1.5px; }
-    .orbit-center-num { font-size: 1.5rem; font-weight: 800; color: var(--accent); line-height: 1; }
-    .orbit-center-sub { font-size: 0.52rem; color: rgba(255,255,255,0.38); margin-top: 1px; text-align: center; }
+    .orbit-center-lbl { font-size: 0.52rem; color: rgba(255,255,255,0.38); text-transform: uppercase; letter-spacing: 1.5px; transition: opacity 0.3s; }
+    .orbit-center-num { font-size: 1.5rem; font-weight: 800; color: var(--accent); line-height: 1; transition: all 0.3s; }
+    .orbit-center-sub { font-size: 0.52rem; color: rgba(255,255,255,0.38); margin-top: 1px; text-align: center; transition: opacity 0.3s; }
+    .orbit-center.price-mode .orbit-center-num { font-size: 1.05rem; }
+    @keyframes orbitPop { 0% { transform: translate(-50%,-50%) scale(0.9); } 60% { transform: translate(-50%,-50%) scale(1.08); } 100% { transform: translate(-50%,-50%) scale(1); } }
 
     /* Орбитальные группы */
     .orbit-group {
@@ -406,16 +408,31 @@
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       box-shadow: 0 3px 14px rgba(26,26,46,0.10);
       transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-      position: relative;
+      position: relative; overflow: hidden;
     }
-    /* Номер в углу карточки */
+    /* Номер — светящийся бейдж снаружи круга */
     .pest-num {
-      position: absolute; top: 5px; left: 7px;
-      font-size: 0.42rem; font-weight: 800;
-      color: var(--text-2); line-height: 1; letter-spacing: 0.5px;
+      position: absolute; top: -6px; right: -6px;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent);
+      color: var(--dark);
+      font-size: 0.48rem; font-weight: 800; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 8px rgba(163,208,68,0.7), 0 0 2px rgba(163,208,68,0.4);
+      z-index: 10;
+      border: 1.5px solid rgba(255,255,255,0.9);
     }
-    .pest-icon { font-size: 1.5rem; display: block; line-height: 1; }
-    .pest-icon img { width: 50px; height: 50px; object-fit: contain; mix-blend-mode: multiply; }
+    .pest-icon {
+      width: 50px; height: 50px; border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .pest-icon img {
+      width: 34px; height: 34px;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
     /* Название под карточкой */
     .pest-name {
       font-size: 0.68rem; font-weight: 700; color: var(--text);
@@ -871,14 +888,50 @@
       .pricing-card.featured { transform: scale(1); }
     }
     @media (max-width: 768px) {
+      /* Общее */
+      body { overflow-x: hidden; }
+
+      /* Навбар */
       .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      .hero { min-height: auto; padding: 120px 0 60px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-      .hero-right { order: -1; }
-      .hero-img-wrap .img-ph { min-height: 280px; }
-      .hero-badge { bottom: -16px; left: 12px; }
-      .orbit-scene { transform: scale(0.65); transform-origin: top center; margin-bottom: -140px; }
+      .hamburger { display: flex; background: rgba(163,208,68,0.15); border-radius: 10px; padding: 10px; }
+      .hamburger span { background: var(--text); }
+
+      /* Hero */
+      .hero { min-height: 0 !important; padding: 72px 0 32px; overflow: hidden; display: block; }
+      .hero-grid { grid-template-columns: 1fr; gap: 16px; }
+      .hero-left { position: relative; z-index: 2; }
+      .hero-right { order: -1; height: 220px; overflow: hidden; }
+
+      /* Фото специалиста на мобильном */
+      .hero-worker-scene {
+        position: absolute;
+        left: 50%; top: -40px;
+        transform: translateX(-50%);
+        width: 360px;
+        right: auto;
+        -webkit-mask-image:
+          linear-gradient(to bottom, transparent 0%, black 20%, black 65%, transparent 100%);
+        mask-image:
+          linear-gradient(to bottom, transparent 0%, black 20%, black 65%, transparent 100%);
+      }
+      .hero-worker-img { width: 100%; height: auto; }
+
+      /* Бейдж */
+      .hero-badge { display: none; }
+
+      /* Hero stats — 2 колонки */
+      .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .hero-stat { padding: 10px 12px 10px 10px; }
+      .hero-stat-icon img { width: 52px; height: 52px; }
+
+      /* Орбита — останавливаем анимацию (на пальцах не попасть в движущиеся цели) */
+      .orbit-group-inner,
+      .orbit-group-outer { animation: none; }
+      .orbit-group-inner .pest-upright,
+      .orbit-group-outer .pest-upright { animation: none; }
+      .orbit-scene { transform: scale(0.62); transform-origin: top center; margin-bottom: -148px; }
+
+      /* Остальные блоки */
       .process-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
       .process-grid::before { display: none; }
       .lab-body { grid-template-columns: 1fr; }
@@ -895,12 +948,16 @@
       .mobile-sticky { display: flex; }
     }
     @media (max-width: 480px) {
-      .hero h1 { font-size: 2rem; }
-      .orbit-scene { transform: scale(0.44); margin-bottom: -220px; }
+      .hero h1 { font-size: 1.9rem; }
+      .hero-right { height: 220px; }
+      .hero-worker-scene { width: 280px; }
+      .hero-btns { flex-direction: column; align-items: flex-start; }
+      .orbit-scene { transform: scale(0.44); margin-bottom: -222px; }
       .process-grid { grid-template-columns: 1fr; }
       .trust-logos { gap: 24px; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
+      .pest-section { border-radius: 24px 24px 0 0; }
     }
   </style>
 </head>
@@ -1046,17 +1103,17 @@
       <div class="orbit-ring orbit-ring-4"></div>
 
       <!-- Центральный круг -->
-      <div class="orbit-center">
-        <span class="orbit-center-lbl">видов</span>
-        <span class="orbit-center-num">6</span>
-        <span class="orbit-center-sub">вредителей</span>
+      <div class="orbit-center" id="orbitCenter">
+        <span class="orbit-center-lbl" id="orbitLbl">видов</span>
+        <span class="orbit-center-num" id="orbitNum">6</span>
+        <span class="orbit-center-sub" id="orbitSub">вредителей</span>
       </div>
 
       <!-- Внутренняя орбита r=155 — по часовой 22s -->
       <div class="orbit-group orbit-group-inner">
 
         <!-- 01 · Тараканы · угол 0° -->
-        <div class="pest-item" style="left:286px;top:97px" onclick="selectPest(this)">
+        <div class="pest-item" style="left:286px;top:97px" data-price="от 2 500 ₽" data-name="Тараканы" onclick="selectPest(this)">
           <div class="pest-upright">
             <div class="pest-card">
               <span class="pest-num">01</span>
@@ -1067,7 +1124,7 @@
         </div>
 
         <!-- 03 · Грызуны · угол 120° -->
-        <div class="pest-item" style="left:420px;top:330px" onclick="selectPest(this)">
+        <div class="pest-item" style="left:420px;top:330px" data-price="от 4 000 ₽" data-name="Грызуны" onclick="selectPest(this)">
           <div class="pest-upright">
             <div class="pest-card">
               <span class="pest-num">03</span>
@@ -1078,7 +1135,7 @@
         </div>
 
         <!-- 05 · Муравьи · угол 240° -->
-        <div class="pest-item" style="left:152px;top:330px" onclick="selectPest(this)">
+        <div class="pest-item" style="left:152px;top:330px" data-price="от 1 800 ₽" data-name="Муравьи" onclick="selectPest(this)">
           <div class="pest-upright">
             <div class="pest-card">
               <span class="pest-num">05</span>
@@ -1094,7 +1151,7 @@
       <div class="orbit-group orbit-group-outer">
 
         <!-- 02 · Клопы · угол 60° -->
-        <div class="pest-item" style="left:464px;top:130px" onclick="selectPest(this)">
+        <div class="pest-item" style="left:464px;top:130px" data-price="от 3 500 ₽" data-name="Клопы" onclick="selectPest(this)">
           <div class="pest-upright">
             <div class="pest-card">
               <span class="pest-num">02</span>
@@ -1105,7 +1162,7 @@
         </div>
 
         <!-- 04 · Блохи · угол 180° -->
-        <div class="pest-item" style="left:286px;top:497px" onclick="selectPest(this)">
+        <div class="pest-item" style="left:286px;top:497px" data-price="от 2 000 ₽" data-name="Блохи" onclick="selectPest(this)">
           <div class="pest-upright">
             <div class="pest-card">
               <span class="pest-num">04</span>
@@ -1116,7 +1173,7 @@
         </div>
 
         <!-- 06 · Дезинфекция · угол 300° -->
-        <div class="pest-item" style="left:74px;top:130px" onclick="selectPest(this)">
+        <div class="pest-item" style="left:74px;top:130px" data-price="от 6 500 ₽" data-name="Дезинфекция" onclick="selectPest(this)">
           <div class="pest-upright">
             <div class="pest-card">
               <span class="pest-num">06</span>
@@ -1843,12 +1900,33 @@
 
   // ── Pest selector ──
   function selectPest(item) {
+    const alreadyActive = item.classList.contains('active');
+
+    // Второй клик — скролл к форме
+    if (alreadyActive) {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    // Первый клик — показать цену
     document.querySelectorAll('.pest-item').forEach(c => c.classList.remove('active'));
     item.classList.add('active');
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+
+    const price = item.dataset.price;
+    const name  = item.dataset.name;
+    const center = document.getElementById('orbitCenter');
+    center.classList.add('price-mode');
+    center.style.animation = 'none';
+    center.offsetHeight;
+    center.style.animation = 'orbitPop 0.4s ease';
+    document.getElementById('orbitLbl').textContent = name;
+    document.getElementById('orbitNum').textContent = price;
+    document.getElementById('orbitSub').textContent = 'нажми ещё раз →';
+
+    // Пре-заполнить форму
     const pestName = item.querySelector('.pest-name').textContent;
     const select = document.querySelector('.cta-form select');
-    select.querySelectorAll('option').forEach(o => { if (o.text === pestName) o.selected = true; });
+    if (select) select.querySelectorAll('option').forEach(o => { if (o.text === pestName) o.selected = true; });
   }
 
   // ── Lab slider / before-after toggle ──
