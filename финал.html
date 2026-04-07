@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дез2.0 — Дезинсекция в Санкт-Петербурге. Гарантия 365 дней</title>
+  <title>ЗЕВС — Дезинсекция в Санкт-Петербурге. Гарантия 365 дней</title>
   <meta name="description" content="Профессиональная дезинсекция в СПб. Тараканы, клопы, грызуны — уничтожим за 1 день. Безопасно для детей и животных. Гарантия 365 дней. Выезд от 2 часов.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -302,142 +302,7 @@
     .hero-badge-sub { font-size: 0.75rem; color: var(--text-2); font-weight: 400; }
 
     /* ===== CONCENTRIC RINGS PEST SELECTOR ===== */
-    .pest-section {
-      padding: 70px 0 60px;
-      position: relative;
-      margin-top: -48px;
-      border-radius: 40px 40px 0 0;
-      background:
-        radial-gradient(ellipse 60% 60% at 0% 0%, rgba(163,208,68,0.12) 0%, transparent 70%),
-        linear-gradient(160deg, #f2f8ff 0%, #edf7e4 45%, #f2f8ff 100%);
-      border-top: 1px solid rgba(163,208,68,0.14);
-      box-shadow: 0 -12px 48px rgba(26,26,46,0.05);
-      z-index: 2;
-    }
-    .pest-title { font-size: 1rem; font-weight: 600; color: var(--text-2); margin-bottom: 0; text-align: center; }
-
-    .orbit-scene {
-      position: relative; width: 640px; height: 640px;
-      margin: 0 auto;
-    }
-
-    /* Концентрические кольца — зелёные, с растворяющимися участками */
-    .orbit-ring {
-      position: absolute; top: 50%; left: 50%;
-      border-radius: 50%; pointer-events: none;
-      transform: translate(-50%, -50%);
-      border: none;
-    }
-    .orbit-ring-1 {
-      width: 130px; height: 130px;
-      background: conic-gradient(from 30deg,
-        rgba(163,208,68,0.7) 0%, rgba(163,208,68,0.4) 70%,
-        transparent 82%, rgba(163,208,68,0.6) 100%);
-      -webkit-mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
-      mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
-    }
-    .orbit-ring-2 {
-      width: 250px; height: 250px;
-      background: conic-gradient(from 110deg,
-        rgba(163,208,68,0.55) 0%, rgba(163,208,68,0.5) 65%,
-        transparent 78%, rgba(163,208,68,0.45) 90%, rgba(163,208,68,0.55) 100%);
-      -webkit-mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
-      mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
-    }
-    .orbit-ring-3 {
-      width: 390px; height: 390px;
-      background: conic-gradient(from 200deg,
-        rgba(163,208,68,0.55) 0%, rgba(163,208,68,0.45) 60%,
-        transparent 74%, rgba(163,208,68,0.4) 88%, rgba(163,208,68,0.55) 100%);
-      -webkit-mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
-      mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
-    }
-    .orbit-ring-4 {
-      width: 590px; height: 590px;
-      background: conic-gradient(from 300deg,
-        rgba(163,208,68,0.5) 0%, rgba(163,208,68,0.38) 65%,
-        transparent 78%, rgba(163,208,68,0.35) 90%, rgba(163,208,68,0.5) 100%);
-      -webkit-mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
-      mask: radial-gradient(circle, transparent calc(50% - 2px), black calc(50% - 1px), black 50%, transparent 50%);
-    }
-
-    /* Центральный тёмный круг */
-    .orbit-center {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 90px; height: 90px; border-radius: 50%;
-      background: var(--dark);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      z-index: 10;
-      box-shadow: 0 0 0 10px rgba(26,26,46,0.04), 0 8px 32px rgba(26,26,46,0.22);
-    }
-    .orbit-center-lbl { font-size: 0.52rem; color: rgba(255,255,255,0.38); text-transform: uppercase; letter-spacing: 1.5px; transition: opacity 0.3s; }
-    .orbit-center-num { font-size: 1.5rem; font-weight: 800; color: var(--accent); line-height: 1; transition: all 0.3s; }
-    .orbit-center-sub { font-size: 0.52rem; color: rgba(255,255,255,0.38); margin-top: 1px; text-align: center; transition: opacity 0.3s; }
-    .orbit-center.price-mode .orbit-center-num { font-size: 1.05rem; }
-    @keyframes orbitPop { 0% { transform: translate(-50%,-50%) scale(0.9); } 60% { transform: translate(-50%,-50%) scale(1.08); } 100% { transform: translate(-50%,-50%) scale(1); } }
-
-    /* Орбитальные группы */
-    .orbit-group {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-    }
-    .orbit-group-inner { animation: spinCW  22s linear infinite; transform-origin: 50% 50%; }
-    .orbit-group-outer { animation: spinCCW 36s linear infinite; transform-origin: 50% 50%; }
-    @keyframes spinCW  { from { transform: rotate(0deg);   } to { transform: rotate(360deg);  } }
-    @keyframes spinCCW { from { transform: rotate(0deg);   } to { transform: rotate(-360deg); } }
-
-    /* Обёртка позиции каждой карточки */
-    .pest-item {
-      position: absolute; cursor: pointer; z-index: 5; pointer-events: auto;
-    }
-    .pest-upright {
-      display: flex; flex-direction: column; align-items: center; gap: 6px;
-    }
-    .orbit-group-inner .pest-upright { animation: spinCCW 22s linear infinite; transform-origin: 50% 50%; }
-    .orbit-group-outer .pest-upright { animation: spinCW  36s linear infinite; transform-origin: 50% 50%; }
-
-    .pest-item:hover .pest-card { border-color: var(--accent); box-shadow: 0 6px 22px rgba(163,208,68,0.35); transform: scale(1.12); }
-    .pest-item.active .pest-card { border-color: var(--accent); background: var(--accent-dim); }
-
-    /* Круглая карточка */
-    .pest-card {
-      width: 68px; height: 68px; border-radius: 50%;
-      background: var(--white); border: 1.5px solid var(--border);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      box-shadow: 0 3px 14px rgba(26,26,46,0.10);
-      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-      position: relative; overflow: hidden;
-    }
-    /* Номер — светящийся бейдж снаружи круга */
-    .pest-num {
-      position: absolute; top: -6px; right: -6px;
-      width: 20px; height: 20px; border-radius: 50%;
-      background: var(--accent);
-      color: var(--dark);
-      font-size: 0.48rem; font-weight: 800; line-height: 1;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 8px rgba(163,208,68,0.7), 0 0 2px rgba(163,208,68,0.4);
-      z-index: 10;
-      border: 1.5px solid rgba(255,255,255,0.9);
-    }
-    .pest-icon {
-      width: 50px; height: 50px; border-radius: 50%;
-      background: rgba(255,255,255,0.92);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .pest-icon img {
-      width: 34px; height: 34px;
-      object-fit: contain;
-      mix-blend-mode: multiply;
-    }
-    /* Название под карточкой */
-    .pest-name {
-      font-size: 0.68rem; font-weight: 700; color: var(--text);
-      text-align: center; line-height: 1.2; white-space: nowrap;
-    }
+    /* pest-section убран — блок заменён */
 
     /* ===== TRUST BAR ===== */
     .trust-bar { padding: 36px 0; background: linear-gradient(90deg, #f0f9ea 0%, #f8fbff 50%, #f0f9ea 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -663,12 +528,11 @@
       background: var(--white); border: 1px solid var(--border);
       border-radius: 28px; padding: 36px 32px;
       display: flex; gap: 20px; align-items: flex-start;
-      transition: filter 0.3s, transform 0.3s;
-      clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 36px), calc(100% - 36px) 100%, 0% 100%);
-      filter: drop-shadow(0 2px 12px rgba(26,26,46,0.06));
+      transition: box-shadow 0.3s, transform 0.3s;
+      box-shadow: 0 2px 12px rgba(26,26,46,0.05);
     }
     .guarantee-card:hover {
-      filter: drop-shadow(0 8px 28px rgba(26,26,46,0.11));
+      box-shadow: 0 4px 16px rgba(26,26,46,0.08);
       transform: translateY(-2px);
     }
     .g-icon { width: 64px; height: 64px; border-radius: 16px; background: transparent; border: 2.5px solid var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.5rem; }
@@ -924,12 +788,7 @@
       .hero-stat { padding: 10px 12px 10px 10px; }
       .hero-stat-icon img { width: 52px; height: 52px; }
 
-      /* Орбита — останавливаем анимацию (на пальцах не попасть в движущиеся цели) */
-      .orbit-group-inner,
-      .orbit-group-outer { animation: none; }
-      .orbit-group-inner .pest-upright,
-      .orbit-group-outer .pest-upright { animation: none; }
-      .orbit-scene { transform: scale(0.62); transform-origin: top center; margin-bottom: -148px; }
+      /* placeholder — адаптив для нового блока */
 
       /* Остальные блоки */
       .process-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
@@ -952,13 +811,296 @@
       .hero-right { height: 220px; }
       .hero-worker-scene { width: 280px; }
       .hero-btns { flex-direction: column; align-items: flex-start; }
-      .orbit-scene { transform: scale(0.44); margin-bottom: -222px; }
+      /* placeholder — мобильный адаптив для нового блока */
       .process-grid { grid-template-columns: 1fr; }
       .trust-logos { gap: 24px; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .pest-section { border-radius: 24px 24px 0 0; }
+      /* segments — теперь аккордеон, адаптив в своём блоке */
+      .compare-grid { grid-template-columns: 1fr; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .expert-grid { grid-template-columns: 1fr; text-align: center; }
+      .expert-quals { grid-template-columns: 1fr; }
     }
+
+    /* ===== EXPERT ===== */
+    .expert-grid {
+      display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start;
+    }
+    .expert-photo {
+      width: 100%; aspect-ratio: 3/4; border-radius: 24px; overflow: hidden;
+      background: linear-gradient(135deg, #EFF5FF 0%, #E8F4D0 100%);
+      border: 2px dashed var(--border); display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px; color: var(--text-2); font-size: 0.85rem;
+    }
+    .expert-info h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 4px; }
+    .expert-role { font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+    .expert-institute { font-size: 0.82rem; color: var(--text-2); margin-bottom: 16px; }
+    .expert-desc { font-size: 0.95rem; color: var(--text-2); line-height: 1.7; margin-bottom: 24px; }
+    .expert-quals {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .expert-qual {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 12px 16px; background: var(--bg-alt); border-radius: 14px;
+      font-size: 0.82rem; color: var(--text); line-height: 1.5;
+    }
+    .expert-qual svg { flex-shrink: 0; margin-top: 2px; }
+    .expert-pubs { margin-top: 24px; }
+    .expert-pubs h4 { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-2); margin-bottom: 12px; }
+    .expert-pub { font-size: 0.82rem; color: var(--text-2); line-height: 1.5; padding: 8px 0; border-bottom: 1px solid var(--border); }
+    .expert-pub em { font-style: italic; color: var(--accent); }
+
+    /* ===== SEGMENTS — Horizontal Accordion ===== */
+    .seg-accordion {
+      display: flex;
+      gap: 6px;
+      height: 400px;
+      margin-top: 8px;
+    }
+    .seg-accordion-item {
+      position: relative;
+      flex: 0.4;
+      overflow: hidden;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: flex-end;
+      padding: 0;
+    }
+    .seg-accordion-item:hover,
+    .seg-accordion-item.is-active {
+      flex: 3;
+    }
+
+    /* Однотонные цвета панелей — белые с цветным верхним акцентом */
+    .seg-accordion-item { background: #fff; border: 1px solid var(--border); }
+    .seg-accordion-item:nth-child(1)::before { background: #A3D044; }
+    .seg-accordion-item:nth-child(2)::before { background: #7BC67E; }
+    .seg-accordion-item:nth-child(3)::before { background: #5BB5A2; }
+    .seg-accordion-item:nth-child(4)::before { background: #6AABDB; }
+    .seg-accordion-item:nth-child(5)::before { background: #8B9FD4; }
+    .seg-accordion-item:nth-child(6)::before { background: #A3D044; }
+
+    /* Вертикальный лейбл (свёрнутое состояние) */
+    .seg-accordion-label {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      white-space: nowrap;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-2);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      z-index: 2;
+      opacity: 1;
+      transition: opacity 0.25s ease;
+    }
+    .seg-accordion-item:hover .seg-accordion-label,
+    .seg-accordion-item.is-active .seg-accordion-label {
+      opacity: 0;
+    }
+
+    /* Иконка-эмодзи сверху панели */
+    .seg-accordion-icon {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.6rem;
+      z-index: 2;
+      opacity: 0.7;
+      transition: opacity 0.3s, top 0.4s, left 0.4s, transform 0.4s;
+    }
+    .seg-accordion-item:hover .seg-accordion-icon,
+    .seg-accordion-item.is-active .seg-accordion-icon {
+      top: 32px;
+      left: 32px;
+      transform: none;
+      font-size: 2.2rem;
+      opacity: 1;
+    }
+
+    /* Контент внутри .seg-accordion-text */
+    .seg-accordion-text h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .seg-accordion-text p {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    .seg-accordion-text .seg-tag {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      background: rgba(163,208,68,0.15);
+      color: #5A8A1A;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Фото-зона внутри раскрытой панели */
+    .seg-accordion-body {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: row;
+      opacity: 0;
+      transition: opacity 0.45s ease 0.1s;
+      z-index: 2;
+    }
+    .seg-accordion-item:hover .seg-accordion-body,
+    .seg-accordion-item.is-active .seg-accordion-body {
+      opacity: 1;
+    }
+    .seg-accordion-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px 28px 32px;
+    }
+    .seg-accordion-photo {
+      width: 32%;
+      min-width: 150px;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      flex-shrink: 0;
+    }
+    .seg-accordion-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .seg-accordion-item:hover .seg-accordion-photo img,
+    .seg-accordion-item.is-active .seg-accordion-photo img {
+      transform: scale(1.08);
+    }
+    /* Плейсхолдер когда нет фото */
+    .seg-accordion-photo--empty {
+      width: 32%;
+      min-width: 150px;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      flex-shrink: 0;
+      background: var(--bg-alt);
+      border-left: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      opacity: 0.6;
+    }
+
+    /* Декоративная линия-акцент сверху раскрытой панели */
+    .seg-accordion-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 3;
+    }
+    .seg-accordion-item:hover::before,
+    .seg-accordion-item.is-active::before {
+      transform: scaleX(1);
+    }
+
+    /* ===== SEGMENTS mobile ===== */
+    @media (max-width: 768px) {
+      .seg-accordion { flex-direction: column; height: auto; }
+      .seg-accordion-item { flex: none; height: 64px; transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+      .seg-accordion-item:hover,
+      .seg-accordion-item.is-active { height: 240px; }
+      .seg-accordion-label {
+        transform: none;
+        left: 56px; top: 50%; transform: translateY(-50%);
+        font-size: 0.78rem;
+      }
+      .seg-accordion-icon {
+        top: 50% !important; left: 20px !important;
+        transform: translateY(-50%) !important;
+        font-size: 1.4rem !important;
+      }
+      .seg-accordion-item:hover .seg-accordion-icon,
+      .seg-accordion-item.is-active .seg-accordion-icon {
+        top: 16px !important; left: 20px !important;
+        transform: none !important;
+        font-size: 1.8rem !important;
+      }
+      .seg-accordion-item:hover .seg-accordion-label,
+      .seg-accordion-item.is-active .seg-accordion-label { opacity: 0; }
+    }
+
+    /* ===== COMPARISON ===== */
+    .compare-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    .compare-col {
+      border-radius: 24px; padding: 36px 32px;
+    }
+    .compare-col.usual {
+      background: var(--bg-alt); border: 1px solid var(--border);
+    }
+    .compare-col.recommend {
+      background: linear-gradient(135deg, rgba(163,208,68,0.08) 0%, rgba(163,208,68,0.02) 100%);
+      border: 2px solid var(--accent);
+    }
+    .compare-badge {
+      display: inline-flex; font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px; padding: 5px 14px;
+      border-radius: 50px; margin-bottom: 16px;
+    }
+    .compare-col.usual .compare-badge { background: var(--border); color: var(--text-2); }
+    .compare-col.recommend .compare-badge { background: var(--accent); color: #fff; }
+    .compare-col h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 20px; }
+    .compare-list { display: flex; flex-direction: column; gap: 12px; }
+    .compare-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.9rem; line-height: 1.5;
+    }
+    .compare-item svg { flex-shrink: 0; margin-top: 3px; }
+
+    /* ===== CASES ===== */
+    .cases-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .case-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 24px; padding: 32px 28px;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .case-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+    .case-icon { font-size: 2rem; margin-bottom: 12px; }
+    .case-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .case-card p { font-size: 0.85rem; color: var(--text-2); line-height: 1.6; margin-bottom: 16px; }
+    .case-metrics { display: flex; gap: 16px; flex-wrap: wrap; }
+    .case-metric {
+      background: var(--accent-dim); border-radius: 12px; padding: 8px 14px;
+      font-size: 0.78rem; font-weight: 700; color: var(--text);
+    }
+    .case-metric span { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -968,12 +1110,13 @@
      ============================================================ -->
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
-    <a href="#" class="nav-logo">Дез<span>2.0</span></a>
+    <a href="#" class="nav-logo">ЗЕВС</a>
     <div class="nav-links">
       <a href="#services">Услуги</a>
+      <a href="#segments">Отрасли</a>
       <a href="#process">Как мы работаем</a>
       <a href="#pricing">Цены</a>
-      <a href="#reviews">Отзывы</a>
+      <a href="#cases">Кейсы</a>
       <a href="#faq">FAQ</a>
       <a href="tel:+78126271550" class="nav-phone">+7 (812) 627-15-50</a>
       <a href="#contact" class="nav-cta">Вызвать мастера</a>
@@ -989,9 +1132,10 @@
      ============================================================ -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services"  onclick="closeMenu()">Услуги</a>
+  <a href="#segments"  onclick="closeMenu()">Отрасли</a>
   <a href="#process"   onclick="closeMenu()">Как мы работаем</a>
   <a href="#pricing"   onclick="closeMenu()">Цены</a>
-  <a href="#reviews"   onclick="closeMenu()">Отзывы</a>
+  <a href="#cases"     onclick="closeMenu()">Кейсы</a>
   <a href="#faq"       onclick="closeMenu()">FAQ</a>
   <a href="tel:+78126271550" class="m-phone">+7 (812) 627-15-50</a>
   <a href="#contact" class="m-cta" onclick="closeMenu()">Вызвать мастера</a>
@@ -1011,12 +1155,13 @@
       <div class="hero-left">
         <div class="hero-label">Санкт-Петербург и ЛО</div>
         <h1>
-          Тараканы, клопы, грызуны —<br>
-          уничтожим <em>за 1 день</em>
+          Санитарный вопрос<br>
+          <em>под контролем</em>
         </h1>
         <p class="hero-sub">
-          Профессиональная дезинсекция с гарантией 365 дней.
-          Безопасно для детей и животных. Выезд от 2 часов.
+          Дезинфекция, дезинсекция и дератизация для ресторанов,
+          производств, складов, гостиниц, медцентров и управляющих
+          компаний в Санкт-Петербурге и ЛО.
         </p>
         <div class="hero-safe">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -1069,7 +1214,7 @@
       <!-- RIGHT: специалист-великан -->
       <div class="hero-right reveal">
         <div class="hero-worker-scene">
-          <img class="hero-worker-img" src="все%20images/images-финал/специалист-герой.jpg" alt="Специалист Дез2.0">
+          <img class="hero-worker-img" src="все%20images/images-финал/специалист-герой.jpg" alt="Специалист ЗЕВС">
         </div>
         <!-- Плавающий бейдж -->
         <div class="hero-badge" style="z-index:5">
@@ -1086,151 +1231,102 @@
     </div>
   </div>
 </section>
+<!-- PEST SELECTOR — убран, будет заменён новым блоком -->
 
 <!-- ============================================================
-     PEST SELECTOR
+     SEGMENTS
      ============================================================ -->
-<div class="pest-section">
+<section id="segments" class="section-alt2">
   <div class="container">
-    <p class="pest-title reveal">Выберите вашу проблему — получите точный расчёт</p>
+    <div class="center reveal">
+      <div class="section-label">Отрасли</div>
+      <h2 class="section-title">С кем <em>работаем</em></h2>
+      <p class="section-sub" style="margin-bottom:40px">Знаем специфику каждого типа объекта</p>
+    </div>
 
-    <div class="orbit-scene reveal reveal-d1">
+    <div class="seg-accordion reveal reveal-d1">
 
-      <!-- 4 концентрических кольца -->
-      <div class="orbit-ring orbit-ring-1"></div>
-      <div class="orbit-ring orbit-ring-2"></div>
-      <div class="orbit-ring orbit-ring-3"></div>
-      <div class="orbit-ring orbit-ring-4"></div>
-
-      <!-- Центральный круг -->
-      <div class="orbit-center" id="orbitCenter">
-        <span class="orbit-center-lbl" id="orbitLbl">видов</span>
-        <span class="orbit-center-num" id="orbitNum">6</span>
-        <span class="orbit-center-sub" id="orbitSub">вредителей</span>
+      <div class="seg-accordion-item is-active">
+        <span class="seg-accordion-icon">🍽️</span>
+        <span class="seg-accordion-label">Рестораны</span>
+        <div class="seg-accordion-body">
+          <div class="seg-accordion-text">
+            <h3>Рестораны и кафе</h3>
+            <p>Обработка без срыва работы заведения. Выезд ночью и в выходные. Полный пакет документов для проверок Роспотребнадзора.</p>
+            <span class="seg-tag">Ночной выезд</span>
+          </div>
+          <div class="seg-accordion-photo--empty">Фото</div>
+        </div>
       </div>
 
-      <!-- Внутренняя орбита r=155 — по часовой 22s -->
-      <div class="orbit-group orbit-group-inner">
-
-        <!-- 01 · Тараканы · угол 0° -->
-        <div class="pest-item" style="left:286px;top:97px" data-price="от 2 500 ₽" data-name="Тараканы" onclick="selectPest(this)">
-          <div class="pest-upright">
-            <div class="pest-card">
-              <span class="pest-num">01</span>
-              <span class="pest-icon"><img src="все%20images/images-финал/таракашка.jpg" alt="Тараканы"></span>
-            </div>
-            <span class="pest-name">Тараканы</span>
+      <div class="seg-accordion-item">
+        <span class="seg-accordion-icon">🏭</span>
+        <span class="seg-accordion-label">Производства</span>
+        <div class="seg-accordion-body">
+          <div class="seg-accordion-text">
+            <h3>Пищевые производства</h3>
+            <p>ХАССП, контроль рисковых зон. Работаем без остановки производственной линии. Полный документооборот и акты.</p>
+            <span class="seg-tag">Без остановки линии</span>
           </div>
+          <div class="seg-accordion-photo--empty">Фото</div>
         </div>
-
-        <!-- 03 · Грызуны · угол 120° -->
-        <div class="pest-item" style="left:420px;top:330px" data-price="от 4 000 ₽" data-name="Грызуны" onclick="selectPest(this)">
-          <div class="pest-upright">
-            <div class="pest-card">
-              <span class="pest-num">03</span>
-              <span class="pest-icon"><img src="все%20images/images-финал/крысяшка.jpg" alt="Грызуны"></span>
-            </div>
-            <span class="pest-name">Грызуны</span>
-          </div>
-        </div>
-
-        <!-- 05 · Муравьи · угол 240° -->
-        <div class="pest-item" style="left:152px;top:330px" data-price="от 1 800 ₽" data-name="Муравьи" onclick="selectPest(this)">
-          <div class="pest-upright">
-            <div class="pest-card">
-              <span class="pest-num">05</span>
-              <span class="pest-icon"><img src="все%20images/images-финал/муравьишка.jpg" alt="Муравьи"></span>
-            </div>
-            <span class="pest-name">Муравьи</span>
-          </div>
-        </div>
-
       </div>
 
-      <!-- Внешняя орбита r=245 — против часовой 36s -->
-      <div class="orbit-group orbit-group-outer">
-
-        <!-- 02 · Клопы · угол 60° -->
-        <div class="pest-item" style="left:464px;top:130px" data-price="от 3 500 ₽" data-name="Клопы" onclick="selectPest(this)">
-          <div class="pest-upright">
-            <div class="pest-card">
-              <span class="pest-num">02</span>
-              <span class="pest-icon"><img src="все%20images/images-финал/клопашка.jpg" alt="Клопы"></span>
-            </div>
-            <span class="pest-name">Клопы</span>
+      <div class="seg-accordion-item">
+        <span class="seg-accordion-icon">📦</span>
+        <span class="seg-accordion-label">Склады</span>
+        <div class="seg-accordion-body">
+          <div class="seg-accordion-text">
+            <h3>Склады и логистика</h3>
+            <p>Большие площади без простоя отгрузок. Станции мониторинга грызунов. Обработка в ночное время.</p>
+            <span class="seg-tag">Любые площади</span>
           </div>
+          <div class="seg-accordion-photo--empty">Фото</div>
         </div>
+      </div>
 
-        <!-- 04 · Блохи · угол 180° -->
-        <div class="pest-item" style="left:286px;top:497px" data-price="от 2 000 ₽" data-name="Блохи" onclick="selectPest(this)">
-          <div class="pest-upright">
-            <div class="pest-card">
-              <span class="pest-num">04</span>
-              <span class="pest-icon"><img src="все%20images/images-финал/блохашка.jpg" alt="Блохи"></span>
-            </div>
-            <span class="pest-name">Блохи</span>
+      <div class="seg-accordion-item">
+        <span class="seg-accordion-icon">🏨</span>
+        <span class="seg-accordion-label">Гостиницы</span>
+        <div class="seg-accordion-body">
+          <div class="seg-accordion-text">
+            <h3>Гостиницы и хостелы</h3>
+            <p>Конфиденциальная обработка без ущерба для репутации. Срочный выезд в день обращения. Работаем тихо.</p>
+            <span class="seg-tag">Конфиденциально</span>
           </div>
+          <div class="seg-accordion-photo--empty">Фото</div>
         </div>
+      </div>
 
-        <!-- 06 · Дезинфекция · угол 300° -->
-        <div class="pest-item" style="left:74px;top:130px" data-price="от 6 500 ₽" data-name="Дезинфекция" onclick="selectPest(this)">
-          <div class="pest-upright">
-            <div class="pest-card">
-              <span class="pest-num">06</span>
-              <span class="pest-icon"><img src="все%20images/images-финал/комплексная%20обработка.jpg" alt="Дезинфекция"></span>
-            </div>
-            <span class="pest-name">Дезинфекция</span>
+      <div class="seg-accordion-item">
+        <span class="seg-accordion-icon">🏢</span>
+        <span class="seg-accordion-label">ТСЖ / УК</span>
+        <div class="seg-accordion-body">
+          <div class="seg-accordion-text">
+            <h3>ТСЖ / Управляющие компании</h3>
+            <p>Графики обработки подъездов, подвалов, мусорных камер. Акты для жильцов после каждого визита.</p>
+            <span class="seg-tag">По графику</span>
           </div>
+          <div class="seg-accordion-photo--empty">Фото</div>
         </div>
+      </div>
 
+      <div class="seg-accordion-item">
+        <span class="seg-accordion-icon">🏥</span>
+        <span class="seg-accordion-label">Медцентры</span>
+        <div class="seg-accordion-body">
+          <div class="seg-accordion-text">
+            <h3>Медицинские центры</h3>
+            <p>Полное соответствие СанПиН. Только безопасные сертифицированные препараты. Документы для лицензирования.</p>
+            <span class="seg-tag">СанПиН</span>
+          </div>
+          <div class="seg-accordion-photo--empty">Фото</div>
+        </div>
       </div>
 
     </div>
   </div>
-</div>
-
-<!-- ============================================================
-     TRUST BAR
-     ============================================================ -->
-<div class="trust-bar">
-  <div class="container">
-    <p class="trust-lbl">Нам доверяют</p>
-    <div class="trust-logos">
-      <span class="trust-logo">Ресторан «Этаж»</span>
-      <span class="trust-logo">ТСЖ Невский</span>
-      <span class="trust-logo">Гостиница Олимп</span>
-      <span class="trust-logo">Детский сад №84</span>
-      <span class="trust-logo">Кафе «Север»</span>
-      <span class="trust-logo">Офис Технострой</span>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================
-     STATS BAR
-     ============================================================ -->
-<div class="stats-bar">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stats-item reveal">
-        <div class="stats-num"><span class="counter" data-to="1247">0</span></div>
-        <div class="stats-label">обработок проведено</div>
-      </div>
-      <div class="stats-item reveal reveal-d1">
-        <div class="stats-num"><span class="counter" data-to="98">0</span>%</div>
-        <div class="stats-label">клиентов рекомендуют нас</div>
-      </div>
-      <div class="stats-item reveal reveal-d2">
-        <div class="stats-num"><span class="counter" data-to="365">0</span></div>
-        <div class="stats-label">дней гарантия результата</div>
-      </div>
-      <div class="stats-item reveal reveal-d3">
-        <div class="stats-num"><span class="counter" data-to="2">0</span> ч</div>
-        <div class="stats-label">среднее время выезда</div>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
 
 <!-- ============================================================
      SERVICES
@@ -1299,9 +1395,19 @@
         <div class="service-card-icon">
           <img src="все%20images/images-финал/комплексная%20обработка.jpg" alt="Комплексная обработка">
         </div>
-        <h3>Комплексная обработка</h3>
-        <p>Обработка всего помещения: насекомые + грызуны + профилактика. Для кафе, складов, жилых комплексов.</p>
+        <h3>Дезинфекция</h3>
+        <p>Обработка поверхностей и помещений от бактерий, вирусов, плесени. Холодный туман, орошение поверхностей. Работаем в нерабочее время объекта. Сертифицированные препараты III–IV класса.</p>
         <span class="service-tag">от 6 500 ₽</span>
+      </div>
+
+      <!-- Абонентское обслуживание -->
+      <div class="service-card reveal reveal-d1" style="grid-column: 1 / -1; clip-path: none; border: 2px solid var(--accent); background: linear-gradient(135deg, rgba(163,208,68,0.06) 0%, #fff 100%);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+          <span style="background:var(--accent);color:#fff;font-size:0.72rem;font-weight:700;padding:4px 14px;border-radius:50px;text-transform:uppercase;letter-spacing:1px">Главный продукт</span>
+        </div>
+        <h3 style="font-size:1.2rem">Абонентское обслуживание</h3>
+        <p>Регулярная обработка по графику. Фиксированная стоимость, срочные выезды — бесплатно. Один подрядчик, одна система, ноль авралов. Из режима тушения пожаров — в режим управляемого контроля.</p>
+        <span class="service-tag">от 5 000 ₽/мес</span>
       </div>
 
     </div>
@@ -1333,12 +1439,12 @@
       <div class="process-step reveal reveal-d3">
         <div class="process-num">3</div>
         <h4>Проведём обработку</h4>
-        <p>Мастер осмотрит объект, объяснит план и проведёт обработку. Занимает 1-3 часа.</p>
+        <p>Специалист определит тип обрабатываемых поверхностей, подберёт метод и проведёт обработку. Занимает 1-3 часа.</p>
       </div>
       <div class="process-step reveal reveal-d4">
         <div class="process-num">4</div>
-        <h4>Проверим результат</h4>
-        <p>Контрольный визит через 7-14 дней бесплатно. Гарантия — 365 дней. Вернёмся если нужно.</p>
+        <h4>Документы и результат</h4>
+        <p>Акт выполненных работ, журнал, сертификаты на препараты — сразу после обработки. Гарантия — 365 дней.</p>
       </div>
     </div>
 
@@ -1357,7 +1463,7 @@
           <!-- ЛЕВАЯ КОЛОНКА: фото До/После -->
           <div>
             <div id="panel-after" class="lab-panel">
-              <div class="lab-panel-label good">✓ Чисто — после Дез2.0</div>
+              <div class="lab-panel-label good">✓ Чисто — после ЗЕВС</div>
               <div class="img-ph" style="min-height:260px">
                 <div class="img-ph-icon">🖼</div>
                 <strong>after-treatment.jpg</strong>
@@ -1419,6 +1525,48 @@
 </section>
 
 <!-- ============================================================
+     EXPERT
+     ============================================================ -->
+<section id="expert" class="section-alt">
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-label">Штатный эпидемиолог</div>
+      <h2 class="section-title">За каждой обработкой стоит <em>врач</em></h2>
+    </div>
+    <div class="expert-grid reveal">
+      <div class="expert-photo" style="border:none;background:none;">
+        <img src="все%20images/images-финал/врач.jpg" alt="Лызенко Иван Сергеевич" style="width:100%;height:100%;object-fit:cover;border-radius:24px;filter:grayscale(1) contrast(1.05);">
+      </div>
+      <div class="expert-info">
+        <h3>Лызенко Иван Сергеевич</h3>
+        <div class="expert-role">Младший научный сотрудник</div>
+        <div class="expert-institute">ФБУН НИИЭМ им. Пастера · Лаборатория зооантропонозных инфекций</div>
+        <p class="expert-desc">Контролирует методологию обработок, подбор препаратов и соответствие санитарным нормам. Каждый протокол обработки проходит через специалиста с профильным медицинским образованием и научной базой.</p>
+
+        <div class="expert-quals">
+          <div class="expert-qual">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Специалитет — медико-профилактическое дело (ВолгГМУ)
+          </div>
+          <div class="expert-qual">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Ординатура по эпидемиологии (РостГМУ)
+          </div>
+          <div class="expert-qual">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Аспирантура — эпидемиология
+          </div>
+          <div class="expert-qual">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Опыт работы в структуре органов Управления Роспотребнадзора
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      GUARANTEES
      ============================================================ -->
 <section id="guarantees">
@@ -1460,6 +1608,34 @@
     </div>
   </div>
 </section>
+
+<!-- ============================================================
+     STATS BAR
+     ============================================================ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stats-item reveal">
+        <div class="stats-num"><span class="counter" data-to="1247">0</span></div>
+        <div class="stats-label">обработок проведено</div>
+      </div>
+      <div class="stats-item reveal reveal-d1">
+        <div class="stats-num"><span class="counter" data-to="98">0</span>%</div>
+        <div class="stats-label">клиентов рекомендуют нас</div>
+      </div>
+      <div class="stats-item reveal reveal-d2">
+        <div class="stats-num"><span class="counter" data-to="365">0</span></div>
+        <div class="stats-label">дней гарантия результата</div>
+      </div>
+      <div class="stats-item reveal reveal-d3">
+        <div class="stats-num"><span class="counter" data-to="2">0</span> ч</div>
+        <div class="stats-label">среднее время выезда</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASES — убран, можно восстановить позже -->
 
 <!-- ============================================================
      REVIEWS
@@ -1530,6 +1706,111 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST BAR
+     ============================================================ -->
+<div class="trust-bar">
+  <div class="container">
+    <p class="trust-lbl">Нам доверяют</p>
+    <div class="trust-logos">
+      <span class="trust-logo">Газпром</span>
+      <span class="trust-logo">Законодательное собрание</span>
+      <span class="trust-logo">Ижорский завод</span>
+      <span class="trust-logo">Мостотрест</span>
+      <span class="trust-logo">Нептун</span>
+      <span class="trust-logo">Радиевый институт</span>
+      <span class="trust-logo">ЕИРЦ</span>
+      <span class="trust-logo">Школа №755</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     COMPARISON
+     ============================================================ -->
+<section id="comparison">
+  <div class="container">
+    <div class="center reveal">
+      <div class="section-label">Сравнение</div>
+      <h2 class="section-title">Разовый вызов или <em>договор?</em></h2>
+      <p class="section-sub" style="margin-bottom:52px">Один отзыв гостя с тараканом стоит дороже, чем год обслуживания</p>
+    </div>
+    <div class="compare-grid reveal">
+      <!-- Как обычно -->
+      <div class="compare-col usual">
+        <span class="compare-badge">Как обычно</span>
+        <h3>Разовые вызовы</h3>
+        <div class="compare-list">
+          <div class="compare-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E74C3C" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Непредсказуемый бюджет
+          </div>
+          <div class="compare-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E74C3C" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Реагируете когда уже проблема
+          </div>
+          <div class="compare-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E74C3C" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Каждый раз ищете подрядчика
+          </div>
+          <div class="compare-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E74C3C" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Документы «одноразовые»
+          </div>
+          <div class="compare-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E74C3C" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Нет гарантии повторного выезда
+          </div>
+        </div>
+      </div>
+
+      <!-- Рекомендуем -->
+      <div class="compare-col recommend">
+        <span class="compare-badge">Рекомендуем</span>
+        <h3>По договору</h3>
+        <div class="compare-list">
+          <div class="compare-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Фиксированная стоимость
+          </div>
+          <div class="compare-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Плановый график — проблема не возникает
+          </div>
+          <div class="compare-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Один подрядчик, одна система
+          </div>
+          <div class="compare-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Непрерывный документооборот
+          </div>
+          <div class="compare-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Гарантия + бесплатный срочный выезд
+          </div>
+        </div>
+        <a href="#contact" class="btn-primary" style="margin-top:24px;width:100%;text-align:center">Запросить условия договора</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MID-CTA
+     ============================================================ -->
+<section style="padding:64px 0; background: var(--dark); text-align:center; position:relative; overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 50%, rgba(163,208,68,0.15) 0%, transparent 70%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <h2 class="section-title reveal" style="color:#fff;margin-bottom:12px">Готовы перейти на <em>договор?</em></h2>
+    <p class="section-sub reveal" style="color:rgba(255,255,255,0.6);margin:0 auto 32px;text-align:center">Бесплатное обследование объекта + расчёт за 1 рабочий день</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap" class="reveal">
+      <a href="#contact" class="btn-primary">Запросить обследование</a>
+      <a href="tel:+78126271550" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.25)">Позвонить</a>
     </div>
   </div>
 </section>
@@ -1655,6 +1936,9 @@
         </div>
       </div>
 
+      <!-- Скрытые вопросы -->
+      <div id="faqMore" style="display:none">
+
       <div class="faq-item reveal">
         <div class="faq-q" onclick="toggleFaq(this)">
           Можно ли оставить мастера одного в квартире?
@@ -1677,6 +1961,75 @@
         <div class="faq-a">
           <div class="faq-a-inner">Да, оформим полный пакет: договор, акт выполненных работ, журнал обработок, сертификаты на препараты. Работаем с ресторанами, кафе, складами, детскими учреждениями — знаем требования СанПиН.</div>
         </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Какие документы мы получим?
+          <div class="faq-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Договор, акт выполненных работ, журнал учёта дезинфекционных мероприятий, сертификаты на препараты. Все документы принимаются при проверках Роспотребнадзора.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          У вас есть лицензия?
+          <div class="faq-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Да. Лицензия Роспотребнадзора на дезинфектологию. С 1 марта 2025 обязательна для всех компаний ДДД. Копию прикладываем к договору.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Чем абонентское обслуживание выгоднее разовых вызовов?
+          <div class="faq-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Фиксированная стоимость, плановый график, бесплатные срочные выезды, непрерывный документооборот, персональный менеджер с историей вашего объекта. Один подрядчик вместо постоянного поиска.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Можно ли без остановки работы объекта?
+          <div class="faq-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Да. Работаем ночью, рано утром, в выходные — по графику, согласованному с вашим режимом. Объект готов через 2–4 часа. Препараты не оставляют следов и запаха.</div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Работаете с юрлицами?
+          <div class="faq-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Да. ООО и ИП. Для договора достаточно реквизитов. Полный пакет закрывающих документов для бухгалтерии.</div>
+        </div>
+      </div>
+
+      </div><!-- /faqMore -->
+
+      <div style="text-align:center;margin-top:24px">
+        <button id="faqToggleBtn" class="btn-outline" onclick="toggleFaqMore()" style="gap:8px">
+          Показать ещё 7 вопросов
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="transition:transform 0.3s"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
       </div>
 
     </div>
@@ -1761,41 +2114,41 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo">Дез<span>2.0</span></div>
-        <p>Профессиональная дезинсекция в Санкт-Петербурге и Ленинградской области. Работаем с 2016 года.</p>
+        <div class="footer-logo">ЗЕВС</div>
+        <p>Дезинфекция, дезинсекция и дератизация для бизнеса и частных лиц в Санкт-Петербурге и Ленинградской области. Лицензия Роспотребнадзора.</p>
       </div>
       <div class="footer-col">
         <h4>Услуги</h4>
         <ul>
-          <li><a href="#services">Тараканы</a></li>
-          <li><a href="#services">Клопы</a></li>
-          <li><a href="#services">Грызуны</a></li>
-          <li><a href="#services">Блохи</a></li>
-          <li><a href="#services">Муравьи</a></li>
+          <li><a href="#services">Дезинсекция</a></li>
+          <li><a href="#services">Дезинфекция</a></li>
+          <li><a href="#services">Дератизация</a></li>
+          <li><a href="#services">Абонентское обслуживание</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Компания</h4>
+        <h4>Отрасли</h4>
         <ul>
-          <li><a href="#">О нас</a></li>
-          <li><a href="#process">Как мы работаем</a></li>
-          <li><a href="#reviews">Отзывы</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#">Лицензии</a></li>
+          <li><a href="#segments">Рестораны</a></li>
+          <li><a href="#segments">Производства</a></li>
+          <li><a href="#segments">Склады</a></li>
+          <li><a href="#segments">Гостиницы</a></li>
+          <li><a href="#segments">ТСЖ / УК</a></li>
+          <li><a href="#segments">Медцентры</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Контакты</h4>
         <ul>
           <li><a href="tel:+78126271550">+7 (812) 627-15-50</a></li>
-          <li><a href="mailto:info@dez20.spb.ru">info@dez20.spb.ru</a></li>
-          <li><a href="#">Санкт-Петербург</a></li>
-          <li><a href="#">Пн-Вс 8:00 — 22:00</a></li>
+          <li><a href="mailto:ko@zevs.ltd">ko@zevs.ltd</a></li>
+          <li><a href="#">ул. Кантемировская, 7, Санкт-Петербург</a></li>
+          <li><a href="#">Работаем 24/7</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2016–2026 Дез2.0. ИП Иванов И.И. ИНН 781234567890</p>
+      <p>© 2026 ООО «Зевс». Все права защищены. Санкт-Петербург, ул. Кантемировская, 7</p>
       <div class="footer-socials">
         <a href="#" title="ВКонтакте">В</a>
         <a href="#" title="Telegram">T</a>
@@ -1898,36 +2251,20 @@
     r.addEventListener('animationend', () => r.remove());
   }
 
-  // ── Pest selector ──
-  function selectPest(item) {
-    const alreadyActive = item.classList.contains('active');
-
-    // Второй клик — скролл к форме
-    if (alreadyActive) {
-      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-      return;
-    }
-
-    // Первый клик — показать цену
-    document.querySelectorAll('.pest-item').forEach(c => c.classList.remove('active'));
-    item.classList.add('active');
-
-    const price = item.dataset.price;
-    const name  = item.dataset.name;
-    const center = document.getElementById('orbitCenter');
-    center.classList.add('price-mode');
-    center.style.animation = 'none';
-    center.offsetHeight;
-    center.style.animation = 'orbitPop 0.4s ease';
-    document.getElementById('orbitLbl').textContent = name;
-    document.getElementById('orbitNum').textContent = price;
-    document.getElementById('orbitSub').textContent = 'нажми ещё раз →';
-
-    // Пре-заполнить форму
-    const pestName = item.querySelector('.pest-name').textContent;
-    const select = document.querySelector('.cta-form select');
-    if (select) select.querySelectorAll('option').forEach(o => { if (o.text === pestName) o.selected = true; });
-  }
+  // ── Segments accordion ──
+  (function() {
+    const items = document.querySelectorAll('.seg-accordion-item');
+    items.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        items.forEach(i => i.classList.remove('is-active'));
+        item.classList.add('is-active');
+      });
+      item.addEventListener('click', () => {
+        items.forEach(i => i.classList.remove('is-active'));
+        item.classList.add('is-active');
+      });
+    });
+  })();
 
   // ── Lab slider / before-after toggle ──
   function switchTab(btn, panel) {
@@ -1973,6 +2310,20 @@
     }
   }
 
+
+  // ── FAQ «Показать ещё» ──
+  function toggleFaqMore() {
+    const block = document.getElementById('faqMore');
+    const btn = document.getElementById('faqToggleBtn');
+    const isHidden = block.style.display === 'none';
+    block.style.display = isHidden ? 'block' : 'none';
+    btn.innerHTML = isHidden
+      ? 'Свернуть <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="transform:rotate(180deg);transition:transform 0.3s"><path d="M4 6l4 4 4-4"/></svg>'
+      : 'Показать ещё 7 вопросов <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" style="transition:transform 0.3s"><path d="M4 6l4 4 4-4"/></svg>';
+    if (isHidden) {
+      block.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
+  }
 
   // ── Sparkle stars on service cards (Web Animations API) ──
   const STAR_CONFIGS = [
