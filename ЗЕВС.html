@@ -219,6 +219,22 @@
       transition: background 0.2s, box-shadow 0.3s;
     }
     .nav-cta:hover { background: var(--accent-hover) !important; box-shadow: 0 0 18px rgba(163,208,68,0.35); }
+
+    /* ===== DROPDOWN ===== */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+    .nav-dropdown > a::after { content: ''; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform 0.2s; display: inline-block; }
+    .nav-dropdown.open > a::after { transform: rotate(-135deg) translateY(-2px); }
+    .nav-drop-menu {
+      display: none; position: fixed;
+      background: #fff; border-radius: 14px; min-width: 220px;
+      box-shadow: 0 8px 32px rgba(26,26,46,0.13); border: 1px solid var(--border);
+      padding: 8px 0; z-index: 9999;
+    }
+    .nav-drop-menu.open { display: block; }
+    .nav-drop-menu a { display: block; padding: 10px 20px; font-size: 0.88rem; font-weight: 500; color: var(--text); transition: background 0.15s, color 0.15s; }
+    .nav-drop-menu a:hover { background: var(--accent-dim); color: var(--accent); }
+
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
@@ -1153,8 +1169,29 @@
   <div class="container nav-inner">
     <a href="#" class="nav-logo">ЗЕВС</a>
     <div class="nav-links">
-      <a href="#services">Услуги</a>
-      <a href="#segments">Отрасли</a>
+      <div class="nav-dropdown">
+        <a href="#services">Услуги</a>
+        <div class="nav-drop-menu">
+          <a href="dezinfektsiya.html">Дезинфекция</a>
+          <a href="dezinsektsiya.html">Дезинсекция</a>
+          <a href="deratizatsiya.html">Дератизация</a>
+          <a href="abonentskoe.html">Абонентское обслуживание</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <a href="#segments">Отрасли</a>
+        <div class="nav-drop-menu">
+          <a href="restorany.html">Рестораны и кафе</a>
+          <a href="proizvodstva.html">Производства</a>
+          <a href="sklady.html">Склады</a>
+          <a href="gostinitsy.html">Гостиницы и хостелы</a>
+          <a href="tszh-uk.html">ТСЖ и УК</a>
+          <a href="medtsentry.html">Медицинские центры</a>
+          <a href="ofisy.html">Офисы</a>
+          <a href="salony.html">Салоны красоты</a>
+          <a href="magaziny.html">Магазины</a>
+        </div>
+      </div>
       <a href="#process">Как мы работаем</a>
       <a href="#cases">Кейсы</a>
       <a href="#faq">FAQ</a>
@@ -1296,8 +1333,9 @@
         <div class="seg-accordion-body">
           <div class="seg-accordion-text">
             <h3>Рестораны и кафе</h3>
-            <p>Обработка ночью, без срыва работы. Документы всегда на руках. Полный пакет для проверок Роспотребнадзора.</p>
+            <p>Обработка ночью, без срыва работы. Документы всегда на руках. Полный пакет документов для проверок Роспотребнадзора.</p>
             <span class="seg-tag">Ночной выезд</span>
+            <a href="restorany.html" style="display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none">Подробнее →</a>
           </div>
           <div class="seg-accordion-photo--empty">Фото</div>
         </div>
@@ -1311,6 +1349,7 @@
             <h3>Пищевые производства</h3>
             <p>Без остановки линии. Соответствие ХАССП и требованиям сетей-заказчиков. Полный документооборот и акты.</p>
             <span class="seg-tag">Без остановки линии</span>
+            <a href="proizvodstva.html" style="display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none">Подробнее →</a>
           </div>
           <div class="seg-accordion-photo--empty">Фото</div>
         </div>
@@ -1324,6 +1363,7 @@
             <h3>Склады и логистика</h3>
             <p>Большие площади, зонирование, ночной режим. Акты для клиентов-сетей. Без простоя отгрузок.</p>
             <span class="seg-tag">Любые площади</span>
+            <a href="sklady.html" style="display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none">Подробнее →</a>
           </div>
           <div class="seg-accordion-photo--empty">Фото</div>
         </div>
@@ -1335,8 +1375,9 @@
         <div class="seg-accordion-body">
           <div class="seg-accordion-text">
             <h3>Гостиницы и хостелы</h3>
-            <p>Конфиденциально, без остановки номеров. Чтобы проблема не попала в отзывы. Срочный выезд в день обращения.</p>
+            <p>Конфиденциально, без простоя номеров. Чтобы проблема не попала в отзывы. Срочный выезд в день обращения.</p>
             <span class="seg-tag">Конфиденциально</span>
+            <a href="gostinitsy.html" style="display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none">Подробнее →</a>
           </div>
           <div class="seg-accordion-photo--empty">Фото</div>
         </div>
@@ -1350,6 +1391,7 @@
             <h3>ТСЖ и УК</h3>
             <p>Закроем предписания. Годовой договор на весь дом или квартал. Графики обработки подъездов, подвалов, мусорокамер.</p>
             <span class="seg-tag">Годовой договор</span>
+            <a href="tszh-uk.html" style="display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none">Подробнее →</a>
           </div>
           <div class="seg-accordion-photo--empty">Фото</div>
         </div>
@@ -1361,8 +1403,9 @@
         <div class="seg-accordion-body">
           <div class="seg-accordion-text">
             <h3>Медицинские центры</h3>
-            <p>Знаем профильные требования. Безопасно для пациентов, готово для лицензирования. Полное соответствие СанПиН.</p>
+            <p>Знаем профильные требования. Безопасно для пациентов. Полное соответствие СанПиН.</p>
             <span class="seg-tag">СанПиН</span>
+            <a href="medtsentry.html" style="display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none">Подробнее →</a>
           </div>
           <div class="seg-accordion-photo--empty">Фото</div>
         </div>
@@ -1376,6 +1419,7 @@
             <h3>Офисы и бизнес-центры</h3>
             <p>Регулярное обслуживание без срыва рабочего процесса. Договор, документы, понятный график.</p>
             <span class="seg-tag">Без срыва работы</span>
+            <a href="ofisy.html" style="display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none">Подробнее →</a>
           </div>
           <div class="seg-accordion-photo--empty">Фото</div>
         </div>
@@ -1389,6 +1433,7 @@
             <h3>Салоны красоты</h3>
             <p>Аккуратная работа без срыва записи. Без запаха, без следов, без лишнего стресса.</p>
             <span class="seg-tag">Без запаха</span>
+            <a href="salony.html" style="display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none">Подробнее →</a>
           </div>
           <div class="seg-accordion-photo--empty">Фото</div>
         </div>
@@ -1400,8 +1445,9 @@
         <div class="seg-accordion-body">
           <div class="seg-accordion-text">
             <h3>Магазины</h3>
-            <p>Обслуживание без остановки торговли. Меньше жалоб, порчи товара и ручного контроля.</p>
+            <p>Обслуживание без остановки торговли. Меньше жалоб и порчи товаров.</p>
             <span class="seg-tag">Без остановки торговли</span>
+            <a href="magaziny.html" style="display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none">Подробнее →</a>
           </div>
           <div class="seg-accordion-photo--empty">Фото</div>
         </div>
@@ -1432,7 +1478,7 @@
           <h3 style="font-size:1.15rem;margin-bottom:12px">Дезинфекция</h3>
           <p>Уничтожение бактерий, вирусов, плесени. Безопасные препараты III–IV класса — без остановки объекта.</p>
         </div>
-        <a href="#contact" class="service-tag" style="margin-top:20px;text-decoration:none">Подробнее →</a>
+        <a href="dezinfektsiya.html" class="service-tag" style="margin-top:20px;text-decoration:none">Подробнее →</a>
       </div>
 
       <!-- Дезинсекция -->
@@ -1442,9 +1488,9 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
           </div>
           <h3 style="font-size:1.15rem;margin-bottom:12px">Дезинсекция</h3>
-          <p>Уничтожение тараканов, клопов, мух, муравьёв. Холодный туман, барьерная защита входных зон.</p>
+          <p>Уничтожение тараканов, клопов, мух, муравьёв. Холодный туман, барьерная защита.</p>
         </div>
-        <a href="#contact" class="service-tag" style="margin-top:20px;text-decoration:none">Подробнее →</a>
+        <a href="dezinsektsiya.html" class="service-tag" style="margin-top:20px;text-decoration:none">Подробнее →</a>
       </div>
 
       <!-- Дератизация -->
@@ -1454,9 +1500,9 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           </div>
           <h3 style="font-size:1.15rem;margin-bottom:12px">Дератизация</h3>
-          <p>Контроль и уничтожение грызунов. Дератизационные станции, мониторинг, документирование.</p>
+          <p>Контроль и уничтожение грызунов. Дератизационные станции, постоянный мониторинг.</p>
         </div>
-        <a href="#contact" class="service-tag" style="margin-top:20px;text-decoration:none">Подробнее →</a>
+        <a href="deratizatsiya.html" class="service-tag" style="margin-top:20px;text-decoration:none">Подробнее →</a>
       </div>
 
       <!-- Абонентское обслуживание -->
@@ -1469,9 +1515,9 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
           <h3 style="font-size:1.15rem;margin-bottom:12px;color:#fff">Абонентское обслуживание</h3>
-          <p style="color:rgba(255,255,255,0.6)">Регулярная обработка по графику. Фиксированная стоимость, срочные выезды — бесплатно.</p>
+          <p style="color:rgba(255,255,255,0.6)">Полное санитарное сопровождение по договору. Документы, график, срочные выезды — всё включено в фиксированную стоимость.</p>
         </div>
-        <a href="#contact" class="service-tag" style="margin-top:20px;text-decoration:none;background:rgba(163,208,68,0.2);color:var(--accent)">Узнать условия →</a>
+        <a href="abonentskoe.html" class="service-tag" style="margin-top:20px;text-decoration:none;background:rgba(163,208,68,0.2);color:var(--accent)">Узнать условия →</a>
       </div>
 
     </div>
@@ -1486,7 +1532,7 @@
     <div class="center reveal">
       <div class="section-label">Процесс</div>
       <h2 class="section-title">Как мы работаем</h2>
-      <p class="section-sub" style="margin-bottom:56px">Понятно, быстро, без сюрпризов. Вот что произойдёт после вашей заявки.</p>
+      <p class="section-sub" style="margin-bottom:56px">Фиксированный порядок работы — от заявки до документов. Никаких неожиданностей.</p>
     </div>
 
     <div class="process-grid" style="grid-template-columns: repeat(5, 1fr)">
@@ -1498,7 +1544,7 @@
       <div class="process-step reveal reveal-d2">
         <div class="process-num">2</div>
         <h4>Бесплатное обследование</h4>
-        <p>Приезжаем, осматриваем все зоны риска. Вы понимаете реальный масштаб, а не гадаете.</p>
+        <p>Проводим полное обследование объекта, определяем все зоны риска.</p>
       </div>
       <div class="process-step reveal reveal-d3">
         <div class="process-num">3</div>
@@ -1512,8 +1558,8 @@
       </div>
       <div class="process-step reveal reveal-d5">
         <div class="process-num">5</div>
-        <h4>Документы и следующий визит</h4>
-        <p>Акты, журналы, рекомендации — сразу. Дальше мы сами напоминаем и планируем.</p>
+        <h4>Документы и плановое сопровождение</h4>
+        <p>Акты, журналы, рекомендации — сразу. График следующих обработок согласован заранее.</p>
       </div>
     </div>
 
@@ -1535,10 +1581,7 @@
         <img src="все%20images/images-финал/врач.jpg" alt="Лызенко Иван Сергеевич" style="width:100%;height:100%;object-fit:cover;border-radius:24px;filter:grayscale(1) contrast(1.05);">
       </div>
       <div class="expert-info">
-        <h3>Лызенко Иван Сергеевич</h3>
-        <div class="expert-role">Младший научный сотрудник</div>
-        <div class="expert-institute">ФБУН НИИЭМ им. Пастера · Лаборатория зооантропонозных инфекций</div>
-        <p class="expert-desc">Контролирует методологию обработок, подбор препаратов и соответствие санитарным нормам. Каждый протокол обработки проходит через специалиста с профильным медицинским образованием и научной базой.</p>
+        <h3>Лызенко Иван Сергеевич</h3>        <p class="expert-desc">Контролирует методологию обработок, подбор препаратов и соответствие санитарным нормам. Каждый протокол обработки проходит через специалиста с профильным медицинским образованием и научной базой.</p>
 
         <div class="expert-quals">
           <div class="expert-qual">
@@ -1551,7 +1594,7 @@
           </div>
           <div class="expert-qual">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-            Аспирантура — эпидемиология
+            Младший научный сотрудник, ФБУН НИИЭМ им. Пастера · Лаборатория зооантропонозных инфекций
           </div>
           <div class="expert-qual">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
@@ -2200,21 +2243,24 @@
       <div class="footer-col">
         <h4>Услуги</h4>
         <ul>
-          <li><a href="#services">Дезинсекция</a></li>
-          <li><a href="#services">Дезинфекция</a></li>
-          <li><a href="#services">Дератизация</a></li>
-          <li><a href="#services">Абонентское обслуживание</a></li>
+          <li><a href="dezinfektsiya.html">Дезинфекция</a></li>
+          <li><a href="dezinsektsiya.html">Дезинсекция</a></li>
+          <li><a href="deratizatsiya.html">Дератизация</a></li>
+          <li><a href="abonentskoe.html">Абонентское обслуживание</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Отрасли</h4>
         <ul>
-          <li><a href="#segments">Рестораны</a></li>
-          <li><a href="#segments">Производства</a></li>
-          <li><a href="#segments">Склады</a></li>
-          <li><a href="#segments">Гостиницы</a></li>
-          <li><a href="#segments">ТСЖ / УК</a></li>
-          <li><a href="#segments">Медцентры</a></li>
+          <li><a href="restorany.html">Рестораны</a></li>
+          <li><a href="proizvodstva.html">Производства</a></li>
+          <li><a href="sklady.html">Склады</a></li>
+          <li><a href="gostinitsy.html">Гостиницы</a></li>
+          <li><a href="tszh-uk.html">ТСЖ / УК</a></li>
+          <li><a href="medtsentry.html">Медцентры</a></li>
+          <li><a href="ofisy.html">Офисы</a></li>
+          <li><a href="salony.html">Салоны красоты</a></li>
+          <li><a href="magaziny.html">Магазины</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -2291,6 +2337,35 @@
     mMenu.classList.remove('open');
     document.body.style.overflow = '';
   }
+
+  // ── Nav dropdowns ──
+  document.querySelectorAll('.nav-dropdown').forEach(dd => {
+    const menu = dd.querySelector('.nav-drop-menu');
+    let closeTimer = null;
+
+    // Переносим меню в body, чтобы backdrop-filter navbar не создавал новый stacking context
+    document.body.appendChild(menu);
+
+    function openDrop() {
+      clearTimeout(closeTimer);
+      const rect = dd.getBoundingClientRect();
+      menu.style.top  = (rect.bottom + 4) + 'px';
+      menu.style.left = rect.left + 'px';
+      dd.classList.add('open');
+      menu.classList.add('open');
+    }
+    function scheduleClose() {
+      closeTimer = setTimeout(() => {
+        dd.classList.remove('open');
+        menu.classList.remove('open');
+      }, 150);
+    }
+
+    dd.addEventListener('mouseenter', openDrop);
+    dd.addEventListener('mouseleave', scheduleClose);
+    menu.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+    menu.addEventListener('mouseleave', scheduleClose);
+  });
 
   // ── Reveal on scroll (IntersectionObserver) ──
   const revealEls = document.querySelectorAll('.reveal');

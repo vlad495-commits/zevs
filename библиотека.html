@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Моя библиотека — избранные компоненты</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Manrope', sans-serif; background: #f4f7f1; color: #1A1A2E; }
+
+    :root {
+      --accent: #A3D044;
+      --accent-hover: #8BBE2F;
+      --accent-dim: rgba(163,208,68,0.12);
+      --text: #1A1A2E;
+      --text-2: #6B7B8D;
+      --border: #E0E8F0;
+      --white: #FFFFFF;
+      --dark: #1A1A2E;
+      --radius: 24px;
+    }
+
+    /* ===== ШАПКА БИБЛИОТЕКИ ===== */
+    .lib-header {
+      text-align: center; padding: 64px 24px 48px;
+      background: linear-gradient(160deg, #fff 0%, #f2faee 55%, #edf4ff 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .lib-header h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 8px; }
+    .lib-header h1 span { color: var(--accent); }
+    .lib-header p { font-size: 1rem; color: var(--text-2); }
+
+    /* ===== РАЗДЕЛИТЕЛЬ СЕКЦИЙ ===== */
+    .lib-section {
+      max-width: 1200px; margin: 0 auto; padding: 64px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .lib-section:last-child { border-bottom: none; }
+    .lib-section-header { margin-bottom: 40px; }
+    .lib-section-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      font-size: 0.82rem; font-weight: 800; margin-bottom: 12px;
+    }
+    .lib-section-header h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 4px; }
+    .lib-section-header p { font-size: 0.88rem; color: var(--text-2); }
+
+    /* ===== ПУСТО ===== */
+    .lib-empty {
+      text-align: center; padding: 80px 24px; color: var(--text-2);
+      font-size: 0.95rem;
+    }
+    .lib-empty-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.3; }
+  </style>
+</head>
+<body>
+
+  <div class="lib-header">
+    <h1>Моя <span>библиотека</span></h1>
+    <p>Избранные компоненты и идеи для сайта</p>
+  </div>
+
+  <!-- Компонент 1 -->
+  <div class="lib-section">
+    <div class="lib-section-header">
+      <div class="lib-section-num">1</div>
+      <h2>Карточки отелей — Explore Best Hotel</h2>
+      <p>Dribbble: Hotel Booking Website Design. Горизонтальный ряд карточек с навигацией стрелками. Для сайтов отелей.</p>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:24px;">
+      <!-- Превью-описание -->
+      <div style="background:var(--white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
+        <p style="font-weight:700; margin-bottom:12px;">Что нравится:</p>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-2); font-size:0.92rem;">
+          <li>Скруглённые карточки с большим фото на фоне</li>
+          <li>Лейбл категории (например, «Hotel in Dubai»)</li>
+          <li>Название отеля крупным шрифтом поверх фото</li>
+          <li>Цена в правом верхнем углу ($2500/Per day)</li>
+          <li>Иконка-сердце (избранное) и стрелка-ссылка</li>
+          <li>Горизонтальный ряд из 4 карточек + стрелки навигации</li>
+          <li>Строка поиска и кнопка «View All» в шапке блока</li>
+        </ul>
+        <p style="margin-top:16px; font-size:0.85rem; color:var(--text-2);">
+          Источник: <a href="https://dribbble.com/shots/26207471-Hotel-Booking-Website-Design" target="_blank" style="color:var(--accent); text-decoration:underline;">dribbble.com/shots/26207471</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Компонент 11 -->
+  <div class="lib-section">
+    <div class="lib-section-header">
+      <div class="lib-section-num">11</div>
+      <h2>Grand Emily Hotel — полный референс сайта</h2>
+      <p>Dribbble: Grand Emily Hotel Website. Топ-референс — нравится абсолютно всё. Интегрировать в сайт для отелей.</p>
+    </div>
+    <div style="background:var(--white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
+      <p style="font-weight:700; margin-bottom:12px; color:#d4a574;">Топ-референс — нравится всё целиком</p>
+      <p style="font-weight:700; margin-bottom:12px;">Что взять:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-2); font-size:0.92rem;">
+        <li>Цветовая гамма — тёплые, приглушённые тона (бежевый, кремовый, тёмно-зелёный/коричневый)</li>
+        <li>Анимации — плавные появления элементов, переходы между секциями</li>
+        <li>Расположение фото — крупные атмосферные снимки, асимметричная компоновка</li>
+        <li>Задний фон — тёплый, текстурный, создаёт ощущение уюта и премиальности</li>
+        <li>Элегантные serif-шрифты для заголовков — классика и роскошь</li>
+        <li>Общий стиль: утончённый, премиальный, не перегруженный</li>
+      </ul>
+      <p style="margin-top:16px; font-size:0.85rem; color:var(--text-2);">
+        Источник: <a href="https://dribbble.com/shots/20891256-Grand-Emily-Hotel-Website" target="_blank" style="color:var(--accent); text-decoration:underline;">dribbble.com/shots/20891256</a>
+      </p>
+      <p style="margin-top:8px; font-size:0.85rem; font-weight:600; color:var(--text);">
+        Цель: интегрировать стиль в сайт для отелей
+      </p>
+    </div>
+  </div>
+
+  <!-- Компонент 10 -->
+  <div class="lib-section">
+    <div class="lib-section-header">
+      <div class="lib-section-num">10</div>
+      <h2>Testimonial + футер с крупными буквами «SUNRISE»</h2>
+      <p>Dribbble: Hotel Booking Website Design. Блок отзывов в круге + футер с огромным текстом и фото-вставками.</p>
+    </div>
+    <div style="background:var(--white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
+      <p style="font-weight:700; margin-bottom:12px;">Что нравится:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-2); font-size:0.92rem;">
+        <li>Блок Testimonial внутри тонкого круга — минималистично и элегантно</li>
+        <li>Кавычки «99» как декоративный элемент перед цитатой</li>
+        <li>Аватар + имя + должность автора отзыва, точки-индикаторы для переключения</li>
+        <li>Галерея фото отелей сверху — разные размеры, асимметричная сетка</li>
+        <li>Тёмная карточка «Join our community» с email и стрелкой — вписана в галерею</li>
+        <li>Футер с огромными буквами «SUNRISE — CONTACT» на весь экран</li>
+        <li>Фото номеров встроены прямо в буквы футера — креативный приём</li>
+        <li>Навигационные ссылки (About us, FAQ, Contact us) со стрелками</li>
+      </ul>
+      <p style="margin-top:16px; font-size:0.85rem; color:var(--text-2);">
+        Источник: <a href="https://dribbble.com/shots/26207471-Hotel-Booking-Website-Design" target="_blank" style="color:var(--accent); text-decoration:underline;">dribbble.com/shots/26207471</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Компонент 2 -->
+  <div class="lib-section">
+    <div class="lib-section-header">
+      <div class="lib-section-num">2</div>
+      <h2>Строка бронирования в шапке</h2>
+      <p>The Hoxton. Удобная форма бронирования в самом верху: локация, даты, количество гостей.</p>
+    </div>
+    <div style="background:var(--white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
+      <p style="font-weight:700; margin-bottom:12px;">Что нравится:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-2); font-size:0.92rem;">
+        <li>Строка бронирования в самом верху (локация + даты + гости)</li>
+        <li>Видео в Hero-блоке</li>
+        <li>Блок «Почему стоит бронировать через нас»</li>
+        <li>Блок с акциями</li>
+        <li>Короткая главная, не перегружает внимание</li>
+        <li>Красиво оформленные карточки с сертификатами</li>
+        <li>Страница «TheLocalist.» — классное оформление</li>
+      </ul>
+      <p style="margin-top:16px; font-size:0.85rem; color:var(--text-2);">
+        Источник: <a href="https://thehoxton.com" target="_blank" style="color:var(--accent); text-decoration:underline;">thehoxton.com</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Компонент 3 -->
+  <div class="lib-section">
+    <div class="lib-section-header">
+      <div class="lib-section-num">3</div>
+      <h2>Эффект «блок заезжает под блок» при скролле</h2>
+      <p>Ace Hotel. Один блок «заезжает» под другой при прокрутке — красивый переход между секциями.</p>
+    </div>
+    <div style="background:var(--white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
+      <p style="font-weight:700; margin-bottom:12px;">Что нравится:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-2); font-size:0.92rem;">
+        <li>Эффект при скролле: один блок «заезжает» под другой, закрывается им</li>
+        <li>Красивые видео в блоке Offers</li>
+        <li>Красивые картинки в блоке «Goings on»</li>
+        <li>Хорошая структура футера</li>
+      </ul>
+      <p style="margin-top:16px; font-size:0.85rem; color:var(--text-2);">
+        Источник: <a href="https://acehotel.com" target="_blank" style="color:var(--accent); text-decoration:underline;">acehotel.com</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Компонент 4 -->
+  <div class="lib-section">
+    <div class="lib-section-header">
+      <div class="lib-section-num">4</div>
+      <h2>Прозрачное меню + интерактивная карта</h2>
+      <p>Belmond. Прозрачная навигация поверх видео + шикарная интерактивная карта в Destinations.</p>
+    </div>
+    <div style="background:var(--white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
+      <p style="font-weight:700; margin-bottom:12px;">Что нравится:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-2); font-size:0.92rem;">
+        <li>Прозрачное меню поверх видео, при наведении фон становится белым</li>
+        <li>Шикарная интерактивная карта в Destinations</li>
+        <li>Фотографии по бокам, текст посередине — интересная композиция</li>
+        <li>Страница Celebration — красивое оформление</li>
+        <li>Идея страницы с историями об отелях (Stories)</li>
+        <li>Короткая главная с необходимой информацией</li>
+      </ul>
+      <p style="margin-top:16px; font-size:0.85rem; color:var(--text-2);">
+        Источник: <a href="https://belmond.com" target="_blank" style="color:var(--accent); text-decoration:underline;">belmond.com</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Компонент 5 -->
+  <div class="lib-section">
+    <div class="lib-section-header">
+      <div class="lib-section-num">5</div>
+      <h2>Полупрозрачные панели + параллакс + Stories</h2>
+      <p>NIHI. Фиксированные полупрозрачные панели сверху и снизу, параллакс-эффект, раскрывающиеся фото.</p>
+    </div>
+    <div style="background:var(--white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
+      <p style="font-weight:700; margin-bottom:12px;">Что нравится:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-2); font-size:0.92rem;">
+        <li>Шикарная полупрозрачная верхняя панель с тёмно-зелёным оттенком, фиксируется при скролле</li>
+        <li>Фиксированная полупрозрачная панель внизу экрана (Contact Us, WhatsApp, Getting Here, Share)</li>
+        <li>Параллакс-эффект: текст фиксируется по центру и движется с другой скоростью, чем фон</li>
+        <li>Красивый рисунок на фоне, сочетается с цветовой гаммой и логотипом</li>
+        <li>Блок Stories: фото «расширяются» при нажатии на стрелку, чередуются большая/маленькая</li>
+        <li>Классная анимация перемещения фото (но углы должны быть скруглёнными!)</li>
+        <li>Цветовая гамма и анимация бургер-меню (но открывать на 1/4 экрана, не на весь)</li>
+      </ul>
+      <p style="margin-top:16px; font-size:0.85rem; color:var(--text-2);">
+        Источник: <a href="https://nihi.com" target="_blank" style="color:var(--accent); text-decoration:underline;">nihi.com</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Компонент 6 -->
+  <div class="lib-section">
+    <div class="lib-section-header">
+      <div class="lib-section-num">6</div>
+      <h2>Скруглённая панель меню + анимация букв</h2>
+      <p>21c Museum Hotels. Меню со скруглёнными углами + анимация разваливающихся букв при скролле.</p>
+    </div>
+    <div style="background:var(--white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
+      <p style="font-weight:700; margin-bottom:12px;">Что нравится:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-2); font-size:0.92rem;">
+        <li>Верхняя панель меню со скруглёнными углами — выглядит отдельной от сайта</li>
+        <li>Классная анимация разваливающихся/падающих букв при скролле</li>
+        <li>Блок Locations: локации слева в столбик, фото справа — хорошая структура</li>
+        <li>Красивая панель выбора даты/локации (границы и структура)</li>
+        <li>Футер и блок регистрации — классное оформление</li>
+        <li>Страница dis-loyalty.com — нравится целиком как референс</li>
+      </ul>
+      <p style="margin-top:16px; font-size:0.85rem; color:var(--text-2);">
+        Источник: <a href="https://21cmuseumhotels.com" target="_blank" style="color:var(--accent); text-decoration:underline;">21cmuseumhotels.com</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Компонент 7 -->
+  <div class="lib-section">
+    <div class="lib-section-header">
+      <div class="lib-section-num">7</div>
+      <h2>Выпадающий список + вертикальные панели категорий</h2>
+      <p>YE'S Apart-Hotels. Выпадающее меню с разделением по городам + анимация вертикальных панелей номеров.</p>
+    </div>
+    <div style="background:var(--white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
+      <p style="font-weight:700; margin-bottom:12px;">Что нравится:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-2); font-size:0.92rem;">
+        <li>Выпадающий список при наведении на элемент меню (с разделением по городам)</li>
+        <li>Анимация с категориями номеров (Стандарт, Улучшенный, Делюкс, Люкс) — вертикальные панели</li>
+      </ul>
+      <p style="margin-top:16px; font-size:0.85rem; color:var(--text-2);">
+        Источник: <a href="https://yesapart.com" target="_blank" style="color:var(--accent); text-decoration:underline;">yesapart.com</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Компонент 8 -->
+  <div class="lib-section">
+    <div class="lib-section-header">
+      <div class="lib-section-num">8</div>
+      <h2>Анимация карточек + оценки в кругах + контактный блок</h2>
+      <p>Dom Boutique Hotel. Карточки мероприятий с hover-анимацией, рейтинги в кругах, шикарный блок контактов с картой.</p>
+    </div>
+    <div style="background:var(--white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
+      <p style="font-weight:700; margin-bottom:12px;">Что нравится:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-2); font-size:0.92rem;">
+        <li>Классная анимация карточек при наведении в блоке «Сезон мероприятий 2026»</li>
+        <li>Красиво оформленные оценки в кругах (5.0 Яндекс, 4.9 2ГИС и т.д.)</li>
+        <li>Анимация в блоке «Услуги отеля» при наведении на карточки</li>
+        <li>Шикарный блок контактной информации: выбор мест + интерактивная карта на фоне — обязательно использовать</li>
+        <li>Красивое фото с бордовыми элементами в Hero, текст хорошо контрастирует</li>
+      </ul>
+      <p style="margin-top:16px; font-size:0.85rem; color:var(--text-2);">
+        Источник: <a href="https://domboutiquehotel.com" target="_blank" style="color:var(--accent); text-decoration:underline;">domboutiquehotel.com</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Компонент 9 -->
+  <div class="lib-section">
+    <div class="lib-section-header">
+      <div class="lib-section-num">9</div>
+      <h2>Hero + блок «Познакомиться» + футер с крупными буквами</h2>
+      <p>Vertical Hotel. Необычный Hero с формой регистрации, шикарный блок знакомства, футер с крупными буквами-ссылками.</p>
+    </div>
+    <div style="background:var(--white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
+      <p style="font-weight:700; margin-bottom:12px;">Что нравится:</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-2); font-size:0.92rem;">
+        <li>Hero безумно нравится: несколько фото, форма регистрации, необычное меню столбиком справа — топ-референс</li>
+        <li>Блок «Познакомиться»: расположение текста, задний фон, анимация, расположение фото, подзаголовки — шикарный</li>
+        <li>Блок «Бронирование»: интерактивная карта, находит отель при наведении, ничего лишнего</li>
+        <li>Блок «Новости и события»: красивые карточки, двигающиеся картинки на фоне (такса, торт) — подходят по смыслу</li>
+        <li>Классная лента фото из комьюнити</li>
+        <li>Футер: большие буквы со ссылкой и номером компании</li>
+        <li>Красивое уведомление cookies с иконкой печеньки</li>
+      </ul>
+      <p style="margin-top:16px; font-size:0.85rem; color:var(--text-2);">
+        Источник: <a href="https://vertical-hotel.ru" target="_blank" style="color:var(--accent); text-decoration:underline;">vertical-hotel.ru</a>
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

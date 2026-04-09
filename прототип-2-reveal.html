@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прототип 2 — Image Reveal Hover (Tilt)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Manrope', sans-serif; background: #f4f7f1; color: #1A1A2E; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 24px; }
+
+    :root {
+      --accent: #A3D044;
+      --accent-hover: #8BBE2F;
+      --accent-dim: rgba(163,208,68,0.12);
+      --text: #1A1A2E;
+      --text-2: #6B7B8D;
+      --border: #E0E8F0;
+      --white: #FFFFFF;
+    }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--accent); margin-bottom: 14px;
+      justify-content: center;
+    }
+    .section-label::before { content: ''; width: 20px; height: 2px; background: var(--accent); border-radius: 2px; }
+
+    .wrapper { max-width: 1160px; width: 100%; }
+    .wrapper > * { text-align: center; }
+    .wrapper > h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800; line-height: 1.15; margin-bottom: 16px;
+    }
+    .wrapper > h2 em { font-style: normal; color: var(--accent); }
+    .wrapper > .sub { font-size: 1.05rem; color: var(--text-2); margin-bottom: 56px; }
+
+    /* ===== REVEAL GRID ===== */
+    .reveal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .reveal-card {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      height: 420px;
+      cursor: pointer;
+      perspective: 800px;
+    }
+
+    /* Фото-слой */
+    .reveal-photo {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #e8f4d0 0%, #dfeaff 100%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+      font-size: 0.85rem; color: var(--text-2);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s;
+      z-index: 1;
+    }
+    .reveal-photo-icon { font-size: 4rem; opacity: 0.4; }
+    .reveal-photo strong { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text); }
+
+    /* Текстовый слой (снизу) */
+    .reveal-text {
+      position: absolute; inset: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 36px 28px;
+      display: flex; flex-direction: column; justify-content: center;
+      z-index: 0;
+    }
+
+    /* Hover: фото уезжает вверх с tilt */
+    .reveal-card:hover .reveal-photo {
+      transform: translateY(-75%) rotateX(12deg) scale(0.88);
+      filter: brightness(1.1);
+    }
+
+    /* Номер */
+    .reveal-num {
+      position: absolute; top: 20px; left: 20px; z-index: 5;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 800;
+      box-shadow: 0 0 0 4px var(--accent-dim);
+      transition: transform 0.3s;
+    }
+    .reveal-card:hover .reveal-num { transform: scale(1.15); }
+
+    /* Текст внутри */
+    .reveal-text h3 {
+      font-size: 1.2rem; font-weight: 800; margin-bottom: 12px;
+    }
+    .reveal-text p {
+      font-size: 0.88rem; color: var(--text-2); line-height: 1.7; margin-bottom: 16px;
+    }
+    .reveal-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent-dim); color: var(--accent);
+      font-size: 0.78rem; font-weight: 700; padding: 6px 14px;
+      border-radius: 50px; width: fit-content;
+    }
+
+    /* Подсказка */
+    .reveal-hint {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      font-size: 0.68rem; color: rgba(255,255,255,0.7); z-index: 2;
+      background: rgba(26,26,46,0.5); padding: 4px 14px; border-radius: 50px;
+      backdrop-filter: blur(8px); transition: opacity 0.3s;
+      white-space: nowrap;
+    }
+    .reveal-card:hover .reveal-hint { opacity: 0; }
+
+    @media (max-width: 768px) {
+      .reveal-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .reveal-card { height: 360px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="section-label">О компании</div>
+    <h2>Познакомьтесь с <em>нами</em></h2>
+    <p class="sub">Наведите на карточку, чтобы узнать больше</p>
+
+    <div class="reveal-grid">
+
+      <!-- Card 1 -->
+      <div class="reveal-card">
+        <div class="reveal-num">1</div>
+        <div class="reveal-photo">
+          <div class="reveal-photo-icon">🏢</div>
+          <strong>Фото офиса</strong>
+        </div>
+        <div class="reveal-text">
+          <h3>Компания ЗЕВС</h3>
+          <p>10+ лет на рынке санитарных услуг. 500+ обслуживаемых объектов в СПб и ЛО. Лицензия Роспотребнадзора, полный пакет документов.</p>
+          <div class="reveal-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            ООО «Зевс» · с 2016 года
+          </div>
+        </div>
+        <div class="reveal-hint">Наведите</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="reveal-card">
+        <div class="reveal-num">2</div>
+        <div class="reveal-photo">
+          <div class="reveal-photo-icon">🔬</div>
+          <strong>Фото лаборатории</strong>
+        </div>
+        <div class="reveal-text">
+          <h3>Научный подход</h3>
+          <p>Штатный эпидемиолог из НИИЭМ им. Пастера контролирует методологию обработок. Сертифицированные препараты III–IV класса опасности.</p>
+          <div class="reveal-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Безопасно для людей и животных
+          </div>
+        </div>
+        <div class="reveal-hint">Наведите</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="reveal-card">
+        <div class="reveal-num">3</div>
+        <div class="reveal-photo">
+          <div class="reveal-photo-icon">📋</div>
+          <strong>Фото работы на объекте</strong>
+        </div>
+        <div class="reveal-text">
+          <h3>Система, не хаос</h3>
+          <p>Абонентское обслуживание: плановые обработки по графику, фиксированная стоимость, срочные выезды бесплатно. Один подрядчик — ноль авралов.</p>
+          <div class="reveal-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Работаем 24/7
+          </div>
+        </div>
+        <div class="reveal-hint">Наведите</div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

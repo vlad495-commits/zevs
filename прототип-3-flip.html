@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прототип 3 — 3D Flip Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Manrope', sans-serif; background: #f4f7f1; color: #1A1A2E; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 24px; }
+
+    :root {
+      --accent: #A3D044;
+      --accent-hover: #8BBE2F;
+      --accent-dim: rgba(163,208,68,0.12);
+      --text: #1A1A2E;
+      --text-2: #6B7B8D;
+      --border: #E0E8F0;
+      --white: #FFFFFF;
+      --dark: #1A1A2E;
+    }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--accent); margin-bottom: 14px;
+      justify-content: center;
+    }
+    .section-label::before { content: ''; width: 20px; height: 2px; background: var(--accent); border-radius: 2px; }
+
+    .wrapper { max-width: 1160px; width: 100%; }
+    .wrapper > * { text-align: center; }
+    .wrapper > h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800; line-height: 1.15; margin-bottom: 16px;
+    }
+    .wrapper > h2 em { font-style: normal; color: var(--accent); }
+    .wrapper > .sub { font-size: 1.05rem; color: var(--text-2); margin-bottom: 56px; }
+
+    /* ===== FLIP GRID ===== */
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    /* Flip container */
+    .flip-card {
+      perspective: 1000px;
+      height: 440px;
+      cursor: pointer;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%; height: 100%;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front, .flip-back {
+      position: absolute; inset: 0;
+      border-radius: 24px;
+      backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    /* ===== FRONT ===== */
+    .flip-front {
+      background: var(--white);
+      border: 1px solid var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .flip-avatar {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: linear-gradient(135deg, #e8f4d0 0%, #dfeaff 100%);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      border: 3px solid var(--border);
+      font-size: 3rem; opacity: 0.5;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .flip-card:hover .flip-avatar {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 6px var(--accent-dim);
+    }
+    .flip-front h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
+    .flip-front .flip-role {
+      font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-bottom: 12px;
+    }
+    .flip-front .flip-hint {
+      font-size: 0.72rem; color: var(--text-2); margin-top: auto;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .flip-hint svg {
+      animation: flipHintPulse 2s ease-in-out infinite;
+    }
+    @keyframes flipHintPulse {
+      0%, 100% { transform: rotateY(0); }
+      50% { transform: rotateY(20deg); }
+    }
+
+    /* ===== BACK ===== */
+    .flip-back {
+      background: var(--dark);
+      transform: rotateY(180deg);
+      padding: 32px 24px;
+      display: flex; flex-direction: column; justify-content: center;
+      text-align: left;
+    }
+    .flip-back h3 { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 16px; }
+    .flip-back p { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 20px; }
+
+    .flip-tags { display: flex; flex-direction: column; gap: 8px; }
+    .flip-tag {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.85); font-weight: 600;
+    }
+    .flip-tag-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(163,208,68,0.6);
+    }
+
+    .flip-back-accent {
+      position: absolute; top: 0; right: 0; width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(163,208,68,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    @media (max-width: 900px) {
+      .flip-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .flip-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+      .flip-card { height: 380px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="section-label">Команда</div>
+    <h2>Люди, которые <em>решают</em></h2>
+    <p class="sub">Наведите на карточку, чтобы узнать больше о специалисте</p>
+
+    <div class="flip-grid">
+
+      <!-- Card 1 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-avatar">👨‍💼</div>
+            <h3>Руководитель</h3>
+            <div class="flip-role">Основатель компании</div>
+            <div class="flip-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              Перевернуть
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-accent"></div>
+            <h3>Основатель ЗЕВС</h3>
+            <p>10+ лет в санитарной отрасли. Построил систему обслуживания 500+ объектов в СПб и ЛО.</p>
+            <div class="flip-tags">
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Стратегия развития</div>
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Работа с ключевыми клиентами</div>
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Контроль качества</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-avatar">👨‍⚕️</div>
+            <h3>Лызенко И.С.</h3>
+            <div class="flip-role">М.н.с., эпидемиолог</div>
+            <div class="flip-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              Перевернуть
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-accent"></div>
+            <h3>Штатный эпидемиолог</h3>
+            <p>НИИЭМ им. Пастера. Контролирует методологию обработок и подбор препаратов.</p>
+            <div class="flip-tags">
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Медико-профилактическое дело</div>
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Ординатура по эпидемиологии</div>
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Опыт в Роспотребнадзоре</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-avatar">👷</div>
+            <h3>Мастер-дезинфектор</h3>
+            <div class="flip-role">Старший специалист</div>
+            <div class="flip-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              Перевернуть
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-accent"></div>
+            <h3>Полевой специалист</h3>
+            <p>Проводит обработки на объектах. Сертифицирован, официально трудоустроен, проходит регулярное обучение.</p>
+            <div class="flip-tags">
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Холодный и горячий туман</div>
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Дератизационные станции</div>
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Барьерная защита</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-avatar">👩‍💻</div>
+            <h3>Менеджер</h3>
+            <div class="flip-role">Персональный куратор</div>
+            <div class="flip-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              Перевернуть
+            </div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-accent"></div>
+            <h3>Ваш персональный менеджер</h3>
+            <p>Ведёт историю объекта, контролирует график обработок, готовит документы для проверок.</p>
+            <div class="flip-tags">
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Ответ за 30 минут</div>
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Документооборот</div>
+              <div class="flip-tag"><div class="flip-tag-dot"></div>Координация выездов</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

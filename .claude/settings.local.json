@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh search:*)",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(f'{r[\\\\\"stargazersCount\\\\\"]:>6} | {r[\\\\\"fullName\\\\\"]:45} | {\\(r[\\\\\"description\\\\\"] or \\\\\"\\\\\"\\)[:60]}'\\) for r in data[:5]]\")"
+    ]
+  }
+}
