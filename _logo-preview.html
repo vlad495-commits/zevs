@@ -227,11 +227,14 @@
       display: block;
       text-shadow: 0 1px 0 rgba(255,255,255,0.04);
     }
-    /* В футере (на тёмном фоне) — плашка чуть светлее, чтобы выделялась */
-    .variant-d .footer-demo .logo-plate {
-      background: #0E0E1F;
-      border-color: rgba(163,208,68,0.3);
+    /* Все три демо-блока варианта D показываем на светло-зелёном фоне */
+    .variant-d .navbar-demo,
+    .variant-d .footer-demo,
+    .variant-d .hero-demo {
+      background: linear-gradient(135deg, #E8F5D0 0%, #F2F8E0 50%, #DFF0C2 100%);
+      border-bottom: none;
     }
+    .variant-d .footer-tagline { color: #6B7A4D; }
 
     /* Большая «hero» версия для отдельной демонстрации */
     .variant-d .logo-plate-big {
@@ -245,7 +248,6 @@
       letter-spacing: 3px;
     }
     .hero-demo {
-      background: var(--dark);
       padding: 60px 32px;
       display: flex;
       align-items: center;
