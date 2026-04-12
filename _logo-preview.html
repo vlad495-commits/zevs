@@ -187,12 +187,76 @@
       border: 2px solid transparent;
     }
     .variant-c .footer-logo span { color: var(--white); }
+
+    /* ========================================
+       ВАРИАНТ D — ТЁМНАЯ ПЛАШКА С ЛАЗЕРАМИ
+       ======================================== */
+    .variant-d .nav-logo,
+    .variant-d .footer-logo {
+      padding: 0;
+      background: none;
+      gap: 0;
+    }
+    .variant-d .logo-plate {
+      position: relative;
+      display: inline-block;
+      background: #14142B;
+      border: 1px solid rgba(163,208,68,0.18);
+      border-radius: 10px;
+      padding: 12px 28px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    }
+    .variant-d .logo-plate::before,
+    .variant-d .logo-plate::after {
+      content: '';
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--accent) 70%, transparent);
+      box-shadow: 0 0 8px rgba(163,208,68,0.7);
+    }
+    .variant-d .logo-plate::before { top: 6px; }
+    .variant-d .logo-plate::after { bottom: 6px; }
+    .variant-d .logo-text {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #050510;
+      letter-spacing: 1.5px;
+      line-height: 1;
+      display: block;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.04);
+    }
+    /* В футере (на тёмном фоне) — плашка чуть светлее, чтобы выделялась */
+    .variant-d .footer-demo .logo-plate {
+      background: #0E0E1F;
+      border-color: rgba(163,208,68,0.3);
+    }
+
+    /* Большая «hero» версия для отдельной демонстрации */
+    .variant-d .logo-plate-big {
+      padding: 36px 80px;
+      border-radius: 16px;
+    }
+    .variant-d .logo-plate-big::before { top: 22px; }
+    .variant-d .logo-plate-big::after  { bottom: 22px; }
+    .variant-d .logo-plate-big .logo-text {
+      font-size: 4rem;
+      letter-spacing: 3px;
+    }
+    .hero-demo {
+      background: var(--dark);
+      padding: 60px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
 
   <h1 class="preview-page-title">🎨 Превью логотипа — выбери один из трёх</h1>
-  <p class="preview-page-sub">Каждый вариант показан в шапке (на белом) и в подвале (на тёмном) — как будет выглядеть на сайте. Просто скажи «вариант A», «B» или «C» — я применю на все 15 страниц.</p>
+  <p class="preview-page-sub">Каждый вариант показан в шапке (на белом) и в подвале (на тёмном) — как будет выглядеть на сайте. Просто скажи «вариант A», «B», «C» или «D» — я применю на все 15 страниц.</p>
 
   <!-- ============================
        ВАРИАНТ A
@@ -263,6 +327,36 @@
     <div class="footer-demo">
       <div class="footer-logo">ЗЕВ<span>С</span></div>
       <div class="footer-tagline">Дезинфекция СПб с 2010 года</div>
+    </div>
+  </div>
+
+  <!-- ============================
+       ВАРИАНТ D — ТЁМНАЯ ПЛАШКА С ЛАЗЕРАМИ
+       ============================ -->
+  <div class="variant-card variant-d">
+    <div class="variant-header">
+      <div class="variant-name">Вариант D — «Тёмная плашка с лазерами» ⚡</div>
+      <div class="variant-desc">Тёмно-синяя плашка с двумя зелёными светящимися линиями над и под текстом. Смешанный регистр «ЗЕвС». Премиальный, технологичный, узнаваемый. Снизу — большая hero-версия как идея для главного экрана.</div>
+    </div>
+    <div class="label">Шапка сайта</div>
+    <div class="navbar-demo">
+      <a href="#" class="nav-logo">
+        <div class="logo-plate"><span class="logo-text">ЗЕвС</span></div>
+      </a>
+      <div class="nav-links-demo">
+        <span>Главная</span><span>Услуги</span><span>Цены</span><span>Контакты</span>
+      </div>
+    </div>
+    <div class="label">Подвал сайта</div>
+    <div class="footer-demo">
+      <div class="footer-logo">
+        <div class="logo-plate"><span class="logo-text">ЗЕвС</span></div>
+      </div>
+      <div class="footer-tagline">Дезинфекция СПб с 2010 года</div>
+    </div>
+    <div class="label">Большая версия (например для главного экрана)</div>
+    <div class="hero-demo">
+      <div class="logo-plate logo-plate-big"><span class="logo-text">ЗЕвС</span></div>
     </div>
   </div>
 
