@@ -753,10 +753,10 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .wa-chip .contact-chip-icon { background: rgba(123,104,238,0.12); }
+    .max-chip .contact-chip-icon { background: rgba(123,104,238,0.12); }
     .tg-chip .contact-chip-icon { background: rgba(34,158,217,0.1); }
     .contact-chip-icon svg { width: 18px; height: 18px; }
-    .wa-chip .contact-chip-icon svg { fill: #7B68EE; }
+    .max-chip .contact-chip-icon svg { fill: #7B68EE; }
     .tg-chip .contact-chip-icon svg { fill: #229ED9; }
 
     /* ===== SCROLL TO TOP ===== */
@@ -784,8 +784,8 @@
       padding: 12px 16px; gap: 10px;
     }
     .mobile-sticky .btn-primary { flex: 1; padding: 14px; font-size: 0.95rem; }
-    .mobile-sticky .btn-wa { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #00D4FF, #7B68EE, #8B00FF); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(123,104,238,0.3); }
-    .mobile-sticky .btn-wa svg { width: 24px; height: 24px; fill: #fff; }
+    .mobile-sticky .btn-max { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #00D4FF, #7B68EE, #8B00FF); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(123,104,238,0.3); }
+    .mobile-sticky .btn-max svg { width: 24px; height: 24px; fill: #fff; }
 
     /* ===== STATS COUNTER ===== */
     .stats-bar { padding: 56px 0; background: var(--dark); }
@@ -2270,7 +2270,7 @@
      FLOATING BUTTONS
      ============================================================ -->
 <div class="contact-float">
-  <a href="https://max.ru/u/ВАШ_ХЕШИ" class="contact-chip wa-chip" target="_blank">
+  <a href="https://max.ru/u/ВАШ_ХЕШИ" class="contact-chip max-chip" target="_blank">
     <div class="contact-chip-icon">
       <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
     </div>
@@ -2290,7 +2290,7 @@
 <!-- Sticky mobile CTA -->
 <div class="mobile-sticky">
   <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Оставить заявку</button>
-  <a href="https://max.ru/u/ВАШ_ХЕШИ" class="btn-wa" target="_blank">
+  <a href="https://max.ru/u/ВАШ_ХЕШИ" class="btn-max" target="_blank">
     <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
   </a>
 </div>
