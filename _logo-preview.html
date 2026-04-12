@@ -6,7 +6,7 @@
   <title>Превью логотипа ЗЕВС — 3 варианта</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Russo+One&family=Oswald:wght@700;900&family=Unbounded:wght@800;900&family=Bowlby+One+SC&display=swap" rel="stylesheet">
   <style>
     :root {
       --accent: #A3D044;
@@ -253,6 +253,47 @@
       align-items: center;
       justify-content: center;
     }
+
+    /* ========================================
+       СРАВНЕНИЕ ШРИФТОВ ДЛЯ ВАРИАНТА D
+       ======================================== */
+    .font-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+    .font-cell {
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #E8F5D0 0%, #F2F8E0 50%, #DFF0C2 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      border-right: 1px dashed rgba(163,208,68,0.4);
+      border-bottom: 1px dashed rgba(163,208,68,0.4);
+    }
+    .font-cell:nth-child(2n) { border-right: none; }
+    .font-cell:nth-child(n+3) { border-bottom: none; }
+    .font-name {
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #6B7A4D;
+      font-weight: 700;
+    }
+    .font-cell .logo-plate { padding: 14px 32px; }
+    .font-cell .logo-plate::before,
+    .font-cell .logo-plate::after {
+      background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--accent) 70%, transparent);
+      box-shadow: 0 0 8px rgba(163,208,68,0.7);
+    }
+
+    .font-russo .logo-text     { font-family: 'Russo One', sans-serif;     font-size: 2rem; font-weight: 400; letter-spacing: 2px; }
+    .font-oswald .logo-text    { font-family: 'Oswald', sans-serif;        font-size: 2.4rem; font-weight: 900; letter-spacing: 3px; }
+    .font-unbounded .logo-text { font-family: 'Unbounded', sans-serif;     font-size: 1.9rem; font-weight: 900; letter-spacing: 1.5px; }
+    .font-bowlby .logo-text    { font-family: 'Bowlby One SC', sans-serif; font-size: 2.1rem; font-weight: 400; letter-spacing: 2px; }
   </style>
 </head>
 <body>
@@ -359,6 +400,26 @@
     <div class="label">Большая версия (например для главного экрана)</div>
     <div class="hero-demo">
       <div class="logo-plate logo-plate-big"><span class="logo-text">ЗЕвС</span></div>
+    </div>
+
+    <div class="label">Сравнение шрифтов — какой больше нравится?</div>
+    <div class="font-grid">
+      <div class="font-cell font-russo">
+        <div class="font-name">Russo One</div>
+        <div class="logo-plate"><span class="logo-text">ЗЕвС</span></div>
+      </div>
+      <div class="font-cell font-oswald">
+        <div class="font-name">Oswald</div>
+        <div class="logo-plate"><span class="logo-text">ЗЕвС</span></div>
+      </div>
+      <div class="font-cell font-unbounded">
+        <div class="font-name">Unbounded</div>
+        <div class="logo-plate"><span class="logo-text">ЗЕвС</span></div>
+      </div>
+      <div class="font-cell font-bowlby">
+        <div class="font-name">Bowlby One SC</div>
+        <div class="logo-plate"><span class="logo-text">ЗЕвС</span></div>
+      </div>
     </div>
   </div>
 
