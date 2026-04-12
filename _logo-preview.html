@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Превью логотипа ЗЕВС — 3 варианта</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #A3D044;
+      --accent-hover: #93BD3A;
+      --text: #1A1A2E;
+      --white: #FFFFFF;
+      --dark: #1A1A2E;
+      --border: #E5E7EB;
+      --bg: #F8F9FA;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .preview-page-title {
+      max-width: 1100px;
+      margin: 0 auto 12px;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+    .preview-page-sub {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .variant-card {
+      max-width: 1100px;
+      margin: 0 auto 48px;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(26,26,46,0.08);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .variant-header {
+      padding: 24px 32px;
+      border-bottom: 1px solid var(--border);
+      background: #FAFBFC;
+    }
+    .variant-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .variant-desc {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    /* ========================================
+       КОПИЯ РЕАЛЬНОГО НАВБАРА (упрощённая)
+       ======================================== */
+    .navbar-demo {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links-demo {
+      display: flex;
+      gap: 24px;
+      color: #777;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .nav-links-demo span { cursor: default; }
+
+    /* ========================================
+       КОПИЯ РЕАЛЬНОГО ФУТЕРА (упрощённая)
+       ======================================== */
+    .footer-demo {
+      background: var(--dark);
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-tagline {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      margin-left: auto;
+    }
+
+    .label {
+      padding: 8px 32px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999;
+      font-weight: 700;
+      background: #FAFBFC;
+    }
+
+    /* ========================================
+       ВАРИАНТ A — МОЛНИЯ + ТЕКСТ
+       ======================================== */
+    .variant-a .nav-logo svg,
+    .variant-a .footer-logo svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--accent);
+      filter: drop-shadow(0 0 6px rgba(163,208,68,0.5));
+    }
+    .variant-a .footer-logo svg {
+      fill: var(--white);
+      filter: drop-shadow(0 0 8px rgba(163,208,68,0.4));
+    }
+
+    /* ========================================
+       ВАРИАНТ B — ГРАДИЕНТНЫЙ ТЕКСТ
+       ======================================== */
+    .variant-b .nav-logo,
+    .variant-b .footer-logo {
+      font-size: 1.7rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #00D4FF, #7B68EE, #8B00FF);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: background-position 0.4s ease;
+      background-size: 200% 200%;
+    }
+    .variant-b .nav-logo:hover,
+    .variant-b .footer-logo:hover {
+      background-position: 100% 100%;
+    }
+    .variant-b .footer-logo {
+      font-size: 1.6rem;
+    }
+
+    /* ========================================
+       ВАРИАНТ C — КАПСУЛА-ШИЛЬДИК
+       ======================================== */
+    .variant-c .nav-logo {
+      padding: 8px 18px;
+      border-radius: 50px;
+      border: 2px solid var(--accent);
+      background: rgba(163,208,68,0.08);
+      color: var(--text);
+    }
+    .variant-c .nav-logo span { color: var(--accent); }
+
+    .variant-c .footer-logo {
+      padding: 8px 18px;
+      border-radius: 50px;
+      background: var(--accent);
+      color: var(--white);
+      border: 2px solid transparent;
+    }
+    .variant-c .footer-logo span { color: var(--white); }
+  </style>
+</head>
+<body>
+
+  <h1 class="preview-page-title">🎨 Превью логотипа — выбери один из трёх</h1>
+  <p class="preview-page-sub">Каждый вариант показан в шапке (на белом) и в подвале (на тёмном) — как будет выглядеть на сайте. Просто скажи «вариант A», «B» или «C» — я применю на все 15 страниц.</p>
+
+  <!-- ============================
+       ВАРИАНТ A
+       ============================ -->
+  <div class="variant-card variant-a">
+    <div class="variant-header">
+      <div class="variant-name">Вариант A — «Молния + текст»</div>
+      <div class="variant-desc">Зевс = бог-громовержец. Иконка молнии слева от текста. Сохраняется фирменный зелёный, добавляется характерный символ.</div>
+    </div>
+    <div class="label">Шапка сайта</div>
+    <div class="navbar-demo">
+      <a href="#" class="nav-logo">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 11-12h-7l1-8z"/></svg>
+        ЗЕВС
+      </a>
+      <div class="nav-links-demo">
+        <span>Главная</span><span>Услуги</span><span>Цены</span><span>Контакты</span>
+      </div>
+    </div>
+    <div class="label">Подвал сайта</div>
+    <div class="footer-demo">
+      <div class="footer-logo">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 11-12h-7l1-8z"/></svg>
+        ЗЕВС
+      </div>
+      <div class="footer-tagline">Дезинфекция СПб с 2010 года</div>
+    </div>
+  </div>
+
+  <!-- ============================
+       ВАРИАНТ B
+       ============================ -->
+  <div class="variant-card variant-b">
+    <div class="variant-header">
+      <div class="variant-name">Вариант B — «Градиентный текст»</div>
+      <div class="variant-desc">Без иконки. Текст «ЗЕВС» с фирменным фиолетово-голубым градиентом MAX (как в новой кнопке мессенджера). Современный и дорогой вид. На hover градиент плавно сдвигается.</div>
+    </div>
+    <div class="label">Шапка сайта</div>
+    <div class="navbar-demo">
+      <a href="#" class="nav-logo">ЗЕВС</a>
+      <div class="nav-links-demo">
+        <span>Главная</span><span>Услуги</span><span>Цены</span><span>Контакты</span>
+      </div>
+    </div>
+    <div class="label">Подвал сайта</div>
+    <div class="footer-demo">
+      <div class="footer-logo">ЗЕВС</div>
+      <div class="footer-tagline">Дезинфекция СПб с 2010 года</div>
+    </div>
+  </div>
+
+  <!-- ============================
+       ВАРИАНТ C
+       ============================ -->
+  <div class="variant-card variant-c">
+    <div class="variant-header">
+      <div class="variant-name">Вариант C — «Капсула-шильдик»</div>
+      <div class="variant-desc">Текст «ЗЕВС» в плашке-капсуле. В шапке — обводка зелёным с лёгкой подсветкой, акцент на «С». В подвале — инверсия: цельная зелёная плашка с белым текстом. Похоже на бейдж качества.</div>
+    </div>
+    <div class="label">Шапка сайта</div>
+    <div class="navbar-demo">
+      <a href="#" class="nav-logo">ЗЕВ<span>С</span></a>
+      <div class="nav-links-demo">
+        <span>Главная</span><span>Услуги</span><span>Цены</span><span>Контакты</span>
+      </div>
+    </div>
+    <div class="label">Подвал сайта</div>
+    <div class="footer-demo">
+      <div class="footer-logo">ЗЕВ<span>С</span></div>
+      <div class="footer-tagline">Дезинфекция СПб с 2010 года</div>
+    </div>
+  </div>
+
+</body>
+</html>
