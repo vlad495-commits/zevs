@@ -206,8 +206,19 @@
       box-shadow: 0 8px 36px rgba(26,26,46,0.12), inset 0 2px 0 rgba(255,255,255,0.98);
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-    .nav-logo { font-size: 1.5rem; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
-    .nav-logo span { color: var(--accent); }
+    .nav-logo {
+      position: relative; display: inline-block; padding: 10px 22px;
+      font-size: 1.5rem; font-weight: 800; color: var(--text);
+      letter-spacing: 1.5px; line-height: 1; text-decoration: none;
+    }
+    .nav-logo::before, .nav-logo::after {
+      content: ''; position: absolute; left: 8%; right: 8%; height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--accent) 70%, transparent);
+      box-shadow: 0 0 8px rgba(163,208,68,0.7);
+    }
+    .nav-logo::before { top: 0; }
+    .nav-logo::after { bottom: 0; }
+    .nav-logo span { display: none; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--text-2); transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
@@ -705,8 +716,19 @@
     /* ===== FOOTER ===== */
     footer { background: #111422; color: rgba(255,255,255,0.45); padding: 56px 0 32px; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
-    .footer-brand .footer-logo { font-size: 1.4rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
-    .footer-brand .footer-logo span { color: var(--accent); }
+    .footer-brand .footer-logo {
+      position: relative; display: inline-block; padding: 9px 20px;
+      font-size: 1.4rem; font-weight: 800; color: var(--white);
+      letter-spacing: 1.5px; line-height: 1; margin-bottom: 12px;
+    }
+    .footer-brand .footer-logo::before, .footer-brand .footer-logo::after {
+      content: ''; position: absolute; left: 8%; right: 8%; height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--accent) 70%, transparent);
+      box-shadow: 0 0 8px rgba(163,208,68,0.7);
+    }
+    .footer-brand .footer-logo::before { top: 0; }
+    .footer-brand .footer-logo::after { bottom: 0; }
+    .footer-brand .footer-logo span { display: none; }
     .footer-brand p { font-size: 0.85rem; line-height: 1.6; max-width: 260px; }
     .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
     .footer-col ul li { margin-bottom: 10px; }
@@ -1167,7 +1189,7 @@
      ============================================================ -->
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
-    <a href="#" class="nav-logo">ЗЕВС</a>
+    <a href="#" class="nav-logo">ЗЕвС</a>
     <div class="nav-links">
       <div class="nav-dropdown">
         <a href="#services">Услуги</a>
@@ -2219,7 +2241,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo">ЗЕВС</div>
+        <div class="footer-logo">ЗЕвС</div>
         <p>Дезинфекция, дезинсекция и дератизация для бизнеса и частных лиц в Санкт-Петербурге и Ленинградской области. Лицензия Роспотребнадзора.</p>
       </div>
       <div class="footer-col">
