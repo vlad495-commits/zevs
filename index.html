@@ -753,10 +753,10 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .wa-chip .contact-chip-icon { background: rgba(37,211,102,0.1); }
+    .wa-chip .contact-chip-icon { background: rgba(123,104,238,0.12); }
     .tg-chip .contact-chip-icon { background: rgba(34,158,217,0.1); }
     .contact-chip-icon svg { width: 18px; height: 18px; }
-    .wa-chip .contact-chip-icon svg { fill: #25D366; }
+    .wa-chip .contact-chip-icon svg { fill: #7B68EE; }
     .tg-chip .contact-chip-icon svg { fill: #229ED9; }
 
     /* ===== SCROLL TO TOP ===== */
@@ -784,7 +784,7 @@
       padding: 12px 16px; gap: 10px;
     }
     .mobile-sticky .btn-primary { flex: 1; padding: 14px; font-size: 0.95rem; }
-    .mobile-sticky .btn-wa { width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .mobile-sticky .btn-wa { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #00D4FF, #7B68EE, #8B00FF); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(123,104,238,0.3); }
     .mobile-sticky .btn-wa svg { width: 24px; height: 24px; fill: #fff; }
 
     /* ===== STATS COUNTER ===== */
@@ -1255,9 +1255,9 @@
           <button class="btn-primary" onclick="addRipple(event); document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
             Узнать цену для объекта
           </button>
-          <a href="https://wa.me/78126271550" class="btn-outline" target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-1-.9-1.5-2-1.7-2.3-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5 0-.2 0-.4-.1-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.3C7.3 7 6.5 7.8 6.5 9.4s1.2 3.1 1.3 3.3c.2.2 2.3 3.6 5.7 5C15.9 18.9 15.9 18 17 17.7c.9-.3 1.5-1.1 1.7-1.8.2-.5.2-1-.1-1.5z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3.3.9.9-3.2-.2-.3C3.7 14.7 3.3 13.4 3.3 12 3.3 7.2 7.2 3.3 12 3.3S20.7 7.2 20.7 12 16.8 20.3 12 20.3z"/></svg>
-            WhatsApp
+          <a href="https://max.ru/u/ВАШ_ХЕШИ" class="btn-outline" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#7B68EE"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
+            MAX
           </a>
         </div>
         <div class="hero-stats">
@@ -2199,26 +2199,8 @@
       <div class="cta-form">
         <h3 style="font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:24px">Оставить заявку</h3>
         <div class="form-group">
-          <label>Ваше имя</label>
-          <input type="text" placeholder="Как к вам обращаться">
-        </div>
-        <div class="form-group">
           <label>Телефон</label>
           <input type="tel" placeholder="+7 (___) ___-__-__">
-        </div>
-        <div class="form-group">
-          <label>Тип объекта</label>
-          <select>
-            <option value="" disabled selected>Выберите тип объекта</option>
-            <option>Ресторан / кафе</option>
-            <option>Пищевое производство</option>
-            <option>Склад / логистика</option>
-            <option>Гостиница / хостел</option>
-            <option>ТСЖ / Управляющая компания</option>
-            <option>Медицинский центр</option>
-            <option>Офис / бизнес-центр</option>
-            <option>Другое</option>
-          </select>
         </div>
         <button class="btn-primary" style="width:100%;margin-top:8px;padding:18px" onclick="addRipple(event)">
           Отправить заявку →
@@ -2278,7 +2260,7 @@
       <div class="footer-socials">
         <a href="#" title="ВКонтакте">В</a>
         <a href="#" title="Telegram">T</a>
-        <a href="#" title="WhatsApp">W</a>
+        <a href="#" title="MAX">M</a>
       </div>
     </div>
   </div>
@@ -2288,11 +2270,11 @@
      FLOATING BUTTONS
      ============================================================ -->
 <div class="contact-float">
-  <a href="https://wa.me/78126271550" class="contact-chip wa-chip" target="_blank">
+  <a href="https://max.ru/u/ВАШ_ХЕШИ" class="contact-chip wa-chip" target="_blank">
     <div class="contact-chip-icon">
-      <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-1-.9-1.5-2-1.7-2.3-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5 0-.2 0-.4-.1-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.3C7.3 7 6.5 7.8 6.5 9.4s1.2 3.1 1.3 3.3c.2.2 2.3 3.6 5.7 5C15.9 18.9 15.9 18 17 17.7c.9-.3 1.5-1.1 1.7-1.8.2-.5.2-1-.1-1.5z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3.3.9.9-3.2-.2-.3C3.7 14.7 3.3 13.4 3.3 12 3.3 7.2 7.2 3.3 12 3.3S20.7 7.2 20.7 12 16.8 20.3 12 20.3z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
     </div>
-    <span>WhatsApp</span>
+    <span>MAX</span>
   </a>
   <a href="https://t.me/dez20spb" class="contact-chip tg-chip" target="_blank">
     <div class="contact-chip-icon">
@@ -2308,8 +2290,8 @@
 <!-- Sticky mobile CTA -->
 <div class="mobile-sticky">
   <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Оставить заявку</button>
-  <a href="https://wa.me/78126271550" class="btn-wa" target="_blank">
-    <svg viewBox="0 0 24 24" fill="white"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.3-.5-2.4-1.5-1-.9-1.5-2-1.7-2.3-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5 0-.2 0-.4-.1-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.7.3C7.3 7 6.5 7.8 6.5 9.4s1.2 3.1 1.3 3.3c.2.2 2.3 3.6 5.7 5C15.9 18.9 15.9 18 17 17.7c.9-.3 1.5-1.1 1.7-1.8.2-.5.2-1-.1-1.5z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.7 0-3.3-.4-4.7-1.3l-.3-.2-3.3.9.9-3.2-.2-.3C3.7 14.7 3.3 13.4 3.3 12 3.3 7.2 7.2 3.3 12 3.3S20.7 7.2 20.7 12 16.8 20.3 12 20.3z"/></svg>
+  <a href="https://max.ru/u/ВАШ_ХЕШИ" class="btn-wa" target="_blank">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
   </a>
 </div>
 
