@@ -137,8 +137,9 @@ section { padding: 96px 0; }
 .nav-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; height: 72px; }
 .nav-logo {
   position: relative; display: inline-block; padding: 10px 22px;
-  font-size: 1.5rem; font-weight: 800; color: var(--text);
-  letter-spacing: 1.5px; line-height: 1; text-decoration: none;
+  font-family: 'Yeseva One', serif;
+  font-size: 1.8rem; font-weight: 400; color: var(--text);
+  letter-spacing: 1px; line-height: 1; text-decoration: none;
 }
 .nav-logo::before, .nav-logo::after {
   content: ''; position: absolute; left: 8%; right: 8%; height: 1.5px;
@@ -474,8 +475,9 @@ footer { background: #111422; color: rgba(255,255,255,0.45); padding: 56px 0 32p
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
 .footer-brand .footer-logo {
   position: relative; display: inline-block; padding: 9px 20px;
-  font-size: 1.4rem; font-weight: 800; color: var(--white);
-  letter-spacing: 1.5px; line-height: 1; margin-bottom: 12px;
+  font-family: 'Yeseva One', serif;
+  font-size: 1.7rem; font-weight: 400; color: var(--white);
+  letter-spacing: 1px; line-height: 1; margin-bottom: 12px;
 }
 .footer-brand .footer-logo::before, .footer-brand .footer-logo::after {
   content: ''; position: absolute; left: 8%; right: 8%; height: 1.5px;
