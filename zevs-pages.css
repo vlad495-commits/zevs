@@ -260,10 +260,10 @@ section { padding: 96px 0; }
 }
 .page-hero-btns { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 
-/* Специалист-герой справа в page-hero */
+/* Специалист-герой справа в page-hero — края растворяются в фон через mask */
 .page-hero-worker {
   position: absolute;
-  right: 0;
+  right: -120px;
   bottom: 0;
   height: 100%;
   max-height: 560px;
@@ -272,7 +272,15 @@ section { padding: 96px 0; }
   object-position: right bottom;
   pointer-events: none;
   z-index: 0;
-  mix-blend-mode: multiply;
+  filter: contrast(1.08) saturate(1.02) brightness(1.03);
+  -webkit-mask-image:
+    linear-gradient(to right,  transparent 0%, black 30%, black 70%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right,  transparent 0%, black 30%, black 70%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%);
+  mask-composite: intersect;
 }
 /* Ограничиваем ширину текста чтобы не налезал на картинку */
 .page-hero h1,
