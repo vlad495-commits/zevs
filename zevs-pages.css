@@ -567,24 +567,22 @@ footer { background: #111422; color: rgba(255,255,255,0.45); padding: 56px 0 32p
   display: flex; flex-direction: column; gap: 10px;
 }
 .contact-chip {
-  display: flex; align-items: center; gap: 10px;
-  background: var(--white); border: 1.5px solid var(--border);
-  border-radius: 14px; padding: 10px 16px;
-  box-shadow: 0 4px 20px rgba(26,26,46,0.10);
-  font-size: 0.85rem; font-weight: 700; color: var(--text);
-  white-space: nowrap; transition: all 0.25s var(--ease);
-  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; border: none; padding: 0;
+  transition: transform 0.25s var(--ease);
+  position: relative;
 }
-.contact-chip:hover { border-color: var(--accent); box-shadow: 0 8px 28px rgba(163,208,68,0.22); transform: translateX(-4px); }
+.contact-chip:hover { transform: translateX(-4px); }
 .contact-chip-icon {
-  width: 30px; height: 30px; border-radius: 8px;
+  width: 44px; height: 44px; border-radius: 12px;
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(26,26,46,0.18);
 }
-.max-chip .contact-chip-icon { background: rgba(123,104,238,0.12); }
-.tg-chip .contact-chip-icon { background: rgba(34,158,217,0.1); }
-.contact-chip-icon svg { width: 18px; height: 18px; }
-.max-chip .contact-chip-icon svg { fill: #7B68EE; }
-.tg-chip .contact-chip-icon svg { fill: #229ED9; }
+.max-chip .contact-chip-icon { background: transparent; }
+.tg-chip .contact-chip-icon { background: #EAF5FC; }
+.max-chip .contact-chip-icon svg { width: 44px; height: 44px; display: block; }
+.tg-chip .contact-chip-icon svg { width: 26px; height: 26px; fill: #229ED9; }
 
 .float-top {
   position: fixed; right: 24px; bottom: 32px; z-index: 500;
@@ -614,6 +612,9 @@ footer { background: #111422; color: rgba(255,255,255,0.45); padding: 56px 0 32p
 }
 .mobile-sticky .btn-max svg { width: 24px; height: 24px; fill: #fff; }
 
+/* ===== Утилита: 2 колонки, сворачиваются в 1 на мобиле ===== */
+.cmp-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; }
+
 /* ===== МЕДИА-ЗАПРОСЫ ===== */
 @media (max-width: 1024px) {
   .docs-grid { grid-template-columns: repeat(3, 1fr); }
@@ -624,7 +625,9 @@ footer { background: #111422; color: rgba(255,255,255,0.45); padding: 56px 0 32p
   .process-grid::before { display: none; }
 }
 @media (max-width: 768px) {
-  body { overflow-x: hidden; }
+  /* Жёсткая фиксация viewport — запрет горизонтального свайпа на iOS Safari */
+  html, body { overflow-x: hidden; max-width: 100%; }
+  body { touch-action: pan-y; position: relative; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
   section { padding: 56px 0; }
@@ -642,12 +645,21 @@ footer { background: #111422; color: rgba(255,255,255,0.45); padding: 56px 0 32p
   .case-highlight { grid-template-columns: 1fr; }
   .faq-layout { grid-template-columns: 1fr; gap: 32px; }
   .faq-sticky { position: static; }
-  .cta-inner { grid-template-columns: 1fr; }
+  .cta-inner { grid-template-columns: 1fr; gap: 32px; }
   .cta-perks { display: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .contact-float { right: 16px; bottom: 76px; }
   .float-top { right: 16px; bottom: 16px; }
   .mobile-sticky { display: flex; }
+
+  /* H1: компенсация sticky-бара снизу */
+  body { padding-bottom: 76px; }
+
+  /* H2: закрываем desktop-dropdown на мобиле */
+  .dropdown-panel, .nav-drop-menu { display: none !important; }
+
+  /* C1: утилита .cmp-2col сворачивается в 1 колонку */
+  .cmp-2col { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .docs-grid { grid-template-columns: 1fr; }

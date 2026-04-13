@@ -841,8 +841,19 @@
       padding: 12px 16px; gap: 10px;
     }
     .mobile-sticky .btn-primary { flex: 1; padding: 14px; font-size: 0.95rem; }
-    .mobile-sticky .btn-max { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #00D4FF, #7B68EE, #8B00FF); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(123,104,238,0.3); }
-    .mobile-sticky .btn-max svg { width: 24px; height: 24px; fill: #fff; }
+    /* Кнопка "Наверх" в sticky-баре — появляется при скролле > 400 через JS (.visible) */
+    .sticky-scroll-top {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--accent); border: none;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; cursor: pointer;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(163,208,68,0.4);
+      opacity: 0; transform: scale(0.6); pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .sticky-scroll-top.visible { opacity: 1; transform: scale(1); pointer-events: auto; }
+    .sticky-scroll-top svg { width: 20px; height: 20px; }
 
     /* ===== STATS COUNTER ===== */
     .stats-bar { padding: 56px 0; background: var(--dark); }
@@ -852,6 +863,10 @@
     .stats-num { font-size: 2.6rem; font-weight: 800; color: var(--accent); line-height: 1; }
     .stats-label { font-size: 0.85rem; color: rgba(255,255,255,0.45); margin-top: 6px; }
 
+    /* ===== Утилита: 2 колонки, сворачиваются в 1 на мобиле ===== */
+    .cmp-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .cmp-2col-wide { gap: 60px; align-items: start; }
+
     /* ===== MEDIA QUERIES ===== */
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
@@ -860,40 +875,40 @@
     }
     @media (max-width: 768px) {
       /* Общее */
-      body { overflow-x: hidden; }
+      /* Жёсткая фиксация viewport — запрет горизонтального свайпа на iOS Safari.
+         html+body overflow-x: hidden недостаточно без max-width и touch-action */
+      html, body { overflow-x: hidden; max-width: 100%; }
+      body { touch-action: pan-y; position: relative; }
 
-      /* Навбар */
+      /* Навбар — компактный мобильный вид.
+         На десктопе логотип 1.8rem + padding 22px не помещается рядом с гамбургером
+         внутри navbar left:20 right:20 + container padding:24. Уменьшаем всё. */
+      .navbar { left: 12px; right: 12px; }
+      .navbar .container { padding: 0 14px; }
+      .nav-inner { height: 60px; }
+      .nav-logo { font-size: 1.35rem; padding: 6px 14px; letter-spacing: 0.5px; }
       .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; background: rgba(163,208,68,0.15); border-radius: 10px; padding: 10px; }
+      .hamburger { display: flex; background: rgba(163,208,68,0.15); border-radius: 10px; padding: 9px; flex-shrink: 0; }
       .hamburger span { background: var(--text); }
 
-      /* Hero */
-      .hero { min-height: 0 !important; padding: 72px 0 32px; overflow: hidden; display: block; }
+      /* Hero: на мобиле — только текст, декоративное фото скрыто.
+         Причина: absolute mask + 220px height создавали большую пустоту и визуальную кашу */
+      .hero { min-height: 0 !important; padding: 104px 0 48px; overflow: hidden; display: block; }
       .hero-grid { grid-template-columns: 1fr; gap: 16px; }
       .hero-left { position: relative; z-index: 2; }
-      .hero-right { order: -1; height: 220px; overflow: hidden; }
-
-      /* Фото специалиста на мобильном */
-      .hero-worker-scene {
-        position: absolute;
-        left: 50%; top: -40px;
-        transform: translateX(-50%);
-        width: 360px;
-        right: auto;
-        -webkit-mask-image:
-          linear-gradient(to bottom, transparent 0%, black 20%, black 65%, transparent 100%);
-        mask-image:
-          linear-gradient(to bottom, transparent 0%, black 20%, black 65%, transparent 100%);
-      }
-      .hero-worker-img { width: 100%; height: auto; }
+      .hero-right { display: none; }
 
       /* Бейдж */
       .hero-badge { display: none; }
 
-      /* Hero stats — 2 колонки */
+      /* Hero stats — 2 колонки, компактные */
       .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-      .hero-stat { padding: 10px 12px 10px 10px; }
-      .hero-stat-icon img { width: 52px; height: 52px; }
+      .hero-stat { padding: 10px 12px 10px 10px; min-width: 0; }
+      .hero-stat-icon img { width: 44px; height: 44px; }
+      .hero-stat-body { min-width: 0; flex: 1; }
+      .hero-stat-num { font-size: 1rem; }
+      /* Подписи могут переноситься, чтобы не обрезало */
+      .hero-stat-lbl { white-space: normal; font-size: 0.68rem; line-height: 1.25; }
 
       /* placeholder — адаптив для нового блока */
 
@@ -901,23 +916,50 @@
       .process-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 32px; }
       .process-grid::before { display: none; }
       #documents .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      /* Услуги — 1 колонка на мобиле: карточки полноширокие, текст не обрезается */
+      #services .services-grid { grid-template-columns: 1fr !important; }
+      #services .service-card { padding: 24px 22px; }
       .lab-body { grid-template-columns: 1fr; }
       .guarantee-grid { grid-template-columns: 1fr; }
       .reviews-grid  { grid-template-columns: 1fr; }
       .pricing-grid  { grid-template-columns: 1fr; }
-      .cta-inner { grid-template-columns: 1fr; }
+      .cta-inner { grid-template-columns: 1fr; gap: 32px; }
       .cta-perks { display: none; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
       .stats-item { border-right: none; }
       .contact-float { right: 16px; bottom: 76px; }
-      .float-top { right: 16px; bottom: 16px; }
+      /* Мобильные чипы — без белой рамки, иконка заполняет всё */
+      .contact-chip { background: transparent; border: none; padding: 0; box-shadow: none; }
+      .contact-chip::after { display: none; }
+      .contact-chip-icon {
+        width: 44px; height: 44px; border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(26,26,46,0.18);
+      }
+      .max-chip .contact-chip-icon { background: transparent; }
+      .max-chip .contact-chip-icon svg { width: 44px; height: 44px; fill: initial; }
+      .tg-chip .contact-chip-icon { background: #EAF5FC; }
+      .tg-chip .contact-chip-icon svg { width: 26px; height: 26px; }
+      /* На мобиле плавающая "наверх" не нужна — её роль играет кнопка в sticky-баре */
+      .float-top { display: none !important; }
       .mobile-sticky { display: flex; }
+
+      /* H1: компенсация sticky-бара снизу, чтобы он не перекрывал контент */
+      body { padding-bottom: 76px; }
+
+      /* H2: закрываем desktop-dropdown при переходе на мобиль (защита от конфликта z-index с mobile-menu) */
+      .nav-drop-menu { display: none !important; }
+
+      /* H4: декоративные glow'ы убираем на мобиле — экономим GPU и исключаем невидимый overflow */
+      .hero-glow-1, .hero-glow-2 { display: none; }
+
+      /* C1: утилита .cmp-2col сворачивается в 1 колонку */
+      .cmp-2col, .cmp-2col-wide { grid-template-columns: 1fr; gap: 24px; }
+
+      /* Segments accordion: полный фикс ниже в отдельном @media блоке */
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 1.9rem; }
-      .hero-right { height: 220px; }
-      .hero-worker-scene { width: 280px; }
       .hero-btns { flex-direction: column; align-items: flex-start; }
       /* placeholder — мобильный адаптив для нового блока */
       .process-grid { grid-template-columns: 1fr !important; }
@@ -936,6 +978,9 @@
       .g-dark-grid { grid-template-columns: repeat(2,1fr) !important; }
       .expert-grid { grid-template-columns: 1fr; text-align: center; }
       .expert-quals { grid-template-columns: 1fr; }
+
+      /* H3: иконки сервисов меньше — не прилипают к краям карточки на 320-375px */
+      .service-card-icon img { width: 140px; height: 140px; }
     }
 
     /* ===== EXPERT ===== */
@@ -1152,30 +1197,216 @@
       transform: scaleX(1);
     }
 
-    /* ===== SEGMENTS mobile ===== */
+    /* ===== COMPARE mobile — фикс order issue =====
+       Базовое .compare-grid (1fr 1fr) идёт позже в коде, чем первый @media 480 */
     @media (max-width: 768px) {
-      .seg-accordion { flex-direction: column; height: auto; }
-      .seg-accordion-item { flex: none; height: 64px; transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-      .seg-accordion-item:hover,
-      .seg-accordion-item.is-active { height: 240px; }
-      .seg-accordion-label {
-        transform: none;
-        left: 56px; top: 50%; transform: translateY(-50%);
-        font-size: 0.78rem;
+      .compare-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
       }
-      .seg-accordion-icon {
-        top: 50% !important; left: 20px !important;
-        transform: translateY(-50%) !important;
-        font-size: 1.4rem !important;
+      .compare-col { padding: 28px 24px; }
+    }
+
+    /* ===== CASES mobile =====
+       Базовое .cases-grid (repeat(3,1fr)) идёт позже в коде, чем первый @media 480 —
+       нужен отдельный @media ниже, чтобы перебить. Плюс аккордеон по клику. */
+    @media (max-width: 768px) {
+      .cases-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
       }
+      .case-card {
+        padding: 16px 44px 16px 18px;
+        cursor: pointer;
+        position: relative;
+        transition: padding 0.3s ease;
+      }
+      /* Chevron справа — как в segments */
+      .case-card::after {
+        content: '';
+        position: absolute;
+        right: 20px; top: 22px;
+        width: 9px; height: 9px;
+        border-right: 2px solid var(--accent);
+        border-bottom: 2px solid var(--accent);
+        transform: rotate(45deg);
+        transition: transform 0.3s ease, top 0.3s ease;
+      }
+      .case-card.is-open::after {
+        transform: rotate(-135deg);
+        top: 26px;
+      }
+      /* Свёрнутое состояние: иконка слева + жирный h3 в строку */
+      .case-card .case-icon {
+        display: inline-flex;
+        vertical-align: middle;
+        font-size: 1.4rem;
+        margin: 0 10px 0 0;
+        line-height: 1;
+      }
+      .case-card h3 {
+        display: inline;
+        font-size: 0.98rem;
+        font-weight: 800;
+        margin: 0;
+        vertical-align: middle;
+      }
+      .case-card p,
+      .case-card .case-metrics { display: none; }
+
+      /* Раскрытое состояние */
+      .case-card.is-open { padding: 18px 20px 22px; }
+      .case-card.is-open .case-icon {
+        display: block;
+        font-size: 1.6rem;
+        margin: 0 0 8px 0;
+      }
+      .case-card.is-open h3 {
+        display: block;
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+      }
+      .case-card.is-open p {
+        display: block;
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+      }
+      .case-card.is-open .case-metrics {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+    }
+
+    /* ===== EXPERT mobile — фикс order issue =====
+       Базовое определение .expert-grid (300px 1fr) идёт в файле позже, чем первый
+       @media 480, поэтому переопределение ниже по порядку — после базовых стилей */
+    @media (max-width: 768px) {
+      .expert-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        text-align: left;
+      }
+      .expert-photo { max-width: 280px; margin: 0 auto 8px; }
+      .expert-quals { grid-template-columns: 1fr !important; }
+    }
+
+    /* ===== SEGMENTS mobile ===== */
+    /* На мобиле — полноценный аккордеон: свёрнутые карточки компактные (иконка + заголовок),
+       при тапе раскрываются в полный контент. JS уже переключает .is-active. */
+    @media (max-width: 768px) {
+      .seg-accordion { flex-direction: column; height: auto; gap: 10px; }
+
+      /* Базовая карточка — компактный ряд: иконка слева + h3 + chevron справа */
+      .seg-accordion-item {
+        flex: none; height: auto; min-height: 0;
+        display: block;
+        padding: 16px 44px 16px 18px;
+        cursor: pointer;
+        transition: padding 0.3s ease;
+      }
+      /* Убираем hover-раскрытие на мобиле (чтобы работал только клик) */
+      .seg-accordion-item:hover { padding: 16px 44px 16px 18px; }
+
+      /* Chevron справа — указывает что карточку можно раскрыть */
+      .seg-accordion-item::after {
+        content: '';
+        position: absolute;
+        right: 20px;
+        top: 22px;
+        width: 9px;
+        height: 9px;
+        border-right: 2px solid var(--accent);
+        border-bottom: 2px solid var(--accent);
+        transform: rotate(45deg);
+        transition: transform 0.3s ease, top 0.3s ease;
+        z-index: 3;
+      }
+      /* При раскрытии chevron поворачивается вверх */
+      .seg-accordion-item.is-active::after {
+        transform: rotate(-135deg);
+        top: 26px;
+      }
+
+      /* Вертикальный label не нужен */
+      .seg-accordion-label,
+      .seg-accordion-item:hover .seg-accordion-label,
+      .seg-accordion-item.is-active .seg-accordion-label { display: none; }
+
+      /* Icon — в потоке слева от заголовка, компактная */
+      .seg-accordion-icon,
       .seg-accordion-item:hover .seg-accordion-icon,
       .seg-accordion-item.is-active .seg-accordion-icon {
-        top: 16px !important; left: 20px !important;
-        transform: none !important;
-        font-size: 1.8rem !important;
+        position: static;
+        top: auto; left: auto;
+        transform: none;
+        font-size: 1.4rem;
+        opacity: 1;
+        display: inline-flex;
+        vertical-align: middle;
+        margin-right: 10px;
+        color: var(--accent);
       }
-      .seg-accordion-item:hover .seg-accordion-label,
-      .seg-accordion-item.is-active .seg-accordion-label { opacity: 0; }
+
+      /* Body: изначально виден только h3 как заголовок карточки */
+      .seg-accordion-body,
+      .seg-accordion-item:hover .seg-accordion-body,
+      .seg-accordion-item.is-active .seg-accordion-body {
+        position: static; inset: auto;
+        display: inline;
+        opacity: 1;
+        transition: none;
+      }
+      /* Только h3 виден в свёрнутом состоянии, остальное скрыто */
+      .seg-accordion-text { display: inline; padding: 0; width: auto; height: auto; }
+      .seg-accordion-text h3 {
+        display: inline;
+        font-size: 1rem;
+        font-weight: 800;
+        margin: 0;
+        vertical-align: middle;
+      }
+      /* !important нужен потому что в HTML у <a> inline-style display:inline-block */
+      .seg-accordion-text p,
+      .seg-accordion-text .seg-tag { display: none; }
+      .seg-accordion-text a { display: none !important; }
+
+      /* РАСКРЫТОЕ состояние (.is-active): полный контент вертикально */
+      .seg-accordion-item.is-active {
+        padding: 18px 20px 22px;
+      }
+      .seg-accordion-item.is-active .seg-accordion-text { display: block; }
+      .seg-accordion-item.is-active .seg-accordion-icon {
+        display: block;
+        font-size: 1.6rem;
+        margin-right: 0;
+        margin-bottom: 8px;
+      }
+      .seg-accordion-item.is-active .seg-accordion-text h3 {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+      }
+      .seg-accordion-item.is-active .seg-accordion-text p {
+        display: block;
+        font-size: 0.85rem;
+        line-height: 1.55;
+        margin-bottom: 12px;
+      }
+      .seg-accordion-item.is-active .seg-accordion-text .seg-tag {
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 12px;
+      }
+      .seg-accordion-item.is-active .seg-accordion-text a {
+        display: block !important;
+        margin-top: 0 !important;
+      }
+
+      /* Фото-плейсхолдеры скрываем — реальных картинок нет */
+      .seg-accordion-photo,
+      .seg-accordion-photo--empty { display: none; }
     }
 
     /* ===== COMPARISON ===== */
@@ -1325,7 +1556,17 @@
             Узнать цену для объекта
           </button>
           <a href="#contact" class="btn-outline">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#7B68EE"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="maxLogoGradHero" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0" stop-color="#2F7CFF"/>
+                  <stop offset="0.55" stop-color="#5B5BF0"/>
+                  <stop offset="1" stop-color="#B152E8"/>
+                </linearGradient>
+              </defs>
+              <rect width="100" height="100" rx="14" fill="url(#maxLogoGradHero)"/>
+              <path fill="#fff" fill-rule="evenodd" d="M52 16C69.7 16 84 30.3 84 48C84 65.7 69.7 80 52 80C46.3 80 41 78.5 36.4 75.9L18 83L24.8 65.9C21.2 60.8 19 54.7 19 48C19 30.8 33.3 16 51 16ZM53 34C44.7 34 38 40.7 38 49C38 57.3 44.7 64 53 64C61.3 64 68 57.3 68 49C68 40.7 61.3 34 53 34Z"/>
+            </svg>
             MAX
           </a>
         </div>
@@ -1939,7 +2180,7 @@
      ============================================================ -->
 <section id="subscription" class="section-alt">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
+    <div class="cmp-2col cmp-2col-wide">
 
       <!-- Левая колонка -->
       <div class="reveal">
@@ -2344,17 +2585,25 @@
      FLOATING BUTTONS
      ============================================================ -->
 <div class="contact-float">
-  <a href="#contact" class="contact-chip max-chip">
+  <a href="#contact" class="contact-chip max-chip" aria-label="Написать в MAX">
     <div class="contact-chip-icon">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="maxLogoGrad" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#2F7CFF"/>
+            <stop offset="0.55" stop-color="#5B5BF0"/>
+            <stop offset="1" stop-color="#B152E8"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" rx="14" fill="url(#maxLogoGrad)"/>
+        <path fill="#fff" fill-rule="evenodd" d="M52 16C69.7 16 84 30.3 84 48C84 65.7 69.7 80 52 80C46.3 80 41 78.5 36.4 75.9L18 83L24.8 65.9C21.2 60.8 19 54.7 19 48C19 30.8 33.3 16 51 16ZM53 34C44.7 34 38 40.7 38 49C38 57.3 44.7 64 53 64C61.3 64 68 57.3 68 49C68 40.7 61.3 34 53 34Z"/>
+      </svg>
     </div>
-    <span>MAX</span>
   </a>
-  <a href="https://t.me/dez20spb" class="contact-chip tg-chip" target="_blank" rel="noopener noreferrer">
+  <a href="https://t.me/dez20spb" class="contact-chip tg-chip" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
     <div class="contact-chip-icon">
-      <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2l-2 9.4c-.1.6-.5.8-.9.5l-2.5-1.9-1.2 1.1c-.1.1-.3.2-.6.2l.2-2.6 5-4.5c.2-.2 0-.3-.3-.1l-6.2 3.9-2.6-.8c-.6-.2-.6-.6.1-.8l10.2-3.9c.5-.2 1 .1.8.5z"/></svg>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2l-2 9.4c-.1.6-.5.8-.9.5l-2.5-1.9-1.2 1.1c-.1.1-.3.2-.6.2l.2-2.6 5-4.5c.2-.2 0-.3-.3-.1l-6.2 3.9-2.6-.8c-.6-.2-.6-.6.1-.8l10.2-3.9c.5-.2 1 .1.8.5z"/></svg>
     </div>
-    <span>Telegram</span>
   </a>
 </div>
 <button class="float-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх">
@@ -2364,9 +2613,9 @@
 <!-- Sticky mobile CTA -->
 <div class="mobile-sticky">
   <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Оставить заявку</button>
-  <a href="#contact" class="btn-max">
-    <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
-  </a>
+  <button class="sticky-scroll-top" id="stickyScrollTop" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+  </button>
 </div>
 
 <!-- ============================================================
@@ -2377,7 +2626,11 @@
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 20);
-    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+    const isScrolled = window.scrollY > 400;
+    document.getElementById('scrollTop').classList.toggle('visible', isScrolled);
+    // Мобильная кнопка "Наверх" в sticky-баре — появляется по тому же условию
+    const stickyTop = document.getElementById('stickyScrollTop');
+    if (stickyTop) stickyTop.classList.toggle('visible', isScrolled);
   });
 
   // ── Mobile menu ──
@@ -2473,6 +2726,17 @@
       item.addEventListener('click', () => {
         items.forEach(i => i.classList.remove('is-active'));
         item.classList.add('is-active');
+      });
+    });
+  })();
+
+  // ── Cases accordion (мобильная версия) ──
+  // Множественное раскрытие: клик по карточке toggl'ит is-open только у неё.
+  // На десктопе .case-card::after скрыт через media query, клик не мешает.
+  (function() {
+    document.querySelectorAll('.case-card').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('is-open');
       });
     });
   })();
