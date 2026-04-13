@@ -6,6 +6,15 @@
   <title>ЗЕВС — Дезинфекция для бизнеса в СПб | Договор, документы, обслуживание</title>
   <meta name="description" content="Санитарное сопровождение бизнеса в Санкт-Петербурге. Дезинфекция, дезинсекция, дератизация по договору. Документы для проверок, регулярный график, ночной режим работы.">
   <link rel="canonical" href="https://zevs.ltd/">
+  <!-- Open Graph / социальные сети -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zevs.ltd/">
+  <meta property="og:title" content="ЗЕВС — Дезинфекция для бизнеса в СПб">
+  <meta property="og:description" content="Санитарное сопровождение бизнеса в СПб. Дезинфекция, дезинсекция, дератизация по договору. Документы для проверок, регулярный график.">
+  <meta property="og:image" content="https://zevs.ltd/images/og-preview.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="ЗЕвС">
+  <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,8 +50,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Yeseva+One&display=swap" rel="stylesheet">
   <style>
     /* ===== ПЛАВНЫЙ ПЕРЕХОД МЕЖДУ СТРАНИЦАМИ ===== */
     @view-transition { navigation: auto; }
@@ -70,6 +78,11 @@
     img { max-width: 100%; display: block; }
     button, input, select, textarea { font-family: inherit; font-size: inherit; border: none; outline: none; }
     ::selection { background: rgba(163,208,68,0.2); color: var(--text); }
+
+    /* Видимая обводка только при клавиатурной навигации (Tab), мышью не показывается */
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+    a:focus-visible { outline-offset: 4px; }
+    input:focus-visible, textarea:focus-visible { outline-offset: 0; box-shadow: 0 0 0 3px rgba(163,208,68,0.35); }
 
     /* ===== CSS VARIABLES ===== */
     :root {
@@ -691,6 +704,9 @@
       padding: 22px 0; cursor: pointer; gap: 16px;
       font-size: 1rem; font-weight: 700; color: var(--text);
       transition: color 0.2s; user-select: none;
+      /* Сброс нативных стилей button */
+      background: none; border: none; width: 100%; text-align: left;
+      font-family: inherit;
     }
     .faq-q:hover { color: var(--accent); }
     .faq-arrow { width: 28px; height: 28px; border-radius: 50%; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, transform 0.3s; }
@@ -1308,7 +1324,7 @@
           <button class="btn-primary" onclick="addRipple(event); document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
             Узнать цену для объекта
           </button>
-          <a href="https://max.ru/u/ВАШ_ХЕШИ" class="btn-outline" target="_blank">
+          <a href="#contact" class="btn-outline">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="#7B68EE"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
             MAX
           </a>
@@ -2122,80 +2138,80 @@
     <div class="faq-list">
 
         <div class="faq-item reveal">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button type="button" class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
             Безопасны ли препараты для сотрудников?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
-          </div>
+          </button>
           <div class="faq-a">
             <div class="faq-a-inner">Да. Используем только сертифицированные средства 3–4 класса опасности. После обработки — проветривание, через 2–4 часа можно работать. Для общепита и медицины подбираем препараты, безопасные для продуктов и пациентов.</div>
           </div>
         </div>
 
         <div class="faq-item reveal">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button type="button" class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
             Какие документы мы получим?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
-          </div>
+          </button>
           <div class="faq-a">
             <div class="faq-a-inner">Договор, акты после каждого выезда, журналы ДДД, сертификаты на препараты, рекомендации по объекту. По договору всё ведётся регулярно — при проверке вам не нужно ничего срочно оформлять.</div>
           </div>
         </div>
 
         <div class="faq-item reveal">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button type="button" class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
             Можно ли без остановки работы объекта?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
-          </div>
+          </button>
           <div class="faq-a">
             <div class="faq-a-inner">Как правило, да. Работаем в нерабочее время объекта — ночью, в выходные или в санитарные дни. Составляем график под ваш режим, чтобы обработка не мешала бизнесу.</div>
           </div>
         </div>
 
         <div class="faq-item reveal">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button type="button" class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
             У вас есть лицензия?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
-          </div>
+          </button>
           <div class="faq-a">
             <div class="faq-a-inner">Да. Лицензия Роспотребнадзора на дезинфектологию. С 1 марта 2025 обязательна для всех компаний ДДД. Копию прикладываем к договору.</div>
           </div>
         </div>
 
         <div class="faq-item reveal">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button type="button" class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
             Чем абонентское обслуживание выгоднее?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
-          </div>
+          </button>
           <div class="faq-a">
             <div class="faq-a-inner">Фиксированная стоимость, плановый график, бесплатные срочные выезды, непрерывный документооборот. Один подрядчик на все виды работ — без поиска и тендеров. Понятный бюджет на год — без аварийных расходов.</div>
           </div>
         </div>
 
         <div class="faq-item reveal">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button type="button" class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
             Работаете с юрлицами?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
-          </div>
+          </button>
           <div class="faq-a">
             <div class="faq-a-inner">Да. ООО и ИП. Для договора достаточно реквизитов. Полный пакет закрывающих документов для бухгалтерии.</div>
           </div>
         </div>
 
         <div class="faq-item reveal">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button type="button" class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
             Как формируется цена?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
-          </div>
+          </button>
           <div class="faq-a">
             <div class="faq-a-inner">Зависит от площади, типа объекта и частоты. Один экстренный вызов часто стоит как 1–2 месяца абонентского обслуживания. Точный расчёт — после бесплатного обследования.</div>
           </div>
         </div>
 
         <div class="faq-item reveal">
-          <div class="faq-q" onclick="toggleFaq(this)">
+          <button type="button" class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
             Нужен ли договор на дезинфекцию по закону?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
-          </div>
+          </button>
           <div class="faq-a">
             <div class="faq-a-inner">Для ряда видов деятельности (общепит, производства, медицина, образование) наличие договора на дезинфекцию предусмотрено санитарными нормами. Действующий договор с профильной компанией — стандартный документ, который запрашивают при проверках.</div>
           </div>
@@ -2249,17 +2265,22 @@
       </div>
 
       <!-- RIGHT: form -->
-      <div class="cta-form">
+      <form class="cta-form" action="#" method="post" novalidate>
         <h3 style="font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:24px">Оставить заявку</h3>
         <div class="form-group">
-          <label>Телефон</label>
-          <input type="tel" placeholder="+7 (___) ___-__-__">
+          <label for="cta-phone">Телефон</label>
+          <input id="cta-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+7 (___) ___-__-__">
         </div>
-        <button class="btn-primary" style="width:100%;margin-top:8px;padding:18px" onclick="addRipple(event)">
+        <!-- Honeypot: скрытое поле-ловушка для ботов. Человек его не видит и не заполняет. -->
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+          <label for="cta-website">Сайт</label>
+          <input id="cta-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:8px;padding:18px" onclick="addRipple(event)">
           Отправить заявку →
         </button>
-        <p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="privacy/" target="_blank" style="color:inherit;text-decoration:underline">политикой конфиденциальности</a>. Не передаём данные третьим лицам.</p>
-      </div>
+        <p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="privacy/" style="color:inherit;text-decoration:underline">политикой конфиденциальности</a>. Не передаём данные третьим лицам.</p>
+      </form>
 
     </div>
   </div>
@@ -2311,9 +2332,9 @@
     <div class="footer-bottom">
       <p>© 2026 ООО «Зевс». Все права защищены. Санкт-Петербург, ул. Кантемировская, 7</p>
       <div class="footer-socials">
-        <a href="#" title="ВКонтакте">В</a>
-        <a href="#" title="Telegram">T</a>
-        <a href="#" title="MAX">M</a>
+        <a href="#" title="ВКонтакте" aria-label="ВКонтакте">В</a>
+        <a href="#" title="Telegram" aria-label="Telegram">T</a>
+        <a href="#" title="MAX" aria-label="Мессенджер MAX">M</a>
       </div>
     </div>
   </div>
@@ -2323,13 +2344,13 @@
      FLOATING BUTTONS
      ============================================================ -->
 <div class="contact-float">
-  <a href="https://max.ru/u/ВАШ_ХЕШИ" class="contact-chip max-chip" target="_blank">
+  <a href="#contact" class="contact-chip max-chip">
     <div class="contact-chip-icon">
       <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
     </div>
     <span>MAX</span>
   </a>
-  <a href="https://t.me/dez20spb" class="contact-chip tg-chip" target="_blank">
+  <a href="https://t.me/dez20spb" class="contact-chip tg-chip" target="_blank" rel="noopener noreferrer">
     <div class="contact-chip-icon">
       <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2l-2 9.4c-.1.6-.5.8-.9.5l-2.5-1.9-1.2 1.1c-.1.1-.3.2-.6.2l.2-2.6 5-4.5c.2-.2 0-.3-.3-.1l-6.2 3.9-2.6-.8c-.6-.2-.6-.6.1-.8l10.2-3.9c.5-.2 1 .1.8.5z"/></svg>
     </div>
@@ -2343,7 +2364,7 @@
 <!-- Sticky mobile CTA -->
 <div class="mobile-sticky">
   <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Оставить заявку</button>
-  <a href="https://max.ru/u/ВАШ_ХЕШИ" class="btn-max" target="_blank">
+  <a href="#contact" class="btn-max">
     <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg>
   </a>
 </div>
@@ -2490,13 +2511,17 @@
   function toggleFaq(questionEl) {
     const item = questionEl.parentElement;
     const isOpen = item.classList.contains('open');
+    // Закрываем все, сбрасываем aria-expanded
     document.querySelectorAll('.faq-item').forEach(i => {
       i.classList.remove('open');
       i.querySelector('.faq-a').style.maxHeight = '0';
+      const q = i.querySelector('.faq-q');
+      if (q) q.setAttribute('aria-expanded', 'false');
     });
     if (!isOpen) {
       item.classList.add('open');
       item.querySelector('.faq-a').style.maxHeight = item.querySelector('.faq-a-inner').scrollHeight + 'px';
+      questionEl.setAttribute('aria-expanded', 'true');
     }
   }
 

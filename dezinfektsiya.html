@@ -5,10 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Дезинфекция помещений для бизнеса в СПб — ЗЕВС</title>
   <meta name="description" content="Профессиональная дезинфекция коммерческих объектов в Санкт-Петербурге. Уничтожение бактерий, вирусов, плесени, грибка. Работаем без остановки бизнеса. Документы для проверок.">
+  <link rel="canonical" href="https://zevs.ltd/dezinfektsiya.html">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zevs.ltd/dezinfektsiya.html">
+  <meta property="og:title" content="Дезинфекция помещений для бизнеса в СПб">
+  <meta property="og:description" content="Профессиональная дезинфекция коммерческих объектов в Санкт-Петербурге. Уничтожение бактерий, вирусов, плесени, грибка. Работаем без остановки бизнеса. Документы для проверок.">
+  <meta property="og:image" content="https://zevs.ltd/images/og-preview.jpg">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="ЗЕвС">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Дезинфекция помещений для бизнеса в СПб",
+  "description": "Профессиональная дезинфекция коммерческих объектов в Санкт-Петербурге. Уничтожение бактерий, вирусов, плесени, грибка. Работаем без остановки бизнеса. Документы для проверок.",
+  "url": "https://zevs.ltd/dezinfektsiya.html",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "ЗЕВС",
+    "url": "https://zevs.ltd",
+    "telephone": "+7-812-627-15-50",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Кантемировская, 7",
+      "addressLocality": "Санкт-Петербург",
+      "addressCountry": "RU"
+    }
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Санкт-Петербург"
+    },
+    {
+      "@type": "State",
+      "name": "Ленинградская область"
+    }
+  ]
+}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Yeseva+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="zevs-pages.css">
 </head>
 <body>
@@ -263,7 +303,7 @@
         <div class="section-label">FAQ</div>
         <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2rem)">Частые<br><em>вопросы</em></h2>
         <p style="font-size:0.9rem;color:var(--text-2);margin-top:12px;line-height:1.6">Остались вопросы? Напишите нам — ответим за 5 минут.</p>
-        <a href="https://max.ru/u/ВАШ_ХЕШИ" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--accent);color:white;padding:12px 24px;border-radius:50px;font-weight:700;font-size:0.88rem;">MAX →</a>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--accent);color:white;padding:12px 24px;border-radius:50px;font-weight:700;font-size:0.88rem;">MAX →</a>
       </div>
       <div class="faq-list">
         <div class="faq-item">
@@ -324,12 +364,17 @@
           </div>
         </div>
       </div>
-      <div class="cta-form">
+      <form class="cta-form" action="#" method="post" novalidate>
         <h3 style="font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:24px">Оставить заявку</h3>
-        <div class="form-group"><label>Телефон</label><input type="tel" placeholder="+7 (___) ___-__-__"></div>
-        <button class="btn-primary" style="width:100%;margin-top:8px;padding:18px">Отправить заявку →</button>
-        <p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="privacy/" target="_blank" style="color:inherit;text-decoration:underline">политикой конфиденциальности</a>.</p>
-      </div>
+        <div class="form-group"><label for="cta-phone">Телефон</label><input id="cta-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+7 (___) ___-__-__"></div>
+        <!-- Honeypot: скрытое поле-ловушка для ботов -->
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+          <label for="cta-website">Сайт</label>
+          <input id="cta-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:8px;padding:18px">Отправить заявку →</button>
+        <p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="privacy/" style="color:inherit;text-decoration:underline">политикой конфиденциальности</a>.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -366,9 +411,9 @@
     <div class="footer-bottom">
       <p>© 2026 ООО «Зевс». Все права защищены.</p>
       <div class="footer-socials">
-        <a href="#" title="ВКонтакте">В</a>
-        <a href="#" title="Telegram">T</a>
-        <a href="#" title="MAX">M</a>
+        <a href="#" title="ВКонтакте" aria-label="ВКонтакте">В</a>
+        <a href="#" title="Telegram" aria-label="Telegram">T</a>
+        <a href="#" title="MAX" aria-label="Мессенджер MAX">M</a>
       </div>
     </div>
   </div>
@@ -376,11 +421,11 @@
 
 <!-- FLOATING -->
 <div class="contact-float">
-  <a href="https://max.ru/u/ВАШ_ХЕШИ" class="contact-chip max-chip" target="_blank">
+  <a href="#contact" class="contact-chip max-chip">
     <div class="contact-chip-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg></div>
     <span>MAX</span>
   </a>
-  <a href="https://t.me/dez20spb" class="contact-chip tg-chip" target="_blank">
+  <a href="https://t.me/dez20spb" class="contact-chip tg-chip" target="_blank" rel="noopener noreferrer">
     <div class="contact-chip-icon"><svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2l-2 9.4c-.1.6-.5.8-.9.5l-2.5-1.9-1.2 1.1c-.1.1-.3.2-.6.2l.2-2.6 5-4.5c.2-.2 0-.3-.3-.1l-6.2 3.9-2.6-.8c-.6-.2-.6-.6.1-.8l10.2-3.9c.5-.2 1 .1.8.5z"/></svg></div>
     <span>Telegram</span>
   </a>
@@ -390,7 +435,7 @@
 </button>
 <div class="mobile-sticky">
   <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Оставить заявку</button>
-  <a href="https://max.ru/u/ВАШ_ХЕШИ" class="btn-max" target="_blank"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg></a>
+  <a href="#contact" class="btn-max"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-5-5 1.41-1.41L11 14.17l7.59-7.59L20 8l-9 9z"/></svg></a>
 </div>
 
 <script>

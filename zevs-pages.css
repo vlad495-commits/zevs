@@ -29,6 +29,11 @@ img { max-width: 100%; display: block; }
 button, input, select, textarea { font-family: inherit; font-size: inherit; border: none; outline: none; }
 ::selection { background: rgba(163,208,68,0.2); color: var(--text); }
 
+/* Видимая обводка только при клавиатурной навигации (Tab), мышью не показывается */
+:focus-visible { outline: 2px solid var(--accent, #A3D044); outline-offset: 2px; border-radius: 3px; }
+a:focus-visible { outline-offset: 4px; }
+input:focus-visible, textarea:focus-visible { outline-offset: 0; box-shadow: 0 0 0 3px rgba(163,208,68,0.35); }
+
 /* ===== ПЕРЕМЕННЫЕ ===== */
 :root {
   --bg:           #FFFFFF;
