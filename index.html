@@ -44,6 +44,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
   <style>
+    /* ===== ПЛАВНЫЙ ПЕРЕХОД МЕЖДУ СТРАНИЦАМИ ===== */
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root) { animation: 320ms cubic-bezier(0.4,0,1,1) both vtFadeOut; }
+    ::view-transition-new(root) { animation: 420ms cubic-bezier(0,0,0.2,1) 280ms both vtFadeIn; }
+    @keyframes vtFadeOut { to { opacity: 0; } }
+    @keyframes vtFadeIn  { from { opacity: 0; } }
+    /* Волна логотипа */
+    .nav-logo .letter { display: inline-block; color: inherit; }
+    @keyframes logoWave {
+      0%, 100% { color: var(--text); text-shadow: none; }
+      35%      { color: var(--accent); text-shadow: 0 0 14px rgba(163,208,68,0.85), 0 0 4px rgba(163,208,68,0.6); }
+    }
+    .nav-logo .l1 { animation: logoWave 1.6s ease-out 0.70s 1 both; }
+    .nav-logo .l2 { animation: logoWave 1.6s ease-out 0.85s 1 both; }
+    .nav-logo .l3 { animation: logoWave 1.6s ease-out 1.00s 1 both; }
+    .nav-logo .l4 { animation: logoWave 1.6s ease-out 1.15s 1 both; }
+
     /* ===== RESET ===== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 104px; }
@@ -220,7 +237,6 @@
     }
     .nav-logo::before { top: 0; }
     .nav-logo::after { bottom: 0; }
-    .nav-logo span { display: none; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--text-2); transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
@@ -1204,7 +1220,7 @@
      ============================================================ -->
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
-    <a href="#" class="nav-logo">ЗЕвС</a>
+    <a href="#" class="nav-logo"><span class="letter l1">З</span><span class="letter l2">Е</span><span class="letter l3">в</span><span class="letter l4">С</span></a>
     <div class="nav-links">
       <div class="nav-dropdown">
         <a href="#services">Услуги</a>
