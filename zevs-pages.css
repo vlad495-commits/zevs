@@ -581,8 +581,10 @@ footer { background: #111422; color: rgba(255,255,255,0.45); padding: 56px 0 32p
 }
 .max-chip .contact-chip-icon { background: transparent; }
 .tg-chip .contact-chip-icon { background: #EAF5FC; }
+.wa-chip .contact-chip-icon { background: #E8F9EF; }
 .max-chip .contact-chip-icon svg { width: 44px; height: 44px; display: block; }
 .tg-chip .contact-chip-icon svg { width: 26px; height: 26px; fill: #229ED9; }
+.wa-chip .contact-chip-icon svg { width: 26px; height: 26px; fill: #25D366; }
 
 .float-top {
   position: fixed; right: 24px; bottom: 32px; z-index: 500;

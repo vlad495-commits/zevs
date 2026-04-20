@@ -3,6 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- DMP pixel (VK Ads / myTarget audience sync) — загружается только после согласия на cookies -->
+  <script>
+    (function(){
+      if (localStorage.getItem('zevs_cookie_consent') === 'yes') {
+        var s = document.createElement('script');
+        s.src = 'https://p.dmp.one/sync?stock_key=68d6b643baee3afb3aa6b5b3d82a97cf';
+        s.async = true;
+        s.referrerPolicy = 'no-referrer-when-downgrade';
+        s.charset = 'UTF-8';
+        document.head.appendChild(s);
+      }
+    })();
+  </script>
+  <!-- Marquiz квиз-калькулятор -->
+  <script>
+  (function(w, d, s, o){
+    var j = d.createElement(s); j.async = true; j.src = '//script.marquiz.ru/v2.js';j.onload = function() {
+      if (document.readyState !== 'loading') Marquiz.init(o);
+      else document.addEventListener("DOMContentLoaded", function() {
+        Marquiz.init(o);
+      });
+    };
+    d.head.insertBefore(j, d.head.firstElementChild);
+  })(window, document, 'script', {
+      host: '//quiz.marquiz.ru',
+      region: 'ru',
+      id: '69e077cffb2cd900195a5a1c',
+      autoOpen: false,
+      autoOpenFreq: 'once',
+      openOnExit: false,
+      disableOnMobile: false
+    }
+  );
+  </script>
   <title>ЗЕВС — Дезинфекция для бизнеса в СПб | Договор, документы, обслуживание</title>
   <meta name="description" content="Санитарное сопровождение бизнеса в Санкт-Петербурге. Дезинфекция, дезинсекция, дератизация по договору. Документы для проверок, регулярный график, ночной режим работы.">
   <link rel="canonical" href="https://zevs.ltd/">
@@ -18,34 +52,117 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "PestControlService",
-    "name": "ЗЕВС",
-    "description": "Дезинфекция, дезинсекция и дератизация для бизнеса в Санкт-Петербурге и Ленинградской области",
-    "url": "https://zevs.ltd",
-    "telephone": "+7-812-627-15-50",
-    "email": "ko@zevs.ltd",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "ул. Кантемировская, 7",
-      "addressLocality": "Санкт-Петербург",
-      "addressCountry": "RU"
-    },
-    "areaServed": [
-      {"@type": "City", "name": "Санкт-Петербург"},
-      {"@type": "State", "name": "Ленинградская область"}
-    ],
-    "openingHours": "Mo-Su 00:00-23:59",
-    "priceRange": "от 5 000 ₽/мес",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Услуги",
-      "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Дезинфекция"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Дезинсекция"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Дератизация"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Абонентское обслуживание"}}
-      ]
-    }
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://zevs.ltd/#organization",
+        "name": "ЗЕВС",
+        "description": "Дезинфекция, дезинсекция и дератизация для бизнеса в Санкт-Петербурге и Ленинградской области",
+        "url": "https://zevs.ltd",
+        "telephone": "+7-812-627-15-50",
+        "email": "ko@zevs.ltd",
+        "image": "https://zevs.ltd/images/og-preview.jpg",
+        "logo": "https://zevs.ltd/images/og-preview.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "ул. Кантемировская, 7",
+          "addressLocality": "Санкт-Петербург",
+          "postalCode": "194100",
+          "addressCountry": "RU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 59.983031,
+          "longitude": 30.333080
+        },
+        "areaServed": [
+          {"@type": "City", "name": "Санкт-Петербург"},
+          {"@type": "State", "name": "Ленинградская область"}
+        ],
+        "openingHours": "Mo-Su 00:00-23:59",
+        "priceRange": "от 5 000 ₽/мес",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Услуги",
+          "itemListElement": [
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Дезинфекция", "url": "https://zevs.ltd/dezinfektsiya.html"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Дезинсекция", "url": "https://zevs.ltd/dezinsektsiya.html"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Дератизация", "url": "https://zevs.ltd/deratizatsiya.html"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Абонентское обслуживание", "url": "https://zevs.ltd/abonentskoe.html"}}
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zevs.ltd/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Безопасны ли препараты для сотрудников?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да. Используем только сертифицированные малоопасные препараты (3–4 класс), разрешённые Роспотребнадзором. После обработки — проветривание, через 2–4 часа можно работать. Для общепита и медицины подбираем препараты, безопасные для продуктов и пациентов."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Какие документы мы получим?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Договор, акты после каждого выезда, журналы ДДД, сертификаты на препараты, рекомендации по объекту. По договору всё ведётся регулярно — при проверке вам не нужно ничего срочно оформлять."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Можно ли без остановки работы объекта?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Как правило, да. Работаем в нерабочее время объекта — ночью, в выходные или в санитарные дни. Составляем график под ваш режим, чтобы обработка не мешала бизнесу."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Как вы работаете официально?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Заключаем договор с юрлицами и ИП, ведём журналы ДДД по установленным формам, применяем препараты со свидетельствами о государственной регистрации РФ. Полный пакет отчётных документов передаём после каждой обработки."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Чем абонентское обслуживание выгоднее?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Фиксированная стоимость, плановый график, бесплатные срочные выезды, непрерывный документооборот. Один подрядчик на все виды работ — без поиска и тендеров. Понятный бюджет на год — без аварийных расходов."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Работаете с юрлицами?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да. ООО и ИП. Для договора достаточно реквизитов. Полный пакет закрывающих документов для бухгалтерии."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Как формируется цена?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Зависит от площади, типа объекта и частоты. Один экстренный вызов часто стоит как 1–2 месяца абонентского обслуживания. Точный расчёт — после бесплатного обследования."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Нужен ли договор на дезинфекцию по закону?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Для ряда видов деятельности (общепит, производства, медицина, образование) наличие договора на дезинфекцию предусмотрено санитарными нормами. Действующий договор с профильной компанией — стандартный документ, который запрашивают при проверках."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -812,9 +929,11 @@
     }
     .max-chip .contact-chip-icon { background: rgba(123,104,238,0.12); }
     .tg-chip .contact-chip-icon { background: rgba(34,158,217,0.1); }
+    .wa-chip .contact-chip-icon { background: rgba(37,211,102,0.12); }
     .contact-chip-icon svg { width: 18px; height: 18px; }
     .max-chip .contact-chip-icon svg { fill: #7B68EE; }
     .tg-chip .contact-chip-icon svg { fill: #229ED9; }
+    .wa-chip .contact-chip-icon svg { fill: #25D366; }
 
     /* ===== SCROLL TO TOP ===== */
     .float-top {
@@ -940,6 +1059,8 @@
       .max-chip .contact-chip-icon svg { width: 44px; height: 44px; fill: initial; }
       .tg-chip .contact-chip-icon { background: #EAF5FC; }
       .tg-chip .contact-chip-icon svg { width: 26px; height: 26px; }
+      .wa-chip .contact-chip-icon { background: #E8F9EF; }
+      .wa-chip .contact-chip-icon svg { width: 26px; height: 26px; }
       /* На мобиле плавающая "наверх" не нужна — её роль играет кнопка в sticky-баре */
       .float-top { display: none !important; }
       .mobile-sticky { display: flex; }
@@ -1459,6 +1580,19 @@
     }
     .case-metric span { color: var(--accent); }
   </style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108561986', 'ym');
+
+    ym(108561986, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108561986" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -1552,7 +1686,7 @@
           </div>
         </div>
         <div class="hero-btns">
-          <button class="btn-primary" onclick="addRipple(event); document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          <button class="btn-primary" data-goal="cta-hero" onclick="addRipple(event); Marquiz.showModal('69e077cffb2cd900195a5a1c')">
             Узнать цену для объекта
           </button>
           <a href="#contact" class="btn-outline">
@@ -1699,7 +1833,7 @@
         <div class="seg-accordion-body">
           <div class="seg-accordion-text">
             <h3>ТСЖ и УК</h3>
-            <p>Закроем предписания. Годовой договор на весь дом или квартал. Графики обработки подъездов, подвалов, мусорокамер.</p>
+            <p>Выполним все требования предписания. Годовой договор на весь дом или квартал. Графики обработки подъездов, подвалов, мусорокамер.</p>
             <span class="seg-tag">Годовой договор</span>
             <a href="tszh-uk.html" style="display:inline-block;margin-top:14px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none">Подробнее →</a>
           </div>
@@ -2029,7 +2163,7 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div style="font-size:1.05rem;font-weight:700;margin-bottom:8px;color:#fff">Сертифицированные препараты</div>
-        <div style="font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.6">Средства 3–4 класса опасности. Безопасны для сотрудников, посетителей и продукции.</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.6">Применяемые средства безопасны для сотрудников, посетителей и продукции.</div>
       </div>
 
       <div class="reveal reveal-d4" style="
@@ -2042,7 +2176,10 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
         </div>
         <div style="font-size:1.05rem;font-weight:700;margin-bottom:8px;color:#fff">Лицензия Роспотребнадзора</div>
-        <div style="font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.6">С 2025 обязательна для всех компаний ДДД. Копию прикладываем к договору.</div>
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.6">ЕРУЛ № Л064-00111-78/01961520. Дератизация, дезинсекция, дезинфекция.</div>
+        <div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="docs/license-rpn.pdf" target="_blank" style="font-size:0.75rem;color:var(--accent);text-decoration:underline;text-underline-offset:3px">Скачать выписку</a>
+        </div>
       </div>
 
     </div>
@@ -2108,7 +2245,7 @@
         <div class="stats-label">объектов на обслуживании</div>
       </div>
       <div class="stats-item reveal reveal-d1">
-        <div class="stats-num"><span class="counter" data-to="8">0</span></div>
+        <div class="stats-num"><span class="counter" data-to="5">0</span></div>
         <div class="stats-label">лет на рынке СПб</div>
       </div>
       <div class="stats-item reveal reveal-d2">
@@ -2150,12 +2287,12 @@
       <div class="case-card reveal reveal-d2">
         <div class="case-icon"><svg viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
         <h3>Складской комплекс, 5 000 м², Парнас</h3>
-        <p><strong>Проблема:</strong> клиент-сеть требовала актуальные акты и договор на дезинфекцию. У склада не было ни подрядчика, ни документов.</p>
+        <p><strong>Проблема:</strong> клиент-сеть требовала комплект документов, подтверждающих оказание подрядчиком услуг по ДДД. У склада не было ни подрядчика, ни документов.</p>
         <p><strong>Что сделали:</strong> обследование, обработка по зонам (хранение, погрузка, офисы), полный пакет документов за 3 дня.</p>
-        <p style="margin-top:8px"><strong>Результат:</strong> аудит пройден. Склад на годовом договоре — обработки по графику, документы всегда актуальны.</p>
+        <p style="margin-top:8px"><strong>Результат:</strong> предприятие-клиент готово к проверке РПН. Склад на годовом договоре — обработки по графику, документы всегда актуальны.</p>
         <div class="case-metrics">
           <span class="case-metric"><span>3</span> дня на документы</span>
-          <span class="case-metric">Аудит пройден</span>
+          <span class="case-metric">Готов к проверке РПН</span>
         </div>
       </div>
 
@@ -2164,7 +2301,7 @@
         <h3>УК, 12 домов, Калининский район</h3>
         <p><strong>Проблема:</strong> управляющая компания получила предписание после серии жалоб. Предыдущий подрядчик работал нерегулярно, документов не было.</p>
         <p><strong>Что сделали:</strong> годовой договор на 12 домов, ежемесячные обработки подвалов и мусорокамер, полная документация.</p>
-        <p style="margin-top:8px"><strong>Результат:</strong> предписание закрыто. Количество жалоб снизилось на 90% за полгода.</p>
+        <p style="margin-top:8px"><strong>Результат:</strong> все требования предписания выполнены, инспекция сняла нарушения. Количество жалоб снизилось на 90% за полгода.</p>
         <div class="case-metrics">
           <span class="case-metric"><span>12</span> домов</span>
           <span class="case-metric"><span>-90%</span> жалоб</span>
@@ -2384,7 +2521,7 @@
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Да. Используем только сертифицированные средства 3–4 класса опасности. После обработки — проветривание, через 2–4 часа можно работать. Для общепита и медицины подбираем препараты, безопасные для продуктов и пациентов.</div>
+            <div class="faq-a-inner">Да. Используем только сертифицированные малоопасные препараты (3–4 класс), разрешённые Роспотребнадзором. После обработки — проветривание, через 2–4 часа можно работать. Для общепита и медицины подбираем препараты, безопасные для продуктов и пациентов.</div>
           </div>
         </div>
 
@@ -2410,11 +2547,11 @@
 
         <div class="faq-item reveal">
           <button type="button" class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
-            У вас есть лицензия?
+            Как вы работаете официально?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
           </button>
           <div class="faq-a">
-            <div class="faq-a-inner">Да. Лицензия Роспотребнадзора на дезинфектологию. С 1 марта 2025 обязательна для всех компаний ДДД. Копию прикладываем к договору.</div>
+            <div class="faq-a-inner">Работаем на основании лицензии Роспотребнадзора по Санкт-Петербургу (ЕРУЛ&nbsp;№&nbsp;Л064-00111-78/01961520). Заключаем договор с юрлицами и ИП, ведём журналы ДДД по установленным формам, применяем препараты со свидетельствами о государственной регистрации. Полный пакет отчётных документов передаём после каждой обработки. <a href="docs/license-rpn.pdf" target="_blank" style="color:var(--accent)">Скачать выписку из реестра лицензий</a>.</div>
           </div>
         </div>
 
@@ -2520,7 +2657,10 @@
         <button type="submit" class="btn-primary" style="width:100%;margin-top:8px;padding:18px" onclick="addRipple(event)">
           Отправить заявку →
         </button>
-        <p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="privacy/" style="color:inherit;text-decoration:underline">политикой конфиденциальности</a>. Не передаём данные третьим лицам.</p>
+        <label class="form-consent" style="display:flex;align-items:flex-start;gap:8px;cursor:pointer">
+          <input type="checkbox" name="consent" required style="margin-top:3px;accent-color:var(--accent);min-width:16px">
+          <span>Даю согласие на обработку <a href="privacy/" style="color:inherit;text-decoration:underline">персональных данных</a></span>
+        </label>
       </form>
 
     </div>
@@ -2535,7 +2675,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">ЗЕвС</div>
-        <p>Дезинфекция, дезинсекция и дератизация для бизнеса и частных лиц в Санкт-Петербурге и Ленинградской области. Лицензия Роспотребнадзора.</p>
+        <p>Дезинфекция, дезинсекция и дератизация для бизнеса и частных лиц в Санкт-Петербурге и Ленинградской области. Лицензия Роспотребнадзора ЕРУЛ&nbsp;№&nbsp;Л064-00111-78/01961520.</p>
       </div>
       <div class="footer-col">
         <h4>Услуги</h4>
@@ -2571,7 +2711,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 ООО «Зевс». Все права защищены. Санкт-Петербург, ул. Кантемировская, 7</p>
+      <p>© 2026 ООО «Зевс». Все права защищены. Санкт-Петербург, ул. Кантемировская, 7 · <a href="/privacy/" style="color:inherit;text-decoration:underline">Политика конфиденциальности</a></p>
       <div class="footer-socials">
         <a href="#" title="ВКонтакте" aria-label="ВКонтакте">В</a>
         <a href="#" title="Telegram" aria-label="Telegram">T</a>
@@ -2603,6 +2743,11 @@
   <a href="https://t.me/dez20spb" class="contact-chip tg-chip" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
     <div class="contact-chip-icon">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.9 8.2l-2 9.4c-.1.6-.5.8-.9.5l-2.5-1.9-1.2 1.1c-.1.1-.3.2-.6.2l.2-2.6 5-4.5c.2-.2 0-.3-.3-.1l-6.2 3.9-2.6-.8c-.6-.2-.6-.6.1-.8l10.2-3.9c.5-.2 1 .1.8.5z"/></svg>
+    </div>
+  </a>
+  <a href="https://wa.me/78126271550?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D1%83%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0." class="contact-chip wa-chip" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
+    <div class="contact-chip-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6 2.6 1.1 3.1.9 3.7.8.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 0C5.4 0 0 5.4 0 12c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.6c1.7 1 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0zm0 22c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-3.9 1 1-3.8-.2-.4C2.1 15.6 1.6 13.8 1.6 12 1.6 6.3 6.3 1.6 12 1.6S22.4 6.3 22.4 12 17.7 22 12 22z"/></svg>
     </div>
   </a>
 </div>
@@ -2797,5 +2942,35 @@
   });
 </script>
 
+
+<!-- Cookie consent banner -->
+<div id="zevs-cookie-banner" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:760px;margin:0 auto;padding:16px 20px;background:#ffffff;border:1px solid #E0E8F0;border-radius:16px;box-shadow:0 10px 40px rgba(26,26,46,0.12);font-family:inherit;align-items:center;gap:16px;flex-wrap:wrap">
+  <p style="margin:0;flex:1 1 260px;color:#1A1A2E;font-size:0.9rem;line-height:1.5">
+    Сайт использует cookies и аналитические пиксели для улучшения работы и показа рекламы. Продолжая использовать сайт, вы соглашаетесь с нашей <a href="/privacy/" style="color:#1A1A2E;text-decoration:underline">политикой конфиденциальности</a>.
+  </p>
+  <button type="button" onclick="zevsAcceptCookies()" style="flex:0 0 auto;padding:12px 24px;background:#A3D044;color:#1A1A2E;border:none;border-radius:12px;font-weight:700;font-size:0.9rem;cursor:pointer;font-family:inherit">Согласен</button>
+</div>
+<script>
+  function zevsAcceptCookies(){
+    try{ localStorage.setItem('zevs_cookie_consent','yes'); }catch(e){}
+    var b=document.getElementById('zevs-cookie-banner'); if(b) b.style.display='none';
+    if(!document.querySelector('script[src*="p.dmp.one"]')){
+      var s=document.createElement('script');
+      s.src='https://p.dmp.one/sync?stock_key=68d6b643baee3afb3aa6b5b3d82a97cf';
+      s.async=true; s.referrerPolicy='no-referrer-when-downgrade'; s.charset='UTF-8';
+      document.head.appendChild(s);
+    }
+  }
+  (function(){
+    try{
+      if(localStorage.getItem('zevs_cookie_consent')!=='yes'){
+        document.addEventListener('DOMContentLoaded',function(){
+          var b=document.getElementById('zevs-cookie-banner');
+          if(b) b.style.display='flex';
+        });
+      }
+    }catch(e){}
+  })();
+</script>
 </body>
 </html>
