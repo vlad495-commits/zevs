@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЗЕВС — логотип с анимацией (HTML + CSS)</title>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: #0a0a0f; color: #fff;
+    padding: 40px 24px; min-height: 100vh;
+  }
+  h1 { text-align: center; font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: #888; font-size: 0.95rem; margin-bottom: 20px; }
+
+  .replay-btn {
+    display: block; margin: 0 auto 30px;
+    background: #A3D044; color: #1A1A2E;
+    padding: 10px 24px; border-radius: 50px;
+    font-size: 0.85rem; font-weight: 700;
+    border: none; cursor: pointer;
+  }
+  .replay-btn:hover { background: #8BBE2F; }
+
+  .stage {
+    background: linear-gradient(155deg, #ffffff 0%, #f2faee 55%, #edf4ff 100%);
+    padding: 80px 32px; border-radius: 16px;
+    max-width: 1100px; margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* =========================================================
+     ЛОГОТИП — 3 элемента с абсолютным позиционированием
+     Все позиции в процентах от контейнера .logo — легко крутить
+     ========================================================= */
+  .logo {
+    position: relative;
+    width: 500px;
+    height: 500px;
+  }
+
+  /* РАМКА — заполняет весь контейнер */
+  .logo .frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ВИХРЬ — настройки Саши (20.04.2026) */
+  .logo .vortex-wrap {
+    position: absolute;
+    left: -19%;
+    top: 0;
+    width: 80%;         /* 400px при контейнере 500px */
+    aspect-ratio: 1024 / 1014;
+    transform-origin: center;
+    transform: rotate(-11deg);
+    animation: vortex-in 1.2s ease-out 0.5s both;
+  }
+  .logo .vortex-wrap img {
+    width: 100%; height: auto; display: block;
+    /* Белый контур через 4 drop-shadow по сторонам.
+       Увеличить число (2px → 3px) — толще контур. */
+    filter:
+      drop-shadow(2px 0 0 #fff)
+      drop-shadow(-2px 0 0 #fff)
+      drop-shadow(0 2px 0 #fff)
+      drop-shadow(0 -2px 0 #fff);
+  }
+
+  /* ТЕКСТ — настройки Саши (20.04.2026) */
+  .logo .text {
+    position: absolute;
+    left: 53%;
+    top: 54%;
+    transform: translate(-50%, -50%);
+    font-family: 'Abril Fatface', serif;
+    font-size: 159px;
+    color: #A3D044;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .logo .text span {
+    display: inline-block;
+  }
+
+  /* ========= АНИМАЦИИ ========= */
+
+  /* Вихрь: разворачивается против часовой, приземляется на -11° */
+  @keyframes vortex-in {
+    0%   { transform: rotate(-180deg); opacity: 0; }
+    60%  { transform: rotate(-11deg); opacity: 1; }
+    100% { transform: rotate(-11deg); opacity: 1; }
+  }
+
+  /* Волна по буквам */
+  @keyframes letter-wave {
+    0%, 100% {
+      color: #A3D044;
+      filter: drop-shadow(0 0 0 transparent);
+    }
+    40% {
+      color: #C4E86B;
+      filter: drop-shadow(0 0 10px rgba(163,208,68,0.9));
+    }
+  }
+  .logo .text .l1 { animation: letter-wave 1.8s ease-in-out 1.1s 1 both; }
+  .logo .text .l2 { animation: letter-wave 1.8s ease-in-out 1.3s 1 both; }
+  .logo .text .l3 { animation: letter-wave 1.8s ease-in-out 1.5s 1 both; }
+  .logo .text .l4 { animation: letter-wave 1.8s ease-in-out 1.7s 1 both; }
+
+  /* Перезапуск анимации */
+  .replay .logo .vortex-wrap,
+  .replay .logo .text .l1,
+  .replay .logo .text .l2,
+  .replay .logo .text .l3,
+  .replay .logo .text .l4 {
+    animation: none;
+  }
+
+  /* Помощник для Саши — инструкция */
+  .tips {
+    max-width: 900px; margin: 40px auto 0;
+    background: #13131a; border: 1px solid #222; border-radius: 16px;
+    padding: 24px 32px;
+    font-size: 0.9rem; line-height: 1.7; color: #aaa;
+  }
+  .tips h3 { color: #A3D044; margin-bottom: 12px; font-size: 1rem; }
+  .tips code { background: #0a0a0f; padding: 2px 8px; border-radius: 4px;
+               color: #C4E86B; font-family: 'Consolas', monospace; font-size: 0.85em; }
+  .tips b { color: #fff; }
+</style>
+</head>
+<body>
+
+<h1>ЗЕВС — финальный логотип</h1>
+<p class="subtitle">3 элемента · HTML + CSS позиционирование · анимация волны + вращение вихря</p>
+
+<button class="replay-btn" onclick="replay()">▶ Проиграть анимацию заново</button>
+
+<div class="stage" id="stage">
+  <div class="logo">
+    <img class="frame" src="logo-parts/frame.svg" alt="Рамка">
+    <div class="vortex-wrap">
+      <img src="logo-parts/vortex.svg" alt="Вихрь">
+    </div>
+    <div class="text">
+      <span class="l1">З</span><span class="l2">Е</span><span class="l3">в</span><span class="l4">С</span>
+    </div>
+  </div>
+</div>
+
+<div class="tips">
+  <h3>Если нужно подвинуть элементы — ты сама можешь!</h3>
+  <b>1.</b> Правой кнопкой в браузере → <b>«Просмотреть код»</b> (или F12) → откроется DevTools.<br>
+  <b>2.</b> Слева в инспекторе найди <code>&lt;div class="vortex-wrap"&gt;</code> или <code>&lt;div class="text"&gt;</code>.<br>
+  <b>3.</b> Справа в панели «Styles» меняй числа в реальном времени:<br>
+  &nbsp;&nbsp;&nbsp;• <code>left: -15%</code> — двигает вихрь <b>влево-вправо</b><br>
+  &nbsp;&nbsp;&nbsp;• <code>top: 18%</code> — двигает вихрь <b>вверх-вниз</b><br>
+  &nbsp;&nbsp;&nbsp;• <code>width: 65%</code> — меняет <b>размер вихря</b><br>
+  &nbsp;&nbsp;&nbsp;• <code>transform: rotate(-5deg)</code> — меняет <b>угол поворота</b><br>
+  <b>4.</b> Для текста то же самое — <code>left</code>, <code>top</code>, <code>font-size</code>.<br>
+  <br>
+  <b>Когда идеально настроишь</b> — скажи мне итоговые значения, я зашью их в файл.
+</div>
+
+<script>
+  function replay() {
+    const stage = document.getElementById('stage');
+    stage.classList.add('replay');
+    void stage.offsetWidth;
+    stage.classList.remove('replay');
+  }
+</script>
+
+</body>
+</html>

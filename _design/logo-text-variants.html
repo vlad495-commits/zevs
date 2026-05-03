@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЗЕВС — варианты типографики</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Merriweather:wght@700;900&family=Lora:wght@600;700&family=Cormorant+Garamond:wght@600;700&family=DM+Serif+Display&family=Bodoni+Moda:wght@800;900&family=PT+Serif:wght@700&family=Abril+Fatface&family=Manrope:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: #0a0a0f; color: #fff;
+    padding: 40px 24px; min-height: 100vh;
+  }
+  h1 { text-align: center; font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: #888; font-size: 0.95rem; margin-bottom: 48px; }
+  .section-label {
+    text-align: center; font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 3px;
+    color: #A3D044; margin: 48px 0 24px;
+  }
+
+  /* Главный образец — как на твоём фото */
+  .hero-card {
+    max-width: 560px; margin: 0 auto 40px;
+    background: linear-gradient(135deg, #F0F9EA 0%, #E5F2D5 100%);
+    border-radius: 16px;
+    padding: 64px 48px;
+    text-align: center;
+    box-shadow: 0 16px 48px rgba(163, 208, 68, 0.15);
+  }
+  .hero-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 6rem;
+    color: #1A1A2E;
+    letter-spacing: -2px;
+  }
+
+  /* Сетка вариантов */
+  .grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .card {
+    background: linear-gradient(135deg, #F0F9EA 0%, #E5F2D5 100%);
+    border-radius: 16px; padding: 48px 32px 24px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .card-text {
+    font-size: 4.5rem;
+    color: #1A1A2E;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+  .card-meta {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.7rem; color: #5a6b4a;
+    text-transform: uppercase; letter-spacing: 2px;
+    font-weight: 700;
+  }
+  .card-desc {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.75rem; color: #7a8a6a;
+    margin-top: 6px;
+  }
+
+  /* Шрифты */
+  .f-playfair-900 { font-family: 'Playfair Display', serif; font-weight: 900; }
+  .f-playfair-800 { font-family: 'Playfair Display', serif; font-weight: 800; }
+  .f-merri-900    { font-family: 'Merriweather', serif; font-weight: 900; }
+  .f-bodoni-900   { font-family: 'Bodoni Moda', serif; font-weight: 900; }
+  .f-dm-serif     { font-family: 'DM Serif Display', serif; font-weight: 400; }
+  .f-lora-700     { font-family: 'Lora', serif; font-weight: 700; }
+  .f-cormorant    { font-family: 'Cormorant Garamond', serif; font-weight: 700; }
+  .f-abril        { font-family: 'Abril Fatface', serif; font-weight: 400; }
+
+  /* Составной логотип — вихрь + текст */
+  .combo-card {
+    max-width: 640px; margin: 0 auto;
+    background: #000; border-radius: 24px;
+    padding: 48px; text-align: center;
+  }
+  .combo-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .combo-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 4rem;
+    color: #A3D044;
+    letter-spacing: -1px;
+  }
+
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- Маска вихря (та же что в logo-final.html) -->
+<svg width="0" height="0" style="position: absolute;">
+  <defs>
+    <linearGradient id="grad-main" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#6B9E1F"/>
+      <stop offset="35%"  stop-color="#A3D044"/>
+      <stop offset="75%"  stop-color="#C4E86B"/>
+      <stop offset="100%" stop-color="#E0F298"/>
+    </linearGradient>
+    <mask id="zevs-mask">
+      <rect x="0" y="0" width="1024" height="1014" fill="#fff"/>
+      <g transform="translate(0,1014) scale(0.1,-0.1)" fill="#000" stroke="none">
+        <path d="M669 9702 c-39 -20 -62 -41 -84 -77 l-30 -48 0 -4481 0 -4481 22 -41 c26 -48 70 -88 121 -109 30 -13 596 -15 4504 -15 l4468 0 -22 30 c-12 17 -25 30 -30 30 -20 0 -23 -2 -20 -18 2 -15 1 -15 -9 1 -7 11 -7 22 -1 30 11 15 12 47 0 47 -4 0 -8 -4 -8 -9 0 -6 -9 -8 -20 -6 -12 2 -18 0 -15 -6 4 -5 10 -7 15 -4 12 7 19 -20 9 -36 -8 -13 -13 -6 -10 13 0 4 -5 5 -13 2 -7 -3 -20 1 -27 8 -8 7 -23 15 -34 16 -28 5 -28 7 5 19 23 9 28 8 23 0 -4 -7 21 12 55 41 34 30 62 59 62 64 0 6 7 7 16 4 10 -4 15 0 13 12 -3 32 1 43 13 36 8 -5 9 -2 5 9 -3 10 -2 17 3 17 5 0 7 8 4 18 -5 16 -5 16 6 -1 6 -9 8 -22 5 -27 -3 -6 -1 -10 6 -10 9 0 9 -3 -1 -14 -6 -8 -19 -12 -28 -9 -12 3 -14 2 -4 -4 7 -5 11 -16 9 -24 -2 -8 -2 -11 0 -6 3 4 9 4 15 1 5 -3 8 2 6 11 -2 10 3 20 11 23 9 3 11 -1 8 -14 -4 -11 -8 -32 -11 -49 -4 -23 -3 -21 7 8 7 21 16 35 19 31 4 -4 3 -15 -3 -26 -13 -24 -5 -35 14 -19 11 9 17 8 27 -4 17 -20 114 -75 133 -75 8 0 22 18 31 40 15 37 16 425 16 4498 l0 4457 -24 51 c-27 58 -72 97 -131 113 -29 8 -1321 11 -4556 11 l-4517 0 -53 -28z m3517 -2687 c353 -61 632 -259 774 -550 78 -159 95 -232 94 -410 0 -133 -3 -160 -27 -236 -14 -48 -38 -113 -52 -145 -66 -149 -218 -329 -367 -434 -76 -54 -187 -115 -194 -107 -3 3 17 21 43 40 68 51 174 161 222 233 131 195 197 456 171 676 -17 146 -44 239 -104 363 -143 290 -399 487 -741 569 l-60 14 76 1 c42 1 116 -6 165 -14z m633 -61 c362 -121 613 -372 702 -704 19 -69 23 -111 23 -225 0 -121 -3 -153 -26 -237 -64 -229 -212 -435 -411 -570 -125 -85 -313 -158 -442 -173 l-50 -5 53 19 c206 77 386 220 503 399 68 104 104 182 136 298 26 91 28 113 28 274 0 137 -4 189 -18 240 -82 297 -265 525 -539 670 -51 27 -87 50 -79 50 7 0 61 -16 120 -36z m-1064 -173 c269 -55 500 -229 633 -476 115 -214 141 -491 71 -755 -23 -86 -105 -258 -149 -310 l-29 -35 35 92 c55 147 67 213 68 358 2 300 -96 531 -310 735 -119 113 -223 179 -364 231 -132 48 -211 61 -360 62 -141 1 -240 -17 -360 -62 -30 -11 -56 -19 -58 -16 -5 5 58 45 123 77 94 48 236 92 355 111 73 12 261 5 345 -12z m-353 -236 c347 -90 607 -347 699 -691 24 -88 37 -310 23 -391 l-8 -48 -8 75 c-12 117 -37 207 -83 307 -54 116 -90 168 -184 266 -95 100 -171 154 -302 217 -181 86 -354 118 -544 100 -139 -14 -234 -39 -360 -99 -123 -58 -213 -122 -305 -215 -35 -36 -66 -63 -68 -61 -10 9 111 175 173 238 154 155 316 250 520 303 131 34 316 34 447 -1z m-262 -414 c226 -50 441 -188 580 -372 64 -86 145 -241 156 -299 5 -30 -2 -22 -47 49 -107 172 -278 310 -475 384 -146 55 -187 62 -374 61 -161 0 -182 -3 -265 -28 -345 -104 -599 -339 -722 -669 l-34 -92 6 86 c10 162 74 340 176 491 141 208 381 358 639 401 75 13 280 5 360 -12z m-50 -422 c135 -16 237 -46 345 -99 94 -46 221 -128 212 -136 -2 -2 -28 7 -58 20 -376 166 -796 106 -1112 -160 -321 -270 -447 -718 -312 -1109 19 -56 -40 52 -70 129 -148 367 -96 742 141 1028 162 197 445 326 734 337 20 0 74 -4 120 -10z m369 -361 l66 -12 -111 -12 c-190 -20 -339 -72 -485 -169 -244 -163 -407 -435 -440 -737 -33 -299 104 -658 328 -858 32 -27 53 -50 47 -50 -17 0 -129 72 -197 127 -168 138 -295 328 -348 524 -31 114 -36 299 -11 419 79 382 380 674 782 760 100 22 274 25 369 8z m101 -262 c-307 -109 -535 -360 -622 -683 -29 -112 -29 -286 0 -407 24 -96 90 -245 143 -323 70 -103 211 -233 322 -298 26 -15 46 -29 44 -31 -8 -8 -135 39 -207 77 -489 255 -655 833 -365 1269 51 77 141 172 219 230 140 105 352 186 491 189 39 1 38 0 -25 -23z m527 -606 c88 -39 110 -143 44 -209 l-20 -20 30 -21 c41 -30 59 -70 59 -130 0 -114 -82 -180 -224 -180 -87 0 -186 34 -186 64 1 34 16 37 78 17 100 -34 181 -25 234 26 23 22 28 35 28 72 -1 83 -41 111 -159 111 l-81 0 0 30 0 30 60 0 c105 0 162 41 146 105 -11 44 -61 67 -136 62 -36 -2 -80 -12 -98 -21 -32 -17 -34 -17 -48 1 -23 30 -16 41 39 62 70 27 177 27 234 1z m1525 6 c21 -8 50 -21 64 -31 26 -17 26 -17 8 -35 -18 -18 -21 -18 -74 0 -105 37 -204 19 -272 -47 -52 -51 -71 -106 -66 -187 5 -80 41 -138 108 -176 63 -35 184 -36 249 -1 l44 23 18 -23 c18 -23 18 -24 -4 -41 -61 -48 -218 -63 -307 -29 -76 29 -115 64 -149 132 -41 82 -44 186 -7 264 29 63 104 131 165 149 58 18 175 19 223 2z m-962 -26 l0 -30 -140 0 -140 0 0 -85 0 -85 125 0 125 0 0 -30 0 -30 -125 0 -125 0 0 -105 0 -105 145 0 145 0 0 -30 0 -30 -180 0 -180 0 0 280 0 280 175 0 175 0 0 -30z m371 -101 c48 -16 78 -46 85 -86 7 -37 -10 -89 -34 -102 -12 -7 -9 -14 17 -37 43 -38 51 -95 21 -142 -32 -52 -70 -62 -225 -62 l-135 0 0 213 c0 118 3 217 7 220 11 12 228 8 264 -4z"/>
+        <path d="M4828 4304 c-5 -4 -8 -34 -8 -67 l0 -59 96 4 c102 3 124 14 124 63 0 48 -22 60 -117 63 -48 2 -91 0 -95 -4z"/>
+        <path d="M4824 4116 c-3 -7 -4 -40 -2 -72 l3 -59 67 -3 c124 -5 177 24 163 90 -9 41 -54 58 -150 58 -55 0 -77 -4 -81 -14z"/>
+      </g>
+    </mask>
+  </defs>
+</svg>
+
+<h1>ЗЕВС — типографика</h1>
+<p class="subtitle">Серифные шрифты · тёмный текст на зелёном фоне (как на твоём фото)</p>
+
+<!-- Главный — как на фото -->
+<div class="section-label">Главный вариант (похож на твоё фото)</div>
+<div class="hero-card">
+  <div class="hero-text">ЗЕвС</div>
+</div>
+
+<!-- Сетка 8 шрифтов -->
+<div class="section-label">8 серифных шрифтов — выбери свой</div>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-text f-playfair-900">ЗЕвС</div>
+    <div class="card-meta">Playfair Display 900</div>
+    <div class="card-desc">Высокий контраст, острые засечки. Премиум-классика.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-text f-playfair-800">ЗЕвС</div>
+    <div class="card-meta">Playfair Display 800</div>
+    <div class="card-desc">Тот же шрифт, но чуть тоньше. Более воздушный.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-text f-bodoni-900">ЗЕвС</div>
+    <div class="card-meta">Bodoni Moda 900</div>
+    <div class="card-desc">Классический Didone. Тонкие засечки, максимальный контраст.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-text f-merri-900">ЗЕвС</div>
+    <div class="card-meta">Merriweather Black</div>
+    <div class="card-desc">Серифный с читаемостью. Надёжный, деловой.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-text f-dm-serif">ЗЕвС</div>
+    <div class="card-meta">DM Serif Display</div>
+    <div class="card-desc">Современный Didone. Популярен в брендинге 2020-х.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-text f-lora-700">ЗЕвС</div>
+    <div class="card-meta">Lora 700</div>
+    <div class="card-desc">Сдержанный серифный. Спокойный и благородный.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-text f-cormorant">ЗЕвС</div>
+    <div class="card-meta">Cormorant Garamond</div>
+    <div class="card-desc">Элегантный, изящный. Для премиум-сегмента.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-text f-abril">ЗЕвС</div>
+    <div class="card-meta">Abril Fatface</div>
+    <div class="card-desc">Жирный Didone. Мощное визуальное присутствие.</div>
+  </div>
+
+</div>
+
+<!-- Составной: вихрь + серифный текст -->
+<div class="section-label">Составной: вихрь + серифный текст</div>
+<div class="combo-card">
+  <div class="combo-wrap">
+    <svg width="240" height="238" viewBox="0 0 1024 1014">
+      <rect width="1024" height="1014" fill="url(#grad-main)" mask="url(#zevs-mask)"/>
+    </svg>
+    <div class="combo-text">ЗЕвС</div>
+  </div>
+</div>
+
+</body>
+</html>

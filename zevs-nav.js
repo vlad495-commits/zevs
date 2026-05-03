@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  // ── Navbar scroll ──
+  // Navbar scroll effect
   var navbar = document.getElementById('navbar');
   if (navbar) {
     window.addEventListener('scroll', function () {
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ── Mobile menu ──
+  // Mobile menu toggle
   var ham = document.getElementById('hamburger');
   var mMenu = document.getElementById('mobileMenu');
   if (ham && mMenu) {
@@ -24,35 +24,36 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.style.overflow = '';
   };
 
-  // ── Nav dropdowns (выносим в body, чтобы backdrop-filter не обрезал) ──
+  // Nav dropdowns — открытие при наведении мыши
   document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
-    var panel = dd.querySelector('.dropdown-panel');
-    if (!panel) return;
-
-    document.body.appendChild(panel);
+    var menu = dd.querySelector('.nav-drop-menu');
+    if (!menu) return;
 
     var closeTimer = null;
 
-    function openPanel() {
+    // Переносим меню в body, чтобы backdrop-filter navbar не создавал новый stacking context
+    document.body.appendChild(menu);
+
+    function openDrop() {
       clearTimeout(closeTimer);
       var rect = dd.getBoundingClientRect();
-      panel.style.top  = (rect.bottom + 4) + 'px';
-      panel.style.left = rect.left + 'px';
+      menu.style.top  = (rect.bottom + 4) + 'px';
+      menu.style.left = rect.left + 'px';
       dd.classList.add('open');
-      panel.classList.add('open');
+      menu.classList.add('open');
     }
 
     function scheduleClose() {
       closeTimer = setTimeout(function () {
         dd.classList.remove('open');
-        panel.classList.remove('open');
+        menu.classList.remove('open');
       }, 150);
     }
 
-    dd.addEventListener('mouseenter', openPanel);
+    dd.addEventListener('mouseenter', openDrop);
     dd.addEventListener('mouseleave', scheduleClose);
-    panel.addEventListener('mouseenter', function () { clearTimeout(closeTimer); });
-    panel.addEventListener('mouseleave', scheduleClose);
+    menu.addEventListener('mouseenter', function () { clearTimeout(closeTimer); });
+    menu.addEventListener('mouseleave', scheduleClose);
   });
 
 });

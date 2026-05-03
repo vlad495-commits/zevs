@@ -1,2 +1,41 @@
+# ─── Vercel / hosting ────────────────────────────────────────────────────────
 .vercel
-.claude/worktrees/
+
+# ─── Claude AI (local assistant state, not project code) ─────────────────────
+.claude/
+# keep nothing – all Claude config is machine-local
+
+# ─── SSL / private keys ── NEVER commit these ────────────────────────────────
+*.pem
+*.key
+zevs-ssl-key.pem
+
+# ─── Let's Encrypt / ACME ─────────────────────────────────────────────────────
+acme-state.pkl
+acme-challenge.zip
+.well-known/
+# ACME http-01 challenge tokens (random base64url filenames at project root)
+bPCt6cyf5-ZePdcnEfx5p4N3Ckt6zht7wBU5naY0IB4
+fG7naYFNUMNRtPy-xvN004u19Wz9FyVfU8BTS3QCe1k
+fhTAVvK4WOdKcpMpphXZJ7H7Z7rSGJZVjwhSvJeqfzY
+nAmV1rIIUiS5WZ7lMXeSwgojRrXhJF_5zEOac2t0jyM
+
+# ─── Deployment archives ──────────────────────────────────────────────────────
+*.zip
+zevs-deploy*.zip
+zevs-deploy.zip
+zevs-wp-assets*.zip
+
+# ─── Backup files ─────────────────────────────────────────────────────────────
+*.backup
+index.html.backup
+
+# ─── Internal research (competitive intelligence, internal analysis) ──────────
+research/
+
+# ─── OS / editor junk ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo

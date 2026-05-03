@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЗЕВС — точный SVG-логотип</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: #0a0a0f; color: #fff;
+    padding: 40px 24px; min-height: 100vh;
+  }
+  h1 { text-align: center; font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: #888; font-size: 0.95rem; margin-bottom: 48px; }
+  .section-label {
+    text-align: center; font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 3px;
+    color: #A3D044; margin: 48px 0 24px;
+  }
+
+  /* Крупный главный образец */
+  .hero-logo {
+    background: #000; border-radius: 24px;
+    padding: 48px; max-width: 640px; margin: 0 auto 32px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Сетка вариантов */
+  .grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .card {
+    background: #13131a; border: 1px solid #222; border-radius: 20px;
+    padding: 24px; text-align: center;
+  }
+  .card:hover { border-color: #333; }
+  .logo-area {
+    height: 220px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; border-radius: 12px; overflow: hidden;
+  }
+  .card-num {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; color: #555; margin-bottom: 6px;
+  }
+  .card-name { font-size: 0.9rem; font-weight: 700; color: #ccc; margin-bottom: 4px; }
+  .card-desc { font-size: 0.75rem; color: #666; line-height: 1.5; }
+
+  .bg-black   { background: #000; }
+  .bg-white   { background: #fff; }
+  .bg-accent  { background: #A3D044; }
+  .bg-soft    { background: linear-gradient(160deg, #f8fbff 0%, #f0f9ea 100%); }
+  .bg-dark    { background: #1A1A2E; }
+  .bg-mono    { background: #F2F2F2; }
+
+  /* Проверка размеров */
+  .size-row {
+    display: flex; gap: 40px; justify-content: center; align-items: flex-end;
+    background: #000; padding: 32px 24px; border-radius: 12px;
+    max-width: 1000px; margin: 24px auto;
+  }
+  .size-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .size-label { font-size: 0.7rem; color: #888; font-weight: 600; text-transform: uppercase; }
+
+  @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- ============ ОПРЕДЕЛЕНИЕ ЛОГОТИПА ============ -->
+<!-- 10 C-образных дуг (180°), расходящихся спиралью.
+     Радиус растёт, поворот идёт против часовой — даёт эффект вихря. -->
+<svg width="0" height="0" style="position: absolute;">
+  <defs>
+    <linearGradient id="grad-main" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#6B9E1F"/>
+      <stop offset="35%"  stop-color="#A3D044"/>
+      <stop offset="75%"  stop-color="#C4E86B"/>
+      <stop offset="100%" stop-color="#E0F298"/>
+    </linearGradient>
+    <linearGradient id="grad-soft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#A3D044"/>
+      <stop offset="100%" stop-color="#D4EC8A"/>
+    </linearGradient>
+
+    <!-- Спиральный вихрь (готовый символ) -->
+    <symbol id="vortex" viewBox="0 0 400 400">
+      <g transform="translate(170,200)">
+        <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke-width="11" fill="none" stroke-linecap="round"/>
+      </g>
+    </symbol>
+
+    <!-- Логотип целиком = вихрь + надпись -->
+    <symbol id="logo-full" viewBox="0 0 440 400">
+      <g transform="translate(20,0)">
+        <use href="#vortex"/>
+      </g>
+      <text x="265" y="258" font-family="Manrope" font-weight="800"
+            font-size="56" letter-spacing="0">ЗЕвС</text>
+    </symbol>
+  </defs>
+</svg>
+
+<h1>ЗЕВС — новый логотип (точная версия)</h1>
+<p class="subtitle">Спираль из 10 дуг · цвета zevs.ltd</p>
+
+<!-- Главный крупный образец -->
+<div class="section-label">Основной вариант — как в оригинале</div>
+<div class="hero-logo">
+  <svg width="520" height="400" viewBox="0 0 440 400" style="color: url(#grad-main);">
+    <style>
+      .vortex-main path { stroke: url(#grad-main); }
+      .wordmark-main { fill: url(#grad-main); }
+    </style>
+    <g class="vortex-main">
+      <g transform="translate(190,200)">
+        <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke-width="11" fill="none" stroke-linecap="round"/>
+      </g>
+    </g>
+    <text x="265" y="278" class="wordmark-main" font-family="Manrope"
+          font-weight="800" font-size="64" letter-spacing="-1">ЗЕвС</text>
+  </svg>
+</div>
+
+<!-- Варианты цвета и фона -->
+<div class="section-label">Варианты фона и цвета</div>
+<div class="grid">
+
+  <!-- 1. Сплошной акцент на белом -->
+  <div class="card">
+    <div class="logo-area bg-white">
+      <svg width="280" height="200" viewBox="0 0 440 400">
+        <g transform="translate(190,200)">
+          <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke="#A3D044" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke="#A3D044" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke="#A3D044" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke="#A3D044" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke="#A3D044" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke="#A3D044" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke="#A3D044" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke="#A3D044" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke="#A3D044" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke="#A3D044" stroke-width="11" fill="none" stroke-linecap="round"/>
+        </g>
+        <text x="265" y="278" font-family="Manrope" font-weight="800"
+              font-size="64" fill="#1A1A2E" letter-spacing="-1">ЗЕвС</text>
+      </svg>
+    </div>
+    <div class="card-num">Вариант 01</div>
+    <div class="card-name">Акцент на белом</div>
+    <div class="card-desc">Для шапки сайта. #A3D044, тёмный текст.</div>
+  </div>
+
+  <!-- 2. Градиент на тёмном — как оригинал -->
+  <div class="card">
+    <div class="logo-area bg-black">
+      <svg width="280" height="200" viewBox="0 0 440 400">
+        <g transform="translate(190,200)">
+          <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        </g>
+        <text x="265" y="278" font-family="Manrope" font-weight="800"
+              font-size="64" fill="url(#grad-main)" letter-spacing="-1">ЗЕвС</text>
+      </svg>
+    </div>
+    <div class="card-num">Вариант 02</div>
+    <div class="card-name">Градиент на чёрном</div>
+    <div class="card-desc">Оригинальная версия. Для hero-блока, соцсетей.</div>
+  </div>
+
+  <!-- 3. Градиент на светлом -->
+  <div class="card">
+    <div class="logo-area bg-soft">
+      <svg width="280" height="200" viewBox="0 0 440 400">
+        <g transform="translate(190,200)">
+          <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        </g>
+        <text x="265" y="278" font-family="Manrope" font-weight="800"
+              font-size="64" fill="#1A1A2E" letter-spacing="-1">ЗЕвС</text>
+      </svg>
+    </div>
+    <div class="card-num">Вариант 03</div>
+    <div class="card-name">Градиент на мягком</div>
+    <div class="card-desc">Для section-alt на сайте. Градиент + тёмный текст.</div>
+  </div>
+
+  <!-- 4. Инверсия -->
+  <div class="card">
+    <div class="logo-area bg-accent">
+      <svg width="280" height="200" viewBox="0 0 440 400">
+        <g transform="translate(190,200)">
+          <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke="#fff" stroke-width="11" fill="none" stroke-linecap="round"/>
+        </g>
+        <text x="265" y="278" font-family="Manrope" font-weight="800"
+              font-size="64" fill="#fff" letter-spacing="-1">ЗЕвС</text>
+      </svg>
+    </div>
+    <div class="card-num">Вариант 04</div>
+    <div class="card-name">Инверсия (на акценте)</div>
+    <div class="card-desc">Белый вихрь на #A3D044. Для CTA и мерча.</div>
+  </div>
+
+  <!-- 5. Монохром -->
+  <div class="card">
+    <div class="logo-area bg-mono">
+      <svg width="280" height="200" viewBox="0 0 440 400">
+        <g transform="translate(190,200)">
+          <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke="#1A1A2E" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke="#1A1A2E" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke="#1A1A2E" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke="#1A1A2E" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke="#1A1A2E" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke="#1A1A2E" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke="#1A1A2E" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke="#1A1A2E" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke="#1A1A2E" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke="#1A1A2E" stroke-width="11" fill="none" stroke-linecap="round"/>
+        </g>
+        <text x="265" y="278" font-family="Manrope" font-weight="800"
+              font-size="64" fill="#1A1A2E" letter-spacing="-1">ЗЕвС</text>
+      </svg>
+    </div>
+    <div class="card-num">Вариант 05</div>
+    <div class="card-name">Монохром (документы)</div>
+    <div class="card-desc">Для договоров, печати, факсов.</div>
+  </div>
+
+  <!-- 6. Тёмно-синий фирменный -->
+  <div class="card">
+    <div class="logo-area bg-dark">
+      <svg width="280" height="200" viewBox="0 0 440 400">
+        <g transform="translate(190,200)">
+          <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke="url(#grad-soft)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke="url(#grad-soft)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke="url(#grad-soft)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke="url(#grad-soft)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke="url(#grad-soft)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke="url(#grad-soft)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke="url(#grad-soft)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke="url(#grad-soft)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke="url(#grad-soft)" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke="url(#grad-soft)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        </g>
+        <text x="265" y="278" font-family="Manrope" font-weight="800"
+              font-size="64" fill="#fff" letter-spacing="-1">ЗЕвС</text>
+      </svg>
+    </div>
+    <div class="card-num">Вариант 06</div>
+    <div class="card-name">Фирменный тёмно-синий</div>
+    <div class="card-desc">Для презентаций, КП, PDF-отчётов.</div>
+  </div>
+
+</div>
+
+<!-- Проверка размеров -->
+<div class="section-label">Проверка на разных размерах (вариант 02)</div>
+<div class="size-row">
+  <div class="size-item">
+    <svg width="32" height="32" viewBox="0 0 400 400">
+      <g transform="translate(200,200)">
+        <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <div class="size-label">32 (favicon)</div>
+  </div>
+  <div class="size-item">
+    <svg width="64" height="64" viewBox="0 0 400 400">
+      <g transform="translate(200,200)">
+        <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <div class="size-label">64 (навбар)</div>
+  </div>
+  <div class="size-item">
+    <svg width="128" height="128" viewBox="0 0 400 400">
+      <g transform="translate(200,200)">
+        <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <div class="size-label">128 (футер)</div>
+  </div>
+  <div class="size-item">
+    <svg width="240" height="240" viewBox="0 0 400 400">
+      <g transform="translate(200,200)">
+        <path d="M -25,0 A 25,25 0 0,1 25,0" transform="rotate(0)"   stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -40,0 A 40,40 0 0,1 40,0" transform="rotate(-6)"  stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -55,0 A 55,55 0 0,1 55,0" transform="rotate(-12)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -70,0 A 70,70 0 0,1 70,0" transform="rotate(-18)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -85,0 A 85,85 0 0,1 85,0" transform="rotate(-24)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -100,0 A 100,100 0 0,1 100,0" transform="rotate(-30)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -115,0 A 115,115 0 0,1 115,0" transform="rotate(-36)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -130,0 A 130,130 0 0,1 130,0" transform="rotate(-42)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -145,0 A 145,145 0 0,1 145,0" transform="rotate(-48)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M -160,0 A 160,160 0 0,1 160,0" transform="rotate(-54)" stroke="url(#grad-main)" stroke-width="11" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <div class="size-label">240 (соцсети)</div>
+  </div>
+</div>
+
+</body>
+</html>

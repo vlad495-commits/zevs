@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 110" width="260" height="110">
+  <defs>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;display=swap');
+      .zevs { font-family: 'Abril Fatface', serif; font-size: 90px; fill: #A3D044; }
+    </style>
+  </defs>
+  <text x="130" y="82" class="zevs" text-anchor="middle">ЗЕвС</text>
+</svg>

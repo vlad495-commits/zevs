@@ -1,147 +1,34 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- DMP pixel (VK Ads / myTarget audience sync) — загружается только после согласия на cookies -->
-  <script>
-    (function(){
-      try {
-        if (localStorage.getItem('zevs_cookie_consent') === 'yes') {
-          var s = document.createElement('script');
-          s.src = 'https://p.dmp.one/sync?stock_key=68d6b643baee3afb3aa6b5b3d82a97cf';
-          s.async = true;
-          s.referrerPolicy = 'no-referrer-when-downgrade';
-          s.charset = 'UTF-8';
-          document.head.appendChild(s);
-        }
-      } catch(e) {}
-    })();
-  </script>
-  <!-- Marquiz квиз-калькулятор -->
-  <script>
-  (function(w, d, s, o){
-    var j = d.createElement(s); j.async = true; j.src = '//script.marquiz.ru/v2.js';j.onload = function() {
-      if (document.readyState !== 'loading') Marquiz.init(o);
-      else document.addEventListener("DOMContentLoaded", function() {
-        Marquiz.init(o);
-      });
-    };
-    d.head.insertBefore(j, d.head.firstElementChild);
-  })(window, document, 'script', {
-      host: '//quiz.marquiz.ru',
-      region: 'ru',
-      id: '69e077cffb2cd900195a5a1c',
-      autoOpen: false,
-      autoOpenFreq: 'once',
-      openOnExit: false,
-      disableOnMobile: false
-    }
-  );
-  </script>
-  <title>Дезинфекция и дератизация складов в СПб — ЗЕВС</title>
-  <meta name="description" content="Санитарное обслуживание складов и логистических комплексов в Санкт-Петербурге. Дератизация, дезинсекция, документы для аудитов и проверок.">
-  <link rel="canonical" href="https://zevs.ltd/sklady.html">
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://zevs.ltd/sklady.html">
-  <meta property="og:title" content="Дезинфекция и дератизация складов в СПб">
-  <meta property="og:description" content="Санитарное обслуживание складов и логистических комплексов в Санкт-Петербурге. Дератизация, дезинсекция, документы для аудитов и проверок.">
-  <meta property="og:image" content="https://zevs.ltd/images/og-preview.jpg">
-  <meta property="og:locale" content="ru_RU">
-  <meta property="og:site_name" content="ЗЕвС">
-  <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Дезинфекция и дератизация складов в СПб",
-  "description": "Санитарное обслуживание складов и логистических комплексов в Санкт-Петербурге. Дератизация, дезинсекция, документы для аудитов и проверок.",
-  "url": "https://zevs.ltd/sklady.html",
-  "provider": {
-    "@type": "LocalBusiness",
-    "@id": "https://zevs.ltd/#organization",
-    "name": "ЗЕВС",
-    "url": "https://zevs.ltd",
-    "telephone": "+7-812-627-15-50",
-    "email": "ko@zevs.ltd",
-    "image": "https://zevs.ltd/images/og-preview.jpg",
-    "priceRange": "от 5 000 ₽/мес",
-    "openingHours": "Mo-Su 00:00-23:59",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "ул. Кантемировская, 7",
-      "addressLocality": "Санкт-Петербург",
-      "postalCode": "194100",
-      "addressCountry": "RU"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 59.983031,
-      "longitude": 30.333080
-    }
-  },
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Санкт-Петербург"
-    },
-    {
-      "@type": "State",
-      "name": "Ленинградская область"
-    }
-  ]
-}
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Yeseva+One&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="zevs-pages.css?v=20260420-logo">
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108561986', 'ym');
 
-    ym(108561986, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/108561986" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-  <link rel="icon" type="image/svg+xml" href="images/logo/favicon.svg">
-</head>
-<body>
+
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="ЗЕвС — дезинфекция СПб"><div class="vortex-wrap"><img src="images/logo/vortex.svg" alt=""></div><div class="text"><span class="l1">З</span><span class="l2">Е</span><span class="l3">в</span><span class="l4">С</span></div></a>
+    <a href="/" class="nav-logo" aria-label="ЗЕвС — дезинфекция СПб"><div class="vortex-wrap"><img src="/images/logo/vortex.svg" alt=""></div><div class="text"><span class="l1">З</span><span class="l2">Е</span><span class="l3">в</span><span class="l4">С</span></div></a>
     <div class="nav-links">
       <div class="nav-dropdown">
         <a href="#">Услуги</a>
         <div class="dropdown-panel">
           <div class="dropdown-title">Услуги</div>
-          <a href="dezinfektsiya.html">Дезинфекция</a>
-          <a href="dezinsektsiya.html">Дезинсекция</a>
-          <a href="deratizatsiya.html">Дератизация</a>
-          <a href="abonentskoe.html">Абонентское обслуживание</a>
+          <a href="/dezinfektsiya/">Дезинфекция</a>
+          <a href="/dezinsektsiya/">Дезинсекция</a>
+          <a href="/deratizatsiya/">Дератизация</a>
+          <a href="/abonentskoe/">Абонентское обслуживание</a>
         </div>
       </div>
       <div class="nav-dropdown">
         <a href="#">Отрасли</a>
         <div class="dropdown-panel">
           <div class="dropdown-title">Отрасли</div>
-          <a href="restorany.html">Рестораны и кафе</a>
-          <a href="proizvodstva.html">Производства</a>
-          <a href="sklady.html">Склады</a>
-          <a href="gostinitsy.html">Гостиницы</a>
-          <a href="tszh-uk.html">ТСЖ / УК</a>
-          <a href="medtsentry.html">Медцентры</a>
-          <a href="ofisy.html">Офисы</a>
-          <a href="salony.html">Салоны красоты</a>
-          <a href="magaziny.html">Магазины</a>
+          <a href="/restorany/">Рестораны и кафе</a>
+          <a href="/proizvodstva/">Производства</a>
+          <a href="/sklady/">Склады</a>
+          <a href="/gostinitsy/">Гостиницы</a>
+          <a href="/tszh-uk/">ТСЖ / УК</a>
+          <a href="/medtsentry/">Медцентры</a>
+          <a href="/ofisy/">Офисы</a>
+          <a href="/salony/">Салоны красоты</a>
+          <a href="/magaziny/">Магазины</a>
         </div>
       </div>
       <a href="index.html#cases">Кейсы</a>
@@ -157,28 +44,28 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="dezinfektsiya.html" onclick="closeMenu()">Дезинфекция</a>
-  <a href="dezinsektsiya.html" onclick="closeMenu()">Дезинсекция</a>
-  <a href="deratizatsiya.html" onclick="closeMenu()">Дератизация</a>
-  <a href="abonentskoe.html" onclick="closeMenu()">Абонентское</a>
+  <a href="/dezinfektsiya/" onclick="closeMenu()">Дезинфекция</a>
+  <a href="/dezinsektsiya/" onclick="closeMenu()">Дезинсекция</a>
+  <a href="/deratizatsiya/" onclick="closeMenu()">Дератизация</a>
+  <a href="/abonentskoe/" onclick="closeMenu()">Абонентское</a>
   <a href="tel:+78126271550" class="m-phone">+7 (812) 627-15-50</a>
   <a href="#contact" class="m-cta" onclick="closeMenu()">Оставить заявку</a>
 </div>
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <img class="page-hero-worker" src="images/hero/specialist-1024.jpg" alt="Специалист ЗЕВС">
+  <img class="page-hero-worker" src="/images/hero/specialist-1024.jpg" alt="Специалист ЗЕВС">
   <div class="container">
     <div class="breadcrumb">
-      <a href="index.html">Главная</a>
+      <a href="/">Главная</a>
       <span class="breadcrumb-sep">/</span>
       <a href="#">Отрасли</a>
       <span class="breadcrumb-sep">/</span>
-      <span>Склады</span>
+      <span>Медцентры</span>
     </div>
-    <div class="page-hero-label">Для складов и логистики</div>
-    <h1>Дератизация <em>складских комплексов</em></h1>
-    <p class="page-hero-sub">Защита товара от грызунов и насекомых. Системное обслуживание больших площадей с регулярным мониторингом и документацией для аудитов.</p>
+    <div class="page-hero-label">Для медицинских учреждений</div>
+    <h1>Дезинфекция <em>медицинских центров</em></h1>
+    <p class="page-hero-sub">Соответствие требованиям СанПиН 3.3686-21. Работаем без прерывания приёма пациентов. Документация для Роспотребнадзора и Росздравнадзора.</p>
     <div class="page-hero-btns">
       <button class="btn-primary" onclick="Marquiz.showModal('69e077cffb2cd900195a5a1c')">Рассчитать стоимость</button>
       <a href="#contact" class="btn-outline">Запросить условия договора</a>
@@ -192,23 +79,23 @@
     <div class="center reveal">
       <div class="section-label">Риски</div>
       <h2 class="section-title">Что под <em>угрозой</em></h2>
-      <p class="section-sub" style="margin-bottom:52px">Склад — магнит для грызунов и насекомых</p>
+      <p class="section-sub" style="margin-bottom:52px">Медицинское учреждение — объект повышенного санитарного контроля</p>
     </div>
     <div class="risk-grid">
       <div class="risk-card reveal reveal-d1">
         <div class="risk-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E74C3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <h3>Порча товара грызунами</h3>
-        <p>Мыши и крысы повреждают упаковку, загрязняют продукцию, создают пожарные риски (перегрызают кабели). Прямой финансовый ущерб для арендатора и собственника.</p>
+        <h3>Проверки Роспотребнадзора</h3>
+        <p>Медицинские учреждения проверяются регулярно. Отсутствие договора на дезинфекцию или просроченные журналы — прямой повод для предписания.</p>
       </div>
       <div class="risk-card reveal reveal-d2">
         <div class="risk-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E74C3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <h3>Аудит арендатора или клиента</h3>
-        <p>Сетевые клиенты и крупные арендаторы требуют актуальные документы по дератизации. Отсутствие — повод для пересмотра контракта.</p>
+        <h3>Внутрибольничные инфекции</h3>
+        <p>Недостаточная дезинфекция создаёт риск распространения ВБИ среди пациентов. Это медицинский, репутационный и юридический риск одновременно.</p>
       </div>
       <div class="risk-card reveal reveal-d3">
         <div class="risk-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E74C3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <h3>Сезонная миграция грызунов</h3>
-        <p>Осенью грызуны массово мигрируют в тёплые здания. Без профилактики — массовое заселение склада за 2–3 недели.</p>
+        <h3>Насекомые в клинике</h3>
+        <p>Таракан или муха в медицинском кабинете — нарушение санитарных норм, немедленная жалоба пациента и проверка.</p>
       </div>
     </div>
   </div>
@@ -219,43 +106,43 @@
   <div class="container">
     <div class="center reveal">
       <div class="section-label">Услуги</div>
-      <h2 class="section-title">Что мы делаем<br><em>для складов</em></h2>
+      <h2 class="section-title">Что мы делаем<br><em>для медцентров</em></h2>
       <p class="section-sub" style="margin-bottom:52px">Комплексное санитарное обслуживание с полной документацией</p>
     </div>
     <div class="check-list">
       <div class="check-item reveal reveal-d1">
         <div class="check-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
         <div>
-          <div class="check-item-title">Картирование и установка приманочных станций</div>
-          <div class="check-item-text">Осмотр всего периметра, выявление точек активности, размещение станций по схеме. Обычно 1 станция на 100–200 м².</div>
+          <div class="check-item-title">Дезинфекция кабинетов и операционных</div>
+          <div class="check-item-text">Обработка поверхностей, оборудования, инвентаря. Применяем препараты, допущенные для медицинских учреждений согласно СанПиН.</div>
         </div>
       </div>
       <div class="check-item reveal reveal-d2">
         <div class="check-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
         <div>
-          <div class="check-item-title">Регулярный мониторинг и замена приманок</div>
-          <div class="check-item-text">Ежемесячные визиты с проверкой каждой станции, регистрацией активности, заменой приманок. Картирование изменений.</div>
+          <div class="check-item-title">Дезинфекция санузлов и процедурных зон</div>
+          <div class="check-item-text">Ежедневная дезинфекция и еженедельная генеральная уборка по протоколу. Фиксируем в журнале каждую обработку.</div>
         </div>
       </div>
       <div class="check-item reveal reveal-d3">
         <div class="check-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
         <div>
-          <div class="check-item-title">Блокировка путей проникновения</div>
-          <div class="check-item-text">Осмотр и заделка щелей, проёмов, вентиляционных отверстий. Без блокировки эффект от обработки временный.</div>
+          <div class="check-item-title">Дезинсекция технических помещений</div>
+          <div class="check-item-text">Подвалы, кладовые, кухни медицинского персонала. Уничтожение насекомых методами, безопасными для медоборудования.</div>
         </div>
       </div>
       <div class="check-item reveal reveal-d4">
         <div class="check-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
         <div>
-          <div class="check-item-title">Дезинсекция технических зон</div>
-          <div class="check-item-text">Подсобные помещения, бытовки, зоны приёма пищи персоналом. Уничтожение тараканов, мух, других насекомых.</div>
+          <div class="check-item-title">Дератизация периметра</div>
+          <div class="check-item-text">Приманочные станции снаружи здания и в технических зонах. Грызуны в клинике — недопустимо.</div>
         </div>
       </div>
       <div class="check-item reveal reveal-d5">
         <div class="check-dot"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
         <div>
-          <div class="check-item-title">Полный пакет документов</div>
-          <div class="check-item-text">Договор, акты, журналы ДДД, карты размещения станций, отчёты по активности. Готовность к аудитам в любой момент.</div>
+          <div class="check-item-title">Документы по форме МУ 3.5.1.2232-07</div>
+          <div class="check-item-text">Журналы дезинфекции по установленным формам, акты, договор. Соответствует требованиям надзорных органов.</div>
         </div>
       </div>
     </div>
@@ -315,18 +202,18 @@
   <div class="container">
     <div class="case-highlight reveal">
       <div class="case-highlight-text">
-        <h3>Складской комплекс, 5 000 м², Парнас</h3>
-        <p><strong>Проблема:</strong> клиент-сеть требовала комплект документов, подтверждающих оказание подрядчиком услуг по ДДД. У склада не было ни подрядчика, ни журналов.</p>
-        <p><strong>Что сделали:</strong> обследование за 1 день, обработка по зонам (хранение, погрузка, офисы), установка 32 приманочных станций, полный пакет документов за 3 дня.</p>
-        <p><strong>Результат:</strong> предприятие-клиент готово к проверке РПН. Склад на годовом договоре с ежемесячным мониторингом. Документы всегда актуальны.</p>
+        <h3>Медицинский центр, 600 м², Приморский район</h3>
+        <p><strong>Проблема:</strong> предстоящая плановая проверка Роспотребнадзора. Журналы дезинфекции не вели систематически, договора с профильной компанией не было.</p>
+        <p><strong>Что сделали:</strong> заключили договор, провели генеральную дезинфекцию всех помещений, оформили полный пакет документов.</p>
+        <p><strong>Результат:</strong> проверка пройдена без замечаний по санитарному блоку. Медцентр на постоянном абонентском обслуживании.</p>
         <div class="case-metrics">
-          <span class="case-metric"><span>32</span> станции</span>
-          <span class="case-metric">5 000 м²</span>
+          <span class="case-metric"><span>600</span> м²</span>
+          <span class="case-metric">Без замечаний</span>
         </div>
       </div>
       <div class="case-highlight-badge">
-        <div class="case-badge-num">3</div>
-        <div class="case-badge-label">дня до полного пакета документов</div>
+        <div class="case-badge-num">0</div>
+        <div class="case-badge-label">замечаний при проверке</div>
       </div>
     </div>
   </div>
@@ -344,28 +231,28 @@
       </div>
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-q">Подходит ли услуга для больших складов?
+          <button class="faq-q">Какие препараты применяете в медучреждениях?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
           </button>
-          <div class="faq-a"><div class="faq-a-inner">Да, специализируемся на объектах от 1000 до 50 000 м². Используем системный подход: картирование, плановые визиты, документация. Чем больше площадь, тем важнее системность.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Только препараты, имеющие свидетельство о государственной регистрации для применения в медицинских учреждениях. Полный список предоставляем до начала работ для согласования с вашим главным врачом.</div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">Как часто нужен мониторинг?
+          <button class="faq-q">Можно ли работать без прерывания приёма пациентов?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
           </button>
-          <div class="faq-a"><div class="faq-a-inner">Стандарт — ежемесячные визиты. Для складов с высокой активностью грызунов или строгими аудиторскими требованиями — раз в 2 недели в первые 1–2 месяца, затем переход на ежемесячный режим.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Да. Обрабатываем кабинеты поочерёдно в перерывах между приёмами или в нерабочие часы. Для операционных и стерильных зон — согласовываем время отдельно.</div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">Что делаете при обнаружении следов активности?
+          <button class="faq-q">Какие журналы предоставите?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
           </button>
-          <div class="faq-a"><div class="faq-a-inner">Регистрируем в журнале, увеличиваем количество станций в зоне, дополняем приманками, проверяем точки проникновения. При необходимости — внеплановый выезд.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Журналы дезинфекционных мероприятий по форме МУ 3.5.1.2232-07, акты выполненных работ, сертификаты на препараты, договор на обслуживание.</div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">Какие документы получит склад?
+          <button class="faq-q">Как часто нужна дезинфекция в клинике?
             <div class="faq-arrow"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></div>
           </button>
-          <div class="faq-a"><div class="faq-a-inner">Договор, акты после каждого визита, журналы ДДД, карта размещения станций, отчёты по активности грызунов. Все документы соответствуют требованиям сетевых аудиторов.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Текущая дезинфекция — ежедневно силами персонала. Генеральная — раз в месяц по нашему договору. Для операционных и высокорисковых зон — согласно вашему санитарному регламенту.</div></div>
         </div>
       </div>
     </div>
@@ -378,7 +265,7 @@
     <div class="cta-inner">
       <div>
         <div class="section-label" style="color:var(--accent)">Начать</div>
-        <h2 class="section-title" style="color:#fff">Рассчитать стоимость для <em>вашего склада</em></h2>
+        <h2 class="section-title" style="color:#fff">Рассчитать стоимость для <em>вашего медцентра</em></h2>
         <p class="section-sub" style="margin-bottom:40px">Подготовим предложение под ваш объект за 1 рабочий день</p>
         <div class="cta-perks">
           <div class="cta-perk">
@@ -415,22 +302,22 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo" aria-label="ЗЕвС"><div class="vortex-wrap"><img src="images/logo/vortex.svg" alt=""></div><div class="text">ЗЕвС</div></div>
+        <div class="footer-logo" aria-label="ЗЕвС"><div class="vortex-wrap"><img src="/images/logo/vortex.svg" alt=""></div><div class="text">ЗЕвС</div></div>
         <p>Дезинфекция, дезинсекция и дератизация для бизнеса в Санкт-Петербурге и Ленинградской области. Лицензия Роспотребнадзора ЕРУЛ&nbsp;№&nbsp;Л064-00111-78/01961520.</p>
       </div>
       <div class="footer-col"><h4>Услуги</h4><ul>
-        <li><a href="dezinfektsiya.html">Дезинфекция</a></li>
-        <li><a href="dezinsektsiya.html">Дезинсекция</a></li>
-        <li><a href="deratizatsiya.html">Дератизация</a></li>
-        <li><a href="abonentskoe.html">Абонентское обслуживание</a></li>
+        <li><a href="/dezinfektsiya/">Дезинфекция</a></li>
+        <li><a href="/dezinsektsiya/">Дезинсекция</a></li>
+        <li><a href="/deratizatsiya/">Дератизация</a></li>
+        <li><a href="/abonentskoe/">Абонентское обслуживание</a></li>
       </ul></div>
       <div class="footer-col"><h4>Отрасли</h4><ul>
-        <li><a href="restorany.html">Рестораны</a></li>
-        <li><a href="proizvodstva.html">Производства</a></li>
-        <li><a href="sklady.html">Склады</a></li>
-        <li><a href="gostinitsy.html">Гостиницы</a></li>
-        <li><a href="tszh-uk.html">ТСЖ / УК</a></li>
-        <li><a href="medtsentry.html">Медцентры</a></li>
+        <li><a href="/restorany/">Рестораны</a></li>
+        <li><a href="/proizvodstva/">Производства</a></li>
+        <li><a href="/sklady/">Склады</a></li>
+        <li><a href="/gostinitsy/">Гостиницы</a></li>
+        <li><a href="/tszh-uk/">ТСЖ / УК</a></li>
+        <li><a href="/medtsentry/">Медцентры</a></li>
       </ul></div>
       <div class="footer-col"><h4>Контакты</h4><ul>
         <li><a href="tel:+78126271550">+7 (812) 627-15-50</a></li>
@@ -521,5 +408,3 @@ document.querySelectorAll('.faq-q').forEach(q => {
     }catch(e){}
   })();
 </script>
-</body>
-</html>

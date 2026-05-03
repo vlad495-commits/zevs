@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЗЕВС — новый логотип, варианты под стиль сайта</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --accent: #A3D044;
+    --accent-hover: #8BBE2F;
+    --accent-light: #C4E86B;
+    --dark: #1A1A2E;
+    --white: #FFFFFF;
+    --bg-soft: #F8FBFF;
+    --bg-green-soft: #EAF6DB;
+  }
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: #0a0a0f;
+    color: #fff;
+    padding: 40px 24px;
+    min-height: 100vh;
+  }
+  h1 { text-align: center; font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: #888; font-size: 0.95rem; margin-bottom: 48px; }
+  .section-label {
+    text-align: center; font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 3px;
+    color: var(--accent); margin: 48px 0 24px;
+  }
+  .grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    max-width: 1400px; margin: 0 auto;
+  }
+  .card {
+    background: #13131a; border: 1px solid #222; border-radius: 20px;
+    padding: 32px 28px 24px; text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(163, 208, 68, 0.1);
+    border-color: #333;
+  }
+  .logo-area {
+    height: 280px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; border-radius: 12px; overflow: hidden;
+  }
+  .card-num {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; color: #555; margin-bottom: 8px;
+  }
+  .card-name { font-size: 0.95rem; font-weight: 700; color: #ccc; margin-bottom: 4px; }
+  .card-desc { font-size: 0.78rem; color: #666; line-height: 1.5; }
+
+  /* ============ SVG вихря ============ */
+  .vortex-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .vortex-wordmark { font-weight: 800; letter-spacing: -1px; }
+
+  /* ==== Фоны карточек ==== */
+  .bg-dark     { background: var(--dark); }
+  .bg-white    { background: var(--white); }
+  .bg-accent   { background: var(--accent); }
+  .bg-soft     { background: linear-gradient(160deg, #f8fbff 0%, #f0f9ea 100%); }
+  .bg-gradient-dark { background: linear-gradient(135deg, #1A1A2E 0%, #0f1a30 100%); }
+  .bg-mono     { background: #F2F2F2; }
+
+  /* ==== Размерные превью ==== */
+  .size-row {
+    display: flex; gap: 40px; justify-content: center; align-items: center;
+    background: var(--white); padding: 32px 24px; border-radius: 12px;
+    margin-top: 24px;
+  }
+  .size-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .size-label { font-size: 0.7rem; color: #999; font-weight: 600; text-transform: uppercase; }
+
+  @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- Переиспользуемый SVG-шаблон вихря: 9 лепестков, закрученных по часовой -->
+<svg width="0" height="0" style="position: absolute;">
+  <defs>
+    <!-- градиенты -->
+    <linearGradient id="grad-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"  stop-color="#8BBE2F"/>
+      <stop offset="50%" stop-color="#A3D044"/>
+      <stop offset="100%" stop-color="#C4E86B"/>
+    </linearGradient>
+    <linearGradient id="grad-accent-soft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"  stop-color="#A3D044"/>
+      <stop offset="100%" stop-color="#D4EC8A"/>
+    </linearGradient>
+    <linearGradient id="grad-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"  stop-color="#1A1A2E"/>
+      <stop offset="100%" stop-color="#2d2d4f"/>
+    </linearGradient>
+
+    <!-- один лепесток (капля, закрученная) -->
+    <path id="petal" d="M 0,0
+      Q 18,-28 45,-52
+      Q 75,-78 110,-82
+      Q 118,-68 100,-52
+      Q 72,-30 42,-14
+      Q 18,-2 0,0 Z"/>
+  </defs>
+</svg>
+
+<h1>ЗЕВС — новый логотип</h1>
+<p class="subtitle">Вихрь-спираль в палитре сайта zevs.ltd · подбор цвета</p>
+
+<div class="section-label">Фирменная зелёная палитра</div>
+<div class="grid">
+
+  <!-- 1. Градиент на тёмном (как оригинал) -->
+  <div class="card">
+    <div class="logo-area bg-dark">
+      <div class="vortex-wrap">
+        <svg width="180" height="180" viewBox="0 0 260 260">
+          <g transform="translate(130,150)">
+            <use href="#petal" transform="rotate(0)"   fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(40)"  fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(80)"  fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(120)" fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(160)" fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(200)" fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(240)" fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(280)" fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(320)" fill="url(#grad-accent)"/>
+          </g>
+          <text x="130" y="240" text-anchor="middle" class="vortex-wordmark"
+                font-size="42" fill="url(#grad-accent)">ЗЕвС</text>
+        </svg>
+      </div>
+    </div>
+    <div class="card-num">Вариант 01</div>
+    <div class="card-name">Градиент на тёмном</div>
+    <div class="card-desc">Максимально близко к оригиналу. Градиент от #8BBE2F к #C4E86B, фон #1A1A2E.</div>
+  </div>
+
+  <!-- 2. Сплошной акцент на белом -->
+  <div class="card">
+    <div class="logo-area bg-white">
+      <div class="vortex-wrap">
+        <svg width="180" height="180" viewBox="0 0 260 260">
+          <g transform="translate(130,150)">
+            <use href="#petal" transform="rotate(0)"   fill="#A3D044"/>
+            <use href="#petal" transform="rotate(40)"  fill="#A3D044"/>
+            <use href="#petal" transform="rotate(80)"  fill="#A3D044"/>
+            <use href="#petal" transform="rotate(120)" fill="#A3D044"/>
+            <use href="#petal" transform="rotate(160)" fill="#A3D044"/>
+            <use href="#petal" transform="rotate(200)" fill="#A3D044"/>
+            <use href="#petal" transform="rotate(240)" fill="#A3D044"/>
+            <use href="#petal" transform="rotate(280)" fill="#A3D044"/>
+            <use href="#petal" transform="rotate(320)" fill="#A3D044"/>
+          </g>
+          <text x="130" y="240" text-anchor="middle" class="vortex-wordmark"
+                font-size="42" fill="#1A1A2E">ЗЕвС</text>
+        </svg>
+      </div>
+    </div>
+    <div class="card-num">Вариант 02</div>
+    <div class="card-name">Чистый акцент на белом</div>
+    <div class="card-desc">Единый фирменный #A3D044, текст тёмный. Для светлой шапки сайта.</div>
+  </div>
+
+  <!-- 3. Градиент на мягком фоне -->
+  <div class="card">
+    <div class="logo-area bg-soft">
+      <div class="vortex-wrap">
+        <svg width="180" height="180" viewBox="0 0 260 260">
+          <g transform="translate(130,150)">
+            <use href="#petal" transform="rotate(0)"   fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(40)"  fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(80)"  fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(120)" fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(160)" fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(200)" fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(240)" fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(280)" fill="url(#grad-accent)"/>
+            <use href="#petal" transform="rotate(320)" fill="url(#grad-accent)"/>
+          </g>
+          <text x="130" y="240" text-anchor="middle" class="vortex-wordmark"
+                font-size="42" fill="#1A1A2E">ЗЕвС</text>
+        </svg>
+      </div>
+    </div>
+    <div class="card-num">Вариант 03</div>
+    <div class="card-name">Градиент на section-alt</div>
+    <div class="card-desc">Фон как блоки-разделители сайта (бело-зелёный градиент). Текст тёмный.</div>
+  </div>
+
+</div>
+
+<div class="section-label">Контрастные варианты</div>
+<div class="grid">
+
+  <!-- 4. Инверсия — белый вихрь на акценте -->
+  <div class="card">
+    <div class="logo-area bg-accent">
+      <div class="vortex-wrap">
+        <svg width="180" height="180" viewBox="0 0 260 260">
+          <g transform="translate(130,150)">
+            <use href="#petal" transform="rotate(0)"   fill="#fff"/>
+            <use href="#petal" transform="rotate(40)"  fill="#fff"/>
+            <use href="#petal" transform="rotate(80)"  fill="#fff"/>
+            <use href="#petal" transform="rotate(120)" fill="#fff"/>
+            <use href="#petal" transform="rotate(160)" fill="#fff"/>
+            <use href="#petal" transform="rotate(200)" fill="#fff"/>
+            <use href="#petal" transform="rotate(240)" fill="#fff"/>
+            <use href="#petal" transform="rotate(280)" fill="#fff"/>
+            <use href="#petal" transform="rotate(320)" fill="#fff"/>
+          </g>
+          <text x="130" y="240" text-anchor="middle" class="vortex-wordmark"
+                font-size="42" fill="#fff">ЗЕвС</text>
+        </svg>
+      </div>
+    </div>
+    <div class="card-num">Вариант 04</div>
+    <div class="card-name">Инверсия (на акценте)</div>
+    <div class="card-desc">Белый вихрь на фирменном #A3D044. Для CTA-баннеров, соцсетей, мерча.</div>
+  </div>
+
+  <!-- 5. Монохром -->
+  <div class="card">
+    <div class="logo-area bg-mono">
+      <div class="vortex-wrap">
+        <svg width="180" height="180" viewBox="0 0 260 260">
+          <g transform="translate(130,150)">
+            <use href="#petal" transform="rotate(0)"   fill="#1A1A2E"/>
+            <use href="#petal" transform="rotate(40)"  fill="#1A1A2E"/>
+            <use href="#petal" transform="rotate(80)"  fill="#1A1A2E"/>
+            <use href="#petal" transform="rotate(120)" fill="#1A1A2E"/>
+            <use href="#petal" transform="rotate(160)" fill="#1A1A2E"/>
+            <use href="#petal" transform="rotate(200)" fill="#1A1A2E"/>
+            <use href="#petal" transform="rotate(240)" fill="#1A1A2E"/>
+            <use href="#petal" transform="rotate(280)" fill="#1A1A2E"/>
+            <use href="#petal" transform="rotate(320)" fill="#1A1A2E"/>
+          </g>
+          <text x="130" y="240" text-anchor="middle" class="vortex-wordmark"
+                font-size="42" fill="#1A1A2E">ЗЕвС</text>
+        </svg>
+      </div>
+    </div>
+    <div class="card-num">Вариант 05</div>
+    <div class="card-name">Монохром (для документов)</div>
+    <div class="card-desc">Тёмно-синий #1A1A2E. Для договоров, печати, ч/б материалов.</div>
+  </div>
+
+  <!-- 6. Глубокий градиент на dark -->
+  <div class="card">
+    <div class="logo-area bg-gradient-dark">
+      <div class="vortex-wrap">
+        <svg width="180" height="180" viewBox="0 0 260 260">
+          <g transform="translate(130,150)">
+            <use href="#petal" transform="rotate(0)"   fill="url(#grad-accent-soft)"/>
+            <use href="#petal" transform="rotate(40)"  fill="url(#grad-accent-soft)"/>
+            <use href="#petal" transform="rotate(80)"  fill="url(#grad-accent-soft)"/>
+            <use href="#petal" transform="rotate(120)" fill="url(#grad-accent-soft)"/>
+            <use href="#petal" transform="rotate(160)" fill="url(#grad-accent-soft)"/>
+            <use href="#petal" transform="rotate(200)" fill="url(#grad-accent-soft)"/>
+            <use href="#petal" transform="rotate(240)" fill="url(#grad-accent-soft)"/>
+            <use href="#petal" transform="rotate(280)" fill="url(#grad-accent-soft)"/>
+            <use href="#petal" transform="rotate(320)" fill="url(#grad-accent-soft)"/>
+          </g>
+          <text x="130" y="240" text-anchor="middle" class="vortex-wordmark"
+                font-size="42" fill="#fff">ЗЕвС</text>
+        </svg>
+      </div>
+    </div>
+    <div class="card-num">Вариант 06</div>
+    <div class="card-name">Премиум тёмный градиент</div>
+    <div class="card-desc">Тёмный градиент фона, мягкий зелёный вихрь. Для hero-блока, презентаций.</div>
+  </div>
+
+</div>
+
+<div class="section-label">Проверка размеров (Вариант 02 — на белом)</div>
+<div class="size-row">
+  <div class="size-item">
+    <svg width="32" height="32" viewBox="0 0 260 260">
+      <g transform="translate(130,130)">
+        <use href="#petal" transform="rotate(0)"   fill="#A3D044"/>
+        <use href="#petal" transform="rotate(40)"  fill="#A3D044"/>
+        <use href="#petal" transform="rotate(80)"  fill="#A3D044"/>
+        <use href="#petal" transform="rotate(120)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(160)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(200)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(240)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(280)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(320)" fill="#A3D044"/>
+      </g>
+    </svg>
+    <div class="size-label">32px (favicon)</div>
+  </div>
+  <div class="size-item">
+    <svg width="64" height="64" viewBox="0 0 260 260">
+      <g transform="translate(130,130)">
+        <use href="#petal" transform="rotate(0)"   fill="#A3D044"/>
+        <use href="#petal" transform="rotate(40)"  fill="#A3D044"/>
+        <use href="#petal" transform="rotate(80)"  fill="#A3D044"/>
+        <use href="#petal" transform="rotate(120)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(160)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(200)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(240)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(280)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(320)" fill="#A3D044"/>
+      </g>
+    </svg>
+    <div class="size-label">64px (навбар)</div>
+  </div>
+  <div class="size-item">
+    <svg width="140" height="140" viewBox="0 0 260 260">
+      <g transform="translate(130,130)">
+        <use href="#petal" transform="rotate(0)"   fill="#A3D044"/>
+        <use href="#petal" transform="rotate(40)"  fill="#A3D044"/>
+        <use href="#petal" transform="rotate(80)"  fill="#A3D044"/>
+        <use href="#petal" transform="rotate(120)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(160)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(200)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(240)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(280)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(320)" fill="#A3D044"/>
+      </g>
+    </svg>
+    <div class="size-label">140px (футер)</div>
+  </div>
+  <div class="size-item">
+    <svg width="240" height="240" viewBox="0 0 260 260">
+      <g transform="translate(130,130)">
+        <use href="#petal" transform="rotate(0)"   fill="#A3D044"/>
+        <use href="#petal" transform="rotate(40)"  fill="#A3D044"/>
+        <use href="#petal" transform="rotate(80)"  fill="#A3D044"/>
+        <use href="#petal" transform="rotate(120)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(160)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(200)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(240)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(280)" fill="#A3D044"/>
+        <use href="#petal" transform="rotate(320)" fill="#A3D044"/>
+      </g>
+    </svg>
+    <div class="size-label">240px (соцсети)</div>
+  </div>
+</div>
+
+</body>
+</html>
